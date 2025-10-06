@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: get-started/dr-login.html 
+keywords: bluexp login, disaster recovery log in 
+summary: Beginnen Sie mit NetApp Disaster Recovery, indem Sie in der NetApp -Konsole auf den Dienst zugreifen. 
+---
+= Zugriff auf NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Sie verwenden die NetApp -Konsole, um sich beim NetApp Disaster Recovery-Dienst anzumelden.
+
+Zum Anmelden können Sie Ihre Anmeldeinformationen für die NetApp Support-Site verwenden oder sich mit Ihrer E-Mail-Adresse und einem Kennwort für eine NetApp Cloud-Anmeldung registrieren. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["Erfahren Sie mehr über die Anmeldung"^] .
+
+Bestimmte Aufgaben erfordern bestimmte Benutzerrollen. link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+
+.Schritte
+. Öffnen Sie einen Webbrowser und gehen Sie zu https://console.netapp.com/["NetApp Konsole"^] .
++
+Die Anmeldeseite der NetApp -Konsole wird angezeigt.
+
+. Melden Sie sich bei der NetApp Konsole an.
+. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
++
+Wenn Sie sich zum ersten Mal bei diesem Dienst anmelden, wird die Zielseite angezeigt und Sie können sich für eine kostenlose Testversion anmelden.
+
++
+image:draas-landing6-free-trial.png["Screenshot der Zielseite für NetApp Disaster Recovery"]
+
++
+Andernfalls wird das NetApp Disaster Recovery Dashboard angezeigt.
+
++
+** Wenn Sie noch keinen NetApp Console-Agenten hinzugefügt haben, müssen Sie einen hinzufügen.  Informationen zum Hinzufügen des Agenten finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["Erfahren Sie mehr über Konsolenagenten"^] .
+** Wenn Sie ein NetApp -Konsolenbenutzer mit einem vorhandenen Agenten sind und „Notfallwiederherstellung“ auswählen, wird eine Meldung zur Anmeldung angezeigt.
+** Wenn Sie den Dienst bereits verwenden und „Notfallwiederherstellung“ auswählen, wird das Dashboard angezeigt.
+
+
++
+image:dr-dashboard.png["NetApp Disaster Recovery Dashboard"]
+
+

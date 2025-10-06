@@ -1,0 +1,13 @@
+= Unterstützung für Windows Local Administrator Password Solution (LAPS)
+:allow-uri-read: 
+
+
+
+
+=== Unterstützung für Windows Local Administrator Password Solution (LAPS)
+
+Windows Local Administrator Password Solution (Windows LAPS) ist eine Windows-Funktion, die das Kennwort eines lokalen Administratorkontos im Active Directory automatisch verwaltet und sichert.
+
+Sie können jetzt Subnetzzuordnungsoptionen auswählen und die LAPS-Option überprüfen, indem Sie die Domänencontrollerdetails angeben.  Wenn Sie diese Option verwenden, müssen Sie nicht für jede Ihrer virtuellen Maschinen ein Kennwort angeben.
+
+Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .

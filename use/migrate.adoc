@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: use/migrate.html 
+keywords: disaster recovery, bluexp disaster recovery, migrate, vmware, vcenter 
+summary: Mit NetApp Disaster Recovery können Sie VMware-Apps von Ihrem Quellstandort auf einen anderen Standort migrieren. 
+---
+= Migrieren Sie Anwendungen mit NetApp Disaster Recovery an einen anderen Standort
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Mit NetApp Disaster Recovery können Sie VMware-Apps von Ihrem Quellstandort auf einen anderen Standort migrieren.
+
+
+TIP: Nachdem Sie den Replikationsplan erstellt, die Wiederholung im Assistenten identifiziert und die Migration initiiert haben, überprüft NetApp Disaster Recovery alle 30 Minuten, ob die Migration tatsächlich gemäß Plan erfolgt. Sie können den Fortschritt auf der Seite „Job Monitor“ überwachen.
+
+.Bevor Sie beginnen
+Bevor Sie die Migration starten, sollten Sie einen Replikationsplan erstellt und die Migration der Apps ausgewählt haben.  Anschließend wird im Menü „Aktionen“ die Option „Migrieren“ angezeigt.
+
+.Schritte
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
+. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im Menü *Replikationspläne* aus.
+. Wählen Sie den Replikationsplan aus.
+. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] und wählen Sie *Migrieren*.
+

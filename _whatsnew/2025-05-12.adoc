@@ -1,0 +1,53 @@
+= Subnetzzuordnung
+:allow-uri-read: 
+
+
+
+
+=== Subnetzzuordnung
+
+Mit dieser Version können Sie IP-Adressen beim Failover auf eine neue Art und Weise verwalten, indem Sie die Subnetzzuordnung verwenden, die es Ihnen ermöglicht, für jedes vCenter Subnetze hinzuzufügen.  Dabei definieren Sie das IPv4-CIDR, das Standard-Gateway und das DNS für jedes virtuelle Netzwerk.
+
+Beim Failover ermittelt NetApp Disaster Recovery die entsprechende IP-Adresse jeder vNIC, indem es sich den für das zugeordnete virtuelle Netzwerk bereitgestellten CIDR ansieht und daraus die neue IP-Adresse ableitet.
+
+Beispiel:
+
+* NetzwerkA = 10.1.1.0/24
+* NetzwerkB = 192.168.1.0/24
+
+
+VM1 verfügt über eine vNIC (10.1.1.50), die mit NetworkA verbunden ist.  In den Replikationsplaneinstellungen wird NetworkA NetworkB zugeordnet.
+
+Beim Failover ersetzt NetApp Disaster Recovery den Netzwerkteil der ursprünglichen IP-Adresse (10.1.1) und behält die Hostadresse (.50) der ursprünglichen IP-Adresse (10.1.1.50) bei.  Für VM1 prüft NetApp Disaster Recovery die CIDR-Einstellungen für NetworkB und verwendet den NetworkB-Netzwerkteil 192.168.1, während der Hostteil (.50) beibehalten wird, um die neue IP-Adresse für VM1 zu erstellen.  Die neue IP wird 192.168.1.50.
+
+Zusammenfassend lässt sich sagen, dass die Hostadresse gleich bleibt, während die Netzwerkadresse durch die in der Site-Subnetzzuordnung konfigurierte Adresse ersetzt wird.  Auf diese Weise können Sie die Neuzuweisung von IP-Adressen bei einem Failover einfacher verwalten, insbesondere wenn Sie Hunderte von Netzwerken und Tausende von VMs verwalten müssen.
+
+Weitere Informationen zum Einbinden der Subnetzzuordnung in Ihre Sites finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/sites-add.html["vCenter-Server-Sites hinzufügen"] .
+
+
+
+=== Skip-Schutz
+
+Sie können jetzt den Schutz überspringen, sodass der Dienst nach einem Failover des Replikationsplans nicht automatisch eine umgekehrte Schutzbeziehung erstellt.  Dies ist nützlich, wenn Sie zusätzliche Vorgänge auf der wiederhergestellten Site durchführen möchten, bevor Sie sie innerhalb von NetApp Disaster Recovery wieder online schalten.
+
+Wenn Sie ein Failover initiieren, erstellt der Dienst standardmäßig automatisch eine umgekehrte Schutzbeziehung für jedes Volume im Replikationsplan, sofern die ursprüngliche Quellsite online ist.  Dies bedeutet, dass der Dienst eine SnapMirror Beziehung von der Zielsite zurück zur Quellsite erstellt.  Der Dienst kehrt die SnapMirror -Beziehung auch automatisch um, wenn Sie ein Failback initiieren.
+
+Beim Einleiten eines Failovers können Sie jetzt die Option *Schutz überspringen* auswählen.  Damit kehrt der Dienst die SnapMirror -Beziehung nicht automatisch um.  Stattdessen belässt es das beschreibbare Volume auf beiden Seiten des Replikationsplans.
+
+Nachdem die ursprüngliche Quellsite wieder online ist, können Sie einen umgekehrten Schutz einrichten, indem Sie im Menü „Aktionen“ des Replikationsplans die Option „Ressourcen schützen“ auswählen.  Dadurch wird versucht, für jedes Volume im Plan eine umgekehrte Replikationsbeziehung zu erstellen.  Sie können diesen Job wiederholt ausführen, bis der Schutz wiederhergestellt ist.  Wenn der Schutz wiederhergestellt ist, können Sie auf die übliche Weise ein Failback einleiten.
+
+Einzelheiten zum Überspringschutz finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html["Failover von Anwendungen auf einen Remote-Standort"] .
+
+
+
+=== SnapMirror -Zeitplanaktualisierungen im Replikationsplan
+
+NetApp Disaster Recovery unterstützt jetzt die Verwendung externer Snapshot-Management-Lösungen wie den nativen ONTAP SnapMirror Policy Scheduler oder Drittanbieter-Integrationen mit ONTAP.  Wenn jeder Datenspeicher (Volume) im Replikationsplan bereits über eine SnapMirror -Beziehung verfügt, die anderswo verwaltet wird, können Sie diese Snapshots als Wiederherstellungspunkte in NetApp Disaster Recovery verwenden.
+
+Aktivieren Sie zur Konfiguration im Abschnitt Replikationsplan > Ressourcenzuordnung das Kontrollkästchen *Von der Plattform verwaltete Sicherungen und Aufbewahrungspläne verwenden*, wenn Sie die Datenspeicherzuordnung konfigurieren.
+
+Wenn die Option ausgewählt ist, konfiguriert NetApp Disaster Recovery keinen Sicherungszeitplan.  Sie müssen jedoch weiterhin einen Aufbewahrungszeitplan konfigurieren, da möglicherweise weiterhin Snapshots für Test-, Failover- und Failback-Vorgänge erstellt werden.
+
+Nach der Konfiguration erstellt der Dienst keine regelmäßig geplanten Snapshots, sondern verlässt sich stattdessen darauf, dass die externe Entität diese Snapshots erstellt und aktualisiert.
+
+Einzelheiten zur Verwendung externer Snapshot-Lösungen im Replikationsplan finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .

@@ -1,0 +1,142 @@
+---
+sidebar: sidebar 
+permalink: get-started/dr-prerequisites.html 
+keywords: what are disaster recovery requirements, disaster recovery prerequisites, bluexp, disaster recovery 
+summary: Bevor Sie NetApp Disaster Recovery verwenden, sollten Sie sicherstellen, dass Ihre Umgebung die Anforderungen für ONTAP -Speicher, VMware vCenter-Cluster und NetApp Konsole erfüllt. 
+---
+= Voraussetzungen für NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Bevor Sie NetApp Disaster Recovery verwenden, sollten Sie sicherstellen, dass Ihre Umgebung die Anforderungen für ONTAP -Speicher, VMware vCenter-Cluster und NetApp Konsole erfüllt.
+
+
+
+== Softwareversionen
+
+[cols="35,55a"]
+|===
+| Komponente | Mindestversion 
+
+
+| ONTAP Software  a| 
+ONTAP 9.10.0 oder höher
+
+
+
+| VMware vCenter vor Ort  a| 
+7.0u3 oder höher
+
+
+
+| VMware Cloud für AWS  a| 
+Neuste verfügbare Version
+
+
+
+| Amazon FSx for NetApp ONTAP  a| 
+Neuste verfügbare Version
+
+|===
+
+
+== ONTAP -Speichervoraussetzungen
+
+Diese Voraussetzungen gelten entweder für ONTAP oder Amazon FSX für NetApp ONTAP Instanzen.
+
+* Quell- und Zielcluster müssen eine Peer-Beziehung haben.
+* Die SVM, die die Disaster Recovery-Volumes hosten wird, muss auf dem Zielcluster vorhanden sein.
+* Zwischen Quell-SVM und Ziel-SVM muss eine Peer-Beziehung bestehen.
+* Bei der Bereitstellung mit Amazon FSx for NetApp ONTAP gilt die folgende Voraussetzung:
++
+** In Ihrer VPC muss eine Amazon FSx for NetApp ONTAP -Instanz zum Hosten von VMware DR-Datenspeichern vorhanden sein.  Weitere Informationen finden Sie in der Amazon FSx for ONTAP -Dokumentation unter https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started-step1.html["Erste Schritte"^] .
+
+
+
+
+
+
+== Voraussetzungen für VMware vCenter-Cluster
+
+Diese Voraussetzungen gelten sowohl für lokale vCenter-Cluster als auch für das softwaredefinierte Rechenzentrum (SDDC) von VMware Cloud für AWS.
+
+* Rezensionlink:../reference/vcenter-privileges.html["vCenter-Berechtigungen"] erforderlich für NetApp Disaster Recovery.
+* Alle VMware-Cluster, die von NetApp Disaster Recovery verwaltet werden sollen, verwenden ONTAP Volumes zum Hosten aller VMs, die Sie schützen möchten.
+* Alle VMware-Datenspeicher, die von NetApp Disaster Recovery verwaltet werden sollen, müssen eines der folgenden Protokolle verwenden:
++
+** NFS
+** VMFS mit dem iSCSI- oder FC-Protokoll
+
+
+* VMware vSphere Version 7.0 Update 3 (7.0v3) oder höher
+* Wenn Sie VMware Cloud SDDC verwenden, gelten diese Voraussetzungen.
++
+** Verwenden Sie in der VMware Cloud Console die Dienstrollen „Administrator“ und „NSX Cloud-Administrator“.  Verwenden Sie den Organisationseigentümer auch für die Organisationsrolle. Siehe https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/vmware-cloud-ontap.html["Dokumentation zur Verwendung von VMware Cloud Foundations mit AWS FSx für NetApp ONTAP"^] .
+** Verknüpfen Sie das VMware Cloud SDDC mit der Amazon FSx for NetApp ONTAP Instanz. Siehe https://vmc.techzone.vmware.com/fsx-guide#overview["VMware Cloud auf AWS-Integration mit Amazon FSx for NetApp ONTAP -Bereitstellungsinformationen"^] .
+
+
+
+
+
+
+== Voraussetzungen für die NetApp -Konsole
+
+
+
+=== Erste Schritte mit der NetApp Konsole
+
+Falls Sie dies noch nicht getan haben, https://docs.netapp.com/us-en/bluexp-setup-admin/task-sign-up-saas.html["Melden Sie sich bei der NetApp Konsole an und erstellen Sie eine Organisation"^] .
+
+
+
+=== Sammeln Sie Anmeldeinformationen für ONTAP und VMware
+
+* Amazon FSx für ONTAP und AWS-Anmeldeinformationen müssen dem System innerhalb des NetApp Konsolenprojekts hinzugefügt werden, das zur Verwaltung der NetApp Notfallwiederherstellung verwendet wird.
+* Für NetApp Disaster Recovery sind vCenter-Anmeldeinformationen erforderlich.  Sie geben die vCenter-Anmeldeinformationen ein, wenn Sie eine Site in NetApp Disaster Recovery hinzufügen.
++
+Eine Liste der erforderlichen vCenter-Berechtigungen finden Sie unterlink:../reference/vcenter-privileges.html["Für NetApp Disaster Recovery erforderliche vCenter-Berechtigungen"] .  Anweisungen zum Hinzufügen einer Site finden Sie unterlink:../use/sites-add.html["Hinzufügen einer Site"] .
+
+
+
+
+
+=== Erstellen Sie den NetApp Console-Agenten
+
+Der Konsolenagent ist eine Softwarekomponente, die es der Konsole ermöglicht, mit Ihrem ONTAP Speicher und Ihren VMware vCenter-Clustern zu kommunizieren.  Es ist erforderlich, damit die Notfallwiederherstellung ordnungsgemäß funktioniert.  Der Agent befindet sich in Ihrem privaten Netzwerk (entweder in einem lokalen Rechenzentrum oder in einem Cloud-VPC) und kommuniziert mit Ihren ONTAP Speicherinstanzen und allen zusätzlichen Server- und Anwendungskomponenten.  Für die Notfallwiederherstellung ist dies der Zugriff auf Ihre verwalteten vCenter-Cluster.
+
+In der NetApp Konsole muss ein Konsolenagent eingerichtet werden.  Wenn Sie den Agenten verwenden, enthält er die entsprechenden Funktionen für den Disaster Recovery-Dienst.
+
+* NetApp Disaster Recovery funktioniert nur mit der Agent-Bereitstellung im Standardmodus. Sehen https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-standard-mode.html["Erste Schritte mit der NetApp Konsole im Standardmodus"^] .
+* Stellen Sie sicher, dass sowohl das Quell- als auch das Ziel-vCenter denselben Konsolenagenten verwenden.
+* Benötigter Konsolenagenttyp:
++
+** *Notfallwiederherstellung von vor Ort zu vor Ort*: Installieren Sie den lokalen Konsolen-Agenten am Standort für die Notfallwiederherstellung.  Bei dieser Methode verhindert ein Ausfall des primären Standorts nicht, dass der Dienst Ihre virtuellen Ressourcen am DR-Standort neu startet. Siehe https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["Installieren und Einrichten des Konsolen-Agenten vor Ort"^] .
+** *Vor Ort zu AWS*: Installieren Sie den Konsolenagenten für AWS in Ihrem AWS VPC. Siehe https://docs.netapp.com/us-en/bluexp-setup-admin/concept-install-options-aws.html["Installationsoptionen für Konsolenagenten in AWS"^] .
++
+
+TIP: Verwenden Sie für die lokale Übertragung den lokalen Konsolenagenten.  Verwenden Sie für die lokale Verbindung zu AWS den AWS-Konsolenagenten, der Zugriff auf das lokale Quell-vCenter und das lokale Ziel-vCenter hat.
+
+** Der installierte Konsolenagent muss auf alle VMware-Cluster zugreifen können, die von NetApp Disaster Recovery verwaltet werden.
+
+
+* Alle ONTAP Arrays, die von NetApp Disaster Recovery verwaltet werden sollen, müssen zu jedem System innerhalb des NetApp Console-Projekts hinzugefügt werden, das zur Verwaltung von NetApp Disaster Recovery verwendet wird.
++
+Sehen https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Entdecken Sie lokale ONTAP -Cluster"^] .
+
+* Informationen zum Einrichten eines intelligenten Proxys für NetApp Disaster Recovery finden Sie unterlink:../get-started/dr-setup.html["Richten Sie Ihre Infrastruktur für NetApp Disaster Recovery ein"] .
+
+
+
+
+== Workload-Voraussetzungen
+
+Um sicherzustellen, dass die Prozesse zur Anwendungskonsistenz erfolgreich sind, müssen Sie die folgenden Voraussetzungen erfüllen:
+
+* Stellen Sie sicher, dass VMware-Tools (oder Open VM-Tools) auf den zu schützenden VMs ausgeführt werden.
+* Bei Windows-VMs, auf denen Microsoft SQL Server oder Oracle Database oder beides ausgeführt wird, sollten die VSS Writer der Datenbanken aktiviert sein.
+* Bei Oracle-Datenbanken, die auf einem Linux-Betriebssystem ausgeführt werden, sollte die Betriebssystem-Benutzerauthentifizierung für die SYSDBA-Rolle der Oracle-Datenbank aktiviert sein.
+

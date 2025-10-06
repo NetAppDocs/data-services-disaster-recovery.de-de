@@ -1,0 +1,177 @@
+---
+sidebar: sidebar 
+permalink: reference/evs-deploy-guide-create-rp-wiz-03.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, netapp, ontap,amazon elastic vmware service 
+summary: Einführung von NetApp Disaster Recovery mit Amazon EVS und Amazon FSx for NetApp ONTAP.  Nachdem Sie eine Liste der zu schützenden VMs erstellt haben, müssen Sie für NetApp Disaster Recovery Failover-Mapping- und VM-Konfigurationsinformationen bereitstellen, die während eines Failovers verwendet werden sollen. 
+---
+= Erstellen eines Replikationsplans: Schritt 3 – Zuordnen von Ressourcen in NetApp Disaster Recovery
+:allow-uri-read: 
+
+
+[role="lead"]
+Nachdem Sie eine Liste der VMs erstellt haben, die Sie mit NetApp Disaster Recovery schützen möchten, geben Sie die Failover-Zuordnung und die VM-Konfigurationsinformationen an, die während eines Failovers verwendet werden sollen.
+
+Sie müssen vier primäre Arten von Informationen zuordnen:
+
+* Rechenressourcen
+* Virtuelle Netzwerke
+* VM-Neukonfiguration
+* Datenspeicherzuordnung
+
+
+Jede VM benötigt die ersten drei Arten von Informationen.  Für jeden Datenspeicher, der zu schützende VMs hostet, ist eine Datenspeicherzuordnung erforderlich.
+
+* Die Abschnitte mit dem Vorsichtssymbol (image:evs-caution-icon.png["25,25"] ) erfordern, dass Sie Zuordnungsinformationen angeben.
+* Der mit dem Häkchensymbol (image:evs-check-icon.png["25,25"] ) wurden zugeordnet oder verfügen über Standardzuordnungen.  Überprüfen Sie sie, um sicherzustellen, dass die aktuelle Konfiguration Ihren Anforderungen entspricht.
+
+
+.Schritte zum Zugriff auf diese Seite
+. Fahren Sie auf der Seite *Replikationsplan* mit dem Abschnitt *Ressourcenzuordnung* fort.
+. Überprüfen Sie die Informationen auf der Seite *Ressourcenzuordnung*, die geöffnet wird.
++
+image:evs-create-rp-wiz-c0.png["Replikationsplan erstellen, Seite „Ressourcenzuordnung“"]
+
+. Um die einzelnen Kategorien der erforderlichen Zuordnungen zu öffnen, wählen Sie den Abwärtspfeil (*v*) neben dem Abschnitt aus.
+
+
+
+
+== Zuordnung von Rechenressourcen
+
+Da ein Standort mehrere virtuelle Rechenzentren und mehrere vCenter-Cluster hosten kann, müssen Sie ermitteln, auf welchem vCenter-Cluster die VMs im Falle eines Failovers wiederhergestellt werden sollen.
+
+.Schritte zum Zuordnen von Computeressourcen
+. Wählen Sie das virtuelle Rechenzentrum aus der Liste der Rechenzentren am DR-Standort aus.
+. Wählen Sie aus der Liste der Cluster im ausgewählten virtuellen Rechenzentrum den Cluster aus, der die Datenspeicher und VMs hosten soll.
+. (Optional) Wählen Sie einen Zielhost im Zielcluster aus.
++
+Dieser Schritt ist nicht erforderlich, da NetApp Disaster Recovery den ersten Host auswählt, der dem Cluster in vCenter hinzugefügt wird.  An diesem Punkt werden die VMs entweder weiterhin auf diesem ESXi-Host ausgeführt oder VMware DRS verschiebt die VM je nach Bedarf basierend auf den konfigurierten DRS-Regeln auf einen anderen ESXi-Host.
+
+. (Optional) Geben Sie den Namen eines vCenter-Ordners der obersten Ebene an, in dem die VM-Registrierungen abgelegt werden sollen.
++
+Dies dient Ihren organisatorischen Anforderungen und ist nicht erforderlich.
+
++
+image:evs-create-rp-wiz-c-compute-resources-1-4.png["Replikationsplan erstellen, Ressourcen berechnen"]
+
+
+
+
+
+== Zuordnen virtueller Netzwerkressourcen
+
+Jede VM kann über eine oder mehrere virtuelle Netzwerkkarten verfügen, die mit virtuellen Netzwerken innerhalb der vCenter-Netzwerkinfrastruktur verbunden sind.  Um sicherzustellen, dass jede VM beim Neustart am DR-Standort ordnungsgemäß mit den gewünschten Netzwerken verbunden ist, ermitteln Sie, mit welchen virtuellen Netzwerken am DR-Standort diese VMs verbunden werden sollen.  Ordnen Sie dazu jedes virtuelle Netzwerk am lokalen Standort einem zugehörigen Netzwerk am DR-Standort zu.
+
+.Wählen Sie aus, welches virtuelle Zielnetzwerk den einzelnen virtuellen Quellnetzwerken zugeordnet werden soll
+. Wählen Sie das Zielsegment aus der Dropdownliste aus.
+. Wiederholen Sie den vorherigen Schritt für jedes aufgeführte virtuelle Quellnetzwerk.
++
+image:evs-create-rp-wiz-c-network-resources-1-2.png["Erstellen eines Replikationsplans und von Netzwerkressourcen"]
+
+
+
+
+
+== Definieren Sie Optionen für die VM-Neukonfiguration während des Failovers
+
+Für jede VM sind möglicherweise Änderungen erforderlich, damit sie auf der DR-vCenter-Site ordnungsgemäß funktioniert.  Im Bereich „Virtuelle Maschinen“ können Sie die notwendigen Änderungen vornehmen.
+
+Standardmäßig verwendet NetApp Disaster Recovery für jede VM dieselben Einstellungen wie am lokalen Quellstandort.  Dies setzt voraus, dass VMs dieselbe IP-Adresse, virtuelle CPU und virtuelle DRAM-Konfiguration verwenden.
+
+
+
+=== Netzwerkneukonfiguration
+
+Unterstützte IP-Adresstypen sind statisch und DHCP.  Für statische IP-Adressen stehen Ihnen die folgenden Ziel-IP-Einstellungen zur Verfügung:
+
+* *Gleich wie Quelle*: Wie der Name schon sagt, verwendet der Dienst auf der Ziel-VM dieselbe IP-Adresse, die auf der VM am Quellstandort verwendet wurde.  Dazu müssen Sie die im vorherigen Schritt zugeordneten virtuellen Netzwerke für dieselben Subnetzeinstellungen konfigurieren.
+* *Unterscheidet sich von der Quelle*: Der Dienst stellt für jede VM eine Reihe von IP-Adressfeldern bereit, die für das entsprechende Subnetz konfiguriert werden müssen, das im virtuellen Zielnetzwerk verwendet wird, das Sie im vorherigen Abschnitt zugeordnet haben.  Für jede VM müssen Sie eine IP-Adresse, eine Subnetzmaske, DNS und Standard-Gateway-Werte angeben.  Verwenden Sie optional für alle VMs die gleichen Einstellungen für Subnetzmaske, DNS und Gateway, um den Prozess zu vereinfachen, wenn alle VMs an dasselbe Subnetz angeschlossen sind.
+* *Subnetzzuordnung*: Diese Option konfiguriert die IP-Adresse jeder VM basierend auf der CIDR-Konfiguration des virtuellen Zielnetzwerks neu.  Um diese Funktion zu verwenden, stellen Sie sicher, dass die virtuellen Netzwerke jedes vCenters über eine definierte CIDR-Einstellung innerhalb des Dienstes verfügen, wie in den vCenter-Informationen auf der Sites-Seite geändert.
+
+
+Nachdem Sie Subnetze konfiguriert haben, verwendet die Subnetzzuordnung dieselbe Einheitenkomponente der IP-Adresse für die Quell- und Ziel-VM-Konfiguration, ersetzt jedoch die Subnetzkomponente der IP-Adresse basierend auf den bereitgestellten CIDR-Informationen.  Diese Funktion erfordert außerdem, dass sowohl das virtuelle Quell- als auch das virtuelle Zielnetzwerk dieselbe IP-Adressklasse haben (die `/xx` Komponente des CIDR).  Dadurch wird sichergestellt, dass am Zielstandort genügend IP-Adressen verfügbar sind, um alle geschützten VMs zu hosten.
+
+Bei diesem EVS-Setup gehen wir davon aus, dass die Quell- und Ziel-IP-Konfigurationen identisch sind und keine zusätzliche Neukonfiguration erforderlich ist.
+
+.Nehmen Sie Änderungen an der Neukonfiguration der Netzwerkeinstellungen vor
+. Wählen Sie den IP-Adresstyp aus, der für VMs verwendet werden soll, bei denen ein Failover durchgeführt wurde.
+. (Optional) Stellen Sie ein VM-Umbenennungsschema für neu gestartete VMs bereit, indem Sie einen optionalen Präfix- und Suffixwert angeben.
++
+image:evs-create-rp-wiz-c-vm-resources-network-1-2.png["Erstellen eines Replikationsplans und von Netzwerkressourcen"]
+
+
+
+
+
+=== Neukonfiguration der VM-Rechenressourcen
+
+Es gibt mehrere Optionen zum Neukonfigurieren der VM-Rechenressourcen.  NetApp Disaster Recovery unterstützt das Ändern der Anzahl virtueller CPUs, der Menge an virtuellem DRAM und des VM-Namens.
+
+.Geben Sie alle VM-Konfigurationsänderungen an
+. (Optional) Ändern Sie die Anzahl der virtuellen CPUs, die jede VM verwenden soll.  Dies kann erforderlich sein, wenn Ihre DR-vCenter-Cluster-Hosts nicht über so viele CPU-Kerne verfügen wie der Quell-vCenter-Cluster.
+. (Optional) Ändern Sie die Menge an virtuellem DRAM, die jede VM verwenden soll.  Dies kann erforderlich sein, wenn Ihre DR-vCenter-Cluster-Hosts nicht über so viel physischen DRAM verfügen wie die Quell-vCenter-Cluster-Hosts.
++
+image:evs-create-rp-wiz-c-vm-resources-cpu-mem-1-2.png["Replikationsplan und VM-Ressourcen erstellen"]
+
+
+
+
+
+=== Bootreihenfolge
+
+NetApp Disaster Recovery unterstützt einen geordneten Neustart von VMs basierend auf einem Bootreihenfolgefeld.  Das Feld „Startreihenfolge“ gibt an, wie die VMs in jeder Ressourcengruppe starten.  Die VMs mit dem gleichen Wert im Feld „Bootreihenfolge“ werden parallel gestartet.
+
+.Ändern Sie die Einstellungen für die Startreihenfolge
+. (Optional) Ändern Sie die Reihenfolge, in der Ihre VMs neu gestartet werden sollen.  Dieses Feld nimmt einen beliebigen numerischen Wert an.  NetApp Disaster Recovery versucht, VMs mit demselben numerischen Wert parallel neu zu starten.
+. (Optional) Geben Sie eine Verzögerung an, die zwischen den einzelnen VM-Neustarts verwendet werden soll.  Die Zeit wird eingefügt, nachdem der Neustart dieser VM abgeschlossen ist und vor der/den VM(s) mit der nächsthöheren Startreihenfolgenummer.  Diese Zahl ist in Minuten angegeben.
++
+image:evs-create-rp-wiz-c-vm-resources-boot-delay-1-2.png["Replikationsplan und Startreihenfolge erstellen"]
+
+
+
+
+
+=== Benutzerdefinierte Gastbetriebssystemvorgänge
+
+NetApp Disaster Recovery unterstützt die Durchführung einiger Gastbetriebssystemvorgänge für jede VM:
+
+* NetApp Disaster Recovery kann anwendungskonsistente Backups von VMs für VMs erstellen, auf denen Oracle-Datenbanken und Microsoft SQL Server-Datenbanken ausgeführt werden.
+* NetApp Disaster Recovery kann für jede VM benutzerdefinierte, für das Gastbetriebssystem geeignete Skripte ausführen.  Zum Ausführen solcher Skripte sind für das Gastbetriebssystem akzeptable Benutzeranmeldeinformationen mit ausreichenden Berechtigungen zum Ausführen der im Skript aufgeführten Vorgänge erforderlich.
+
+
+.Ändern Sie die benutzerdefinierten Gastbetriebssystemvorgänge jeder VM
+. (Optional) Aktivieren Sie das Kontrollkästchen *Anwendungskonsistente Replikate erstellen*, wenn die VM eine Oracle- oder SQL Server-Datenbank hostet.
+. (Optional) Um im Rahmen des Startvorgangs benutzerdefinierte Aktionen innerhalb des Gastbetriebssystems auszuführen, laden Sie ein Skript für alle VMs hoch.  Um ein einzelnes Skript in allen VMs auszuführen, aktivieren Sie das Kontrollkästchen und füllen Sie die Felder aus.
+. Für bestimmte Konfigurationsänderungen sind Benutzeranmeldeinformationen mit entsprechenden Berechtigungen zum Ausführen der Vorgänge erforderlich.  Geben Sie in den folgenden Fällen Anmeldeinformationen an:
++
+** Innerhalb der VM wird vom Gastbetriebssystem ein Skript ausgeführt.
+** Es muss ein anwendungskonsistenter Snapshot durchgeführt werden.
+
+
+
+
+image:evs-create-rp-wiz-c-vm-resources-ac-scripts-creds-1-2.png["Erstellen eines Replikationsplans und benutzerdefinierter Gastbetriebssystemvorgänge"]
+
+
+
+== Kartendatenspeicher
+
+Der letzte Schritt beim Erstellen eines Replikationsplans besteht darin, festzulegen, wie ONTAP die Datenspeicher schützen soll.  Diese Einstellungen definieren das Recovery Point Objective (RPO) der Replikationspläne, wie viele Backups aufbewahrt werden sollen und wohin die ONTAP -Volumes jedes vCenter-Datastores repliziert werden sollen.
+
+Standardmäßig verwaltet NetApp Disaster Recovery seinen eigenen Snapshot-Replikationszeitplan. Optional können Sie jedoch angeben, dass Sie den vorhandenen SnapMirror -Replikationsrichtlinienzeitplan zum Schutz des Datenspeichers verwenden möchten.
+
+Darüber hinaus können Sie optional anpassen, welche Daten-LIFs (logische Schnittstellen) und Exportrichtlinien verwendet werden sollen.  Wenn Sie diese Einstellungen nicht angeben, verwendet NetApp Disaster Recovery alle Daten-LIFs, die mit dem entsprechenden Protokoll (NFS, iSCSI oder FC) verknüpft sind, und verwendet die Standardexportrichtlinie für NFS-Volumes.
+
+.So konfigurieren Sie die Datenspeicherzuordnung (Volume)
+. (Optional) Entscheiden Sie, ob Sie einen vorhandenen ONTAP SnapMirror Replikationszeitplan verwenden oder den Schutz Ihrer VMs von NetApp Disaster Recovery verwalten lassen möchten (Standard).
+. Geben Sie einen Startpunkt an, ab dem der Dienst mit der Erstellung von Sicherungen beginnen soll.
+. Geben Sie an, wie oft der Dienst eine Sicherung durchführen und diese auf das DR-Ziel-Cluster Amazon FSx for NetApp ONTAP replizieren soll.
+. Geben Sie an, wie viele historische Sicherungen aufbewahrt werden sollen.  Der Dienst verwaltet die gleiche Anzahl von Backups auf dem Quell- und Zielspeichercluster.
+. (Optional) Wählen Sie für jedes Volume eine logische Standardschnittstelle (Daten-LIFs) aus.  Wenn keine ausgewählt ist, werden alle Daten-LIFs im Ziel-SVM konfiguriert, die das Volume-Zugriffsprotokoll unterstützen.
+. (Optional) Wählen Sie eine Exportrichtlinie für alle NFS-Volumes aus.  Wenn nicht ausgewählt, wird die Standardexportrichtlinie verwendet
++
+image:evs-create-rp-wiz-c-datastore-mapping.png["Replikationsplan und Datenspeicherzuordnung erstellen"]
+
+
+
+Weiter mitlink:evs-deploy-guide-create-rp-wiz-04.html["Assistent zum Erstellen eines Replikationsplans, Schritt 4"] .

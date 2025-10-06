@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: get-started/dr-quick-start.html 
+keywords: how to get started with bluexp disaster recovery, disaster recovery quick start, failover, failback 
+summary: Beginnen Sie in wenigen Schritten mit dem NetApp Disaster Recovery-Service. 
+---
+= Schnellstart für NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Hier finden Sie eine Übersicht über die erforderlichen Schritte für den Einstieg in NetApp Disaster Recovery. Über die Links in den einzelnen Schritten gelangen Sie zu einer Seite mit weiteren Einzelheiten.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"]Überprüfen der Voraussetzungen
+[role="quick-margin-para"]
+link:../get-started/dr-prerequisites.html["Stellen Sie sicher, dass Ihr System diese Anforderungen erfüllt"] .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"]Einrichten von NetApp Disaster Recovery
+[role="quick-margin-list"]
+* link:../get-started/dr-setup.html["Einrichten der Infrastruktur für den Dienst"] .
+* link:../get-started/dr-licensing.html["Einrichten der Lizenzierung"] .
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drei"]Wie geht es weiter?
+[role="quick-margin-para"]
+Nachdem Sie den Dienst eingerichtet haben, können Sie als Nächstes Folgendes tun.
+
+[role="quick-margin-list"]
+* link:../use/sites-add.html["Fügen Sie Ihre vCenter-Sites zu NetApp Disaster Recovery hinzu"] .
+* link:../use/manage.html#manage-resource-groups["Erstellen Sie Ihre erste Ressourcengruppe"] .
+* link:../use/drplan-create.html["Erstellen Sie Ihren ersten Replikationsplan"] .
+* link:../use/replicate.html["Replizieren von Anwendungen auf eine andere Site"] .
+* link:../use/failover.html["Failover von Anwendungen auf einen Remote-Standort"] .
+* link:../use/failback.html["Failback von Anwendungen auf die ursprüngliche Quellsite"] .
+* link:../use/manage.html["Verwalten von Sites, Ressourcengruppen und Replikationsplänen"] .
+* link:../use/monitor-jobs.html["Überwachen von Notfallwiederherstellungsvorgängen"] .
+

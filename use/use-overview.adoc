@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: use/use-overview.html 
+keywords: disaster recovery remediate, disaster recovery, failover, failback, replication 
+summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert. 
+---
+= Übersicht zur NetApp Disaster Recovery verwenden
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Mit NetApp Disaster Recovery können Sie die folgenden Ziele erreichen:
+
+* link:../use/dashboard-view.html["Überprüfen Sie den Zustand Ihrer Notfallwiederherstellungspläne"] .
+* link:../use/sites-add.html["vCenter-Sites hinzufügen"] .
+* link:../use/resource-group.html["Erstellen Sie Ressourcengruppen, um VMs gemeinsam zu organisieren"]
+* link:../use/drplan-create.html["Erstellen Sie einen Notfallwiederherstellungsplan"] .
+* link:../use/replicate.html["Replizieren von VMware-Apps"]auf Ihrem primären Standort zu einem Remote-Standort zur Notfallwiederherstellung in der Cloud mithilfe der SnapMirror -Replikation.
+* link:../use/migrate.html["Migrieren von VMware-Apps"]auf Ihrer primären Site zu einer anderen Site.
+* link:../use/failover.html["Testen des Failovers"]ohne die ursprünglichen virtuellen Maschinen zu stören.
+* Im Falle einer Katastrophelink:../use/failover.html["Failover Ihrer primären Site"] zu VMware Cloud auf AWS mit FSx für NetApp ONTAP.
+* Nachdem die Katastrophe behoben ist,link:../use/failback.html["Failback"] vom Disaster-Recovery-Standort zum primären Standort.
+* link:../use/monitor-jobs.html["Überwachen von Notfallwiederherstellungsvorgängen"]auf der Seite „Jobüberwachung“.
+

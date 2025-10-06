@@ -1,0 +1,227 @@
+---
+sidebar: sidebar 
+permalink: use/sites-add.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+summary: Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie in NetApp Disaster Recovery einen primären vCenter-Standort und einen vCenter-Zielstandort für die Notfallwiederherstellung hinzufügen. 
+---
+= Hinzufügen von vCentern zu einer Site in NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie einem Standort einen primären vCenter-Server und in der NetApp Konsole einen vCenter-Zielstandort für die Notfallwiederherstellung hinzufügen.
+
+
+TIP: Stellen Sie sicher, dass sowohl das Quell- als auch das Ziel-vCenter denselben NetApp Konsolenagenten verwenden.
+
+Nachdem vCenter hinzugefügt wurden, führt NetApp Disaster Recovery eine umfassende Erkennung der vCenter-Umgebungen durch, einschließlich vCenter-Cluster, ESXi-Hosts, Datenspeicher, Speicherbedarf, Details zu virtuellen Maschinen, SnapMirror Replikaten und Netzwerken virtueller Maschinen.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator oder Notfallwiederherstellungsadministrator.
+
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+
+*Über diese Aufgabe*
+
+Wenn Sie in früheren Versionen vCenter hinzugefügt haben und den Erkennungszeitplan anpassen möchten, müssen Sie die vCenter-Server-Site bearbeiten und den Zeitplan festlegen.
+
+
+TIP: NetApp Disaster Recovery führt alle 24 Stunden eine Erkennung durch.  Nachdem Sie eine Site eingerichtet haben, können Sie das vCenter später bearbeiten, um den Erkennungszeitplan an Ihre Anforderungen anzupassen.  Wenn Sie beispielsweise über eine große Anzahl VMs verfügen, können Sie den Erkennungszeitplan so einstellen, dass er alle 23 Stunden und 59 Minuten ausgeführt wird.  Wenn Sie nur eine kleine Anzahl von VMs haben, können Sie den Erkennungszeitplan so einstellen, dass er alle 12 Stunden ausgeführt wird.  Das Mindestintervall beträgt 30 Minuten und das Höchstintervall 24 Stunden.
+
+Sie sollten zunächst einige manuelle Ermittlungen durchführen, um die aktuellsten Informationen zu Ihrer Umgebung zu erhalten.  Danach können Sie den Zeitplan so einstellen, dass er automatisch ausgeführt wird.
+
+Wenn Sie über vCenter aus früheren Versionen verfügen und den Zeitpunkt der Erkennung ändern möchten, bearbeiten Sie die vCenter-Server-Site und legen Sie den Zeitplan fest.
+
+Neu hinzugefügte oder gelöschte VMs werden bei der nächsten geplanten Erkennung oder während einer sofortigen manuellen Erkennung erkannt.
+
+VMs können nur geschützt werden, wenn sich der Replikationsplan in einem der folgenden Zustände befindet:
+
+* Bereit
+* Failback durchgeführt
+* Test-Failover festgeschrieben
+
+
+*vCenter-Cluster an einem Standort* Jeder Standort enthält ein oder mehrere vCenter.  Diese vCenter verwenden einen oder mehrere ONTAP Speichercluster zum Hosten von NFS- oder VMFS-Datenspeichern.
+
+Ein vCenter-Cluster kann sich nur an einem Standort befinden.  Sie benötigen die folgenden Informationen, um einer Site einen vCenter-Cluster hinzuzufügen:
+
+* Die vCenter-Verwaltungs-IP-Adresse oder der FQDN
+* Anmeldeinformationen für ein vCenter-Konto mit den erforderlichen Berechtigungen zum Ausführen von Vorgängen. Sehen link:vcenter--privileges.html["erforderliche vCenter-Berechtigungen"] für weitere Informationen.
+* Für Cloud-gehostete VMware-Sites die erforderlichen Cloud-Zugriffsschlüssel
+* Ein Sicherheitszertifikat für den Zugriff auf Ihr vCenter.
++
+
+NOTE: Der Dienst unterstützt selbstsignierte Sicherheitszertifikate oder Zertifikate einer zentralen Zertifizierungsstelle (CA).
+
+
+
+.Schritte
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
+. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
++
+Sie landen auf der NetApp Disaster Recovery Dashboard-Seite.  Wenn Sie den Dienst zum ersten Mal starten, müssen Sie vCenter-Informationen hinzufügen.  Später zeigt das Dashboard Daten zu Ihren Sites und Replikationsplänen an.
+
++
+
+NOTE: Je nach Art der Site, die Sie hinzufügen, werden unterschiedliche Felder angezeigt.
+
+. Wenn bereits einige vCenter-Sites vorhanden sind und Sie weitere hinzufügen möchten, wählen Sie im Menü *Sites* und dann *Hinzufügen* aus.
+. Wählen Sie auf der Seite „Sites“ die Site aus und wählen Sie „vCenter hinzufügen“ aus.
+. *Quelle*: Wählen Sie *vCenter-Server ermitteln*, um Informationen zur vCenter-Quellsite einzugeben.
++
+
+TIP: Wenn bereits einige vCenter-Sites vorhanden sind und Sie weitere hinzufügen möchten, wählen Sie im oberen Menü *Sites* und dann *Hinzufügen* aus.
+
++
+image:vcenter-add.png["Screenshot des vCenter-Servers hinzufügen"]
+
++
+** Wählen Sie eine Site aus, wählen Sie den NetApp Console-Agenten aus und geben Sie die vCenter-Anmeldeinformationen ein.
+** (Gilt nur für lokale Sites) Aktivieren Sie das Kontrollkästchen, um selbstsignierte Zertifikate für das Quell-vCenter zu akzeptieren.
++
+
+NOTE: Selbstsignierte Zertifikate sind nicht so sicher wie andere Zertifikate.  Wenn Ihr vCenter *NICHT* mit Zertifikaten einer Zertifizierungsstelle (CA) konfiguriert ist, sollten Sie dieses Kontrollkästchen aktivieren. Andernfalls funktioniert die Verbindung zum vCenter nicht.
+
+
+
+. Wählen Sie *Hinzufügen*.
++
+Als Nächstes fügen Sie ein Ziel-vCenter hinzu.
+
+. Fügen Sie erneut eine Site für das Ziel-vCenter hinzu.
+. Wählen Sie erneut *vCenter hinzufügen* und fügen Sie die Ziel-vCenter-Informationen hinzu.
+. *Ziel*:
++
+.. Wählen Sie die Zielsite und den Standort aus.  Wenn das Ziel die Cloud ist, wählen Sie *AWS*.
++
+*** (Gilt nur für Cloud-Sites) *API-Token*: Geben Sie das API-Token ein, um den Dienstzugriff für Ihre Organisation zu autorisieren.  Erstellen Sie das API-Token, indem Sie bestimmte Organisations- und Servicerollen angeben.
+*** (Gilt nur für Cloud-Sites) *Lange Organisations-ID*: Geben Sie die eindeutige ID für die Organisation ein.  Sie können diese ID ermitteln, indem Sie im Abschnitt „Konto“ der NetApp Konsole auf den Benutzernamen klicken.
+
+
+.. Wählen Sie *Hinzufügen*.
++
+Die Quell- und Ziel-vCenter werden in der Siteliste angezeigt.
+
++
+image:sites-list2.png["Screenshot der Sites-Seite"]
+
+
+
+. Um den Fortschritt des Vorgangs anzuzeigen, wählen Sie im Menü *Jobüberwachung* aus.
+
+
+
+
+== Subnetzzuordnung für eine vCenter-Site hinzufügen
+
+Sie können IP-Adressen bei Failover-Vorgängen mithilfe der Subnetzzuordnung verwalten, wodurch Sie für jedes vCenter Subnetze hinzufügen können.  Dabei definieren Sie das IPv4-CIDR, das Standard-Gateway und das DNS für jedes virtuelle Netzwerk.
+
+Beim Failover verwendet NetApp Disaster Recovery das CIDR des zugeordneten Netzwerks, um jeder vNIC eine neue IP-Adresse zuzuweisen.
+
+Beispiel:
+
+* NetzwerkA = 10.1.1.0/24
+* NetzwerkB = 192.168.1.0/24
+
+
+VM1 verfügt über eine vNIC (10.1.1.50), die mit NetworkA verbunden ist.  In den Replikationsplaneinstellungen wird NetworkA NetworkB zugeordnet.
+
+Beim Failover ersetzt NetApp Disaster Recovery den Netzwerkteil der ursprünglichen IP-Adresse (10.1.1) und behält die Hostadresse (.50) der ursprünglichen IP-Adresse (10.1.1.50) bei.  Für VM1 prüft NetApp Disaster Recovery die CIDR-Einstellungen für NetworkB und verwendet den NetworkB-Netzwerkteil 192.168.1, während der Hostteil (.50) beibehalten wird, um die neue IP-Adresse für VM1 zu erstellen.  Die neue IP wird 192.168.1.50.
+
+Zusammenfassend lässt sich sagen, dass die Hostadresse gleich bleibt, während die Netzwerkadresse durch die in der Site-Subnetzzuordnung konfigurierte Adresse ersetzt wird.  Auf diese Weise können Sie die Neuzuweisung von IP-Adressen bei einem Failover einfacher verwalten, insbesondere wenn Sie Hunderte von Netzwerken und Tausende von VMs verwalten müssen.
+
+Die Verwendung der Subnetzzuordnung ist ein optionaler zweistufiger Prozess:
+
+* Fügen Sie zunächst die Subnetzzuordnung für jeden vCenter-Standort hinzu.
+* Geben Sie zweitens im Replikationsplan auf der Registerkarte „Virtuelle Maschinen“ und im Feld „Ziel-IP“ an, dass Sie die Subnetzzuordnung verwenden möchten.
+
+
+.Schritte
+. Wählen Sie im NetApp Disaster Recovery-Menü *Sites* aus.
+. Von den Aktionenimage:icon-vertical-dots.png["Symbol „Aktionen“"] Symbol rechts und wählen Sie *Subnetz hinzufügen*.
++
+image:dr-sites-subnet-menu.png["Screenshot des Menüs „Subnetz hinzufügen“"]
+
++
+Die Seite „Subnetz konfigurieren“ wird angezeigt:
+
++
+image:sites-subnet-add.png["Screenshot „Subnetzzuordnung hinzufügen“"]
+
+. Geben Sie auf der Seite „Subnetz konfigurieren“ die folgenden Informationen ein:
++
+.. Subnetz: Geben Sie den IPv4-CIDR für das Subnetz bis zu /32 ein.
++
+
+TIP: Die CIDR-Notation ist eine Methode zum Angeben von IP-Adressen und ihren Netzwerkmasken.  Die /24 bezeichnet die Netzmaske.  Die Nummer besteht aus einer IP-Adresse, wobei die Zahl nach dem „/“ angibt, wie viele Bits der IP-Adresse das Netzwerk bezeichnen.  Beispiel: 192.168.0.50/24, die IP-Adresse ist 192.168.0.50 und die Gesamtzahl der Bits in der Netzwerkadresse beträgt 24.  192.168.0.50 255.255.255.0 wird zu 192.168.0.0/24.
+
+.. Gateway: Geben Sie das Standard-Gateway für das Subnetz ein.
+.. DNS: Geben Sie den DNS für das Subnetz ein.
+
+
+. Wählen Sie *Subnetzzuordnung hinzufügen*.
+
+
+
+
+=== Auswählen der Subnetzzuordnung für einen Replikationsplan
+
+Wenn Sie einen Replikationsplan erstellen, können Sie die Subnetzzuordnung für den Replikationsplan auswählen.
+
+Die Verwendung der Subnetzzuordnung ist ein optionaler zweistufiger Prozess:
+
+* Fügen Sie zunächst die Subnetzzuordnung für jeden vCenter-Standort hinzu.
+* Geben Sie zweitens im Replikationsplan an, dass Sie die Subnetzzuordnung verwenden möchten.
+
+
+.Schritte
+. Wählen Sie im NetApp Disaster Recovery-Menü *Replikationspläne* aus.
+. Wählen Sie *Hinzufügen*, um einen Replikationsplan hinzuzufügen.
+. Füllen Sie die Felder wie gewohnt aus, indem Sie die vCenter-Server hinzufügen, die Ressourcengruppen oder Anwendungen auswählen und die Zuordnungen vervollständigen.
+. Wählen Sie auf der Seite Replikationsplan > Ressourcenzuordnung den Abschnitt *Virtuelle Maschinen* aus.
++
+image:dr-plan-vm-subnet-option.png["Screenshot der Subnetzzuordnungsauswahl"]
+
+. Wählen Sie im Feld *Ziel-IP* aus der Dropdown-Liste *Subnetzzuordnung verwenden* aus.
++
+
+NOTE: Wenn zwei VMs vorhanden sind (beispielsweise eine mit Linux und die andere mit Windows), werden Anmeldeinformationen nur für Windows benötigt.
+
+. Fahren Sie mit der Erstellung des Replikationsplans fort.
+
+
+
+
+== Bearbeiten Sie die vCenter-Server-Site und passen Sie den Erkennungszeitplan an
+
+Sie können die vCenter-Server-Site bearbeiten, um den Erkennungszeitplan anzupassen.  Wenn Sie beispielsweise über eine große Anzahl von VMs verfügen, können Sie den Erkennungszeitplan so einstellen, dass er alle 23 Stunden und 59 Minuten ausgeführt wird.  Wenn Sie nur eine kleine Anzahl von VMs haben, können Sie den Erkennungszeitplan so einstellen, dass er alle 12 Stunden ausgeführt wird.
+
+Wenn Sie über vCenter aus früheren Versionen verfügen und den Zeitpunkt der Erkennung ändern möchten, bearbeiten Sie die vCenter-Server-Site und legen Sie den Zeitplan fest.
+
+Wenn Sie die Erkennung nicht planen möchten, können Sie die Option zur geplanten Erkennung deaktivieren und die Erkennung jederzeit manuell aktualisieren.
+
+.Schritte
+. Wählen Sie im NetApp Disaster Recovery-Menü *Sites* aus.
+. Wählen Sie die Site aus, die Sie bearbeiten möchten.
+. Wählen Sie die Aktionenimage:icon-vertical-dots.png["Symbol „Aktionen“"] Symbol rechts und wählen Sie *Bearbeiten*.
+. Bearbeiten Sie auf der Seite „vCenter-Server bearbeiten“ die Felder nach Bedarf.
+. Um den Erkennungszeitplan anzupassen, aktivieren Sie das Kontrollkästchen *Geplante Erkennung aktivieren* und wählen Sie das gewünschte Datum und Zeitintervall aus.
++
+image:sites-edit-schedule.png["Screenshot „Erkennungsplan bearbeiten“"]
+
+. Wählen Sie *Speichern*.
+
+
+
+
+== Erkennung manuell aktualisieren
+
+Sie können die Erkennung jederzeit manuell aktualisieren.  Dies ist nützlich, wenn Sie VMs hinzugefügt oder entfernt haben und die Informationen in NetApp Disaster Recovery aktualisieren möchten.
+
+.Schritte
+. Wählen Sie im NetApp Disaster Recovery-Menü *Sites* aus.
+. Wählen Sie die Site aus, die Sie aktualisieren möchten.
+. Wählen Sie die Aktionenimage:icon-vertical-dots.png["Symbol „Aktionen“"] Symbol rechts und wählen Sie *Aktualisieren*.
+

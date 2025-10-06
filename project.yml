@@ -1,0 +1,26 @@
+---
+settings:
+  name: NetApp Disaster Recovery
+  internal:
+    pdf_enabled: true
+    termcheck_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: de-de,us-en,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
+sidebar:
+  entries:
+  - title: NetApp Disaster Recovery-Dokumente
+    url: "/index.html"
+  - section: release-notes
+  - section: get-started
+  - section: use
+  - section: reference
+  - title: FAQ
+    url: "/get-started/dr-faq.html"
+  - section: support
+  - title: Rechtliche Hinweise
+    url: "/legal-notices.html"
+product-family:
+  name: NetApp Data Services
+  repo: data-services-family

@@ -1,0 +1,9 @@
+= Verbesserungen der Subnetzzuordnung
+:allow-uri-read: 
+
+
+
+
+=== Verbesserungen der Subnetzzuordnung
+
+Dieses Update erweitert den Dialog „Subnetzzuordnung hinzufügen und bearbeiten“ um eine neue Suchfunktion.  Sie können jetzt durch Eingabe von Suchbegriffen schnell bestimmte Subnetze finden, was die Verwaltung von Subnetzzuordnungen vereinfacht.

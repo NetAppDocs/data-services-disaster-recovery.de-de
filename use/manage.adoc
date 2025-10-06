@@ -1,0 +1,190 @@
+---
+sidebar: sidebar 
+permalink: use/manage.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plans, resource groups 
+summary: Sie erhalten einen schnellen Überblick über alle Ihre NetApp Disaster Recovery-Ressourcen und können vCenter-Sites, Ressourcengruppen und Replikationspläne verwalten. 
+---
+= Verwalten Sie Sites, Ressourcengruppen, Replikationspläne, Datenspeicher und Informationen zu virtuellen Maschinen mit NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Sie können einen schnellen Überblick über alle Ihre NetApp Disaster Recovery-Ressourcen erhalten oder sich jede im Detail ansehen:
+
+* Seiten
+* Ressourcengruppen
+* Replikationspläne
+* Datenspeicher
+* Virtuelle Maschinen
+
+
+Für die Aufgaben sind unterschiedliche NetApp Konsolenrollen erforderlich.  Weitere Informationen finden Sie im Abschnitt *Erforderliche NetApp Konsolenrolle* in jeder Aufgabe.
+
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+
+
+
+== Verwalten von vCenter-Sites
+
+Sie können den vCenter-Sitenamen und den Sitetyp (vor Ort oder AWS) bearbeiten.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator oder Notfallwiederherstellungsadministratorrolle.
+
+.Schritte
+. Wählen Sie im Menü *Sites* aus.
+. Wählen Sie die Option *Aktionen*image:../use/icon-vertical-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] rechts neben dem vCenter-Namen und wählen Sie *Bearbeiten*.
+. Bearbeiten Sie den Namen und den Standort der vCenter-Site.
+
+
+
+
+== Verwalten von Ressourcengruppen
+
+Sie können zwar beim Erstellen eines Replikationsplans eine Ressourcengruppe hinzufügen, es ist jedoch möglicherweise praktischer, die Gruppen separat hinzuzufügen und diese Gruppen später im Plan zu verwenden.  Sie erstellen Ressourcengruppen nach VMs oder nach Datenspeichern.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Notfallwiederherstellungsadministrator oder Notfallwiederherstellungsanwendungsadministrator.
+
+Sie können eine Ressourcengruppe nach Datenspeichern auf folgende Weise erstellen:
+
+* Wenn Sie eine Ressourcengruppe mithilfe von Datenspeichern hinzufügen, wird eine Liste der Datenspeicher angezeigt.  Sie können einen oder mehrere Datenspeicher auswählen, um eine Ressourcengruppe zu erstellen.
+* Wenn Sie einen Replikationsplan erstellen und innerhalb des Plans eine Ressourcengruppe erstellen, können Sie die VMs in den Datenspeichern sehen.
+
+
+Mit Ressourcengruppen können Sie die folgenden Aufgaben ausführen:
+
+* Ändern Sie den Namen der Ressourcengruppe.
+* Fügen Sie der Ressourcengruppe VMs hinzu.
+* Entfernen Sie VMs aus der Ressourcengruppe.
+* Ressourcengruppen löschen.
+
+
+Einzelheiten zum Erstellen einer Ressourcengruppe finden Sie unterlink:resource-group.html["Erstellen Sie eine Ressourcengruppe, um VMs gemeinsam zu organisieren"] .
+
+.Schritte
+. Wählen Sie im Menü *Ressourcengruppen* aus.
+. Um eine Ressourcengruppe hinzuzufügen, wählen Sie *Gruppe hinzufügen*.
+. Um Aktionen mit der Ressourcengruppe durchzuführen, wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] und wählen Sie eine der Optionen aus, z. B. *Ressourcengruppe bearbeiten* oder *Ressourcengruppe löschen*.
+
+
+
+
+== Verwalten von Replikationsplänen
+
+Sie können Replikationspläne deaktivieren, aktivieren und löschen.  Sie können Zeitpläne ändern.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
+
+* Wenn Sie einen Replikationsplan vorübergehend anhalten möchten, können Sie ihn deaktivieren und später aktivieren.
+* Wenn Sie den Plan nicht mehr benötigen, können Sie ihn löschen.
+
+
+.Schritte
+. Wählen Sie im Menü *Replikationspläne* aus.
++
+image:../use/dr-plan-list.png["Liste der Replikationspläne"]
+
+. Um die Plandetails anzuzeigen, wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] und wählen Sie *Plandetails anzeigen*.
+. Führen Sie einen der folgenden Schritte aus:
++
+** Um die Plandetails zu bearbeiten (die Wiederholung zu ändern), wählen Sie die Registerkarte *Plandetails* und dann rechts das Symbol *Bearbeiten*.
+** Um die Ressourcenzuordnungen zu bearbeiten, wählen Sie die Registerkarte *Failover-Zuordnung* und dann das Symbol *Bearbeiten*.
+** Um die virtuellen Maschinen hinzuzufügen oder zu bearbeiten, wählen Sie die Registerkarte *Virtuelle Maschinen* und wählen Sie die Option *VMs hinzufügen* oder das Symbol *Bearbeiten*.
+
+
+. Kehren Sie zur Liste der Pläne zurück, indem Sie in der Breadcrumb-Navigation links „Replikationspläne“ auswählen.
+. Um Aktionen mit dem Plan auszuführen, wählen Sie aus der Liste der Replikationspläne die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] rechts neben dem Plan und wählen Sie eine der Optionen aus, z. B. *Zeitpläne bearbeiten*, *Failover testen*, *Failover*, *Failback*, *Migrieren*, *Jetzt Snapshot erstellen*, *Alte Snapshots bereinigen*, *Deaktivieren*, *Aktivieren* oder *Löschen*.
+. Um einen Test-Failover-Zeitplan festzulegen oder zu ändern oder die Konformitätshäufigkeitsprüfung festzulegen, wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] rechts neben dem Plan und wählen Sie *Zeitpläne bearbeiten*.
++
+.. Geben Sie auf der Seite „Zeitpläne bearbeiten“ ein, wie oft (in Minuten) die Failover-Konformitätsprüfung durchgeführt werden soll.
+.. Aktivieren Sie *Test-Failover nach Zeitplan ausführen*.
+.. Wählen Sie in der Option „Wiederholen“ den täglichen, wöchentlichen oder monatlichen Zeitplan aus.
+.. Wählen Sie *Speichern*.
+
+
+
+
+
+
+=== Snapshots bei Bedarf abgleichen
+
+Sie können Snapshots abgleichen, die zwischen Quelle und Ziel nicht synchron sind.  Dies kann auftreten, wenn Snapshots auf einem Ziel außerhalb von NetApp Disaster Recovery gelöscht werden.  Der Dienst löscht den Snapshot auf der Quelle automatisch alle 24 Stunden.  Sie können dies jedoch auf Anfrage durchführen.  Mit dieser Funktion können Sie sicherstellen, dass die Snapshots auf allen Sites konsistent sind.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
+
+.Schritte
+. Wählen Sie im Menü *Replikationspläne* aus.
++
+image:../use/dr-plan-list.png["Liste der Replikationspläne"]
+
+. Wählen Sie aus der Liste der Replikationspläne die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] rechts neben dem Plan und wählen Sie *Snapshots abgleichen*.
+. Überprüfen Sie die Abstimmungsinformationen.
+. Wählen Sie *Abgleichen*.
+
+
+
+
+=== Löschen eines Replikationsplans
+
+Sie können einen Replikationsplan löschen, wenn Sie ihn nicht mehr benötigen.  Wenn Sie einen Replikationsplan löschen, können Sie auch die vom Plan erstellten primären und sekundären Snapshots löschen.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
+
+.Schritte
+. Wählen Sie im Menü *Replikationspläne* aus.
+. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] rechts neben dem Plan und wählen Sie *Löschen*.
+. Wählen Sie aus, ob Sie die primären Snapshots, sekundären Snapshots oder nur die vom Plan erstellten Metadaten löschen möchten.
+. Geben Sie „delete“ ein, um den Löschvorgang zu bestätigen.
+. Wählen Sie *Löschen*.
+
+
+
+
+=== Ändern der Aufbewahrungsanzahl für Failover-Zeitpläne
+
+Sie können ändern, wie viele Datenspeicher beibehalten werden.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
+
+.Schritte
+. Wählen Sie im Menü *Replikationspläne* aus.
+. Wählen Sie den Replikationsplan aus, wählen Sie die Registerkarte *Failover-Zuordnung* und wählen Sie das Bleistiftsymbol *Bearbeiten*.
+. Wählen Sie den Pfeil *Datenspeicher* aus, um ihn zu erweitern.
++
+image:../use/dr-plan-failover-edit.png["Seite „Failover-Zuordnungen bearbeiten“"]
+
+. Ändern Sie den Wert der Aufbewahrungsanzahl im Replikationsplan.
+. Wählen Sie bei ausgewähltem Replikationsplan das Menü „Aktionen“ und dann „Alte Snapshots bereinigen“ aus, um alte Snapshots auf dem Ziel zu entfernen und sie an die neue Aufbewahrungsanzahl anzupassen.
+
+
+
+
+== Anzeigen von Datenspeicherinformationen
+
+Sie können Informationen darüber anzeigen, wie viele Datenspeicher auf der Quelle und auf dem Ziel vorhanden sind.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator, Disaster Recovery-Anwendungsadministrator oder Disaster Recovery-Viewer-Rolle.
+
+.Schritte
+. Wählen Sie im Menü *Dashboard* aus.
+. Wählen Sie das vCenter in der Sitezeile aus.
+. Wählen Sie *Datenspeicher* aus.
+. Zeigen Sie die Datenspeicherinformationen an.
+
+
+
+
+== Anzeigen von Informationen zu virtuellen Maschinen
+
+Sie können Informationen darüber anzeigen, wie viele virtuelle Maschinen auf der Quelle und auf dem Ziel vorhanden sind, sowie Informationen zu CPU, Arbeitsspeicher und verfügbarer Kapazität.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator, Disaster Recovery-Anwendungsadministrator oder Disaster Recovery-Viewer-Rolle.
+
+.Schritte
+. Wählen Sie im Menü *Dashboard* aus.
+. Wählen Sie das vCenter in der Sitezeile aus.
+. Wählen Sie *Virtuelle Maschinen* aus.
+. Zeigen Sie die Informationen zu virtuellen Maschinen an.
+

@@ -1,0 +1,153 @@
+---
+sidebar: sidebar 
+permalink: reference/vcenter-privileges.html 
+keywords: disaster recovery, bluexp, vcenter, 
+summary: 'Das vCenter-Konto muss über einen Mindestsatz an vCenter-Berechtigungen verfügen, damit NetApp Disaster Recovery seine Dienste ausführen kann, z. B. das Registrieren und Aufheben der Registrierung von Datenspeichern, das Starten und Stoppen von VMs und die Neukonfiguration virtueller Maschinen (VMs).  In der folgenden Tabelle sind alle Berechtigungen aufgeführt, die NetApp Disaster Recovery für die Schnittstelle mit einem vCenter-Cluster benötigt.' 
+---
+= Für NetApp Disaster Recovery erforderliche vCenter-Berechtigungen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Das vCenter-Konto muss über einen Mindestsatz an vCenter-Berechtigungen verfügen, damit NetApp Disaster Recovery seine Dienste ausführen kann, z. B. das Registrieren und Aufheben der Registrierung von Datenspeichern, das Starten und Stoppen von VMs und die Neukonfiguration virtueller Maschinen (VMs).  In der folgenden Tabelle sind alle Berechtigungen aufgeführt, die NetApp Disaster Recovery für die Schnittstelle mit einem vCenter-Cluster benötigt.
+
+[cols="25,35a,40a"]
+|===
+| Typ | Berechtigungsname | Beschreibung 
+
+
+| *Datenspeicher*  a| 
+Datastore.Datenspeicher konfigurieren
+ a| 
+Wird zum Konfigurieren eines Datenspeichers verwendet.
+
+
+
+|   a| 
+Datastore.Datenspeicher entfernen
+ a| 
+Wird zum Entfernen eines Datenspeichers verwendet.
+
+
+
+| *Virtuelle Maschine*  a| 
+Virtuelle Maschine.Konfiguration.Einstellungen ändern
+ a| 
+Wird verwendet, um allgemeine VM-Einstellungen zu ändern.
+
+
+
+|   a| 
+Virtuelle Maschine.Konfiguration.Geräteeinstellungen ändern
+ a| 
+Dient zum Ändern der Eigenschaften eines vorhandenen Geräts.
+
+
+
+|   a| 
+Virtuelle Maschine.Konfiguration.Neu laden vom Pfad
+ a| 
+Wird verwendet, um einen VM-Konfigurationspatch zu ändern und gleichzeitig die Identität der VM beizubehalten.  Lösungen wie VMware vCenter Site Recovery Manager verwenden diesen Vorgang, um die VM-Identität während eines Failovers und Failbacks aufrechtzuerhalten.
+
+
+
+|   a| 
+Virtuelle Maschine.Konfiguration.Umbenennen
+ a| 
+Wird verwendet, um eine VM umzubenennen oder die zugehörigen Knoten einer VM zu ändern.
+
+
+
+|   a| 
+Virtuelle Maschine.Konfiguration.Gastinformationen zurücksetzen
+ a| 
+Wird verwendet, um die Informationen zum Gastbetriebssystem für eine VM zu bearbeiten.
+
+
+
+|   a| 
+Virtuelle Maschine.Konfiguration.Speicher ändern
+ a| 
+Verwenden Sie diese Option, um die der VM zugewiesene Speichermenge zu ändern.
+
+
+
+|   a| 
+Virtuelle Maschine.Konfiguration.CPU-Anzahl ändern
+ a| 
+Dient zum Ändern der Anzahl der virtuellen CPUs.
+
+
+
+| *Virtuelle Maschine als Gast*  a| 
+Virtuelle Maschine.Gastvorgänge.Änderungen an Gastvorgängen
+ a| 
+Ermöglicht VM-Gastvorgänge, die Änderungen an einem Gastbetriebssystem in einer VM beinhalten, beispielsweise das Übertragen einer Datei auf die VM.
+
+
+
+| *Interaktion mit virtuellen Maschinen*  a| 
+Virtuelle Maschine.Interaktion.Ausschalten
+ a| 
+Wird zum Ausschalten einer eingeschalteten VM verwendet.  Dieser Vorgang schaltet das Gastbetriebssystem ab.
+
+
+
+|   a| 
+Virtuelle Maschine.Interaktion.Einschalten
+ a| 
+Wird verwendet, um eine ausgeschaltete VM einzuschalten und eine angehaltene VM fortzusetzen.
+
+
+
+|   a| 
+Virtuelle Maschine.Interaktion.VMware Tools installieren
+ a| 
+Wird zum Mounten und Unmounten des VMware Tools-CD-Installationsprogramms als CD-ROM für das Gastbetriebssystem verwendet.
+
+
+
+| *Inventar virtueller Maschinen*  a| 
+Virtuelle Maschine.Inventar.Neu erstellen
+ a| 
+Wird verwendet, um eine VM zu erstellen und Ressourcen für ihre Ausführung zuzuweisen.
+
+
+
+|   a| 
+Virtuelle Maschine.Inventar.Registrieren
+ a| 
+Wird verwendet, um eine vorhandene VM zu einem vCenter Server oder Host-Inventar hinzuzufügen.
+
+
+
+|   a| 
+Virtuelle Maschine.Inventar.Registrierung aufheben
+ a| 
+Wird verwendet, um die Registrierung einer VM von einem vCenter Server oder Host-Inventar aufzuheben.
+
+
+
+| *Status der virtuellen Maschine*  a| 
+Virtuelle Maschine.Snapshot-Verwaltung.Snapshot erstellen
+ a| 
+Wird verwendet, um einen Snapshot vom aktuellen Status der VM zu erstellen.
+
+
+
+|   a| 
+Virtuelle Maschine.Snapshot-Verwaltung.Snapshot entfernen
+ a| 
+Wird verwendet, um einen Snapshot aus dem Snapshot-Verlauf zu entfernen.
+
+
+
+|   a| 
+Virtuelle Maschine.Snapshot-Verwaltung.Zurück zum Snapshot
+ a| 
+Wird verwendet, um die VM auf den Zustand zurückzusetzen, in dem sie sich bei einem bestimmten Snapshot befand.
+
+|===

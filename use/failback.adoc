@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: use/failback.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert. 
+---
+= Failback von Anwendungen auf die ursprüngliche Quelle mit NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Nachdem ein Notfall behoben wurde, führen Sie ein Failback vom Notfallwiederherstellungsstandort zum Quellstandort durch, um zum Normalbetrieb zurückzukehren.  Sie können den Snapshot auswählen, von dem die Wiederherstellung erfolgen soll.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster-Recovery-Administrator oder Disaster-Recovery-Failover-Administratorrolle.
+
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+
+*Über diese Aufgabe*
+
+In diesem Workflow repliziert (resynchronisiert) NetApp Disaster Recovery alle Änderungen zurück zur ursprünglichen virtuellen Quellmaschine, bevor die Replikationsrichtung umgekehrt wird. Dieser Prozess beginnt mit einer Beziehung, deren Failover zu einem Ziel abgeschlossen ist, und umfasst die folgenden Schritte:
+
+* Führen Sie eine Konformitätsprüfung auf der wiederhergestellten Site durch.
+* Aktualisieren Sie die vCenter-Informationen für jeden vCenter-Cluster, der sich am wiederhergestellten Standort befindet.
+* Schalten Sie auf der Zielsite die virtuellen Maschinen aus, heben Sie die Registrierung auf und heben Sie die Bereitstellung der Volumes auf.
+* Unterbrechen Sie die SnapMirror -Beziehung zur Originalquelle, um Lese-/Schreibzugriff zu ermöglichen.
+* Synchronisieren Sie die SnapMirror -Beziehung erneut, um die Replikation umzukehren.
+* Schalten Sie die virtuellen Quellmaschinen ein, registrieren Sie sie und mounten Sie die Volumes auf der Quelle.
+
+
+.Schritte
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
+. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im NetApp Disaster Recovery-Menü *Replikationspläne* aus.
+. Wählen Sie den Replikationsplan aus.
+. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] und wählen Sie *Failback*.
+. Geben Sie den Namen des Replikationsplans ein, um das Failback zu bestätigen und zu starten.
+. Wählen Sie den Snapshot für den Datenspeicher aus, aus dem die Wiederherstellung erfolgen soll.  Die Standardeinstellung ist die neueste Version.
+. Um den Fortschritt zu überprüfen, wählen Sie im Menü *Jobüberwachung*.
+

@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: use/resource-group.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm 
+summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert.  Nachdem Sie vCenter-Sites hinzugefügt haben, können Sie einen Notfallwiederherstellungs- oder Replikationsplan erstellen. 
+---
+= Erstellen Sie eine Ressourcengruppe, um VMs gemeinsam in NetApp Disaster Recovery zu organisieren
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Nachdem Sie vCenter-Sites hinzugefügt haben, können Sie Ressourcengruppen erstellen, um VMs nach VM oder Datenspeicher als einzelne Einheit zu schützen.  Mithilfe von Ressourcengruppen können Sie eine Reihe abhängiger VMs in logischen Gruppen organisieren, die Ihren Anforderungen entsprechen.  Sie können beispielsweise VMs gruppieren, die einer Anwendung zugeordnet sind, oder Sie können Anwendungen gruppieren, die ähnliche Ebenen haben.  Ein weiteres Beispiel: Gruppen könnten verzögerte Startaufträge enthalten, die bei der Wiederherstellung ausgeführt werden können.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Notfallwiederherstellungsadministrator oder Notfallwiederherstellungsanwendungsadministrator.
+
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+
+*Über diese Aufgabe*
+
+Sie können VMs selbst oder VMs in Datenspeichern gruppieren.
+
+Sie können Ressourcengruppen mit den folgenden Methoden erstellen:
+
+* Über die Option „Ressourcengruppen“
+* Während Sie einen Notfallwiederherstellungs- oder _Replikationsplan_ erstellen.  Wenn Sie über viele VMs verfügen, die von einem vCenter-Quellcluster gehostet werden, ist es möglicherweise einfacher für Sie, die Ressourcengruppen zu erstellen, während Sie den Replikationsplan erstellen.  Anweisungen zum Erstellen von Ressourcengruppen beim Erstellen eines Replikationsplans finden Sie unterlink:drplan-create.html["Erstellen eines Replikationsplans"] .
+
+
+
+TIP: Jede Ressourcengruppe kann eine oder mehrere VMs oder Datenspeicher enthalten.  Die VMs werden basierend auf der Reihenfolge eingeschaltet, in der Sie sie in den Replikationsplan aufnehmen.  Sie können die Reihenfolge ändern, indem Sie die VMs oder Datenspeicher in der Ressourcengruppenliste nach oben oder unten ziehen.
+
+.Informationen zu Ressourcengruppen
+Mithilfe von Ressourcengruppen können Sie VMs oder Datenspeicher zu einer einzigen Einheit zusammenfassen.
+
+Beispielsweise könnte eine Point-of-Sale-Anwendung mehrere VMs für Datenbanken, Geschäftslogik und Storefronts verwenden.  Sie können alle diese VMs mit einer Ressourcengruppe verwalten.  Richten Sie Ressourcengruppen ein, um Replikationsplanregeln für die VM-Startreihenfolge, Netzwerkverbindung und Wiederherstellung aller für die Anwendung benötigten VMs anzuwenden.
+
+.Wie funktioniert es?
+NetApp Disaster Recovery schützt VMs durch Replikation der zugrunde liegenden ONTAP Volumes und LUNs, die die VMs in der Ressourcengruppe hosten.  Dazu fragt das System vCenter nach dem Namen jedes Datenspeichers ab, der VMs in einer Ressourcengruppe hostet.  NetApp Disaster Recovery identifiziert dann das Quell ONTAP -Volume oder die LUN, auf der dieser Datenspeicher gehostet wird.  Der gesamte Schutz wird auf ONTAP Volume-Ebene mithilfe der SnapMirror -Replikation durchgeführt.
+
+Wenn VMs in der Ressourcengruppe auf verschiedenen Datenspeichern gehostet werden, verwendet NetApp Disaster Recovery eine der folgenden Methoden, um einen datenkonsistenten Snapshot der ONTAP Volumes oder LUNs zu erstellen.
+
+[cols="30,65a"]
+|===
+| Relativer Standort von FlexVol -Volumes | Snapshot-Replikationsprozess 
+
+
+| Mehrere Datenspeicher – FlexVol -Volumes im *gleichen SVM*  a| 
+* ONTAP -Konsistenzgruppe erstellt
+* Snapshots der Konsistenzgruppe erstellt
+* Volume-bezogene SnapMirror -Replikation durchgeführt
+
+
+
+
+| Mehrere Datenspeicher – FlexVol -Volumes in *mehreren SVMs*  a| 
+* ONTAP -API: `cg_start` .  Stellt alle Volumes still, damit Snapshots erstellt werden können, und initiiert Snapshots auf Volume-Ebene aller Ressourcengruppen-Volumes.
+* ONTAP -API: `cg_end` .  Setzt die E/A auf allen Volumes fort und aktiviert die Volume-bezogene SnapMirror Replikation, nachdem Snapshots erstellt wurden.
+
+
+|===
+Berücksichtigen Sie beim Erstellen von Ressourcengruppen die folgenden Punkte:
+
+* Bevor Sie Datenspeicher zu Ressourcengruppen hinzufügen, starten Sie zunächst eine manuelle oder geplante Erkennung der VMs.  Dadurch wird sichergestellt, dass die VMs erkannt und in der Ressourcengruppe aufgelistet werden.  Wenn Sie keine manuelle Erkennung starten, werden die VMs möglicherweise nicht in der Ressourcengruppe aufgeführt.
+* Stellen Sie sicher, dass sich mindestens eine VM im Datenspeicher befindet.  Wenn sich im Datenspeicher keine VMs befinden, erkennt Disaster Recovery den Datenspeicher nicht.
+* Ein einzelner Datenspeicher sollte keine VMs hosten, die durch mehr als einen Replikationsplan geschützt sind.
+* Hosten Sie geschützte und ungeschützte VMs nicht auf demselben Datenspeicher.  Wenn geschützte und ungeschützte VMs auf demselben Datenspeicher gehostet werden, können die folgenden Probleme auftreten:
++
+** Da NetApp Disaster Recovery SnapMirror verwendet und das System ganze ONTAP Volumes repliziert, wird die genutzte Kapazität dieses Volumes für Lizenzierungsüberlegungen verwendet.  In diesem Fall würde der von geschützten und ungeschützten VMs belegte Volume-Speicherplatz in diese Berechnung einbezogen.
+** Wenn ein Failover der Ressourcengruppe und der zugehörigen Datenspeicher auf den Disaster Recovery-Standort durchgeführt werden muss, sind alle ungeschützten VMs (VMs, die nicht Teil der Ressourcengruppe sind, aber auf dem ONTAP Volume gehostet werden) durch den Failover-Prozess nicht mehr auf dem Quellstandort vorhanden, was zu einem Ausfall ungeschützter VMs am Quellstandort führt.  Außerdem startet NetApp Disaster Recovery diese ungeschützten VMs nicht am Failover-vCenter-Standort.
+
+
+* Um eine VM zu schützen, muss sie in eine Ressourcengruppe aufgenommen werden.
+
+
+*BEST PRACTICE*: Organisieren Sie Ihre VMs, bevor Sie NetApp Disaster Recovery bereitstellen, um die Ausbreitung von Datenspeichern zu minimieren.  Platzieren Sie VMs, die Schutz benötigen, auf einer Teilmenge von Datenspeichern und platzieren Sie VMs, die nicht geschützt werden sollen, auf einer anderen Teilmenge von Datenspeichern.  Stellen Sie sicher, dass die VMs auf einem bestimmten Datenspeicher nicht durch unterschiedliche Replikationspläne geschützt sind.
+
+.Schritte
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
+. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im NetApp Disaster Recovery-Menü *Ressourcengruppen* aus.
+. Wählen Sie *Hinzufügen*.
+. Geben Sie einen Namen für die Ressourcengruppe ein.
+. Wählen Sie den Quell-vCenter-Cluster aus, in dem sich die VMs befinden.
+. Wählen Sie je nach gewünschter Suchmethode entweder *Virtuelle Maschinen* oder *Datenspeicher* aus.
+. Wählen Sie die Registerkarte *Ressourcengruppen hinzufügen*.  Das System listet alle Datenspeicher oder VMs im ausgewählten vCenter-Cluster auf.  Wenn Sie *Datenspeicher* ausgewählt haben, listet das System alle Datenspeicher im ausgewählten vCenter-Cluster auf.  Wenn Sie *Virtuelle Maschinen* ausgewählt haben, listet das System alle VMs im ausgewählten vCenter-Cluster auf.
+. Wählen Sie auf der linken Seite der Seite „Ressourcengruppen hinzufügen“ die VMs aus, die Sie schützen möchten.
++
+image:dr-resource-groups-add.png["Screenshot der Seite „Ressourcengruppen hinzufügen“"]
+
++
+image:dr-resource-groups-datastores-add.png["Screenshot der Seite „Ressourcengruppen hinzufügen“"]
+
+. Ändern Sie optional die Reihenfolge der VMs auf der rechten Seite, indem Sie jede VM in der Liste nach oben oder unten ziehen.  Die VMs werden basierend auf der Reihenfolge eingeschaltet, in der Sie sie einschließen.
+. Wählen Sie *Hinzufügen*.
+

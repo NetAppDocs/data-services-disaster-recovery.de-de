@@ -1,0 +1,16 @@
+= Unterstützung für lokale VMware VMFS-Datenspeicher
+:allow-uri-read: 
+
+
+
+
+=== Unterstützung für lokale VMware VMFS-Datenspeicher
+
+Diese Version umfasst Unterstützung für VMs, die auf VMware vSphere Virtual Machine File System (VMFS)-Datenspeichern für iSCSI und FC gemountet sind und auf lokalem Speicher geschützt sind.  Zuvor bot der Dienst eine _Technologievorschau_, die VMFS-Datenspeicher für iSCSI und FC unterstützte.
+
+Hier sind einige zusätzliche Überlegungen zu den iSCSI- und FC-Protokollen:
+
+* FC-Unterstützung gilt für Client-Front-End-Protokolle, nicht für die Replikation.
+* NetApp Disaster Recovery unterstützt nur eine einzige LUN pro ONTAP -Volume.  Das Volume sollte nicht mehrere LUNs haben.
+* Für jeden Replikationsplan sollte das Ziel ONTAP -Volume dieselben Protokolle verwenden wie das Quell ONTAP -Volume, auf dem die geschützten VMs gehostet werden.  Wenn die Quelle beispielsweise ein FC-Protokoll verwendet, sollte das Ziel auch FC verwenden.
+

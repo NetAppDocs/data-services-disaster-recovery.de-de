@@ -1,0 +1,19 @@
+= ASA R2-Unterstützung für VMs und Datenspeicher auf VMFS-Speicher
+:allow-uri-read: 
+
+
+
+
+=== ASA R2-Unterstützung für VMs und Datenspeicher auf VMFS-Speicher
+
+Diese Version von NetApp Disaster Recovery bietet Unterstützung für ASA r2 für VMs und Datenspeicher auf VMFS-Speicher.  Auf einem ASA R2-System unterstützt die ONTAP -Software wesentliche SAN-Funktionen und entfernt Funktionen, die in SAN-Umgebungen nicht unterstützt werden.
+
+Diese Version unterstützt die folgenden Funktionen für ASA r2:
+
+* Bereitstellung von Konsistenzgruppen für Primärspeicher (nur flache Konsistenzgruppen, d. h. nur eine Ebene ohne hierarchische Struktur)
+* Backup-Vorgänge (Konsistenzgruppe) einschließlich SnapMirror Automatisierung
+
+
+Die Unterstützung für ASA r2 in NetApp Disaster Recovery verwendet ONTAP 9.16.1.
+
+Während Datenspeicher auf einem ONTAP Volume oder einer ASA r2-Speichereinheit gemountet werden können, kann eine Ressourcengruppe in NetApp Disaster Recovery nicht sowohl einen Datenspeicher von ONTAP als auch einen von ASA r2 enthalten.  Sie können in einer Ressourcengruppe entweder einen Datenspeicher von ONTAP oder einen Datenspeicher von ASA r2 auswählen.

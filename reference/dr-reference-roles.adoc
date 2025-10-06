@@ -1,0 +1,264 @@
+---
+sidebar: sidebar 
+permalink: reference/dr-reference-roles.html 
+keywords: how bluexp disaster recovery works, what is disaster recovery, bluexp, vmware, vcenter, draas, replicate, failover, failback, fail over, fail back, vmware cloud, netapp intelligent services 
+summary: NetApp Disaster Recovery verwendet Rollen, um den Zugriff jedes Benutzers auf bestimmte Funktionen und Aktionen zu regeln. 
+---
+= Rollenbasierter Zugriff auf Funktionen von NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use
+
+
+[role="lead"]
+NetApp Disaster Recovery verwendet Rollen, um den Zugriff jedes Benutzers auf bestimmte Funktionen und Aktionen zu regeln.
+
+Der Dienst verwendet die folgenden Rollen, die spezifisch für NetApp Disaster Recovery sind.
+
+* *Disaster Recovery-Administrator*: Führen Sie beliebige Aktionen in NetApp Disaster Recovery aus.
+* *Disaster Recovery-Failover-Administrator*: Führen Sie Failover- und Migrationsaktionen in NetApp Disaster Recovery durch.
+* *Administrator der Notfallwiederherstellungsanwendung*: Erstellen und ändern Sie Replikationspläne und starten Sie Test-Failover.
+* *Disaster Recovery Viewer*: Informationen in NetApp Disaster Recovery anzeigen, aber keine Aktionen ausführen.
+
+
+Diese Rollen sind spezifisch für NetApp Disaster Recovery und nicht identisch mit den Plattformrollen, die in der NetApp -Konsole verwendet werden.  Einzelheiten zu allen NetApp Console-Plattformrollen finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["die Dokumentation zur Einrichtung und Administration der NetApp -Konsole"^] .
+
+Die folgende Tabelle zeigt die Aktionen, die jede NetApp Disaster Recovery-Rolle ausführen kann.
+
+[cols="30,20a,20a,20a,20a"]
+|===
+| Funktion und Aktion | Notfallwiederherstellungsadministrator | Administrator für Notfallwiederherstellungs-Failover | Administrator der Notfallwiederherstellungsanwendung | Disaster Recovery-Viewer 
+
+
+| Dashboard und alle Registerkarten anzeigen  a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+| Kostenlose Testversion starten  a| 
+Ja
+ a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Ermittlung von Workloads initiieren  a| 
+Ja
+ a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Lizenzinformationen anzeigen  a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+| Lizenz aktivieren  a| 
+Ja
+ a| 
+Nein
+ a| 
+Ja
+ a| 
+Nein
+
+
+
+5+| *Bei der Option „Sites“*: 
+
+
+| Websites anzeigen  a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+| Hinzufügen, Ändern oder Löschen von Sites  a| 
+Ja
+ a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+5+| *Zur Option „Replikationspläne“*: 
+
+
+| Replikationspläne anzeigen  a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+| Anzeigen von Replikationsplandetails  a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+| Erstellen oder Ändern von Replikationsplänen  a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+ a| 
+Nein
+
+
+
+| Erstellen von Berichten  a| 
+Ja
+ a| 
+Nein
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Snapshots anzeigen  a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+| Durchführen von Failover-Tests  a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+ a| 
+Nein
+
+
+
+| Durchführen von Failovers  a| 
+Ja
+ a| 
+Ja
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Failbacks durchführen  a| 
+Ja
+ a| 
+Ja
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+| Migrationen durchführen  a| 
+Ja
+ a| 
+Ja
+ a| 
+Nein
+ a| 
+Nein
+
+
+
+5+| *Zur Option „Ressourcengruppen“*: 
+
+
+| Anzeigen von Ressourcengruppen  a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+| Erstellen, Ändern oder Löschen von Ressourcengruppen  a| 
+Ja
+ a| 
+Nein
+ a| 
+Ja
+ a| 
+Nein
+
+
+
+5+| *Option zur Überwachung am Arbeitsplatz*: 
+
+
+| Jobs anzeigen  a| 
+Ja
+ a| 
+Nein
+ a| 
+Ja
+ a| 
+Ja
+
+
+
+| Aufträge abbrechen  a| 
+Ja
+ a| 
+Ja
+ a| 
+Ja
+ a| 
+Nein
+
+|===

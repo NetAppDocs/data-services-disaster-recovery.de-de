@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: use/dashboard-view.html 
+keywords: disaster recovery remediate, disaster recovery, failover, failback, replication, bluexp, netapp 
+summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert. 
+---
+= Sehen Sie sich den Zustand Ihrer NetApp Disaster Recovery-Pläne auf dem Dashboard an
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Mithilfe des NetApp Disaster Recovery Dashboards können Sie den Zustand Ihrer Disaster Recovery-Sites und Replikationspläne ermitteln.  Sie können schnell feststellen, welche Websites und Pläne fehlerfrei, getrennt oder beeinträchtigt sind.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Anwendungsadministrator oder Disaster Recovery-Viewer-Rolle.
+
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+
+.Schritte
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
+. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im NetApp Disaster Recovery-Menü *Dashboard* aus.
++
+image:dr-dashboard.png["NetApp Disaster Recovery Dashboard"]
+
+. Überprüfen Sie die folgenden Informationen auf dem Dashboard:
++
+** *Sites*: Zeigen Sie den Zustand Ihrer Sites an.  Eine Site kann einen der folgenden Status haben:
++
+*** *Läuft*: Das vCenter ist verbunden, fehlerfrei und läuft.
+*** *Down*: Das vCenter ist nicht erreichbar oder hat Verbindungsprobleme.
+*** *Problem*: Das vCenter ist nicht erreichbar oder hat Verbindungsprobleme.
++
+Um Sitedetails anzuzeigen, wählen Sie *Alle anzeigen* für einen Status oder *Sites anzeigen*, um sie alle anzuzeigen.
+
+
+
+** *Replikationspläne*: Zeigen Sie den Zustand Ihrer Pläne an.  Ein Plan kann einen der folgenden Status haben:
++
+*** *Bereit*
+*** *Fehlgeschlagen*
++
+Um die Details des Replikationsplans zu überprüfen, wählen Sie *Alle anzeigen* für einen Status oder *Replikationspläne anzeigen*, um sie alle anzuzeigen.
+
+
+
+** *Ressourcengruppen*: Zeigen Sie den Zustand Ihrer Ressourcengruppen an.  Eine Ressourcengruppe kann einen der folgenden Status haben:
+** *Geschützte VMs*: Die VMs sind Teil einer Ressourcengruppe.
+** *Ungeschützte VMs*: Die VMs sind nicht Teil einer Ressourcengruppe.
++
+Um die Details zu überprüfen, wählen Sie jeweils den Link *Anzeigen* darunter aus.
+
+** Die Anzahl der Failovers, Test-Failover und Migrationen.  Wenn Sie beispielsweise zwei Pläne erstellt und zu den Zielen migriert haben, wird als Migrationsanzahl „2“ angezeigt.
+
+
+. Überprüfen Sie alle Vorgänge im Aktivitätsbereich.  Um alle Vorgänge im Job Monitor anzuzeigen, wählen Sie *Alle Jobs anzeigen*.
+

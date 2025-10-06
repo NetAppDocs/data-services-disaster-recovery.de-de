@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: use/monitor-jobs.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp 
+summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert.  Sie können alle Disaster-Recovery-Jobs überwachen und ihren Fortschritt bestimmen. 
+---
+= Überwachen Sie NetApp Disaster Recovery-Jobs
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Sie können alle NetApp Disaster Recovery-Jobs überwachen und ihren Fortschritt bestimmen.
+
+
+
+== Jobs anzeigen
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Anwendungsadministrator oder Disaster Recovery-Viewer-Rolle.
+
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+
+.Schritte
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
+. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im Menü *Jobüberwachung* aus.
+. Erkunden Sie alle betriebsbezogenen Jobs und überprüfen Sie deren Zeitstempel und Status.
+. Um Details zu einem bestimmten Job anzuzeigen, wählen Sie die entsprechende Zeile aus.
+. Um die Informationen zu aktualisieren, wählen Sie *Aktualisieren*.
+
+
+
+
+== Abbrechen eines Auftrags
+
+Wenn ein Auftrag ausgeführt wird oder sich in einer Warteschlange befindet und Sie nicht möchten, dass er fortgesetzt wird, können Sie ihn abbrechen.  Möglicherweise möchten Sie einen Auftrag abbrechen, wenn er im gleichen Zustand feststeckt und Sie den nächsten Vorgang in der Warteschlange freigeben möchten.  Möglicherweise möchten Sie einen Auftrag abbrechen, bevor die Zeit abläuft.
+
+*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
+
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+
+.Schritte
+. Wählen Sie in der linken Navigationsleiste der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im Menü *Jobüberwachung* aus.
+. Notieren Sie auf der Job-Monitor-Seite die ID des Jobs, den Sie abbrechen möchten.
++
+Der Auftrag muss sich im Status „In Bearbeitung“ oder „In der Warteschlange“ befinden.
+
+. Wählen Sie in der Spalte „Aktionen“ die Option „Auftrag abbrechen“ aus.
+
