@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference/evs-deploy-guide-solution-overview.html 
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, bluexp, evs, console, amazon elastic vmware service 
-summary: Lösungsübersicht zur NetApp -Notfallwiederherstellung mit Amazon EVS und Amazon FSxN. 
+summary: Lösungsübersicht zur NetApp Disaster Recovery mit Amazon EVS und Amazon FSxN. 
 ---
 = Lösungsübersicht für NetApp Disaster Recovery mit Amazon EVS und Amazon FSs für NetApp ONTAP
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Lösungsübersicht zur NetApp -Notfallwiederherstellung mit Amazon EVS 
 [role="lead"]
 NetApp Disaster Recovery ist ein Mehrwertdienst, der in der Software-as-a-Service-Umgebung der NetApp Console gehostet wird und auf der Kernarchitektur der NetApp Console basiert.  Der DR-Dienst für den VMware-Schutz innerhalb der Konsole besteht aus mehreren Hauptkomponenten.
 
-Eine vollständige Übersicht über die NetApp Disaster Recovery-Lösung finden Sie unterlink:../get-started/dr-intro.html["Erfahren Sie mehr über NetApp Disaster Recovery für VMware"] .
+Eine vollständige Übersicht über die NetApp Disaster Recovery -Lösung finden Sie unterlink:../get-started/dr-intro.html["Erfahren Sie mehr über NetApp Disaster Recovery für VMware"] .
 
 Wenn Sie Ihre lokalen, von VMware gehosteten virtuellen Maschinen auf Amazon AWS schützen möchten, verwenden Sie den Dienst zum Sichern auf Amazon EVS mit Amazon FSx for NetApp ONTAP Speicher gehostete Datenspeicher.
 
@@ -21,12 +21,12 @@ Die folgende Abbildung zeigt, wie der Dienst zum Schutz Ihrer VMs mit Amazon EVS
 
 . Amazon EVS wird in Ihrem Konto in einer einzigen Availability Zone (AZ)-Konfiguration und innerhalb Ihrer Virtual Private Cloud (VPC) bereitgestellt.
 . Ein FSx für ONTAP -Dateisystem wird in derselben AZ wie die Amazon EVS-Bereitstellung bereitgestellt.  Das Dateisystem stellt entweder direkt über eine Elastic Network Interface (ENI), eine VPC-Peer-Verbindung oder ein AmazonTransit Gateway eine Verbindung zu Amazon EVS her.
-. Der NetApp Console-Agent ist in Ihrer VPC installiert.  Der NetApp Console-Agent hostet mehrere Datenverwaltungsdienste (sogenannte Agenten), darunter den NetApp Disaster Recovery-Agenten, der die Notfallwiederherstellung der VMware-Infrastruktur sowohl in Ihren lokalen physischen Rechenzentren als auch auf Ihren von Amazon AWS gehosteten Ressourcen verwaltet.
-. Der NetApp Disaster Recovery-Agent kommuniziert sicher mit dem in der Cloud gehosteten Dienst der NetApp Console, um Aufgaben zu empfangen und diese Aufgaben an die entsprechenden lokalen und von AWS gehosteten vCenter- und ONTAP Speicherinstanzen zu verteilen.
+. Der NetApp Console Agent ist in Ihrer VPC installiert.  Der NetApp Console Agent hostet mehrere Datenverwaltungsdienste (sogenannte Agenten), darunter den NetApp Disaster Recovery -Agenten, der die Notfallwiederherstellung der VMware-Infrastruktur sowohl in Ihren lokalen physischen Rechenzentren als auch auf Ihren von Amazon AWS gehosteten Ressourcen verwaltet.
+. Der NetApp Disaster Recovery -Agent kommuniziert sicher mit dem in der Cloud gehosteten Dienst der NetApp Console, um Aufgaben zu empfangen und diese Aufgaben an die entsprechenden lokalen und von AWS gehosteten vCenter- und ONTAP Speicherinstanzen zu verteilen.
 . Sie erstellen einen Replikationsplan mithilfe der in der Cloud gehosteten Benutzeroberflächenkonsole NetApp Console und geben dabei die zu schützenden VMs, die Häufigkeit des Schutzes dieser VMs und die Verfahren an, die zum Neustart dieser VMs im Falle eines Failovers vom lokalen Standort ausgeführt werden müssen.
 . Der Replikationsplan bestimmt, welche vCenter-Datenspeicher die geschützten VMs hosten und welche ONTAP -Volumes diese Datenspeicher hosten.  Wenn auf dem FSx for ONTAP -Cluster noch keine Volumes vorhanden sind, werden diese von NetApp Disaster Recovery automatisch erstellt.
 . Für jedes identifizierte Quell- ONTAP -Volume wird eine SnapMirror -Beziehung zu jedem Ziel-FSx für das von ONTAP gehostete ONTAP -Volume erstellt und ein Replikationszeitplan wird basierend auf dem vom Benutzer bereitgestellten RPO im Replikationsplan erstellt.
-. Im Falle eines Ausfalls des primären Standorts leitet ein Administrator einen manuellen Failover-Prozess innerhalb der NetApp Konsole ein und wählt ein Backup aus, das als Wiederherstellungspunkt verwendet werden soll.
-. Der NetApp Disaster Recovery-Agent aktiviert die von FSx für ONTAP gehosteten Datensicherungsvolumes.
+. Im Falle eines Ausfalls des primären Standorts leitet ein Administrator einen manuellen Failover-Prozess innerhalb der NetApp Console ein und wählt ein Backup aus, das als Wiederherstellungspunkt verwendet werden soll.
+. Der NetApp Disaster Recovery -Agent aktiviert die von FSx für ONTAP gehosteten Datensicherungsvolumes.
 . Der Agent registriert jedes aktivierte FSx for ONTAP -Volume beim Amazon EVS vCenter, registriert jede geschützte VM beim Amazon EVS vCenter und startet jede gemäß den im Replikationsplan enthaltenen vordefinierten Regeln.
 

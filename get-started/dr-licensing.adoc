@@ -14,7 +14,7 @@ summary: Mit NetApp Disaster Recovery können Sie verschiedene Lizenzierungsplä
 [role="lead"]
 Mit NetApp Disaster Recovery können Sie verschiedene Lizenzierungspläne nutzen, darunter eine kostenlose Testversion, ein Pay-as-you-go-Abonnement oder die Nutzung Ihrer eigenen Lizenz.
 
-*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Notfallwiederherstellungsadministrator oder Notfallwiederherstellungsanwendungsadministrator.
+*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Notfallwiederherstellungsadministrator oder Notfallwiederherstellungsanwendungsadministrator.
 
 link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über Zugriffsrollen für alle Dienste"^] .
 
@@ -22,11 +22,11 @@ link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrolle
 
 * Melden Sie sich für eine 30-tägige kostenlose Testversion an.
 * Erwerben Sie ein Pay-as-you-go-Abonnement (PAYGO) für den Amazon Web Services (AWS) Marketplace oder den Microsoft Azure Marketplace.
-* Bringen Sie Ihre eigene Lizenz (BYOL) mit. Dabei handelt es sich um eine NetApp Lizenzdatei (NLF), die Sie von Ihrem NetApp Vertriebsmitarbeiter erhalten.  Sie können die Seriennummer der Lizenz verwenden, um BYOL in der NetApp Konsole zu aktivieren.
+* Bringen Sie Ihre eigene Lizenz (BYOL) mit. Dabei handelt es sich um eine NetApp Lizenzdatei (NLF), die Sie von Ihrem NetApp Vertriebsmitarbeiter erhalten. Sie können die Seriennummer der Lizenz verwenden, um BYOL in der NetApp Console zu aktivieren.
 
 
 
-NOTE: Die Gebühren für NetApp Disaster Recovery basieren auf der genutzten Kapazität der Datenspeicher am Quellstandort, wenn mindestens eine VM über einen Replikationsplan verfügt.  Die Kapazität für einen ausgefallenen Datenspeicher ist nicht in der Kapazitätszuteilung enthalten.  Wenn bei einem BYOL die Daten die zulässige Kapazität überschreiten, sind die Vorgänge im Service eingeschränkt, bis Sie eine zusätzliche Kapazitätslizenz erwerben oder die Lizenz in der NetApp Konsole aktualisieren.
+NOTE: Die Gebühren für NetApp Disaster Recovery basieren auf der genutzten Kapazität der Datenspeicher am Quellstandort, wenn mindestens eine VM über einen Replikationsplan verfügt.  Die Kapazität für einen ausgefallenen Datenspeicher ist nicht in der Kapazitätszuteilung enthalten.  Wenn bei einem BYOL die Daten die zulässige Kapazität überschreiten, sind die Vorgänge im Dienst eingeschränkt, bis Sie eine zusätzliche Kapazitätslizenz erwerben oder die Lizenz in der NetApp Console aktualisieren.
 
 link:https://docs.netapp.com/us-en/bluexp-digital-wallet/concept-digital-wallet.html["Mehr über Abonnements erfahren"^] .
 
@@ -46,13 +46,13 @@ Sie können NetApp Disaster Recovery mit einer 30-tägigen kostenlosen Testversi
 
 NOTE: Während der Testphase gelten keine Kapazitätsbeschränkungen.
 
-Um nach der Testphase fortzufahren, müssen Sie eine BYOL-Lizenz oder ein PAYGO AWS-Abonnement erwerben.  Sie können jederzeit eine Lizenz erwerben und es entstehen Ihnen erst nach Ablauf der Testphase Kosten.
+Um nach der Testphase fortzufahren, müssen Sie eine BYOL-Lizenz oder ein PAYGO-AWS-Abonnement erwerben.  Sie können jederzeit eine Lizenz erwerben und es entstehen Ihnen erst nach Ablauf der Testphase Kosten.
 
 Während der Testphase steht Ihnen die volle Funktionalität zur Verfügung.
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
-. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 +
 Wenn Sie sich zum ersten Mal bei diesem Dienst anmelden, wird die Zielseite angezeigt.
 
@@ -82,13 +82,13 @@ Nach Ablauf der kostenlosen Testversion können Sie entweder eine Lizenz von Net
 Oder wählen Sie im die Option *Zahlungsmethoden anzeigen* aus.
 
 +
-image:dr-licensing-payment-methods.png["Die Seite mit den Zahlungsmethoden für NetApp Disaster Recovery"]
+image:dr-licensing-payment-methods.png["Die Seite „NetApp Disaster Recovery -Zahlungsmethoden“"]
 
 . Wählen Sie *Im AWS Marketplace abonnieren* oder *Im Azure Marketplace abonnieren*.
 . Verwenden Sie AWS Marketplace oder Microsoft Azure Marketplace, um * NetApp Disaster Recovery* zu abonnieren.
 . Wenn Sie zu NetApp Disaster Recovery zurückkehren, wird eine Meldung angezeigt, dass Sie abonniert sind.
 +
-Sie können Abonnementdetails auf der Abonnementseite der NetApp Konsole anzeigen. link:https://docs.netapp.com/us-en/bluexp-digital-wallet/task-homepage.html["Erfahren Sie mehr über die Verwaltung von Abonnements mit der NetApp Konsole"^] .
+Sie können Abonnementdetails auf der Abonnementseite der NetApp Console anzeigen. link:https://docs.netapp.com/us-en/bluexp-digital-wallet/task-homepage.html["Erfahren Sie mehr über die Verwaltung von Abonnements mit der NetApp Console"^] .
 
 
 
@@ -98,22 +98,22 @@ Sie können Abonnementdetails auf der Abonnementseite der NetApp Konsole anzeige
 
 Nach Ablauf der Testphase können Sie über Ihren NetApp Vertriebsmitarbeiter eine Lizenz erwerben.
 
-Wenn Sie Ihre eigene Lizenz mitbringen (BYOL), umfasst die Einrichtung den Kauf der Lizenz, das Abrufen der NetApp -Lizenzdatei (NLF) und das Hinzufügen der Lizenz zur NetApp Konsole.
+Wenn Sie Ihre eigene Lizenz mitbringen (BYOL), umfasst die Einrichtung den Kauf der Lizenz, das Abrufen der NetApp -Lizenzdatei (NLF) und das Hinzufügen der Lizenz zur NetApp Console.
 
-*Fügen Sie die Lizenz zur NetApp Konsole hinzu.** Nachdem Sie Ihre NetApp Disaster Recovery-Lizenz von einem NetApp Vertriebsmitarbeiter erworben haben, können Sie die Lizenz in der Konsole verwalten.
+*Fügen Sie die Lizenz zur NetApp Console hinzu. ** Nachdem Sie Ihre NetApp Disaster Recovery -Lizenz von einem NetApp Vertriebsmitarbeiter erworben haben, können Sie die Lizenz in der Konsole verwalten.
 
-https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html["Erfahren Sie mehr über das Hinzufügen von Lizenzen mit der NetApp Konsole"^] .
+https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html["Erfahren Sie mehr über das Hinzufügen von Lizenzen mit der NetApp Console"^] .
 
 
 
 == Aktualisieren Sie Ihre Lizenz, wenn sie abläuft
 
-Wenn sich Ihre Lizenzlaufzeit dem Ablaufdatum nähert oder Ihre lizenzierte Kapazität das Limit erreicht, werden Sie in der NetApp Disaster Recovery-Benutzeroberfläche benachrichtigt.  Sie können Ihre NetApp Disaster Recovery-Lizenz vor Ablauf aktualisieren, sodass Ihr Zugriff auf die gescannten Daten ohne Unterbrechung möglich ist.
+Wenn sich Ihre Lizenzlaufzeit dem Ablaufdatum nähert oder Ihre lizenzierte Kapazität das Limit erreicht, werden Sie in der NetApp Disaster Recovery Benutzeroberfläche benachrichtigt.  Sie können Ihre NetApp Disaster Recovery -Lizenz vor Ablauf aktualisieren, sodass Ihr Zugriff auf die gescannten Daten ohne Unterbrechung möglich ist.
 
 
-TIP: Diese Meldung erscheint auch in der NetApp Konsole und in https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["Benachrichtigungen"] .
+TIP: Diese Meldung erscheint auch in der NetApp Console und in https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["Benachrichtigungen"] .
 
-https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html["Erfahren Sie mehr über die Aktualisierung von Lizenzen mit der NetApp Konsole"^] .
+https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html["Erfahren Sie mehr über die Aktualisierung von Lizenzen mit der NetApp Console"^] .
 
 
 
@@ -122,7 +122,7 @@ https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-li
 Sie können die kostenlose Testversion jederzeit beenden oder warten, bis sie abläuft.
 
 .Schritte
-. Wählen Sie in NetApp Disaster Recovery *Kostenlose Testversion – Details anzeigen* aus.
+. Wählen Sie in NetApp Disaster Recovery*Kostenlose Testversion – Details anzeigen* aus.
 . Wählen Sie in den Dropdown-Details *Kostenlose Testversion beenden* aus.
 +
 image:draas-trial-end3.png["Seite „Kostenlose Testversion beenden“"]

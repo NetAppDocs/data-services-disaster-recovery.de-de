@@ -4,7 +4,7 @@ permalink: use/reports.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp, protection, reports 
 summary: Durch die Überprüfung von Notfallwiederherstellungsberichten können Sie Ihre Notfallwiederherstellungsvorbereitung analysieren.  Vorgefertigte Berichte enthalten eine Zusammenfassung der Failovers und Failbacks, Replikationsdetails für alle Sites und Jobdetails für das vergangene Jahr. 
 ---
-= Erstellen Sie NetApp Disaster Recovery-Berichte
+= Erstellen Sie NetApp Disaster Recovery -Berichte
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,16 +12,16 @@ summary: Durch die Überprüfung von Notfallwiederherstellungsberichten können 
 
 
 [role="lead"]
-Durch die Überprüfung der NetApp Disaster Recovery-Berichte können Sie Ihre Disaster Recovery-Vorbereitung analysieren.  Vorgefertigte Berichte enthalten eine Zusammenfassung der Test-Failover, Replikationsplandetails und Jobdetails für alle Sites innerhalb eines Kontos für die letzten sieben Tage.
+Durch die Überprüfung der NetApp Disaster Recovery -Berichte können Sie Ihre Disaster Recovery-Vorbereitung analysieren.  Vorgefertigte Berichte enthalten eine Zusammenfassung der Test-Failover, Replikationsplandetails und Jobdetails für alle Sites innerhalb eines Kontos für die letzten sieben Tage.
 
 Sie können Berichte im PDF-, HTML- oder JSON-Format herunterladen.
 
 Der Download-Link ist sechs Stunden gültig.
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
-. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie in der linken Navigationsleiste der NetApp Konsole *Replikationspläne* aus.
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie in der linken Navigationsleiste der NetApp Console *Replikationspläne* aus.
 . Wählen Sie *Bericht erstellen*.
 . Wählen Sie den Dateiformattyp und den Zeitraum innerhalb der letzten 7 Tage aus.
 . Wählen Sie *Erstellen*.

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference/evs-deploy-guide-add-vcenters.html 
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter,amazon elastic vmware service 
-summary: Einführung in NetApp Disaster Recovery mit Amazon EVS und Amazon FSxN. Nachdem Sie Sites erstellt haben, fügen Sie jetzt Ihre vCenter-Cluster zu jeder Site in NetApp Disaster Recovery hinzu.  Beim Erstellen der einzelnen Sites haben wir angegeben, um welche Art von Site es sich handelt.  Dadurch wird NetApp Disaster Recovery mitgeteilt, welche Art von Zugriff für die in jedem Site-Typ gehosteten vCenter erforderlich ist.  Einer der Vorteile von Amazon EVS besteht darin, dass es keinen wirklichen Unterschied zwischen einem Amazon EVS vCenter und einem lokalen vCenter gibt.  Beide erfordern dieselben Verbindungs- und Authentifizierungsinformationen. 
+summary: Einführung in NetApp Disaster Recovery mit Amazon EVS und Amazon FSxN. Nachdem Sie die Sites erstellt haben, fügen Sie nun Ihre vCenter-Cluster zu jeder Site in NetApp Disaster Recovery hinzu.  Beim Erstellen der einzelnen Sites haben wir angegeben, um welche Art von Site es sich handelt.  Dadurch wird NetApp Disaster Recovery mitgeteilt, welche Art von Zugriff für die in jedem Site-Typ gehosteten vCenter erforderlich ist.  Einer der Vorteile von Amazon EVS besteht darin, dass es keinen wirklichen Unterschied zwischen einem Amazon EVS vCenter und einem lokalen vCenter gibt.  Beide erfordern dieselben Verbindungs- und Authentifizierungsinformationen. 
 ---
 = Hinzufügen von lokalen und Amazon EVS vCenter-Clustern in NetApp Disaster Recovery
 :allow-uri-read: 
@@ -18,7 +18,7 @@ image:evs-add-vcenter-1.png["vCenter-Option hinzufügen"]
 
 . Wählen Sie im Dialogfeld „vCenter-Server hinzufügen“ die folgenden Informationen aus bzw. geben Sie sie ein:
 +
-.. Der NetApp Konsolenagent, der in Ihrem AWS VPC gehostet wird.
+.. Der NetApp Console , der in Ihrem AWS VPC gehostet wird.
 .. Die IP-Adresse oder der FQDN für das hinzuzufügende vCenter.
 .. Falls abweichend, ändern Sie den Portwert in den TCP-Port, der von Ihrem vCenter-Cluster-Manager verwendet wird.
 .. Der vCenter-Benutzername für das zuvor erstellte Konto, der von NetApp Disaster Recovery zum Verwalten des vCenter verwendet wird.

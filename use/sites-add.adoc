@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/sites-add.html 
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
-summary: Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie in NetApp Disaster Recovery einen primären vCenter-Standort und einen vCenter-Zielstandort für die Notfallwiederherstellung hinzufügen. 
+summary: Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie in NetApp Disaster Recovery einen primären vCenter-Standort und einen vCenter-Ziel-Notfallwiederherstellungsstandort hinzufügen. 
 ---
 = Hinzufügen von vCentern zu einer Site in NetApp Disaster Recovery
 :hardbreaks:
@@ -12,16 +12,16 @@ summary: Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müsse
 
 
 [role="lead"]
-Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie einem Standort einen primären vCenter-Server und in der NetApp Konsole einen vCenter-Zielstandort für die Notfallwiederherstellung hinzufügen.
+Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie einem Standort einen primären vCenter-Server und in der NetApp Console einen vCenter-Zielstandort für die Notfallwiederherstellung hinzufügen.
 
 
-TIP: Stellen Sie sicher, dass sowohl das Quell- als auch das Ziel-vCenter denselben NetApp Konsolenagenten verwenden.
+TIP: Stellen Sie sicher, dass sowohl das Quell- als auch das Ziel-vCenter denselben NetApp Console verwenden.
 
 Nachdem vCenter hinzugefügt wurden, führt NetApp Disaster Recovery eine umfassende Erkennung der vCenter-Umgebungen durch, einschließlich vCenter-Cluster, ESXi-Hosts, Datenspeicher, Speicherbedarf, Details zu virtuellen Maschinen, SnapMirror Replikaten und Netzwerken virtueller Maschinen.
 
-*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator oder Notfallwiederherstellungsadministrator.
+*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator oder Notfallwiederherstellungsadministrator.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
 
 *Über diese Aufgabe*
 
@@ -58,8 +58,8 @@ NOTE: Der Dienst unterstützt selbstsignierte Sicherheitszertifikate oder Zertif
 
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
-. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 +
 Sie landen auf der NetApp Disaster Recovery Dashboard-Seite.  Wenn Sie den Dienst zum ersten Mal starten, müssen Sie vCenter-Informationen hinzufügen.  Später zeigt das Dashboard Daten zu Ihren Sites und Replikationsplänen an.
 
@@ -68,7 +68,7 @@ Sie landen auf der NetApp Disaster Recovery Dashboard-Seite.  Wenn Sie den Diens
 NOTE: Je nach Art der Site, die Sie hinzufügen, werden unterschiedliche Felder angezeigt.
 
 . Wenn bereits einige vCenter-Sites vorhanden sind und Sie weitere hinzufügen möchten, wählen Sie im Menü *Sites* und dann *Hinzufügen* aus.
-. Wählen Sie auf der Seite „Sites“ die Site aus und wählen Sie „vCenter hinzufügen“ aus.
+. Wählen Sie auf der Seite „Sites“ die Site aus und wählen Sie *vCenter hinzufügen*.
 . *Quelle*: Wählen Sie *vCenter-Server ermitteln*, um Informationen zur vCenter-Quellsite einzugeben.
 +
 
@@ -78,7 +78,7 @@ TIP: Wenn bereits einige vCenter-Sites vorhanden sind und Sie weitere hinzufüge
 image:vcenter-add.png["Screenshot des vCenter-Servers hinzufügen"]
 
 +
-** Wählen Sie eine Site aus, wählen Sie den NetApp Console-Agenten aus und geben Sie die vCenter-Anmeldeinformationen ein.
+** Wählen Sie eine Site aus, wählen Sie den NetApp Console Agenten aus und geben Sie die vCenter-Anmeldeinformationen ein.
 ** (Gilt nur für lokale Sites) Aktivieren Sie das Kontrollkästchen, um selbstsignierte Zertifikate für das Quell-vCenter zu akzeptieren.
 +
 
@@ -97,7 +97,7 @@ Als Nächstes fügen Sie ein Ziel-vCenter hinzu.
 .. Wählen Sie die Zielsite und den Standort aus.  Wenn das Ziel die Cloud ist, wählen Sie *AWS*.
 +
 *** (Gilt nur für Cloud-Sites) *API-Token*: Geben Sie das API-Token ein, um den Dienstzugriff für Ihre Organisation zu autorisieren.  Erstellen Sie das API-Token, indem Sie bestimmte Organisations- und Servicerollen angeben.
-*** (Gilt nur für Cloud-Sites) *Lange Organisations-ID*: Geben Sie die eindeutige ID für die Organisation ein.  Sie können diese ID ermitteln, indem Sie im Abschnitt „Konto“ der NetApp Konsole auf den Benutzernamen klicken.
+*** (Gilt nur für Cloud-Sites) *Lange Organisations-ID*: Geben Sie die eindeutige ID für die Organisation ein.  Sie können diese ID ermitteln, indem Sie im Abschnitt „Konto“ der NetApp Console auf den Benutzernamen klicken.
 
 
 .. Wählen Sie *Hinzufügen*.
@@ -139,7 +139,7 @@ Die Verwendung der Subnetzzuordnung ist ein optionaler zweistufiger Prozess:
 
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery-Menü *Sites* aus.
+. Wählen Sie im NetApp Disaster Recovery Menü *Sites* aus.
 . Von den Aktionenimage:icon-vertical-dots.png["Symbol „Aktionen“"] Symbol rechts und wählen Sie *Subnetz hinzufügen*.
 +
 image:dr-sites-subnet-menu.png["Screenshot des Menüs „Subnetz hinzufügen“"]
@@ -177,7 +177,7 @@ Die Verwendung der Subnetzzuordnung ist ein optionaler zweistufiger Prozess:
 
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery-Menü *Replikationspläne* aus.
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 . Wählen Sie *Hinzufügen*, um einen Replikationsplan hinzuzufügen.
 . Füllen Sie die Felder wie gewohnt aus, indem Sie die vCenter-Server hinzufügen, die Ressourcengruppen oder Anwendungen auswählen und die Zuordnungen vervollständigen.
 . Wählen Sie auf der Seite Replikationsplan > Ressourcenzuordnung den Abschnitt *Virtuelle Maschinen* aus.
@@ -203,7 +203,7 @@ Wenn Sie über vCenter aus früheren Versionen verfügen und den Zeitpunkt der E
 Wenn Sie die Erkennung nicht planen möchten, können Sie die Option zur geplanten Erkennung deaktivieren und die Erkennung jederzeit manuell aktualisieren.
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery-Menü *Sites* aus.
+. Wählen Sie im NetApp Disaster Recovery Menü *Sites* aus.
 . Wählen Sie die Site aus, die Sie bearbeiten möchten.
 . Wählen Sie die Aktionenimage:icon-vertical-dots.png["Symbol „Aktionen“"] Symbol rechts und wählen Sie *Bearbeiten*.
 . Bearbeiten Sie auf der Seite „vCenter-Server bearbeiten“ die Felder nach Bedarf.
@@ -221,7 +221,7 @@ image:sites-edit-schedule.png["Screenshot „Erkennungsplan bearbeiten“"]
 Sie können die Erkennung jederzeit manuell aktualisieren.  Dies ist nützlich, wenn Sie VMs hinzugefügt oder entfernt haben und die Informationen in NetApp Disaster Recovery aktualisieren möchten.
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery-Menü *Sites* aus.
+. Wählen Sie im NetApp Disaster Recovery Menü *Sites* aus.
 . Wählen Sie die Site aus, die Sie aktualisieren möchten.
 . Wählen Sie die Aktionenimage:icon-vertical-dots.png["Symbol „Aktionen“"] Symbol rechts und wählen Sie *Aktualisieren*.
 

@@ -20,8 +20,8 @@ Der wichtigste Vorgang, den Sie möglicherweise durchführen müssen, ist der, v
 Failover ist ein manuell initiierter Prozess.
 
 .Schritte zum Zugriff auf den Failover-Vorgang
-. Wählen Sie in der linken Navigationsleiste der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie im NetApp Disaster Recovery-Menü *Replikationspläne* aus.
+. Wählen Sie in der linken Navigationsleiste der NetApp Console *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 
 
 .Schritte zum Durchführen eines Failovers
@@ -48,7 +48,7 @@ image:evs-rp-failover-dialog.png["Dialogfeld „Failover“"]
 Ein Test-Failover ähnelt einem Failover, weist jedoch zwei Unterschiede auf.
 
 * Die Produktionssite ist weiterhin aktiv und alle VMs funktionieren weiterhin wie erwartet.
-* Der NetApp Disaster Recovery-Schutz der Produktions-VMs wird fortgesetzt.
+* Der NetApp Disaster Recovery Schutz der Produktions-VMs wird fortgesetzt.
 
 
 Dies wird durch die Verwendung nativer ONTAP FlexClone -Volumes am Zielstandort erreicht.  Weitere Informationen zum Testfailover finden Sie unterlink:../use/failover.html["Failover von Anwendungen auf einen Remote-Standort | NetApp Dokumentation"] .
@@ -77,7 +77,7 @@ image:evs-test-failover-dialog.png["Dialogfeld „Failover testen“"]
 Konformitätsprüfungen werden standardmäßig alle drei Stunden durchgeführt.  Sie können jederzeit manuell eine Konformitätsprüfung durchführen.
 
 .Schritte
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] neben dem Replikationsplan.
+. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
 . Wählen Sie im Menü „Aktionen“ des Replikationsplans die Option „Konformitätsprüfung ausführen“ aus:
 +
 image:evs-rp-menu-compliance-check.png["Menüoption „Konformitätsprüfung ausführen“"]
@@ -89,7 +89,7 @@ image:evs-rp-menu-compliance-check.png["Menüoption „Konformitätsprüfung aus
 
 == Ressourcen aktualisieren
 
-Jedes Mal, wenn Sie Änderungen an Ihrer virtuellen Infrastruktur vornehmen – beispielsweise VMs hinzufügen oder löschen, Datenspeicher hinzufügen oder löschen oder VMs zwischen Datenspeichern verschieben – müssen Sie eine Aktualisierung der betroffenen vCenter-Cluster im NetApp Disaster Recovery-Dienst durchführen.  Der Dienst führt dies standardmäßig alle 24 Stunden automatisch durch, eine manuelle Aktualisierung stellt jedoch sicher, dass die neuesten Informationen zur virtuellen Infrastruktur verfügbar sind und für den DR-Schutz berücksichtigt werden.
+Jedes Mal, wenn Sie Änderungen an Ihrer virtuellen Infrastruktur vornehmen – beispielsweise VMs hinzufügen oder löschen, Datenspeicher hinzufügen oder löschen oder VMs zwischen Datenspeichern verschieben – müssen Sie eine Aktualisierung der betroffenen vCenter-Cluster im NetApp Disaster Recovery Dienst durchführen.  Der Dienst führt dies standardmäßig alle 24 Stunden automatisch durch, eine manuelle Aktualisierung stellt jedoch sicher, dass die neuesten Informationen zur virtuellen Infrastruktur verfügbar sind und für den DR-Schutz berücksichtigt werden.
 
 Es gibt zwei Fälle, in denen eine Aktualisierung erforderlich ist:
 
@@ -105,7 +105,7 @@ image::evs-rp-menu-refresh-resources.png[Menüoption „Ressourcen aktualisieren
 
 NetApp Disaster Recovery wird zwar in erster Linie für Notfallwiederherstellungsfälle verwendet, kann aber auch einmalige Verschiebungen einer Reihe von VMs vom Quellstandort zum Zielstandort ermöglichen.  Dies könnte für ein konzertiertes Migrationsprojekt in die Cloud oder zur Katastrophenvermeidung genutzt werden – etwa bei schlechtem Wetter, politischen Unruhen oder anderen potenziellen vorübergehenden Katastrophenereignissen.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] neben dem Replikationsplan.
+. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
 . Um die VMs in einem Replikationsplan in den Amazon EVS-Zielcluster zu verschieben, wählen Sie im Aktionsmenü des Replikationsplans die Option *Migrieren* aus:
 +
 image::evs-rp-menu-migrate.png[Menüoption „Migrieren“]
@@ -117,9 +117,9 @@ image::evs-rp-menu-migrate.png[Menüoption „Migrieren“]
 
 == Jetzt Schnappschuss machen
 
-Sie können jederzeit sofort einen Snapshot des Replikationsplans erstellen.  Dieser Snapshot ist in den Überlegungen zur NetApp Notfallwiederherstellung enthalten, die durch die Snapshot-Aufbewahrungsanzahl des Replikationsplans festgelegt werden.
+Sie können jederzeit sofort einen Snapshot des Replikationsplans erstellen.  Dieser Snapshot ist in den Überlegungen zur NetApp Disaster Recovery enthalten, die durch die Snapshot-Aufbewahrungsanzahl des Replikationsplans festgelegt werden.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] neben dem Replikationsplan.
+. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
 . Um sofort einen Snapshot der Ressourcen des Replikationsplans zu erstellen, wählen Sie im Aktionsmenü des Replikationsplans die Option *Jetzt Snapshot erstellen* aus:
 +
 image::evs-rp-menu-take-snapshot-now.png[Menüoption „Jetzt Schnappschuss machen“]
@@ -148,7 +148,7 @@ image::evs-rp-menu-disable-enable.png[Menüoption „Deaktivieren/Aktivieren“]
 
 Möglicherweise möchten Sie ältere Snapshots bereinigen, die auf den Quell- und Zielsites aufbewahrt wurden.  Dies kann passieren, wenn die Snapshot-Aufbewahrungsanzahl des Replikationsplans geändert wird.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] neben dem Replikationsplan.
+. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
 . Um diese älteren Snapshots manuell zu entfernen, wählen Sie im Menü „Aktionen“ des Replikationsplans die Option „Alte Snapshots bereinigen“ aus.
 +
 image::evs-rp-menu-cleanup-old-snapshots.png[Menüoption „Alte Snapshots bereinigen“]
@@ -161,7 +161,7 @@ image::evs-rp-menu-cleanup-old-snapshots.png[Menüoption „Alte Snapshots berei
 
 Da der Dienst ONTAP -Volume-Snapshots orchestriert, kann ein ONTAP Speicheradministrator Snapshots direkt mithilfe von ONTAP System Manager, der ONTAP CLI oder den ONTAP REST APIs löschen, ohne dass der Dienst davon Kenntnis hat.  Der Dienst löscht automatisch alle 24 Stunden alle Snapshots auf der Quelle, die sich nicht auf dem Zielcluster befinden.  Sie können dies jedoch auf Anfrage durchführen.  Mit dieser Funktion können Sie sicherstellen, dass die Snapshots auf allen Sites konsistent sind.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] neben dem Replikationsplan.
+. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
 . Um Snapshots aus dem Quellcluster zu löschen, die im Zielcluster nicht vorhanden sind, wählen Sie im Menü „Aktionen“ des Replikationsplans die Option „Snapshots abgleichen“ aus.
 +
 image::evs-rp-menu-reconcile-snapshots.png[Menüoption „Snapshots abgleichen“]
@@ -174,7 +174,7 @@ image::evs-rp-menu-reconcile-snapshots.png[Menüoption „Snapshots abgleichen�
 
 Wenn der Replikationsplan nicht mehr benötigt wird, können Sie ihn löschen.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] neben dem Replikationsplan.
+. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
 . Um den Replikationsplan zu löschen, wählen Sie *Löschen* aus dem Kontextmenü des Replikationsplans.
 +
 image::evs-rp-menu-delete.png[Menüoption „Löschen“]
@@ -187,7 +187,7 @@ image::evs-rp-menu-delete.png[Menüoption „Löschen“]
 
 Zwei Vorgänge werden automatisch und regelmäßig durchgeführt: Test-Failover und Konformitätsprüfungen.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] neben dem Replikationsplan.
+. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
 . Um diese Zeitpläne für einen dieser beiden Vorgänge zu ändern, wählen Sie *Zeitpläne bearbeiten* für den Replikationsplan aus.
 +
 image::evs-rp-menu-edit-schedules.png[Menüoption „Zeitpläne bearbeiten“]
@@ -211,14 +211,14 @@ image::evs-rp-edit-compliance-check-schedule.png[Zeitplan für die Konformitäts
 Test-Failover werden standardmäßig manuell ausgeführt.  Sie können automatische Test-Failover planen, um sicherzustellen, dass Ihre Replikationspläne wie erwartet funktionieren.  Weitere Informationen zum Test-Failover-Prozess finden Sie unterlink:../use/failover.html["Testen des Failover-Prozesses"] .
 
 .Schritte zum Planen von Test-Failovern
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] neben dem Replikationsplan.
+. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
 . Wählen Sie *Failover ausführen*.
 . Aktivieren Sie das Kontrollkästchen *Test-Failover nach Zeitplan ausführen*.
 . (Optional) Aktivieren Sie *On-Demand-Snapshot für geplantes Test-Failover verwenden*.
 . Wählen Sie im Dropdown-Menü „Wiederholen“ einen Intervalltyp aus.
 . Wählen Sie aus, wann das Test-Failover durchgeführt werden soll
 +
-.. Wöchentlich: Wählen Sie den Wochentag aus
+.. Wöchentlich: Wählen Sie den Wochentag
 .. Monatlich: Wählen Sie den Tag des Monats
 
 

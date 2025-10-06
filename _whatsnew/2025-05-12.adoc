@@ -28,7 +28,7 @@ Weitere Informationen zum Einbinden der Subnetzzuordnung in Ihre Sites finden Si
 
 === Skip-Schutz
 
-Sie können jetzt den Schutz überspringen, sodass der Dienst nach einem Failover des Replikationsplans nicht automatisch eine umgekehrte Schutzbeziehung erstellt.  Dies ist nützlich, wenn Sie zusätzliche Vorgänge auf der wiederhergestellten Site durchführen möchten, bevor Sie sie innerhalb von NetApp Disaster Recovery wieder online schalten.
+Sie können jetzt den Schutz überspringen, sodass der Dienst nach einem Failover des Replikationsplans nicht automatisch eine umgekehrte Schutzbeziehung erstellt.  Dies ist nützlich, wenn Sie zusätzliche Vorgänge auf der wiederhergestellten Site durchführen möchten, bevor Sie sie in NetApp Disaster Recovery wieder online schalten.
 
 Wenn Sie ein Failover initiieren, erstellt der Dienst standardmäßig automatisch eine umgekehrte Schutzbeziehung für jedes Volume im Replikationsplan, sofern die ursprüngliche Quellsite online ist.  Dies bedeutet, dass der Dienst eine SnapMirror Beziehung von der Zielsite zurück zur Quellsite erstellt.  Der Dienst kehrt die SnapMirror -Beziehung auch automatisch um, wenn Sie ein Failback initiieren.
 

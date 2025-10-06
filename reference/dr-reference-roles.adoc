@@ -22,9 +22,9 @@ Der Dienst verwendet die folgenden Rollen, die spezifisch für NetApp Disaster R
 * *Disaster Recovery Viewer*: Informationen in NetApp Disaster Recovery anzeigen, aber keine Aktionen ausführen.
 
 
-Diese Rollen sind spezifisch für NetApp Disaster Recovery und nicht identisch mit den Plattformrollen, die in der NetApp -Konsole verwendet werden.  Einzelheiten zu allen NetApp Console-Plattformrollen finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["die Dokumentation zur Einrichtung und Administration der NetApp -Konsole"^] .
+Diese Rollen sind spezifisch für NetApp Disaster Recovery und nicht identisch mit den Plattformrollen, die in der NetApp Console verwendet werden.  Einzelheiten zu allen NetApp Console Plattformrollen finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["die Dokumentation zur Einrichtung und Administration der NetApp Console"^] .
 
-Die folgende Tabelle zeigt die Aktionen, die jede NetApp Disaster Recovery-Rolle ausführen kann.
+Die folgende Tabelle zeigt die Aktionen, die jede NetApp Disaster Recovery -Rolle ausführen kann.
 
 [cols="30,20a,20a,20a,20a"]
 |===

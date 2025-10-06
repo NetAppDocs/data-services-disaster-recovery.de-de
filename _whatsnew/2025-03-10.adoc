@@ -6,15 +6,15 @@
 
 === Intelligente Proxy-Unterstützung
 
-Der NetApp Console-Agent unterstützt intelligente Proxys.  Intelligent Proxy ist eine einfache, sichere und effiziente Möglichkeit, Ihr lokales System mit NetApp Disaster Recovery zu verbinden.  Es bietet eine sichere Verbindung zwischen Ihrem System und NetApp Disaster Recovery, ohne dass ein VPN oder direkter Internetzugang erforderlich ist.  Diese optimierte Proxy-Implementierung entlastet den API-Verkehr innerhalb des lokalen Netzwerks.
+Der NetApp Console Agent unterstützt intelligente Proxys.  Intelligent Proxy ist eine einfache, sichere und effiziente Möglichkeit, Ihr lokales System mit NetApp Disaster Recovery zu verbinden.  Es bietet eine sichere Verbindung zwischen Ihrem System und NetApp Disaster Recovery, ohne dass ein VPN oder direkter Internetzugang erforderlich ist.  Diese optimierte Proxy-Implementierung entlastet den API-Verkehr innerhalb des lokalen Netzwerks.
 
 Wenn ein Proxy konfiguriert ist, versucht NetApp Disaster Recovery, direkt mit VMware oder ONTAP zu kommunizieren und verwendet den konfigurierten Proxy, wenn die direkte Kommunikation fehlschlägt.
 
-Die Implementierung des NetApp Disaster Recovery-Proxys erfordert eine Kommunikation über Port 443 zwischen dem Konsolenagenten und allen vCenter-Servern und ONTAP Arrays unter Verwendung eines HTTPS-Protokolls.  Der NetApp Disaster Recovery-Agent innerhalb des Konsolen-Agenten kommuniziert bei der Durchführung von Aktionen direkt mit VMware vSphere, dem VC oder ONTAP .
+Die Implementierung des NetApp Disaster Recovery -Proxys erfordert eine Kommunikation über Port 443 zwischen dem Konsolenagenten und allen vCenter-Servern und ONTAP Arrays unter Verwendung eines HTTPS-Protokolls.  Der NetApp Disaster Recovery -Agent innerhalb des Konsolen-Agenten kommuniziert bei der Durchführung von Aktionen direkt mit VMware vSphere, dem VC oder ONTAP .
 
 Weitere Informationen zum intelligenten Proxy für NetApp Disaster Recovery finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-setup.html["Richten Sie Ihre Infrastruktur für NetApp Disaster Recovery ein"] .
 
-Weitere Informationen zum Einrichten eines allgemeinen Proxys in der NetApp Konsole finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["Konfigurieren des Konsolenagenten zur Verwendung eines Proxyservers"^] .
+Weitere Informationen zum Einrichten eines allgemeinen Proxys in der NetApp Console finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["Konfigurieren des Konsolenagenten zur Verwendung eines Proxyservers"^] .
 
 
 

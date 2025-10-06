@@ -14,9 +14,9 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 [role="lead"]
 Führen Sie im Katastrophenfall ein Failover Ihres primären VMware-Standorts vor Ort auf einen anderen VMware-Standort vor Ort oder auf VMware Cloud auf AWS durch.  Sie können den Failover-Prozess testen, um sicherzustellen, dass er bei Bedarf erfolgreich ist.
 
-*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster-Recovery-Administrator oder Disaster-Recovery-Failover-Administratorrolle.
+*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster-Recovery-Administrator oder Disaster-Recovery-Failover-Administratorrolle.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
 
 *Über diese Aufgabe*
 
@@ -58,11 +58,11 @@ Für ein Test-Failover führt Disaster Recovery die folgenden Vorgänge aus:
 
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
-. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie im NetApp Disaster Recovery-Menü *Replikationspläne* aus.
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] und wählen Sie *Failover testen*.
+. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failover testen*.
 . Geben Sie auf der Seite „Testfailover“ „Testfailover“ ein und wählen Sie *Testfailover* aus.
 . Nachdem der Test abgeschlossen ist, bereinigen Sie die Testumgebung.
 
@@ -74,9 +74,9 @@ Für ein Test-Failover führt Disaster Recovery die folgenden Vorgänge aus:
 Nachdem der Failover-Test abgeschlossen ist, sollten Sie die Testumgebung bereinigen.  Dieser Prozess entfernt die temporären VMs vom Teststandort, den FlexClones und den temporären Datenspeichern.
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery-Menü *Replikationspläne* aus.
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] und wählen Sie *Failover-Test bereinigen*.
+. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failover-Test bereinigen*.
 . Geben Sie auf der Seite „Failover testen“ „Failover bereinigen“ ein und wählen Sie *Failovertest bereinigen* aus.
 
 
@@ -105,9 +105,9 @@ Der Failover-Prozess umfasst die folgenden Vorgänge:
 TIP: Nachdem das Failover gestartet wurde, können Sie die wiederhergestellten VMs im vCenter der Disaster-Recovery-Site sehen (virtuelle Maschinen, Netzwerke und Datenspeicher).  Standardmäßig werden die virtuellen Maschinen im Workload-Ordner wiederhergestellt.
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery-Menü *Replikationspläne* aus.
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] und wählen Sie *Failover*.
+. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failover*.
 +
 image:dr-plan-failover3.png["Failover-Seite"]
 
@@ -116,7 +116,7 @@ image:dr-plan-failover3.png["Failover-Seite"]
 Vor dem Failover wird ein Snapshot der aktuellen Quelle erstellt und zum aktuellen Ziel repliziert.
 
 . Wählen Sie optional *Failover erzwingen* aus, wenn das Failover auch dann erfolgen soll, wenn ein Fehler erkannt wird, der das Failover normalerweise verhindern würde.
-. Wählen Sie optional *Schutz überspringen* aus, wenn der Dienst nach einem Failover des Replikationsplans nicht automatisch eine umgekehrte SnapMirror -Schutzbeziehung erstellen soll.  Dies ist nützlich, wenn Sie zusätzliche Vorgänge auf der wiederhergestellten Site durchführen möchten, bevor Sie sie innerhalb von NetApp Disaster Recovery wieder online schalten.
+. Wählen Sie optional *Schutz überspringen* aus, wenn der Dienst nach einem Failover des Replikationsplans nicht automatisch eine umgekehrte SnapMirror -Schutzbeziehung erstellen soll.  Dies ist nützlich, wenn Sie zusätzliche Vorgänge auf der wiederhergestellten Site durchführen möchten, bevor Sie sie in NetApp Disaster Recovery wieder online schalten.
 +
 
 TIP: Sie können einen umgekehrten Schutz einrichten, indem Sie im Menü „Aktionen“ des Replikationsplans die Option „Ressourcen schützen“ auswählen.  Dadurch wird versucht, für jedes Volume im Plan eine umgekehrte Replikationsbeziehung zu erstellen.  Sie können diesen Job wiederholt ausführen, bis der Schutz wiederhergestellt ist.  Wenn der Schutz wiederhergestellt ist, können Sie auf die übliche Weise ein Failback einleiten.

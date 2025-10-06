@@ -21,7 +21,7 @@ Sie müssen vier primäre Arten von Informationen zuordnen:
 
 Jede VM benötigt die ersten drei Arten von Informationen.  Für jeden Datenspeicher, der zu schützende VMs hostet, ist eine Datenspeicherzuordnung erforderlich.
 
-* Die Abschnitte mit dem Vorsichtssymbol (image:evs-caution-icon.png["25,25"] ) erfordern, dass Sie Zuordnungsinformationen angeben.
+* Die Abschnitte mit dem Vorsichtssymbol (image:evs-caution-icon.png["25,25"] ) erfordern die Angabe von Zuordnungsinformationen.
 * Der mit dem Häkchensymbol (image:evs-check-icon.png["25,25"] ) wurden zugeordnet oder verfügen über Standardzuordnungen.  Überprüfen Sie sie, um sicherzustellen, dass die aktuelle Konfiguration Ihren Anforderungen entspricht.
 
 
@@ -29,7 +29,7 @@ Jede VM benötigt die ersten drei Arten von Informationen.  Für jeden Datenspei
 . Fahren Sie auf der Seite *Replikationsplan* mit dem Abschnitt *Ressourcenzuordnung* fort.
 . Überprüfen Sie die Informationen auf der Seite *Ressourcenzuordnung*, die geöffnet wird.
 +
-image:evs-create-rp-wiz-c0.png["Replikationsplan erstellen, Seite „Ressourcenzuordnung“"]
+image:evs-create-rp-wiz-c0.png["Replikationsplan erstellen, Seite zur Ressourcenzuordnung"]
 
 . Um die einzelnen Kategorien der erforderlichen Zuordnungen zu öffnen, wählen Sie den Abwärtspfeil (*v*) neben dem Abschnitt aus.
 
@@ -63,7 +63,7 @@ image:evs-create-rp-wiz-c-compute-resources-1-4.png["Replikationsplan erstellen,
 Jede VM kann über eine oder mehrere virtuelle Netzwerkkarten verfügen, die mit virtuellen Netzwerken innerhalb der vCenter-Netzwerkinfrastruktur verbunden sind.  Um sicherzustellen, dass jede VM beim Neustart am DR-Standort ordnungsgemäß mit den gewünschten Netzwerken verbunden ist, ermitteln Sie, mit welchen virtuellen Netzwerken am DR-Standort diese VMs verbunden werden sollen.  Ordnen Sie dazu jedes virtuelle Netzwerk am lokalen Standort einem zugehörigen Netzwerk am DR-Standort zu.
 
 .Wählen Sie aus, welches virtuelle Zielnetzwerk den einzelnen virtuellen Quellnetzwerken zugeordnet werden soll
-. Wählen Sie das Zielsegment aus der Dropdownliste aus.
+. Wählen Sie das Zielsegment aus der Dropdown-Liste aus.
 . Wiederholen Sie den vorherigen Schritt für jedes aufgeführte virtuelle Quellnetzwerk.
 +
 image:evs-create-rp-wiz-c-network-resources-1-2.png["Erstellen eines Replikationsplans und von Netzwerkressourcen"]
@@ -85,7 +85,7 @@ Standardmäßig verwendet NetApp Disaster Recovery für jede VM dieselben Einste
 Unterstützte IP-Adresstypen sind statisch und DHCP.  Für statische IP-Adressen stehen Ihnen die folgenden Ziel-IP-Einstellungen zur Verfügung:
 
 * *Gleich wie Quelle*: Wie der Name schon sagt, verwendet der Dienst auf der Ziel-VM dieselbe IP-Adresse, die auf der VM am Quellstandort verwendet wurde.  Dazu müssen Sie die im vorherigen Schritt zugeordneten virtuellen Netzwerke für dieselben Subnetzeinstellungen konfigurieren.
-* *Unterscheidet sich von der Quelle*: Der Dienst stellt für jede VM eine Reihe von IP-Adressfeldern bereit, die für das entsprechende Subnetz konfiguriert werden müssen, das im virtuellen Zielnetzwerk verwendet wird, das Sie im vorherigen Abschnitt zugeordnet haben.  Für jede VM müssen Sie eine IP-Adresse, eine Subnetzmaske, DNS und Standard-Gateway-Werte angeben.  Verwenden Sie optional für alle VMs die gleichen Einstellungen für Subnetzmaske, DNS und Gateway, um den Prozess zu vereinfachen, wenn alle VMs an dasselbe Subnetz angeschlossen sind.
+* *Unterscheidet sich von der Quelle*: Der Dienst stellt für jede VM eine Reihe von IP-Adressfeldern bereit, die für das entsprechende Subnetz konfiguriert werden müssen, das im virtuellen Zielnetzwerk verwendet wird, das Sie im vorherigen Abschnitt zugeordnet haben.  Für jede VM müssen Sie eine IP-Adresse, eine Subnetzmaske, DNS und Standard-Gateway-Werte angeben.  Verwenden Sie optional für alle VMs die gleichen Subnetzmasken-, DNS- und Gateway-Einstellungen, um den Prozess zu vereinfachen, wenn alle VMs an dasselbe Subnetz angeschlossen sind.
 * *Subnetzzuordnung*: Diese Option konfiguriert die IP-Adresse jeder VM basierend auf der CIDR-Konfiguration des virtuellen Zielnetzwerks neu.  Um diese Funktion zu verwenden, stellen Sie sicher, dass die virtuellen Netzwerke jedes vCenters über eine definierte CIDR-Einstellung innerhalb des Dienstes verfügen, wie in den vCenter-Informationen auf der Sites-Seite geändert.
 
 

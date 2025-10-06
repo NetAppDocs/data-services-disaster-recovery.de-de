@@ -4,7 +4,7 @@ permalink: release-notes/dr-limitations.html
 keywords: disaster recovery, bluexp 
 summary: Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, die von dieser Version des Dienstes nicht unterstützt werden oder nicht ordnungsgemäß mit ihm zusammenarbeiten. 
 ---
-= Einschränkungen bei der NetApp Notfallwiederherstellung
+= Einschränkungen bei der NetApp Disaster Recovery
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -22,15 +22,15 @@ Starten Sie nach Abschluss eines Failovers die Erkennung im Quell-vCenter nicht 
 
 
 
-== Die NetApp Konsole erkennt Amazon FSx for NetApp ONTAP möglicherweise nicht
+== Die NetApp Console erkennt Amazon FSx for NetApp ONTAP möglicherweise nicht
 
-Manchmal erkennt die NetApp Konsole Amazon FSx for NetApp ONTAP -Cluster nicht.  Dies kann daran liegen, dass die FSx-Anmeldeinformationen nicht korrekt waren.
+Manchmal erkennt die NetApp Console Amazon FSx for NetApp ONTAP -Cluster nicht.  Dies kann daran liegen, dass die FSx-Anmeldeinformationen nicht korrekt waren.
 
-*Problemumgehung*: Fügen Sie den Amazon FSx for NetApp ONTAP -Cluster in der NetApp Konsole hinzu und aktualisieren Sie den Cluster regelmäßig, um alle Änderungen anzuzeigen.
+*Problemumgehung*: Fügen Sie den Amazon FSx for NetApp ONTAP -Cluster in der NetApp Console hinzu und aktualisieren Sie den Cluster regelmäßig, um alle Änderungen anzuzeigen.
 
 Wenn Sie den ONTAP FSx-Cluster aus NetApp Disaster Recovery entfernen müssen, führen Sie die folgenden Schritte aus:
 
-. Verwenden Sie im NetApp Console-Agent die Konnektivitätsoptionen Ihres Cloud-Anbieters, stellen Sie eine Verbindung zur Linux-VM her, auf der der Console-Agent ausgeführt wird, und starten Sie den Dienst "occm" mithilfe des `docker restart occm` Befehl.
+. Verwenden Sie im NetApp Console Agent die Konnektivitätsoptionen Ihres Cloud-Anbieters, stellen Sie eine Verbindung zur Linux-VM her, auf der der Console-Agent ausgeführt wird, und starten Sie den Dienst "occm" mithilfe des `docker restart occm` Befehl.
 
 
 Siehe https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["Vorhandene Konsolenagenten verwalten"^] .
@@ -39,7 +39,7 @@ Siehe https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.
 +
 Siehe https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started-step1.html["Erstellen Sie ein Amazon FSx for NetApp ONTAP -Dateisystem"^] .
 
-. Wählen Sie in NetApp Disaster Recovery *Sites* aus und wählen Sie in der vCenter-Zeile die Option *Aktionen*image:../use/icon-vertical-dots.png["Symbol für das Aktionsmenü in NetApp Disaster Recovery"] , und wählen Sie im Menü „Aktionen“ die Option „Aktualisieren“ aus, um die FSx-Erkennung in NetApp Disaster Recovery zu aktualisieren.
+. Wählen Sie in NetApp Disaster Recovery*Sites* aus und wählen Sie in der vCenter-Zeile die Option *Actions*image:../use/icon-vertical-dots.png["Symbol für das Aktionsmenü in NetApp Disaster Recovery"] , und wählen Sie im Menü „Aktionen“ die Option „Aktualisieren“ aus, um die FSx-Erkennung in NetApp Disaster Recovery zu aktualisieren.
 +
 Dadurch werden der Datenspeicher, seine virtuellen Maschinen und seine Zielbeziehung neu erkannt.
 

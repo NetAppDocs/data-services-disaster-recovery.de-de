@@ -21,9 +21,9 @@ TIP: Nachdem Sie den Replikationsplan erstellt, die Wiederholung im Assistenten 
 Bevor Sie die Migration starten, sollten Sie einen Replikationsplan erstellt und die Migration der Apps ausgewählt haben.  Anschließend wird im Menü „Aktionen“ die Option „Migrieren“ angezeigt.
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
-. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 . Wählen Sie im Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] und wählen Sie *Migrieren*.
+. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Migrieren*.
 

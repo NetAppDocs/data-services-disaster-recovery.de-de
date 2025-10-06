@@ -14,9 +14,9 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 [role="lead"]
 Nachdem Sie vCenter-Sites hinzugefügt haben, können Sie Ressourcengruppen erstellen, um VMs nach VM oder Datenspeicher als einzelne Einheit zu schützen.  Mithilfe von Ressourcengruppen können Sie eine Reihe abhängiger VMs in logischen Gruppen organisieren, die Ihren Anforderungen entsprechen.  Sie können beispielsweise VMs gruppieren, die einer Anwendung zugeordnet sind, oder Sie können Anwendungen gruppieren, die ähnliche Ebenen haben.  Ein weiteres Beispiel: Gruppen könnten verzögerte Startaufträge enthalten, die bei der Wiederherstellung ausgeführt werden können.
 
-*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Notfallwiederherstellungsadministrator oder Notfallwiederherstellungsanwendungsadministrator.
+*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Notfallwiederherstellungsadministrator oder Notfallwiederherstellungsanwendungsadministrator.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
 
 *Über diese Aufgabe*
 
@@ -55,7 +55,7 @@ Wenn VMs in der Ressourcengruppe auf verschiedenen Datenspeichern gehostet werde
 
 
 | Mehrere Datenspeicher – FlexVol -Volumes in *mehreren SVMs*  a| 
-* ONTAP -API: `cg_start` .  Stellt alle Volumes still, damit Snapshots erstellt werden können, und initiiert Snapshots auf Volume-Ebene aller Ressourcengruppen-Volumes.
+* ONTAP -API: `cg_start` .  Stellt alle Volumes still, damit Snapshots erstellt werden können, und initiiert volumebezogene Snapshots aller Ressourcengruppen-Volumes.
 * ONTAP -API: `cg_end` .  Setzt die E/A auf allen Volumes fort und aktiviert die Volume-bezogene SnapMirror Replikation, nachdem Snapshots erstellt wurden.
 
 
@@ -77,9 +77,9 @@ Berücksichtigen Sie beim Erstellen von Ressourcengruppen die folgenden Punkte:
 *BEST PRACTICE*: Organisieren Sie Ihre VMs, bevor Sie NetApp Disaster Recovery bereitstellen, um die Ausbreitung von Datenspeichern zu minimieren.  Platzieren Sie VMs, die Schutz benötigen, auf einer Teilmenge von Datenspeichern und platzieren Sie VMs, die nicht geschützt werden sollen, auf einer anderen Teilmenge von Datenspeichern.  Stellen Sie sicher, dass die VMs auf einem bestimmten Datenspeicher nicht durch unterschiedliche Replikationspläne geschützt sind.
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
-. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie im NetApp Disaster Recovery-Menü *Ressourcengruppen* aus.
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im NetApp Disaster Recovery Menü *Ressourcengruppen* aus.
 . Wählen Sie *Hinzufügen*.
 . Geben Sie einen Namen für die Ressourcengruppe ein.
 . Wählen Sie den Quell-vCenter-Cluster aus, in dem sich die VMs befinden.

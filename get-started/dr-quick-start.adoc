@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: get-started/dr-quick-start.html 
 keywords: how to get started with bluexp disaster recovery, disaster recovery quick start, failover, failback 
-summary: Beginnen Sie in wenigen Schritten mit dem NetApp Disaster Recovery-Service. 
+summary: Beginnen Sie in wenigen Schritten mit dem NetApp Disaster Recovery -Service. 
 ---
 = Schnellstart für NetApp Disaster Recovery
 :hardbreaks:
@@ -29,7 +29,7 @@ link:../get-started/dr-prerequisites.html["Stellen Sie sicher, dass Ihr System d
 Nachdem Sie den Dienst eingerichtet haben, können Sie als Nächstes Folgendes tun.
 
 [role="quick-margin-list"]
-* link:../use/sites-add.html["Fügen Sie Ihre vCenter-Sites zu NetApp Disaster Recovery hinzu"] .
+* link:../use/sites-add.html["Fügen Sie Ihre vCenter-Sites zu NetApp Disaster Recovery"] .
 * link:../use/manage.html#manage-resource-groups["Erstellen Sie Ihre erste Ressourcengruppe"] .
 * link:../use/drplan-create.html["Erstellen Sie Ihren ersten Replikationsplan"] .
 * link:../use/replicate.html["Replizieren von Anwendungen auf eine andere Site"] .

@@ -12,11 +12,11 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Nachdem Sie vCenter-Sites hinzugefügt haben, können Sie einen Notfallwiederherstellungs- oder _Replikationsplan_ erstellen.  Replikationspläne verwalten den Datenschutz der VMware-Infrastruktur.  Wählen Sie die Quell- und Ziel-vCenter aus, wählen Sie die Ressourcengruppen aus und gruppieren Sie, wie Anwendungen wiederhergestellt und eingeschaltet werden sollen.  Sie können beispielsweise virtuelle Maschinen (VMs) gruppieren, die einer Anwendung zugeordnet sind, oder Sie können Anwendungen gruppieren, die ähnliche Ebenen haben.  Solche Pläne werden manchmal als _Blaupausen_ bezeichnet.
+Nachdem Sie vCenter-Sites hinzugefügt haben, können Sie einen Notfallwiederherstellungs- oder _Replikationsplan_ erstellen.  Replikationspläne verwalten den Datenschutz der VMware-Infrastruktur.  Wählen Sie die Quell- und Ziel-vCenter aus, wählen Sie die Ressourcengruppen aus und gruppieren Sie, wie Anwendungen wiederhergestellt und eingeschaltet werden sollen.  Sie können beispielsweise virtuelle Maschinen (VMs) gruppieren, die einer Anwendung zugeordnet sind, oder Sie können Anwendungen gruppieren, die ähnliche Ebenen haben.  Solche Pläne werden manchmal als „Blaupausen“ bezeichnet.
 
-*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
+*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
 
 *Über diese Aufgabe*
 
@@ -83,9 +83,9 @@ Beim Erstellen des Plans sollten Sie die folgenden Richtlinien befolgen:
 Wählen Sie zuerst das Quell-vCenter und dann das Ziel-vCenter aus.
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
-. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie im NetApp Disaster Recovery-Menü *Replikationspläne* und dann *Hinzufügen*.  Oder wählen Sie im Dashboard „Replikationsplan hinzufügen“ aus, wenn Sie den Dienst gerade erst nutzen.
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* und dann *Hinzufügen*.  Oder wählen Sie im Dashboard „Replikationsplan hinzufügen“ aus, wenn Sie den Dienst gerade erst nutzen.
 +
 image:dr-plan-create-name2.png["Screenshot der Seite „Replikationsplan hinzufügen > Plan hinzufügen“"]
 
@@ -229,7 +229,7 @@ Sie können jede VM in der durch den Replikationsplan geschützten Ressourcengru
 
 Wählen Sie auf der Registerkarte „Failover-Zuordnungen“ den Abwärtspfeil neben „Virtuelle Maschinen“ aus.
 
-Der Standardwert für die VMs ist „Mapping“.  Die Standardzuordnung verwendet dieselben Einstellungen, die die VMs in der Produktionsumgebung verwenden (dieselbe IP-Adresse, Subnetzmaske und dasselbe Gateway).
+Der Standardwert für die VMs ist „Mapped“.  Die Standardzuordnung verwendet dieselben Einstellungen, die die VMs in der Produktionsumgebung verwenden (dieselbe IP-Adresse, Subnetzmaske und dasselbe Gateway).
 
 Wenn Sie Änderungen an den Standardeinstellungen vornehmen, müssen Sie das Feld „Ziel-IP“ in „Unterscheidet sich von der Quelle“ ändern.
 
@@ -268,7 +268,7 @@ Um die Skriptausführung mit dem VM-Gastbetriebssystem zu ermöglichen, müssen 
 ** Zum Ausführen des Skripts müssen entsprechende Benutzeranmeldeinformationen mit ausreichenden Gastbetriebssystemberechtigungen bereitgestellt werden.
 ** Geben Sie optional einen Timeout-Wert in Sekunden für das Skript an.
 +
-*VMs mit Microsoft Windows*: können entweder Windows-Batch-Skripts (.bat) oder PowerShell-Skripts (ps1) ausführen.  Windows-Skripte können Befehlszeilenargumente verwenden.  Formatieren Sie jedes Argument in der `arg_name$value` Format, wobei `arg_name` ist der Name des Arguments und `$value` ist der Wert des Arguments und ein Semikolon trennt jedes `argument$value` Paar.
+*VMs mit Microsoft Windows*: können entweder Windows-Batch-Skripts (.bat) oder PowerShell-Skripts (ps1) ausführen.  Windows-Skripte können Befehlszeilenargumente verwenden.  Formatieren Sie jedes Argument im `arg_name$value` Format, wobei `arg_name` ist der Name des Arguments und `$value` ist der Wert des Arguments und ein Semikolon trennt jedes `argument$value` Paar.
 
 +
 *VMs mit Linux*: können jedes Shell-Skript (.sh) ausführen, das von der von der VM verwendeten Linux-Version unterstützt wird.  Linux-Skripte können Befehlszeilenargumente verwenden.  Geben Sie Argumente in einer durch Semikolons getrennten Werteliste an.  Benannte Argumente werden nicht unterstützt.  Fügen Sie jedes Argument zum `Arg[x]` Argumentliste und verweisen Sie auf jeden Wert mit einem Zeiger in die `Arg[x]` Array, zum Beispiel `value1;value2;value3` .
@@ -450,7 +450,7 @@ Bei einem Test-Failover wird ein FlexClone -Volume erstellt, der Datenspeicher w
 Basierend auf dem Zeitplan wird der Failover-Test ausgeführt und stellt sicher, dass die Workloads an das im Replikationsplan angegebene Ziel verschoben werden.
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery-Menü *Replikationspläne* aus.
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 +
 image:dr-plan-list.png["Screenshot der Liste der Replikationspläne"]
 

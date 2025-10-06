@@ -17,17 +17,17 @@ Mit NetApp Disaster Recovery können Sie VMware-Apps auf Ihrem Quellstandort mit
 
 TIP: Nachdem Sie den Notfallwiederherstellungsplan erstellt, die Wiederholung im Assistenten identifiziert und eine Replikation an einen Notfallwiederherstellungsstandort initiiert haben, überprüft NetApp Disaster Recovery alle 30 Minuten, ob die Replikation tatsächlich gemäß Plan erfolgt. Sie können den Fortschritt auf der Seite „Job Monitor“ überwachen.
 
-*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster-Recovery-Administrator oder Disaster-Recovery-Failover-Administratorrolle.
+*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster-Recovery-Administrator oder Disaster-Recovery-Failover-Administratorrolle.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
 
 .Bevor Sie beginnen
 Bevor Sie die Replikation starten, sollten Sie einen Replikationsplan erstellt und die Replikation der Apps ausgewählt haben.  Anschließend wird im Menü „Aktionen“ die Option „Replizieren“ angezeigt.
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
-. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 . Wählen Sie im Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] und wählen Sie *Replizieren*.
+. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Replizieren*.
 

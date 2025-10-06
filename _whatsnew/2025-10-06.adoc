@@ -12,16 +12,16 @@ BlueXP disaster recovery wurde in NetApp Disaster Recovery umbenannt.
 
 === BlueXP heißt jetzt NetApp Console
 
-Die NetApp Console basiert auf der verbesserten und neu strukturierten BlueXP -Grundlage und ermöglicht die zentrale Verwaltung von NetApp Storage und NetApp Data Services in On-Premises- und Cloud-Umgebungen auf Unternehmensniveau. Sie liefert Einblicke in Echtzeit, schnellere Workflows und eine vereinfachte Administration mit hoher Sicherheit und Konformität.
+Die NetApp Console basiert auf der verbesserten und neu strukturierten BlueXP -Grundlage und ermöglicht die zentrale Verwaltung von NetApp -Speicher und NetApp Data Services in On-Premises- und Cloud-Umgebungen auf Unternehmensniveau. Sie liefert Einblicke in Echtzeit, schnellere Arbeitsabläufe und eine vereinfachte Verwaltung mit hoher Sicherheit und Konformität.
 
-Einzelheiten zu den Änderungen finden Sie imlink:https://docs.netapp.com/us-en/bluexp-relnotes/index.html["Versionshinweise zur NetApp Konsole"] .
+Einzelheiten zu den Änderungen finden Sie imlink:https://docs.netapp.com/us-en/bluexp-relnotes/index.html["Versionshinweise zur NetApp Console"] .
 
 
 
 === Weitere Updates
 
-* Die Unterstützung für Amazon Elastic VMware Service (EVS) mit Amazon FSx for NetApp ONTAP befand sich in einer öffentlichen Vorschau.  Mit dieser Version ist es nun allgemein verfügbar. Weitere Einzelheiten finden Sie unterlink:../reference/evs-deploy-guide-introduction.html["Einführung von NetApp Disaster Recovery mit Amazon Elastic VMware Service und Amazon FSx for NetApp ONTAP"] .
+* Die Unterstützung für Amazon Elastic VMware Service (EVS) mit Amazon FSx for NetApp ONTAP befand sich in einer öffentlichen Vorschau. Mit dieser Version ist es nun allgemein verfügbar. Weitere Einzelheiten finden Sie unterlink:../reference/evs-deploy-guide-introduction.html["Einführung von NetApp Disaster Recovery mit Amazon Elastic VMware Service und Amazon FSx for NetApp ONTAP"] .
 * Verbesserungen bei der Speichererkennung, einschließlich verkürzter Erkennungszeiten für lokale Bereitstellungen
 * Unterstützung für Identity and Access Management (IAM), einschließlich rollenbasierter Zugriffskontrolle (RBAC) und erweiterter Benutzerberechtigungen
-* Private Preview-Unterstützung für Azure VMware-Lösung und Cloud Volumes ONTAP.  Mit dieser Unterstützung können Sie jetzt mithilfe des Cloud Volumes ONTAP Speichers den Notfallwiederherstellungsschutz von lokalen Standorten auf die Azure VMware-Lösung konfigurieren.
+* Private Preview-Unterstützung für Azure VMware-Lösung und Cloud Volumes ONTAP. Mit dieser Unterstützung können Sie jetzt mithilfe des Cloud Volumes ONTAP Speichers den Notfallwiederherstellungsschutz von lokalen Standorten auf die Azure VMware-Lösung konfigurieren.
 

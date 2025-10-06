@@ -4,7 +4,7 @@ permalink: use/dashboard-view.html
 keywords: disaster recovery remediate, disaster recovery, failover, failback, replication, bluexp, netapp 
 summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert. 
 ---
-= Sehen Sie sich den Zustand Ihrer NetApp Disaster Recovery-Pläne auf dem Dashboard an
+= Sehen Sie sich den Zustand Ihrer NetApp Disaster Recovery -Pläne auf dem Dashboard an
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -14,14 +14,14 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 [role="lead"]
 Mithilfe des NetApp Disaster Recovery Dashboards können Sie den Zustand Ihrer Disaster Recovery-Sites und Replikationspläne ermitteln.  Sie können schnell feststellen, welche Websites und Pläne fehlerfrei, getrennt oder beeinträchtigt sind.
 
-*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Anwendungsadministrator oder Disaster Recovery-Viewer-Rolle.
+*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Anwendungsadministrator oder Disaster Recovery-Viewer-Rolle.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
-. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie im NetApp Disaster Recovery-Menü *Dashboard* aus.
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im NetApp Disaster Recovery Menü *Dashboard* aus.
 +
 image:dr-dashboard.png["NetApp Disaster Recovery Dashboard"]
 

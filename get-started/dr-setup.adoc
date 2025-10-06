@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: get-started/dr-setup.html 
 keywords: bluexp, disaster recovery, aws, amazon web services, amazon fsx for netapp ontap 
-summary: Um NetApp Disaster Recovery zu verwenden, führen Sie einige Schritte zur Einrichtung aus. 
+summary: Um NetApp Disaster Recovery zu verwenden, führen Sie zur Einrichtung einige Schritte aus. 
 ---
 = Richten Sie Ihre Infrastruktur für NetApp Disaster Recovery ein
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Um NetApp Disaster Recovery zu verwenden, führen Sie einige Schritte z
 
 
 [role="lead"]
-Um NetApp Disaster Recovery zu verwenden, führen Sie einige Schritte aus, um es sowohl in Amazon Web Services (AWS) als auch in der NetApp Konsole einzurichten.
+Um NetApp Disaster Recovery zu verwenden, führen Sie einige Schritte aus, um es sowohl in Amazon Web Services (AWS) als auch in der NetApp Console einzurichten.
 
 
 TIP: Rezensionlink:../get-started/dr-prerequisites.html["Voraussetzungen"] um sicherzustellen, dass Ihr System bereit ist.
@@ -65,7 +65,7 @@ AWS bietet die folgenden Methoden zum Verbinden privater Rechenzentren mit der A
 AWS bietet die folgenden Arten von VPC-zu-VPC-Verbindungen an.  Jede Lösung hat ihre Vorteile und Kostenaspekte.
 
 * *VPC-Peering*: Dies ist eine private Verbindung zwischen zwei VPCs.  Es ist die direkteste und effizienteste Verbindungsmethode, die von AWS angeboten wird.  VPC-Peering kann verwendet werden, um VPCs in derselben oder in verschiedenen AWS-Regionen zu verbinden.
-* *AWS Internet Gateway*: Dies wird normalerweise verwendet, um Verbindungen zwischen AWS VPC-Ressourcen und Nicht-AWS-Ressourcen und -Endpunkten bereitzustellen.  Der gesamte Datenverkehr folgt einem „Haarnadelpfad“, bei dem der für eine andere VPC bestimmte VPC-Datenverkehr die AWS-Infrastruktur über das Internet-Gateway verlässt und über dasselbe oder ein anderes Gateway zur AWS-Infrastruktur zurückkehrt.  Dies ist kein geeigneter VPC-Verbindungstyp für VMware-Unternehmenslösungen.
+* *AWS Internet Gateway*: Dies wird normalerweise verwendet, um Verbindungen zwischen AWS VPC-Ressourcen und Nicht-AWS-Ressourcen und -Endpunkten bereitzustellen.  Der gesamte Datenverkehr folgt einem „Haarnadelpfad“, bei dem VPC-Datenverkehr, der für eine andere VPC bestimmt ist, die AWS-Infrastruktur über das Internet-Gateway verlässt und über dasselbe oder ein anderes Gateway zur AWS-Infrastruktur zurückkehrt.  Dies ist kein geeigneter VPC-Verbindungstyp für VMware-Unternehmenslösungen.
 * *AWS Transit Gateway*: Dies ist ein zentralisierter, routerbasierter Verbindungstyp, der es jedem VPC ermöglicht, eine Verbindung zu einem einzigen, zentralen Gateway herzustellen, das als zentraler Hub für den gesamten VPC-zu-VPC-Verkehr fungiert.  Dies kann auch mit Ihrer VPN-Lösung verbunden werden, um lokalen Rechenzentrumsressourcen den Zugriff auf von AWS VPC gehostete Ressourcen zu ermöglichen.  Für die Implementierung dieser Verbindungsart fallen in der Regel zusätzliche Kosten an.
 
 
@@ -93,7 +93,7 @@ Um NetApp Disaster Recovery für den On-Premises-to-Cloud-Schutz mit AWS einzuri
 
 * Fügen Sie dem System Amazon FSx for ONTAP hinzu und fügen Sie AWS-Anmeldeinformationen für FSx for ONTAP hinzu.
 * Erstellen oder überprüfen Sie Ihr Ziel ONTAP SVM in AWS FSx für die ONTAP Instanz.
-* Konfigurieren Sie die Replikation zwischen Ihrem lokalen ONTAP Quellcluster und Ihrer FSx for ONTAP Instanz in der NetApp Konsole.
+* Konfigurieren Sie die Replikation zwischen Ihrem lokalen ONTAP Quellcluster und Ihrer FSx for ONTAP Instanz in der NetApp Console.
 
 
 Siehe https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html["So richten Sie ein FSx für ONTAP -System ein"^] für detaillierte Schritte.
@@ -132,7 +132,7 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt sind, bevor Sie Ne
 
 * vCenter-Cluster
 +
-** Stellen Sie sicher, dass die VMs, die Sie schützen möchten, auf NFS-Datenspeichern (mit ONTAP NFS-Volumes) oder VMFS-Datenspeichern (mit NetApp iSCSI LUNs) gehostet werden.
+** Stellen Sie sicher, dass die VMs, die Sie schützen möchten, auf NFS-Datenspeichern (mithilfe von ONTAP NFS-Volumes) oder VMFS-Datenspeichern (mithilfe von NetApp iSCSI LUNs) gehostet werden.
 ** Rezensionlink:../reference/vcenter-privileges.html["vCenter-Berechtigungen"] erforderlich für NetApp Disaster Recovery.
 ** Erstellen Sie ein Benutzerkonto für die Notfallwiederherstellung (nicht das standardmäßige vCenter-Administratorkonto) und weisen Sie dem Konto die vCenter-Berechtigungen zu.
 
@@ -143,10 +143,10 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt sind, bevor Sie Ne
 
 === Intelligente Proxy-Unterstützung
 
-Der NetApp Console-Agent unterstützt intelligente Proxys.  Intelligent Proxy ist eine einfache, sichere und effiziente Möglichkeit, Ihre lokale Umgebung mit der NetApp Konsole zu verbinden.  Es bietet eine sichere Verbindung zwischen Ihrem System und dem Konsolendienst, ohne dass ein VPN oder direkter Internetzugang erforderlich ist.  Diese optimierte Proxy-Implementierung entlastet den API-Verkehr innerhalb des lokalen Netzwerks.
+Der NetApp Console Agent unterstützt intelligente Proxys.  Intelligent Proxy ist eine einfache, sichere und effiziente Möglichkeit, Ihre lokale Umgebung mit der NetApp Console zu verbinden.  Es bietet eine sichere Verbindung zwischen Ihrem System und dem Konsolendienst, ohne dass ein VPN oder direkter Internetzugang erforderlich ist.  Diese optimierte Proxy-Implementierung entlastet den API-Verkehr innerhalb des lokalen Netzwerks.
 
 Wenn ein Proxy konfiguriert ist, versucht NetApp Disaster Recovery, direkt mit VMware oder ONTAP zu kommunizieren und verwendet den konfigurierten Proxy, wenn die direkte Kommunikation fehlschlägt.
 
-Die Implementierung des NetApp Disaster Recovery-Proxys erfordert eine Kommunikation über Port 443 zwischen dem Konsolenagenten und allen vCenter-Servern und ONTAP Arrays unter Verwendung eines HTTPS-Protokolls.  Der NetApp Disaster Recovery-Agent innerhalb des Konsolen-Agenten kommuniziert bei der Durchführung von Aktionen direkt mit VMware vSphere, dem VC oder ONTAP .
+Die Implementierung des NetApp Disaster Recovery -Proxys erfordert eine Kommunikation über Port 443 zwischen dem Konsolenagenten und allen vCenter-Servern und ONTAP Arrays unter Verwendung eines HTTPS-Protokolls.  Der NetApp Disaster Recovery -Agent innerhalb des Konsolen-Agenten kommuniziert bei der Durchführung von Aktionen direkt mit VMware vSphere, dem VC oder ONTAP .
 
-Weitere Informationen zum Einrichten eines allgemeinen Proxys in der NetApp Konsole finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["Konfigurieren des Konsolenagenten zur Verwendung eines Proxyservers"^] .
+Weitere Informationen zum Einrichten eines allgemeinen Proxys in der NetApp Console finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["Konfigurieren des Konsolenagenten zur Verwendung eines Proxyservers"^] .

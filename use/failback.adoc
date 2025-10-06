@@ -14,9 +14,9 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 [role="lead"]
 Nachdem ein Notfall behoben wurde, führen Sie ein Failback vom Notfallwiederherstellungsstandort zum Quellstandort durch, um zum Normalbetrieb zurückzukehren.  Sie können den Snapshot auswählen, von dem die Wiederherstellung erfolgen soll.
 
-*Erforderliche NetApp Konsolenrolle* Organisationsadministrator, Ordner- oder Projektadministrator, Disaster-Recovery-Administrator oder Disaster-Recovery-Failover-Administratorrolle.
+*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster-Recovery-Administrator oder Disaster-Recovery-Failover-Administratorrolle.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp -Konsole für alle Dienste"^] .
+link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
 
 *Über diese Aufgabe*
 
@@ -31,11 +31,11 @@ In diesem Workflow repliziert (resynchronisiert) NetApp Disaster Recovery alle �
 
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Konsole"^] .
-. Wählen Sie in der linken Navigation der NetApp Konsole *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie im NetApp Disaster Recovery-Menü *Replikationspläne* aus.
+. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery-Dienst"] und wählen Sie *Failback*.
+. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failback*.
 . Geben Sie den Namen des Replikationsplans ein, um das Failback zu bestätigen und zu starten.
 . Wählen Sie den Snapshot für den Datenspeicher aus, aus dem die Wiederherstellung erfolgen soll.  Die Standardeinstellung ist die neueste Version.
 . Um den Fortschritt zu überprüfen, wählen Sie im Menü *Jobüberwachung*.

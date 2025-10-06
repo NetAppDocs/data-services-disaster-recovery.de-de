@@ -4,14 +4,14 @@ permalink: reference/evs-deploy-guide-enable-draas.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter,amazon elastic vmware service 
 summary: Einführung von NetApp Disaster Recovery mit Amazon EVS und Amazon FSx for NetApp ONTAP.  NetApp Disaster Recovery ist ein lizenziertes Produktangebot, das vor der Verwendung erworben werden muss.  Es gibt verschiedene Arten von Lizenzen und verschiedene Möglichkeiten, Lizenzen zu erwerben. 
 ---
-= Fügen Sie Ihrem NetApp Konsolenkonto für Amazon EVS den NetApp Disaster Recovery-Dienst hinzu
+= Fügen Sie Ihrem NetApp Console für Amazon EVS den NetApp Disaster Recovery -Dienst hinzu
 :allow-uri-read: 
 
 
 [role="lead"]
 NetApp Disaster Recovery ist ein lizenziertes Produktangebot, das vor der Verwendung erworben werden muss.  Es gibt verschiedene Arten von Lizenzen und verschiedene Möglichkeiten, Lizenzen zu erwerben.  Eine Lizenz berechtigt Sie zum Schutz einer bestimmten Datenmenge für einen bestimmten Zeitraum.
 
-Weitere Informationen zu NetApp Disaster Recovery-Lizenzen finden Sie unterlink:../get-started/dr-licensing.html["Einrichten der Lizenzierung für NetApp Disaster Recovery"] .
+Weitere Informationen zu NetApp Disaster Recovery Lizenzen finden Sie unterlink:../get-started/dr-licensing.html["Einrichten der Lizenzierung für NetApp Disaster Recovery"] .
 
 
 
@@ -53,5 +53,5 @@ Total Used                          459.4MB         8%
 Total Physical Used                 166.4MB         3%
 
 ----
-. Notieren Sie den Wert *Total Physical Used* für jedes Volume.  Dies ist die Datenmenge, die NetApp Disaster Recovery schützen muss. Anhand dieses Werts können Sie bestimmen, wie viel Kapazität Sie lizenzieren müssen.
+. Notieren Sie den Wert *Total Physical Used* für jedes Volume.  Dies ist die Datenmenge, die NetApp Disaster Recovery schützen muss. Anhand dieses Werts bestimmen Sie, wie viel Kapazität Sie lizenzieren müssen.
 

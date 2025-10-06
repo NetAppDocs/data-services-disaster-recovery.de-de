@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: NetApp Disaster Recovery-Dokumentation
+  title: NetApp Disaster Recovery -Dokumentation
   summary: Mit NetApp Disaster Recovery für VMware können Sie Ihre lokalen VMware-Workloads
     mit ONTAP -Speicher in ein softwaredefiniertes VMware-Rechenzentrum in einer öffentlichen
     Cloud als Disaster-Recovery-Site mithilfe von NetApp Cloud-Speicher replizieren.
@@ -16,7 +16,7 @@ indexpage:
     links:
     - title: Erfahren Sie mehr über NetApp Disaster Recovery
       url: "/get-started/dr-intro.html"
-    - title: Was ist neu bei NetApp Disaster Recovery?
+    - title: Was ist neu bei NetApp Disaster Recovery ?
       url: "/release-notes/dr-whats-new.html"
     - title: Schnellstart
       url: "/get-started/dr-quick-start.html"
@@ -42,13 +42,13 @@ indexpage:
       url: "/use/failback.html"
   - title: Blogs und Community
     links:
-    - title: NetApp Konsole
+    - title: NetApp Console
       url: https://www.netapp.com/console
-    - title: NetApp Datenservices
+    - title: NetApp Data Services
       url: https://www.netapp.com/data-services/
     - title: NetApp Community
       url: https://community.netapp.com
-    - title: NetApp Disaster Recovery-Blog
+    - title: NetApp Disaster Recovery Blog
       url: https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-disaster-recovery-service-for-BC-with-VMware-Cloud-on-AWS-and-FSx-for/ba-p/447066
     - title: Erste Schritte mit NetApp Disaster Recovery als Service Lab on Demand
       url: https://labondemand.netapp.com/lab/draas
