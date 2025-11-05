@@ -48,7 +48,7 @@ VMs können nur geschützt werden, wenn sich der Replikationsplan in einem der f
 Ein vCenter-Cluster kann sich nur an einem Standort befinden.  Sie benötigen die folgenden Informationen, um einer Site einen vCenter-Cluster hinzuzufügen:
 
 * Die vCenter-Verwaltungs-IP-Adresse oder der FQDN
-* Anmeldeinformationen für ein vCenter-Konto mit den erforderlichen Berechtigungen zum Ausführen von Vorgängen. Sehen link:vcenter--privileges.html["erforderliche vCenter-Berechtigungen"] für weitere Informationen.
+* Anmeldeinformationen für ein vCenter-Konto mit den erforderlichen Berechtigungen zum Ausführen von Vorgängen. Sehenlink:../reference/vcenter-privileges.html["erforderliche vCenter-Berechtigungen"] für weitere Informationen.
 * Für Cloud-gehostete VMware-Sites die erforderlichen Cloud-Zugriffsschlüssel
 * Ein Sicherheitszertifikat für den Zugriff auf Ihr vCenter.
 +
@@ -61,7 +61,7 @@ NOTE: Der Dienst unterstützt selbstsignierte Sicherheitszertifikate oder Zertif
 . Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
 . Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 +
-Sie landen auf der NetApp Disaster Recovery Dashboard-Seite.  Wenn Sie den Dienst zum ersten Mal starten, müssen Sie vCenter-Informationen hinzufügen.  Später zeigt das Dashboard Daten zu Ihren Sites und Replikationsplänen an.
+Wenn Sie NetApp Disaster Recovery zum ersten Mal verwenden, müssen Sie vCenter-Informationen hinzufügen.  Wenn Sie bereits vCenter-Informationen hinzugefügt haben, wird Ihnen das Dashboard angezeigt.
 
 +
 
@@ -72,14 +72,14 @@ NOTE: Je nach Art der Site, die Sie hinzufügen, werden unterschiedliche Felder 
 . *Quelle*: Wählen Sie *vCenter-Server ermitteln*, um Informationen zur vCenter-Quellsite einzugeben.
 +
 
-TIP: Wenn bereits einige vCenter-Sites vorhanden sind und Sie weitere hinzufügen möchten, wählen Sie im oberen Menü *Sites* und dann *Hinzufügen* aus.
+TIP: Um weitere vCenter-Sites hinzuzufügen, wählen Sie *Sites* und anschließend *Hinzufügen*.
 
 +
 image:vcenter-add.png["Screenshot des vCenter-Servers hinzufügen"]
 
 +
-** Wählen Sie eine Site aus, wählen Sie den NetApp Console Agenten aus und geben Sie die vCenter-Anmeldeinformationen ein.
-** (Gilt nur für lokale Sites) Aktivieren Sie das Kontrollkästchen, um selbstsignierte Zertifikate für das Quell-vCenter zu akzeptieren.
+** Wählen Sie einen Standort und anschließend den NetApp Console Agenten aus und geben Sie die vCenter-Anmeldeinformationen an.
+** **Nur für lokale Installationen:** Um selbstsignierte Zertifikate für das Quell-vCenter zu akzeptieren, aktivieren Sie das Kontrollkästchen.
 +
 
 NOTE: Selbstsignierte Zertifikate sind nicht so sicher wie andere Zertifikate.  Wenn Ihr vCenter *NICHT* mit Zertifikaten einer Zertifizierungsstelle (CA) konfiguriert ist, sollten Sie dieses Kontrollkästchen aktivieren. Andernfalls funktioniert die Verbindung zum vCenter nicht.

@@ -12,7 +12,7 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Erfahren Sie, was es Neues bei NetApp Disaster Recovery gibt.
+Erfahren Sie mehr über die Neuerungen im Bereich NetApp Disaster Recovery.
 
 
 
@@ -461,11 +461,11 @@ Diese Version enthält Aktualisierungen der Replikationsplandaten, die das Probl
 So geht's:
 
 . Wählen Sie im Menü *Replikationspläne* aus.
-. Wählen Sie den Replikationsplan aus, klicken Sie auf die Registerkarte *Failover-Zuordnung* und dann auf das Bleistiftsymbol *Bearbeiten*.
-. Klicken Sie auf den Pfeil *Datenspeicher*, um ihn zu erweitern.
-. Notieren Sie den Wert der Aufbewahrungsanzahl im Replikationsplan.  Sie müssen diesen ursprünglichen Wert wiederherstellen, wenn Sie mit diesen Schritten fertig sind.
+. Wählen Sie den Replikationsplan aus, wählen Sie die Registerkarte *Failover-Zuordnung* und wählen Sie das Bleistiftsymbol *Bearbeiten*.
+. Wählen Sie den Pfeil *Datenspeicher* aus, um ihn zu erweitern.
+. Notieren Sie den Wert der Aufbewahrungsanzahl im Replikationsplan. Sie müssen diesen ursprünglichen Wert wiederherstellen, wenn Sie diese Schritte abgeschlossen haben.
 . Reduzieren Sie die Anzahl auf 1.
-. Starten Sie einen On-Demand-Snapshot.  Wählen Sie dazu auf der Seite „Replikationsplan“ den Plan aus, klicken Sie auf das Symbol „Aktionen“ und wählen Sie „Jetzt Snapshot erstellen“ aus.
+. Starten Sie einen On-Demand-Snapshot. Gehen Sie dazu auf der Seite „Replikationsplan“ wie folgt vor: Wählen Sie den Plan aus, klicken Sie auf das Symbol „Aktionen“ und wählen Sie dann *Jetzt Snapshot erstellen*.
 . Nachdem der Snapshot-Job erfolgreich abgeschlossen wurde, erhöhen Sie die Anzahl im Replikationsplan wieder auf den ursprünglichen Wert, den Sie im ersten Schritt notiert haben.
 . Wiederholen Sie diese Schritte für alle vorhandenen Replikationspläne.
 
@@ -682,7 +682,7 @@ Diese Vorschauversion von NetApp Disaster Recovery enthält die folgenden Update
 
 === Dashboard-Updates
 
-Sie können jetzt auf die Optionen im Dashboard klicken, was Ihnen die schnelle Überprüfung der Informationen erleichtert. Außerdem zeigt das Dashboard jetzt den Status von Failovers und Migrationen an.
+Sie können nun die Optionen auf dem Dashboard auswählen, was es Ihnen erleichtert, die Informationen schnell einzusehen. Außerdem zeigt das Dashboard jetzt den Status von Failovers und Migrationen an.
 
 Siehe https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/dashboard-view.html["Sehen Sie sich den Zustand Ihrer Notfallwiederherstellungspläne auf dem Dashboard an"] .
 

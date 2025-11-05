@@ -12,7 +12,7 @@ summary: Sie erhalten einen schnellen Überblick über alle Ihre NetApp Disaster
 
 
 [role="lead"]
-Sie können einen schnellen Überblick über alle Ihre NetApp Disaster Recovery -Ressourcen erhalten oder sich jede im Detail ansehen:
+NetApp Disaster Recovery bietet Übersichten und detailliertere Einblicke in alle Ihre Ressourcen:
 
 * Seiten
 * Ressourcengruppen
@@ -43,7 +43,7 @@ Sie können den vCenter-Sitenamen und den Sitetyp (vor Ort oder AWS) bearbeiten.
 
 == Verwalten von Ressourcengruppen
 
-Sie können zwar beim Erstellen eines Replikationsplans eine Ressourcengruppe hinzufügen, es ist jedoch möglicherweise praktischer, die Gruppen separat hinzuzufügen und diese Gruppen später im Plan zu verwenden.  Sie erstellen Ressourcengruppen nach VMs oder nach Datenspeichern.
+Sie können Ressourcengruppen nach VMs oder Datenspeichern erstellen.  Sie können beim Erstellen des Replikationsplans oder auch später hinzugefügt werden.
 
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Notfallwiederherstellungsadministrator oder Notfallwiederherstellungsanwendungsadministrator.
 
@@ -53,7 +53,7 @@ Sie können eine Ressourcengruppe nach Datenspeichern auf folgende Weise erstell
 * Wenn Sie einen Replikationsplan erstellen und innerhalb des Plans eine Ressourcengruppe erstellen, können Sie die VMs in den Datenspeichern sehen.
 
 
-Mit Ressourcengruppen können Sie die folgenden Aufgaben ausführen:
+Mit Ressourcengruppen können Sie folgende Aufgaben ausführen:
 
 * Ändern Sie den Namen der Ressourcengruppe.
 * Fügen Sie der Ressourcengruppe VMs hinzu.
@@ -66,7 +66,7 @@ Einzelheiten zum Erstellen einer Ressourcengruppe finden Sie unterlink:resource-
 .Schritte
 . Wählen Sie im Menü *Ressourcengruppen* aus.
 . Um eine Ressourcengruppe hinzuzufügen, wählen Sie *Gruppe hinzufügen*.
-. Um Aktionen mit der Ressourcengruppe durchzuführen, wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie eine der Optionen aus, z. B. *Ressourcengruppe bearbeiten* oder *Ressourcengruppe löschen*.
+. Sie können die Ressourcengruppe ändern oder löschen, indem Sie die Option *Aktionen* auswählen.image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] Die
 
 
 
@@ -110,7 +110,7 @@ image:../use/dr-plan-list.png["Liste der Replikationspläne"]
 
 === Snapshots bei Bedarf abgleichen
 
-Sie können Snapshots abgleichen, die zwischen Quelle und Ziel nicht synchron sind.  Dies kann auftreten, wenn Snapshots auf einem Ziel außerhalb von NetApp Disaster Recovery gelöscht werden.  Der Dienst löscht den Snapshot auf der Quelle automatisch alle 24 Stunden.  Sie können dies jedoch auf Anfrage durchführen.  Mit dieser Funktion können Sie sicherstellen, dass die Snapshots auf allen Sites konsistent sind.
+Die Disaster-Recovery-Funktion löscht automatisch alle 24 Stunden Snapshots auf dem Quellsystem.  Sollten Sie feststellen, dass die Snapshots zwischen Quelle und Ziel nicht synchron sind, müssen Sie die Diskrepanz zwischen den Snapshots beheben, um die Konsistenz über alle Standorte hinweg zu gewährleisten.
 
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
 
@@ -119,7 +119,7 @@ Sie können Snapshots abgleichen, die zwischen Quelle und Ziel nicht synchron si
 +
 image:../use/dr-plan-list.png["Liste der Replikationspläne"]
 
-. Wählen Sie aus der Liste der Replikationspläne die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] rechts neben dem Plan und wählen Sie *Snapshots abgleichen*.
+. Wählen Sie in der Liste der Replikationspläne die Option *Aktionen* aus.image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] dann *Snapshots abgleichen*.
 . Überprüfen Sie die Abstimmungsinformationen.
 . Wählen Sie *Abgleichen*.
 
@@ -128,15 +128,15 @@ image:../use/dr-plan-list.png["Liste der Replikationspläne"]
 
 === Löschen eines Replikationsplans
 
-Sie können einen Replikationsplan löschen, wenn Sie ihn nicht mehr benötigen.  Wenn Sie einen Replikationsplan löschen, können Sie auch die vom Plan erstellten primären und sekundären Snapshots löschen.
+Wenn Sie einen Replikationsplan löschen, können Sie auch die vom Plan erstellten primären und sekundären Snapshots löschen.
 
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
 
 .Schritte
 . Wählen Sie im Menü *Replikationspläne* aus.
 . Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] rechts neben dem Plan und wählen Sie *Löschen*.
-. Wählen Sie aus, ob Sie die primären Snapshots, sekundären Snapshots oder nur die vom Plan erstellten Metadaten löschen möchten.
-. Geben Sie „delete“ ein, um den Löschvorgang zu bestätigen.
+. Wählen Sie aus, ob Sie die primären Snapshots, die sekundären Snapshots oder nur die vom Plan erstellten Metadaten löschen möchten.
+. Geben Sie „Löschen“ ein, um den Löschvorgang zu bestätigen.
 . Wählen Sie *Löschen*.
 
 
@@ -144,18 +144,18 @@ Sie können einen Replikationsplan löschen, wenn Sie ihn nicht mehr benötigen.
 
 === Ändern der Aufbewahrungsanzahl für Failover-Zeitpläne
 
-Sie können ändern, wie viele Datenspeicher beibehalten werden.
+Durch die Änderung der Aufbewahrungsanzahl können Sie die Anzahl der gespeicherten Datenspeicher erhöhen oder verringern.
 
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
 
 .Schritte
 . Wählen Sie im Menü *Replikationspläne* aus.
-. Wählen Sie den Replikationsplan aus, wählen Sie die Registerkarte *Failover-Zuordnung* und wählen Sie das Bleistiftsymbol *Bearbeiten*.
-. Wählen Sie den Pfeil *Datenspeicher* aus, um ihn zu erweitern.
+. Wählen Sie den Replikationsplan und anschließend die Registerkarte *Failover-Zuordnung* aus. Wählen Sie das Stiftsymbol *Bearbeiten* aus.
+. Klicken Sie auf den Abwärtspfeil in der Zeile *Datenspeicher*, um diese zu erweitern.
 +
 image:../use/dr-plan-failover-edit.png["Seite „Failover-Zuordnungen bearbeiten“"]
 
-. Ändern Sie den Wert der Aufbewahrungsanzahl im Replikationsplan.
+. Ändern Sie den Wert der **Aufbewahrungsanzahl für alle Datenspeicher**.
 . Wählen Sie bei ausgewähltem Replikationsplan das Menü „Aktionen“ und dann „Alte Snapshots bereinigen“ aus, um alte Snapshots auf dem Ziel zu entfernen und sie an die neue Aufbewahrungsanzahl anzupassen.
 
 
