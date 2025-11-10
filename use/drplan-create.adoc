@@ -275,6 +275,7 @@ Um die Skriptausführung mit dem VM-Gastbetriebssystem zu ermöglichen, müssen 
 
 
 
+* *VM-Hardwareversion herabstufen und registrieren*: Wählen Sie diese Option, wenn die Version des Ziel-ESX-Hosts älter ist als die des Quell-ESX-Hosts, damit diese bei der Registrierung übereinstimmen.
 * *Präfix und Suffix der Ziel-VM*: Unter den Details der virtuellen Maschinen können Sie optional jedem VM-Namen, für den ein Failover durchgeführt wurde, ein Präfix und ein Suffix hinzufügen.  Dies kann hilfreich sein, um die VMs, für die ein Failover durchgeführt wurde, von den Produktions-VMs zu unterscheiden, die auf demselben vCenter-Cluster ausgeführt werden.  Sie können dem VM-Namen beispielsweise das Präfix „DR-“ und das Suffix „-failover“ hinzufügen.  Manche Leute fügen ein zweites Produktions-vCenter hinzu, um VMs im Katastrophenfall vorübergehend an einem anderen Standort zu hosten.  Durch das Hinzufügen eines Präfixes oder Suffixes können Sie VMs, bei denen ein Failover stattgefunden hat, schnell identifizieren.  Sie können das Präfix oder Suffix auch in benutzerdefinierten Skripten verwenden.
 +
 Sie können die alternative Methode zum Festlegen des Ziel-VM-Ordners im Abschnitt „Compute-Ressourcen“ verwenden.
@@ -399,7 +400,8 @@ Zur zusätzlichen Kontrolle der NAS-Datenzugriffssicherheit kann der Dienst vers
 
 
 
-*BEST PRACTICE*: Wir empfehlen dringend, eine dedizierte Exportrichtlinie zu erstellen, die den Volumezugriff nur auf die Quell- und Ziel-vCenter ESXi-Hosts beschränkt, auf denen die geschützten VMs gehostet werden.  Dadurch wird sichergestellt, dass externe Entitäten keinen Zugriff auf den NFS-Export erhalten.
+
+TIP: Es wird empfohlen, eine dedizierte Exportrichtlinie zu erstellen, die den Zugriff auf das Volume _ausschließlich_ auf die Quell- und Ziel-vCenter-ESXi-Hosts beschränkt, auf denen die geschützten VMs gehostet werden. Dadurch wird sichergestellt, dass externe Entitäten keinen Zugriff auf den NFS-Export erhalten.
 
 
 
