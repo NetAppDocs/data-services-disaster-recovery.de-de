@@ -14,7 +14,7 @@ Sie können nun in ONTAP eine kaskadierende Beziehung konfigurieren und jeden Zw
 
 Disaster Recovery unterstützt jetzt das Downgrade von VMware-Hardware auf eine frühere Version von vSphere während der Registrierung. Dies ist nützlich, wenn auf dem Quell-ESX-Host eine neuere Version ausgeführt wird als auf dem Disaster-Recovery-Standort.
 
-Weitere Informationen finden Sie unter xref:drplan-create.html#map-resources-virtual-machines-section[Erstellen eines Replikationsplans in NetApp Disaster Recovery].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#select-vcenter-servers["Erstellen eines Replikationsplans in NetApp Disaster Recovery"].
 
 
 
@@ -28,4 +28,4 @@ Die Notfallwiederherstellung fährt VMs nun ordnungsgemäß herunter, anstatt si
 
 Sie können nun benutzerdefinierte Skripte in den Failover-Workflow einfügen, die vor der Erstellung eines Backups ausgeführt werden. Mithilfe von Pre-Backup-Skripten können Sie den Zustand der VM vor der Replikation eines Snapshots steuern und eine VM für einen Übergang vorbereiten. Beispielsweise kann man ein Skript einfügen, das eine NFS-Freigabe aushängt, die nach einem Failover mithilfe eines anderen Skripts wieder eingehängt wird.
 
-Weitere Informationen finden Sie unter xref:drplan-create.html#map-resources-virtual-machines-section[Erstellen eines Replikationsplans in NetApp Disaster Recovery].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#select-vcenter-servers["Erstellen eines Replikationsplans in NetApp Disaster Recovery"].

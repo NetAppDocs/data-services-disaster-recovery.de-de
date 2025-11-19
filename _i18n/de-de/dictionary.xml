@@ -1918,7 +1918,6 @@
   <block id="8115dd8449bd907d08f3347f6d04324a" category="paragraph">Sie können nun in ONTAP eine kaskadierende Beziehung konfigurieren und jeden Zweig dieser Replikationsbeziehung für die Notfallwiederherstellung nutzen.</block>
   <block id="eb2fa9dcb8eaa46c82c070f8bbe8418a" category="section-title">Herabstufung der VMware-Hardwareunterstützung während der Registrierung</block>
   <block id="f83d7a6597b186db7483e2f478aeb8fa" category="paragraph">Disaster Recovery unterstützt jetzt das Downgrade von VMware-Hardware auf eine frühere Version von vSphere während der Registrierung. Dies ist nützlich, wenn auf dem Quell-ESX-Host eine neuere Version ausgeführt wird als auf dem Disaster-Recovery-Standort.</block>
-  <block id="a412b7de9758b999e39beb6a86f38803" category="paragraph">Weitere Informationen finden Sie unter <block ref="3b88d2273f8f2a777f18a77cece1dbb2" category="inline-xref-macro-rx"></block>.</block>
   <block id="bcf697aa5ef7fc37fba63ce6d2bf0e43" category="section-title">Geordnetes Herunterfahren</block>
   <block id="9437b903cdafc2fdfce3c66af80b97f0" category="paragraph">Die Notfallwiederherstellung fährt VMs nun ordnungsgemäß herunter, anstatt sie auszuschalten. Wenn eine bestimmte VM länger als zehn Minuten zum Herunterfahren benötigt, schaltet Disaster Recovery sie ab.</block>
   <block id="9b9e3165f7ecae3e2e3b2c795e562976" category="section-title">Unterstützung für Pre-Backup-Skripte</block>
@@ -1926,4 +1925,5 @@
   <block id="77750efa6f5ff153acdc42067058017f" category="section-title">10. November 2025</block>
   <block id="67d901d806b31ec45748075cf6b4b785" category="list-text">*VM-Hardwareversion herabstufen und registrieren*: Wählen Sie diese Option, wenn die Version des Ziel-ESX-Hosts älter ist als die des Quell-ESX-Hosts, damit diese bei der Registrierung übereinstimmen.</block>
   <block id="c41917a6c517c418de809b1e4f43f537" category="admonition">Es wird empfohlen, eine dedizierte Exportrichtlinie zu erstellen, die den Zugriff auf das Volume _ausschließlich_ auf die Quell- und Ziel-vCenter-ESXi-Hosts beschränkt, auf denen die geschützten VMs gehostet werden. Dadurch wird sichergestellt, dass externe Entitäten keinen Zugriff auf den NFS-Export erhalten.</block>
+  <block id="11decf8e913c8fbeb5d947338d43e3b0" category="paragraph">Weitere Informationen finden Sie unter <block ref="bf6dbdf786c7323ca961bfd2e12103c6" category="inline-link-macro-rx"></block>.</block>
 </blocks>
