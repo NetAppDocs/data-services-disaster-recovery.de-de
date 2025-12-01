@@ -16,7 +16,7 @@ Sie verwenden die NetApp Console , um sich beim NetApp Disaster Recovery -Dienst
 
 Zum Anmelden können Sie Ihre Anmeldeinformationen für die NetApp Support-Site verwenden oder sich mit Ihrer E-Mail-Adresse und einem Kennwort für eine NetApp Cloud-Anmeldung registrieren. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["Erfahren Sie mehr über die Anmeldung"^] .
 
-Bestimmte Aufgaben erfordern bestimmte Benutzerrollen. link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
+Bestimmte Aufgaben erfordern bestimmte Benutzerrollen. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Öffnen Sie einen Webbrowser und gehen Sie zu https://console.netapp.com/["NetApp Console"^] .
@@ -35,7 +35,7 @@ image:draas-landing6-free-trial.png["Screenshot der Zielseite für NetApp Disast
 Andernfalls wird das NetApp Disaster Recovery Dashboard angezeigt.
 
 +
-** Wenn Sie noch keinen NetApp Console Agenten hinzugefügt haben, müssen Sie einen hinzufügen.  Informationen zum Hinzufügen des Agenten finden Sie unter https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["Erfahren Sie mehr über Konsolenagenten"^] .
+** Wenn Sie noch keinen NetApp Console Agenten hinzugefügt haben, müssen Sie einen hinzufügen. Um den Agenten hinzuzufügen, siehe https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html["Erfahren Sie mehr über Konsolenagenten"^] Die
 ** Wenn Sie ein NetApp Console mit einem vorhandenen Agenten sind und „Notfallwiederherstellung“ auswählen, wird eine Meldung zur Anmeldung angezeigt.
 ** Wenn Sie den Dienst bereits verwenden und „Notfallwiederherstellung“ auswählen, wird das Dashboard angezeigt.
 

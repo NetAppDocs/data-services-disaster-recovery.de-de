@@ -22,7 +22,7 @@ Beim Failover ersetzt NetApp Disaster Recovery den Netzwerkteil der ursprünglic
 
 Zusammenfassend lässt sich sagen, dass die Hostadresse gleich bleibt, während die Netzwerkadresse durch die in der Site-Subnetzzuordnung konfigurierte Adresse ersetzt wird.  Auf diese Weise können Sie die Neuzuweisung von IP-Adressen bei einem Failover einfacher verwalten, insbesondere wenn Sie Hunderte von Netzwerken und Tausende von VMs verwalten müssen.
 
-Weitere Informationen zum Einbinden der Subnetzzuordnung in Ihre Sites finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/sites-add.html["vCenter-Server-Sites hinzufügen"] .
+Einzelheiten zum Einbinden von Subnetzmapping in Ihre Websites finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/sites-add.html["vCenter-Server-Sites hinzufügen"] Die
 
 
 
@@ -36,7 +36,7 @@ Beim Einleiten eines Failovers können Sie jetzt die Option *Schutz überspringe
 
 Nachdem die ursprüngliche Quellsite wieder online ist, können Sie einen umgekehrten Schutz einrichten, indem Sie im Menü „Aktionen“ des Replikationsplans die Option „Ressourcen schützen“ auswählen.  Dadurch wird versucht, für jedes Volume im Plan eine umgekehrte Replikationsbeziehung zu erstellen.  Sie können diesen Job wiederholt ausführen, bis der Schutz wiederhergestellt ist.  Wenn der Schutz wiederhergestellt ist, können Sie auf die übliche Weise ein Failback einleiten.
 
-Einzelheiten zum Überspringschutz finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html["Failover von Anwendungen auf einen Remote-Standort"] .
+Einzelheiten zum Umgehen des Schutzes finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover von Anwendungen auf einen Remote-Standort"] Die
 
 
 
@@ -50,4 +50,4 @@ Wenn die Option ausgewählt ist, konfiguriert NetApp Disaster Recovery keinen Si
 
 Nach der Konfiguration erstellt der Dienst keine regelmäßig geplanten Snapshots, sondern verlässt sich stattdessen darauf, dass die externe Entität diese Snapshots erstellt und aktualisiert.
 
-Einzelheiten zur Verwendung externer Snapshot-Lösungen im Replikationsplan finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
+Einzelheiten zur Verwendung externer Snapshot-Lösungen im Replikationsplan finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] Die

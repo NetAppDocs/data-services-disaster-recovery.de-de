@@ -12,11 +12,11 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Nachdem Sie vCenter-Sites hinzugefügt haben, können Sie einen Notfallwiederherstellungs- oder _Replikationsplan_ erstellen.  Replikationspläne verwalten den Datenschutz der VMware-Infrastruktur.  Wählen Sie die Quell- und Ziel-vCenter aus, wählen Sie die Ressourcengruppen aus und gruppieren Sie, wie Anwendungen wiederhergestellt und eingeschaltet werden sollen.  Sie können beispielsweise virtuelle Maschinen (VMs) gruppieren, die einer Anwendung zugeordnet sind, oder Sie können Anwendungen gruppieren, die ähnliche Ebenen haben.  Solche Pläne werden manchmal als „Blaupausen“ bezeichnet.
+Nachdem Sie vCenter-Sites hinzugefügt haben, können Sie einen Notfallwiederherstellungs- oder Replikationsplan erstellen. Replikationspläne verwalten den Datenschutz der VMware-Infrastruktur. Wählen Sie die Quell- und Ziel-vCenter aus, wählen Sie die Ressourcengruppen aus und gruppieren Sie, wie Anwendungen wiederhergestellt und eingeschaltet werden sollen. Sie können beispielsweise virtuelle Maschinen (VMs) gruppieren, die einer Anwendung zugeordnet sind, oder Sie können Anwendungen gruppieren, die ähnliche Ebenen haben. Solche Pläne werden manchmal als „Blaupausen“ bezeichnet.
 
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 *Über diese Aufgabe*
 
@@ -55,6 +55,8 @@ Der Dienst führt alle 24 Stunden Snapshot-Symmetrieprüfungen durch.
 Bevor Sie eine SnapMirror -Beziehung erstellen, richten Sie das Cluster- und SVM-Peering außerhalb der Notfallwiederherstellung ein.
 
 *BEST PRACTICE*: Organisieren Sie Ihre VMs, bevor Sie NetApp Disaster Recovery bereitstellen, um die Ausbreitung von Datenspeichern zu minimieren.  Platzieren Sie VMs, die Schutz benötigen, auf einer Teilmenge von Datenspeichern und platzieren Sie VMs, die nicht geschützt werden sollen, auf einer anderen Teilmenge von Datenspeichern.  Verwenden Sie datenspeicherbasierten Schutz, um sicherzustellen, dass die VMs auf jedem beliebigen Datenspeicher geschützt sind.
+
+>[!IMPORTANT] >Mit Google Cloud können Sie einem Replikationsplan nur ein Volume oder einen Datenspeicher hinzufügen.
 
 
 

@@ -23,7 +23,7 @@ NetApp Disaster Recovery bietet Übersichten und detailliertere Einblicke in all
 
 Für die Aufgaben sind unterschiedliche NetApp Console erforderlich.  Weitere Informationen finden Sie im Abschnitt *Erforderliche NetApp Console * in jeder Aufgabe.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 
 

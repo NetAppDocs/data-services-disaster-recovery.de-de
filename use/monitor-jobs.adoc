@@ -20,7 +20,7 @@ Sie können alle NetApp Disaster Recovery -Jobs überwachen und ihren Fortschrit
 
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Anwendungsadministrator oder Disaster Recovery-Viewer-Rolle.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
@@ -39,7 +39,7 @@ Wenn ein Auftrag ausgeführt wird oder sich in einer Warteschlange befindet und 
 
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Wählen Sie in der linken Navigationsleiste der NetApp Console *Schutz* > *Notfallwiederherstellung*.

@@ -16,9 +16,10 @@ Die Notfallwiederherstellung in der Cloud ist eine robuste und kostengünstige M
 
 NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert.  Mit NetApp Disaster Recovery können Sie Ihre lokalen, NFS-basierten Workloads und VMware vSphere Virtual Machine File System (VMFS)-Datenspeicher für iSCSI und FC mit NetApp -Speicher auf einem der folgenden Systeme schützen:
 
-* VMware Cloud (VMC) auf AWS mit Amazon FSx for NetApp ONTAP
 * Amazon Elastic VMware Service (EVS) mit Amazon FSx for NetApp ONTAP Weitere Informationen finden Sie unterlink:../reference/evs-deploy-guide-introduction.html["Einführung von NetApp Disaster Recovery mit Amazon Elastic VMware Service und Amazon FSx for NetApp ONTAP"] .
+* VMware Cloud (VMC) auf AWS mit Amazon FSx for NetApp ONTAP
 * Azure VMware Solution (AVS) mit NetApp Cloud Volumes ONTAP (iSCSI) (Private Vorschau)
+* Google Cloud VMware Engine (GCVE) mit Google Cloud NetApp Volumes
 * Eine weitere lokale NFS- und/oder VMFS-basierte (iSCSI/FC) VMware-Umgebung mit ONTAP Speicher
 
 
@@ -36,7 +37,7 @@ Die NetApp Console ermöglicht eine zentrale Verwaltung von NetApp -Speicher- un
 
 Sie benötigen weder eine Lizenz noch ein Abonnement, um die NetApp Console zu verwenden. Es fallen nur dann Kosten an, wenn Sie Konsolenagenten in Ihrer Cloud bereitstellen müssen, um die Konnektivität zu Ihren Speichersystemen oder NetApp -Datendiensten sicherzustellen. Einige NetApp -Datendienste, auf die über die Konsole zugegriffen werden kann, sind jedoch lizenz- oder abonnementbasiert.
 
-Erfahren Sie mehr über die https://docs.netapp.com/us-en/bluexp-setup-admin/concept-overview.html["NetApp Console"] .
+Erfahren Sie mehr über die https://docs.netapp.com/us-en/console-setup-admin/concept-overview.html["NetApp Console"] .
 
 
 
@@ -44,7 +45,7 @@ Erfahren Sie mehr über die https://docs.netapp.com/us-en/bluexp-setup-admin/con
 
 NetApp Disaster Recovery bietet die folgenden Vorteile:
 
-* Vereinfachte Benutzererfahrung für die vCenter-Erkennung und -Wiederherstellung von Anwendungen mit mehreren zeitpunktbezogenen Wiederherstellungsvorgängen. 
+* Vereinfachte Benutzererfahrung für die vCenter-Erkennung und -Wiederherstellung von Anwendungen mit mehreren zeitpunktbezogenen Wiederherstellungsvorgängen.
 * Niedrigere Gesamtbetriebskosten durch reduzierte Betriebskosten und die Möglichkeit, Notfallwiederherstellungspläne mit minimalem Ressourcenaufwand zu erstellen und anzupassen.
 * Kontinuierliche Notfallwiederherstellungsbereitschaft mit virtuellen Failover-Tests, die den Betrieb nicht unterbrechen.  Sie können Ihre DR-Failover-Pläne regelmäßig testen, ohne die Produktionsarbeitslast zu beeinträchtigen.
 * Schnellere Wertschöpfung durch dynamische Änderungen in Ihrer IT-Umgebung und die Möglichkeit, diese in Ihren Notfallwiederherstellungsplänen zu berücksichtigen.
@@ -75,7 +76,7 @@ NOTE: Die Konfiguration des vSphere-Servers erfolgt außerhalb von NetApp Disast
 
 == Kosten
 
-NetApp berechnet Ihnen für die Nutzung der Testversion von NetApp Disaster Recovery keine Gebühren.
+NetApp berechnet Ihnen keine Gebühren für die Nutzung der Testversion von NetApp Disaster Recovery.
 
 NetApp Disaster Recovery kann entweder mit einer NetApp -Lizenz oder einem jährlichen Abonnementplan über Amazon Web Services verwendet werden.
 
@@ -181,6 +182,7 @@ Nachdem Disaster Recovery alle Beziehungen erstellt und initialisiert hat, führ
 * Eine weitere lokale, NFS-basierte VMware-Umgebung mit ONTAP Speicher oder eine lokale FC/iSCSI-VMSF
 * Amazon Elastic VMware Service
 * Azure VMware Solution (AVS) mit NetApp Cloud Volumes ONTAP (iSCSI) (Private Vorschau)
+* Google Cloud VMware Engine (GCVE) mit Google Cloud NetApp Volumes
 
 
 

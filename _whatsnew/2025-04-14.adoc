@@ -10,7 +10,7 @@ NetApp Disaster Recovery führt alle 24 Stunden eine Erkennung durch.  Mit diese
 
 Wenn Sie die Erkennung nicht planen möchten, können Sie die Option zur geplanten Erkennung deaktivieren und die Erkennung jederzeit manuell aktualisieren.
 
-Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/sites-add.html["vCenter-Server-Sites hinzufügen"] .
+Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/sites-add.html["vCenter-Server-Sites hinzufügen"] .
 
 
 
@@ -24,7 +24,7 @@ Sie können eine Ressourcengruppe mit einem Datenspeicher auf folgende Weise ers
 * Wenn Sie einen Replikationsplan erstellen und innerhalb des Plans eine Ressourcengruppe erstellen, können Sie die VMs in den Datenspeichern sehen.
 
 
-Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
+Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
 
 
 

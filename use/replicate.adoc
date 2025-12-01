@@ -19,7 +19,7 @@ TIP: Nachdem Sie den Notfallwiederherstellungsplan erstellt, die Wiederholung im
 
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster-Recovery-Administrator oder Disaster-Recovery-Failover-Administratorrolle.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Bevor Sie beginnen
 Bevor Sie die Replikation starten, sollten Sie einen Replikationsplan erstellt und die Replikation der Apps ausgewählt haben.  Anschließend wird im Menü „Aktionen“ die Option „Replizieren“ angezeigt.

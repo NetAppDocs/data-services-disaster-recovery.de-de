@@ -8,7 +8,7 @@
 
 Sie können jetzt Berichte erstellen und herunterladen, die Ihnen bei der Analyse Ihrer Landschaft helfen.  Vorgefertigte Berichte fassen Failovers und Failbacks zusammen, zeigen Replikationsdetails auf allen Sites und zeigen Jobdetails für die letzten sieben Tage.
 
-Siehe https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/reports.html["Erstellen von Disaster Recovery-Berichten"] .
+Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/reports.html["Erstellen von Disaster Recovery-Berichten"] .
 
 
 
@@ -16,7 +16,7 @@ Siehe https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/reports.html["E
 
 Sie können sich jetzt für eine 30-tägige kostenlose Testversion von NetApp Disaster Recovery anmelden.  Bisher waren kostenlose Testversionen 90 Tage lang verfügbar.
 
-Siehe https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-licensing.html["Einrichten der Lizenzierung"] .
+Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-licensing.html["Einrichten der Lizenzierung"] .
 
 
 
@@ -38,7 +38,7 @@ So geht's:
 
 Wenn Sie einen Replikationsplan erstellen und Rechenressourcen zuordnen, können Sie jetzt Ordner zuordnen, sodass VMs in einem Ordner wiederhergestellt werden, den Sie für Rechenzentrum, Cluster und Host angeben.
 
-Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
+Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
 
 
 
@@ -46,7 +46,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disas
 
 Wenn ein Fehler auftritt und Sie ein Failover starten, ein Failback durchführen oder das Failover testen, können Sie jetzt Details der VMs anzeigen und feststellen, welche VMs nicht neu gestartet wurden.
 
-Siehe https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html["Failover von Anwendungen auf einen Remote-Standort"] .
+Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover von Anwendungen auf einen Remote-Standort"] .
 
 
 
@@ -54,7 +54,7 @@ Siehe https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html["
 
 Wenn Sie einen Replikationsplan erstellen, können Sie jetzt für jede VM im Plan eine Startverzögerung festlegen.  Auf diese Weise können Sie eine Reihenfolge für den Start der VMs festlegen, um sicherzustellen, dass alle Ihre VMs mit Priorität eins ausgeführt werden, bevor die VMs mit nachfolgender Priorität gestartet werden.
 
-Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
+Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
 
 
 
@@ -62,7 +62,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disas
 
 Wenn Sie einen Replikationsplan erstellen, können Sie jetzt das Betriebssystem für jede VM im Plan sehen.  Dies ist hilfreich bei der Entscheidung, wie VMs in einer Ressourcengruppe zusammengefasst werden sollen.
 
-Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
+Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
 
 
 
@@ -70,7 +70,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disas
 
 Wenn Sie einen Replikationsplan erstellen, können Sie den VM-Namen auf der Disaster-Recovery-Site jetzt ein Präfix und ein Suffix hinzufügen.  Dadurch können Sie für die VMs im Plan einen aussagekräftigeren Namen verwenden.
 
-Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
+Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
 
 
 
@@ -78,7 +78,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disas
 
 Sie können alle Snapshots löschen, die Sie nach der von Ihnen angegebenen Aufbewahrungsdauer nicht mehr benötigen.  Wenn Sie die Anzahl der Snapshot-Aufbewahrungen verringern, können sich mit der Zeit Snapshots ansammeln. Sie können diese jetzt entfernen, um Speicherplatz freizugeben.  Sie können dies jederzeit bei Bedarf oder beim Löschen eines Replikationsplans tun.
 
-Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/manage.html["Verwalten Sie Sites, Ressourcengruppen, Replikationspläne, Datenspeicher und Informationen zu virtuellen Maschinen"] .
+Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html["Verwalten Sie Sites, Ressourcengruppen, Replikationspläne, Datenspeicher und Informationen zu virtuellen Maschinen"] .
 
 
 
@@ -86,4 +86,4 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disas
 
 Sie können jetzt Snapshots abgleichen, die zwischen Quelle und Ziel nicht synchron sind.  Dies kann auftreten, wenn Snapshots auf einem Ziel außerhalb von NetApp Disaster Recovery gelöscht werden.  Der Dienst löscht den Snapshot auf der Quelle automatisch alle 24 Stunden.  Sie können dies jedoch auf Anfrage durchführen.  Mit dieser Funktion können Sie sicherstellen, dass die Snapshots auf allen Sites konsistent sind.
 
-Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/manage.html["Verwalten von Replikationsplänen"] .
+Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html["Verwalten von Replikationsplänen"] .

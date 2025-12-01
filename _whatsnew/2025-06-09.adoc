@@ -10,4 +10,4 @@ Windows Local Administrator Password Solution (Windows LAPS) ist eine Windows-Fu
 
 Sie können jetzt Subnetzzuordnungsoptionen auswählen und die LAPS-Option überprüfen, indem Sie die Domänencontrollerdetails angeben.  Wenn Sie diese Option verwenden, müssen Sie nicht für jede Ihrer virtuellen Maschinen ein Kennwort angeben.
 
-Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
+Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .

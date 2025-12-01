@@ -17,4 +17,4 @@ NOTE: NetApp berechnet Ihnen keine Kosten für die in der Vorschau angezeigte Wo
 
 Mit dieser Version können Sie jetzt einen Job in der Job Monitor-Benutzeroberfläche abbrechen.
 
-Siehe https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/monitor-jobs.html["Überwachen von Jobs"] .
+Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/monitor-jobs.html["Überwachen von Jobs"] .

@@ -16,7 +16,7 @@ Nachdem ein Notfall behoben wurde, führen Sie ein Failback vom Notfallwiederher
 
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster-Recovery-Administrator oder Disaster-Recovery-Failover-Administratorrolle.
 
-link:../reference/dr-reference-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^] .
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 *Über diese Aufgabe*
 
