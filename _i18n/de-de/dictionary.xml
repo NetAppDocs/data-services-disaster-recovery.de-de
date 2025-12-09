@@ -1927,11 +1927,9 @@
   <block id="b706122b5735a672dec906da7d14b15c" category="doc">Beibehaltung der Ordnerhierarchie</block>
   <block id="c8d94434feabcd9486a228e1a7a02882" category="paragraph">Standardmäßig behält Disaster Recovery die VM-Inventarhierarchie (Ordnerstruktur) beim Failover bei.  Falls das Wiederherstellungsziel den erforderlichen Ordner nicht enthält, wird dieser von Disaster Recovery erstellt.</block>
   <block id="5a54761f5d99470c8137218395b65ca5" category="paragraph">Sie können diese Einstellung nun überschreiben, indem Sie einen neuen übergeordneten VM-Ordner festlegen oder die Option **Ursprüngliche Ordnerhierarchie beibehalten** deaktivieren.</block>
-  <block id="4b4839446c123b0f7cbb37cc05973b41" category="paragraph">Weitere Informationen finden Sie unter <block ref="8ed6b1ab912526d5ffcc717e1a39851e" category="inline-link-macro-rx"></block>.</block>
   <block id="c1bacabdbdc0d5e57b5ead85a617b4b0" category="section-title">Optimierte Aktualisierung des Konsolenagenten</block>
   <block id="1220fc49240c9d2c58d7490c6c40ac65" category="paragraph">Die Disaster-Recovery-Lösung unterstützt nun einen optimierten Prozess für die Verwendung mehrerer Console-Agenten in einer Arbeitsumgebung.  Um zwischen verschiedenen Console-Agenten zu wechseln, müssen Sie Ihre vCenter-Konfiguration bearbeiten, die Anmeldeinformationen neu ermitteln und die Replikationspläne aktualisieren, um den neuen Console-Agenten zu verwenden.</block>
   <block id="d6155caa68c59478855dfa8342f87d18" category="inline-link-macro">Switch Console-Agenten</block>
-  <block id="8c3cfaa540744075b83a947ed57c6f60" category="paragraph">Weitere Informationen finden Sie unter <block ref="0905281a07a8919c4c92242f0cf75d65" category="inline-link-macro-rx"></block>.</block>
   <block id="5fbf922c777310b5aadba9b1dab4f7b0" category="summary">Erfahren Sie mehr über die Anforderungen für die Verwendung mehrerer Console-Agenten mit NetApp Disaster Recovery.</block>
   <block id="ac340102b6e26791143e3212d85bb1dd" category="doc">Switch Console-Agenten bei Verwendung von NetApp Disaster Recovery</block>
   <block id="5784bc747a9795446f48f40111e7bf58" category="paragraph">Die NetApp Console unterstützt die Verwendung mehrerer Console-Agenten in einer einzigen Arbeitsumgebung.  Der Einsatz mehrerer Console-Agenten kann hilfreich sein, um den Zugriff auf Ressourcen aufrechtzuerhalten, während an einem anderen Console-Agenten Wartungsarbeiten durchgeführt werden oder wenn ein Console-Agent ausfällt.  Da jeder Console-Agent über eine eindeutige Kennung verfügt, kann ein unsachgemäßer Wechsel der Console-Agenten die Verfügbarkeit von Ressourcen in einer Arbeitsumgebung beeinträchtigen.</block>
@@ -1965,4 +1963,6 @@
   <block id="ed5adefa93ed81ded190826eed4455dd" category="paragraph">Deaktivieren Sie dieses Kontrollkästchen, um die ursprüngliche Ordnerhierarchie zu ignorieren.</block>
   <block id="06596d9f3a6cac6c36599f4c1598f756" category="sidebar">Für die Notfallwiederherstellung erforderliche vCenter-Berechtigungen</block>
   <block id="2b1806d17c0606f8caa4232aa6a3c113" category="sidebar">Switch Console-Agent</block>
+  <block id="98ade846ffa73dc9c6bcd3e3e84c38b7" category="paragraph">Weitere Informationen finden Sie unter <block ref="1762f821178ef43810c03e86465a946d" category="inline-link-macro-rx"></block>.</block>
+  <block id="1df351797bd2540f3ec41bc24e67bf1f" category="paragraph">Weitere Informationen finden Sie unter <block ref="2631c62a2ac2ec2e6a0ebc0352319a2c" category="inline-link-macro-rx"></block>.</block>
 </blocks>
