@@ -16,7 +16,33 @@ Erfahren Sie mehr über die Neuerungen im Bereich NetApp Disaster Recovery.
 
 
 
+== 9. Dezember 2025
+
+Version 4.2.8P1
+
+
+
+=== Beibehaltung der Ordnerhierarchie
+
+Standardmäßig behält Disaster Recovery die VM-Inventarhierarchie (Ordnerstruktur) beim Failover bei.  Falls das Wiederherstellungsziel den erforderlichen Ordner nicht enthält, wird dieser von Disaster Recovery erstellt.
+
+Sie können diese Einstellung nun überschreiben, indem Sie einen neuen übergeordneten VM-Ordner festlegen oder die Option **Ursprüngliche Ordnerhierarchie beibehalten** deaktivieren.
+
+Weitere Informationen finden Sie unter link:../use/drplan-create.adoc["Erstellen eines Replikationsplans"].
+
+
+
+=== Optimierte Aktualisierung des Konsolenagenten
+
+Die Disaster-Recovery-Lösung unterstützt nun einen optimierten Prozess für die Verwendung mehrerer Console-Agenten in einer Arbeitsumgebung.  Um zwischen verschiedenen Console-Agenten zu wechseln, müssen Sie Ihre vCenter-Konfiguration bearbeiten, die Anmeldeinformationen neu ermitteln und die Replikationspläne aktualisieren, um den neuen Console-Agenten zu verwenden.
+
+Weitere Informationen finden Sie unter link:../reference/switch-console-agent.html["Switch Console-Agenten"].
+
+
+
 == 01. Dezember 2025
+
+Version 4.2.8
 
 
 
@@ -29,6 +55,8 @@ Bitte überprüfen Sie dielink:https://docs.netapp.com/us-en/data-services-disas
 
 
 == 10. November 2025
+
+Version 4.2.7
 
 
 
@@ -61,6 +89,8 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 == 06. Oktober 2025
+
+Version 4.2.6
 
 
 

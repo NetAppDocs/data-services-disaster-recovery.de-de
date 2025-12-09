@@ -2,8 +2,10 @@
 section: reference
 title: Referenz
 entries:
-- title: Für NetApp Disaster Recovery erforderliche vCenter-Berechtigungen
+- title: Für die Notfallwiederherstellung erforderliche vCenter-Berechtigungen
   url: "/reference/vcenter-privileges.html"
+- title: Switch Console-Agent
+  url: "/reference/switch-console-agent.html"
 - title: Verwenden Sie NetApp Disaster Recovery mit Amazon EVS
   entries:
   - title: NetApp Disaster Recovery mit Amazon EVS – Übersicht

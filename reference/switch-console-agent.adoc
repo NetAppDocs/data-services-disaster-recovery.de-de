@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: reference/switch-console-agent.html 
+keywords: disaster recovery, console agent, high availability 
+summary: Erfahren Sie mehr über die Anforderungen für die Verwendung mehrerer Console-Agenten mit NetApp Disaster Recovery. 
+---
+= Switch Console-Agenten bei Verwendung von NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Die NetApp Console unterstützt die Verwendung mehrerer Console-Agenten in einer einzigen Arbeitsumgebung.  Der Einsatz mehrerer Console-Agenten kann hilfreich sein, um den Zugriff auf Ressourcen aufrechtzuerhalten, während an einem anderen Console-Agenten Wartungsarbeiten durchgeführt werden oder wenn ein Console-Agent ausfällt.  Da jeder Console-Agent über eine eindeutige Kennung verfügt, kann ein unsachgemäßer Wechsel der Console-Agenten die Verfügbarkeit von Ressourcen in einer Arbeitsumgebung beeinträchtigen.
+
+
+
+== Bevor Sie beginnen
+
+* Du musst habenxref:../get-started/dr-prerequisites.html#create-the-netapp-console-agent[Fügen Sie mindestens zwei Console-Agenten für Ihre Arbeitsumgebung hinzu.] Die
+* Beide Console-Agenten müssen die gleichen ONTAP Cluster enthalten.
+
+
+
+
+== Schritte
+
+. Im Bereich „Notfallwiederherstellung“ wählen Sie **Standorte** aus.
+. Sie müssen den Konsolenagenten sowohl für das Quell- als auch für das Ziel-vCenter ändern.  Identifizieren Sie die vCenter-Server, die Sie ändern möchten.  Wählen Sie im vCenter das Aktionsmenü und anschließend **Bearbeiten**.
++
+image:dr-sites-subnet-menu.png["Screenshot des Sites-Dashboards"]
+
+. Wählen Sie im Dropdown-Menü den gewünschten Konsolenagenten aus und geben Sie Ihren vCenter-Benutzernamen und Ihr Passwort erneut ein. Wählen Sie **Speichern**.
++
+image:edit-vcenter.png["Screenshot vom Wechsel des Konsolenagenten"]
+
+. Wiederholen Sie die Schritte 2 und 3 für jedes weitere vCenter, das Sie ändern möchten.
+. Aktualisieren Sie im vCenter, das Sie geändert haben, das vCenter, um den neuen Konsolenagenten zu erkennen.  Wiederholen Sie diesen Schritt für jedes vCenter, das Sie geändert haben.
+. Navigieren Sie im Bereich „Notfallwiederherstellung“ zu **Replikationsplänen**.
+. Ermitteln Sie die Replikationspläne, die Sie zur Wiederaufnahme der Arbeitsabläufe verwenden möchten.  Wählen Sie das Aktionsmenü aus `...` Aktualisieren Sie anschließend die Ressourcen.  Den Status der Aufträge können Sie unter **Auftragsüberwachung** einsehen.
+
+
+
+
+== Weitere Informationen
+
+* link:https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-on-prem.html["Erfahren Sie mehr über Konsolenagenten"^]
+
