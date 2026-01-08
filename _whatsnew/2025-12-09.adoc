@@ -10,7 +10,7 @@ Standardmäßig behält Disaster Recovery die VM-Inventarhierarchie (Ordnerstruk
 
 Sie können diese Einstellung nun überschreiben, indem Sie einen neuen übergeordneten VM-Ordner festlegen oder die Option **Ursprüngliche Ordnerhierarchie beibehalten** deaktivieren.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.adoc["Erstellen eines Replikationsplans"].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"].
 
 
 
@@ -18,4 +18,4 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 Die Disaster-Recovery-Lösung unterstützt nun einen optimierten Prozess für die Verwendung mehrerer Console-Agenten in einer Arbeitsumgebung.  Um zwischen verschiedenen Console-Agenten zu wechseln, müssen Sie Ihre vCenter-Konfiguration bearbeiten, die Anmeldeinformationen neu ermitteln und die Replikationspläne aktualisieren, um den neuen Console-Agenten zu verwenden.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/reference/switch-console-agents.html["Switch Console-Agenten"].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/reference/switch-console-agent.html["Switch Console-Agenten"].

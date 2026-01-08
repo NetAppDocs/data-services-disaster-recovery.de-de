@@ -280,10 +280,7 @@ Um die Skriptausführung mit dem VM-Gastbetriebssystem zu ermöglichen, müssen 
 
 
 * *VM-Hardwareversion herabstufen und registrieren*: Wählen Sie diese Option, wenn die Version des Ziel-ESX-Hosts älter ist als die des Quell-ESX-Hosts, damit diese bei der Registrierung übereinstimmen.
-* *Originale Ordnerhierarchie beibehalten*: Wenn diese Option ausgewählt ist, behält Disaster Recovery die VM-Inventarhierarchie (Ordnerstruktur) beim Failover bei.  Falls das Wiederherstellungsziel _nicht_ die ursprüngliche Ordnerhierarchie aufweist, erstellt Disaster Recovery diese.
-+
-Deaktivieren Sie dieses Kontrollkästchen, um die ursprüngliche Ordnerhierarchie zu ignorieren.
-
+* *Originale Ordnerhierarchie beibehalten*: Wenn diese Option ausgewählt ist, behält Disaster Recovery die VM-Inventarhierarchie (Ordnerstruktur) beim Failover bei. Falls das Wiederherstellungsziel _nicht_ die ursprüngliche Ordnerhierarchie aufweist, erstellt Disaster Recovery diese. Aktivieren Sie das Kontrollkästchen, um die Ordnerhierarchie beizubehalten; deaktivieren Sie es, um die ursprüngliche Ordnerhierarchie zu ignorieren.
 * *Präfix und Suffix der Ziel-VM*: Unter den Details der virtuellen Maschinen können Sie optional jedem VM-Namen, für den ein Failover durchgeführt wurde, ein Präfix und ein Suffix hinzufügen.  Dies kann hilfreich sein, um die VMs, für die ein Failover durchgeführt wurde, von den Produktions-VMs zu unterscheiden, die auf demselben vCenter-Cluster ausgeführt werden.  Sie können dem VM-Namen beispielsweise das Präfix „DR-“ und das Suffix „-failover“ hinzufügen.  Manche Leute fügen ein zweites Produktions-vCenter hinzu, um VMs im Katastrophenfall vorübergehend an einem anderen Standort zu hosten.  Durch das Hinzufügen eines Präfixes oder Suffixes können Sie VMs, bei denen ein Failover stattgefunden hat, schnell identifizieren.  Sie können das Präfix oder Suffix auch in benutzerdefinierten Skripten verwenden.
 +
 Sie können die alternative Methode zum Festlegen des Ziel-VM-Ordners im Abschnitt „Compute-Ressourcen“ verwenden.
