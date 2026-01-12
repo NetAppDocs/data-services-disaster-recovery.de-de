@@ -1,0 +1,53 @@
+= Unterstützung für mehrere Konsolenagenten in lokalen Umgebungen
+:allow-uri-read: 
+
+
+
+
+=== Unterstützung für mehrere Konsolenagenten in lokalen Umgebungen
+
+Wenn Sie Disaster Recovery lokal einsetzen, können Sie jetzt für jede vCenter-Instanz einen Console-Agenten bereitstellen und so die Ausfallsicherheit verbessern.
+
+Wenn Sie beispielsweise zwei Standorte haben (Standorte A und B), kann Standort A über den Console Agent A verfügen, der an vCenter 1, ONTAP -Bereitstellung 1 und ONTAP Bereitstellung 2 angebunden ist. Standort B kann über einen Konsolenagenten B verfügen, der an vCenter 2 und ONTAP Bereitstellungen 3 und 4 angebunden ist.
+
+Informationen zum Console-Agenten in der Notfallwiederherstellung finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-prerequisites.html#netapp-console-prerequisites["Erstellen des Konsolenagenten"^]Die
+
+
+
+=== Fügen Sie nach einem Failover VMs für Replikationspläne hinzu, die datenspeicherbasierten Schutz verwenden.
+
+Wenn ein Failover ausgelöst wird, umfasst jeder Replikationsplan, der datenspeicherbasierten Schutz verwendet, auch VMs, die dem Datenspeicher hinzugefügt wurden, sofern diese erkannt wurden. Sie müssen die Zuordnungsdetails für die hinzugefügten VMs angeben, bevor das Failover abgeschlossen ist.
+
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Ausfallsichere Anwendungen"^].
+
+
+
+=== Neue E-Mail-Benachrichtigungen
+
+Die Notfallwiederherstellung bietet nun E-Mail-Benachrichtigungen für die folgenden Ereignisse:
+
+* Annäherung an die Kapazitätsauslastungsgrenze
+* Berichtserstellung abgeschlossen
+* Jobmisserfolge
+* Ablauf der Lizenz oder Verstöße
+
+
+
+
+=== Swagger-Verbesserungen
+
+Sie können nun direkt aus dem Disaster Recovery-Bereich auf die Swagger-Dokumentation zugreifen. Wählen Sie im Disaster Recovery-Menü **Einstellungen** und dann **API-Dokumentation**, um auf Swagger zuzugreifen, oder besuchen Sie diese URL im Inkognito-/Privatmodus Ihres Browsers: link:https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas["https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas"^]Die
+
+
+
+=== Verbesserte Benutzeroberflächen
+
+Die Notfallwiederherstellung bietet jetzt verbesserte Warnungen und Fehlerbehebungen. Diese Version behebt einen Fehler, der verhinderte, dass abgebrochene Aufträge in der Benutzeroberfläche angezeigt wurden. Stornierte Aufträge sind jetzt sichtbar. Außerdem gibt es eine neue Warnung, wenn dasselbe Zielnetzwerk mehreren verschiedenen Quellnetzwerken zugeordnet wird.
+
+
+
+=== Die als Standard hinzugefügte VM-Ordnerstruktur in Replikationsplänen beibehalten
+
+Beim Erstellen einer Replikation ist die neue Standardeinstellung, die Ordnerstruktur der VM beizubehalten. Falls das Wiederherstellungsziel nicht über die ursprüngliche Ordnerhierarchie verfügt, erstellt Disaster Recovery diese. Sie können diese Option deaktivieren, um die ursprüngliche Ordnerhierarchie zu ignorieren.
+
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"^].

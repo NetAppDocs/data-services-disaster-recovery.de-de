@@ -174,6 +174,9 @@ In der NetApp Console muss ein Konsolenagent eingerichtet werden.  Wenn Sie den 
 * Benötigter Konsolenagenttyp:
 +
 ** *Notfallwiederherstellung von vor Ort zu vor Ort*: Installieren Sie den lokalen Konsolen-Agenten am Standort für die Notfallwiederherstellung. Bei dieser Methode verhindert ein Ausfall des primären Standorts nicht, dass der Dienst Ihre virtuellen Ressourcen am DR-Standort neu startet. Siehe https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html["Installieren und Einrichten des Konsolen-Agenten vor Ort"^] .
++
+Disaster Recovery unterstützt auch die Verwendung mehrerer Konsolenagenten mit lokalen Konfigurationen. In diesem Szenario leiten die Console-Agenten Aktionen an vCenter- und ONTAP -Array-Cluster weiter, wobei Quelle und Ziel jeweils über einen eigenen Console-Agenten verfügen. Es wird empfohlen, mehrere Console-Agenten zu verwenden, um die Latenz zu verringern und die Wiederherstellungszeit zu verbessern, falls ein Console-Agent oder eine Site ausfällt.
+
 ** *Vor Ort zu AWS*: Installieren Sie den Konsolenagenten für AWS in Ihrem AWS VPC. Siehe https://docs.netapp.com/us-en/console-setup-admin/concept-install-options-aws.html["Installationsoptionen für Konsolenagenten in AWS"^] .
 +
 

@@ -130,7 +130,7 @@ TIP: Erstellen Sie für Ihre Failover-Tests einen separaten, dedizierten Satz vo
 . Suchen Sie optional nach bestimmten VMs oder Datenspeichern anhand des Namens.
 . Wählen Sie auf der linken Seite der Anwendungsseite die VMs oder Datenspeicher aus, die Sie schützen möchten, und weisen Sie sie der ausgewählten Gruppe zu.
 +
-Das Quell-vCenter muss sich auf dem lokalen vCenter befinden.  Das Ziel-vCenter kann ein zweites lokales vCenter am selben Standort oder an einem Remote-Standort oder ein Cloud-basiertes Software Defined Data Center (SDDC) wie VMware Cloud on AWS sein.  Beide vCenter sollten bereits zu Ihrer BlueXP disaster recovery hinzugefügt sein.
+Der Quell-vCenter-Server muss sich auf dem lokalen vCenter-Server befinden. Das Ziel-vCenter kann ein zweites lokales vCenter am selben Standort oder an einem entfernten Standort sein, oder ein cloudbasiertes softwaredefiniertes Rechenzentrum (SDDC) wie VMware Cloud on AWS. Beide vCenter-Server sollten bereits in Ihrer Disaster-Recovery-Arbeitsumgebung hinzugefügt sein.
 
 +
 Die ausgewählte Ressource wird automatisch zur Gruppe 1 hinzugefügt und eine neue Gruppe 2 wird gestartet.  Jedes Mal, wenn Sie der letzten Gruppe eine Ressource hinzufügen, wird eine weitere Gruppe hinzugefügt.
@@ -263,7 +263,7 @@ image:dr-plan-vm-subnet-option2.png["Screenshot mit „Replikationsplan hinzufü
 
 
 
-* *Skripte*: Sie können benutzerdefinierte, vom Gastbetriebssystem gehostete Skripte im .sh-, .bat- oder .ps1-Format als Postprozesse einbinden.  Mit benutzerdefinierten Skripten kann die BlueXP disaster recovery Ihr Skript nach einem Failover, Failback und Migrationsprozessen ausführen.  Sie können beispielsweise ein benutzerdefiniertes Skript verwenden, um alle Datenbanktransaktionen nach Abschluss des Failovers fortzusetzen.  Der Dienst kann Skripte in VMs ausführen, auf denen Microsoft Windows oder eine beliebige unterstützte Linux-Variante mit unterstützten Befehlszeilenparametern läuft.  Sie können ein Skript einzelnen VMs oder allen VMs im Replikationsplan zuweisen.
+* *Skripte*: Sie können benutzerdefinierte, im Gastbetriebssystem gehostete Skripte im .sh-, .bat- oder .ps1-Format als Nachbearbeitung einbinden. Mithilfe von benutzerdefinierten Skripten kann Disaster Recovery Ihr Skript nach einem Failover, Failback und der Migration von Prozessen ausführen. Beispielsweise können Sie ein benutzerdefiniertes Skript verwenden, um alle Datenbanktransaktionen nach Abschluss des Failovers fortzusetzen. Der Dienst kann Skripte in virtuellen Maschinen ausführen, auf denen Microsoft Windows oder eine beliebige unterstützte Linux-Variante mit Unterstützung für Befehlszeilenparameter läuft. Sie können ein Skript einzelnen VMs oder allen VMs im Replikationsplan zuweisen.
 +
 Um die Skriptausführung mit dem VM-Gastbetriebssystem zu ermöglichen, müssen die folgenden Bedingungen erfüllt sein:
 
@@ -280,7 +280,10 @@ Um die Skriptausführung mit dem VM-Gastbetriebssystem zu ermöglichen, müssen 
 
 
 * *VM-Hardwareversion herabstufen und registrieren*: Wählen Sie diese Option, wenn die Version des Ziel-ESX-Hosts älter ist als die des Quell-ESX-Hosts, damit diese bei der Registrierung übereinstimmen.
-* *Originale Ordnerhierarchie beibehalten*: Wenn diese Option ausgewählt ist, behält Disaster Recovery die VM-Inventarhierarchie (Ordnerstruktur) beim Failover bei. Falls das Wiederherstellungsziel _nicht_ die ursprüngliche Ordnerhierarchie aufweist, erstellt Disaster Recovery diese. Aktivieren Sie das Kontrollkästchen, um die Ordnerhierarchie beizubehalten; deaktivieren Sie es, um die ursprüngliche Ordnerhierarchie zu ignorieren.
+* *Ursprüngliche Ordnerhierarchie beibehalten*: Standardmäßig behält Disaster Recovery die VM-Inventarhierarchie (Ordnerstruktur) beim Failover bei. Falls das Wiederherstellungsziel die ursprüngliche Ordnerhierarchie nicht aufweist, erstellt Disaster Recovery diese.
++
+Deaktivieren Sie dieses Kontrollkästchen, um die ursprüngliche Ordnerhierarchie zu ignorieren.
+
 * *Präfix und Suffix der Ziel-VM*: Unter den Details der virtuellen Maschinen können Sie optional jedem VM-Namen, für den ein Failover durchgeführt wurde, ein Präfix und ein Suffix hinzufügen.  Dies kann hilfreich sein, um die VMs, für die ein Failover durchgeführt wurde, von den Produktions-VMs zu unterscheiden, die auf demselben vCenter-Cluster ausgeführt werden.  Sie können dem VM-Namen beispielsweise das Präfix „DR-“ und das Suffix „-failover“ hinzufügen.  Manche Leute fügen ein zweites Produktions-vCenter hinzu, um VMs im Katastrophenfall vorübergehend an einem anderen Standort zu hosten.  Durch das Hinzufügen eines Präfixes oder Suffixes können Sie VMs, bei denen ein Failover stattgefunden hat, schnell identifizieren.  Sie können das Präfix oder Suffix auch in benutzerdefinierten Skripten verwenden.
 +
 Sie können die alternative Methode zum Festlegen des Ziel-VM-Ordners im Abschnitt „Compute-Ressourcen“ verwenden.
@@ -295,7 +298,7 @@ image:dr-plan-resource-mapping-vm-boot-order.png["Screenshot mit „Replikations
 
 * *Startreihenfolge*: Sie können die Startreihenfolge nach einem Failover für alle ausgewählten virtuellen Maschinen in den Ressourcengruppen ändern.  Standardmäßig werden alle VMs parallel gestartet. Sie können in dieser Phase jedoch Änderungen vornehmen.  Dies ist hilfreich, um sicherzustellen, dass alle Ihre VMs mit der Priorität 1 ausgeführt werden, bevor die VMs mit der nachfolgenden Priorität gestartet werden.
 +
-BlueXP disaster recovery bootet alle VMs mit der gleichen Bootreihenfolgenummer parallel.
+Die Notfallwiederherstellung startet alle VMs mit der gleichen Startreihenfolgenummer parallel.
 
 +
 ** Sequentielles Booten: Weisen Sie jeder VM eine eindeutige Nummer zu, um sie in der zugewiesenen Reihenfolge zu booten, z. B. 1, 2, 3, 4, 5.

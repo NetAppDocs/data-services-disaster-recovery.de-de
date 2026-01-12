@@ -20,9 +20,7 @@ link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-re
 
 *Über diese Aufgabe*
 
-Während eines Failovers verwendet Disaster Recovery die aktuellste SnapMirror Snapshot-Kopie.  Oder Sie können einen bestimmten Snapshot aus einem Point-in-Time-Snapshot auswählen (gemäß der Aufbewahrungsrichtlinie von SnapMirror).
-
-Verwenden Sie die Point-in-Time-Option, wenn die aktuellsten Replikate kompromittiert wurden, beispielsweise während eines Ransomware-Angriffs.  BlueXP disaster recovery zeigt alle verfügbaren Zeitpunkte an.
+Im Falle eines Failovers verwendet Disaster Recovery standardmäßig die aktuellste SnapMirror Snapshot-Kopie. Sie können jedoch einen bestimmten Snapshot aus einem Point-in-Time-Snapshot auswählen (gemäß der Aufbewahrungsrichtlinie von SnapMirror). Verwenden Sie die Option „Zeitpunkt“.
 
 Dieser Prozess unterscheidet sich, je nachdem, ob der Produktionsstandort fehlerfrei ist und Sie aus anderen Gründen als einem kritischen Infrastrukturausfall ein Failover zum Disaster Recovery-Standort durchführen:
 
@@ -38,9 +36,9 @@ Dieses Verfahren unterbricht die Replikationsbeziehung, setzt die vCenter-Quell-
 
 Bevor Sie das Failover starten, können Sie den Vorgang testen.  Der Test schaltet die virtuellen Maschinen nicht offline.
 
-Während eines Failover-Tests erstellt BlueXP disaster recovery vorübergehend virtuelle Maschinen.  BlueXP disaster recovery ordnet den ESXi-Hosts einen temporären Datenspeicher zu, der das FlexClone -Volume sichert.
+Während eines Failover-Tests erstellt Disaster Recovery vorübergehend virtuelle Maschinen. Risaster Recovery ordnet einen temporären Datenspeicher, der das FlexClone Volume unterstützt, den ESXi-Hosts zu.
 
-Dieser Prozess verbraucht keine zusätzliche physische Kapazität auf dem lokalen ONTAP -Speicher oder FSx für NetApp ONTAP -Speicher in AWS.  Das ursprüngliche Quellvolume wird nicht geändert und Replikationsaufträge können auch während der Notfallwiederherstellung fortgesetzt werden.
+Dieser Prozess beansprucht keine zusätzliche physische Kapazität auf dem lokalen ONTAP Speicher oder dem FSx für NetApp ONTAP -Speicher in AWS. Das ursprüngliche Quellvolume wird nicht verändert, und Replikationsaufträge können auch während der Notfallwiederherstellung fortgesetzt werden.
 
 Wenn Sie den Test abgeschlossen haben, sollten Sie die virtuellen Maschinen mit der Option *Test bereinigen* zurücksetzen.  Dies wird zwar empfohlen, ist jedoch nicht erforderlich.
 
@@ -76,8 +74,8 @@ Nachdem der Failover-Test abgeschlossen ist, sollten Sie die Testumgebung berein
 .Schritte
 . Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failover-Test bereinigen*.
-. Geben Sie auf der Seite „Failover testen“ „Failover bereinigen“ ein und wählen Sie *Failovertest bereinigen* aus.
+. Wählen Sie rechts die Option *Aktionen* aus. image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] dann *Failover-Test bereinigen*.
+. Geben Sie auf der Seite „Test-Failover“ die Option „Failover bereinigen“ ein und wählen Sie dann *Failover-Test bereinigen* aus.
 
 
 
@@ -102,6 +100,9 @@ Der Failover-Prozess umfasst die folgenden Vorgänge:
 
 
 
+NOTE: Bei datenspeicherbasierten Replikationsplänen werden VMs, die Sie hinzugefügt und erkannt haben, für die aber keine Zuordnungsdetails angegeben wurden, in das Failover einbezogen. Der Failover schlägt fehl und es wird eine Benachrichtigung in den Jobs angezeigt. Sie müssen die Zuordnungsdetails angeben, um das Failover erfolgreich abzuschließen.
+
+
 TIP: Nachdem das Failover gestartet wurde, können Sie die wiederhergestellten VMs im vCenter der Disaster-Recovery-Site sehen (virtuelle Maschinen, Netzwerke und Datenspeicher).  Standardmäßig werden die virtuellen Maschinen im Workload-Ordner wiederhergestellt.
 
 .Schritte
@@ -111,7 +112,7 @@ TIP: Nachdem das Failover gestartet wurde, können Sie die wiederhergestellten V
 +
 image:dr-plan-failover3.png["Failover-Seite"]
 
-. Initiieren Sie auf der Seite „Failover“ entweder jetzt einen Snapshot oder wählen Sie den Snapshot für den Datenspeicher aus, von dem die Wiederherstellung erfolgen soll.  Die Standardeinstellung ist die neueste Version.
+. Auf der Failover-Seite können Sie entweder jetzt einen neuen Snapshot erstellen oder einen vorhandenen Snapshot für den Datenspeicher auswählen, der als Grundlage für die Wiederherstellung dienen soll. Standardmäßig wird die neueste Version verwendet.
 +
 Vor dem Failover wird ein Snapshot der aktuellen Quelle erstellt und zum aktuellen Ziel repliziert.
 

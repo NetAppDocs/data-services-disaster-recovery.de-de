@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: support/task-get-help.html 
 keywords: help, ticket, open support case, support, netapp support, technical support, call support, phone number, open ticket, web ticket, open an issue 
-summary: 'NetApp bietet auf vielfältige Weise Support für BlueXP . Umfangreiche kostenlose Self-Support-Optionen stehen rund um die Uhr zur Verfügung, beispielsweise Knowledgebase-Artikel (KB) und ein Community-Forum. Ihre Support-Registrierung beinhaltet technischen Remote-Support per Web-Ticketing.' 
+summary: 'NetApp bietet Support für die Konsole auf vielfältige Weise. Umfangreiche kostenlose Selbsthilfeoptionen stehen rund um die Uhr zur Verfügung, wie zum Beispiel Artikel in der Wissensdatenbank (KB) und ein Community-Forum. Ihre Support-Registrierung beinhaltet technischen Fernsupport über ein Web-Ticketsystem.' 
 ---
 = Hilfe erhalten
 :allow-uri-read: 

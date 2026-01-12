@@ -18,9 +18,11 @@ Nachdem ein Notfall behoben wurde, führen Sie ein Failback vom Notfallwiederher
 
 link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
-*Über diese Aufgabe*
 
-In diesem Workflow repliziert (resynchronisiert) NetApp Disaster Recovery alle Änderungen zurück zur ursprünglichen virtuellen Quellmaschine, bevor die Replikationsrichtung umgekehrt wird. Dieser Prozess beginnt mit einer Beziehung, deren Failover zu einem Ziel abgeschlossen ist, und umfasst die folgenden Schritte:
+
+== Über Failback
+
+Im Failback-Modus repliziert (resynchronisiert) NetApp Disaster Recovery alle Änderungen zurück auf die ursprüngliche virtuelle Quellmaschine, bevor die Replikationsrichtung umgekehrt wird. Dieser Prozess beginnt mit einer Beziehung, die vollständig auf ein Ziel umgeschaltet wurde, und umfasst die folgenden Schritte:
 
 * Führen Sie eine Konformitätsprüfung auf der wiederhergestellten Site durch.
 * Aktualisieren Sie die vCenter-Informationen für jeden vCenter-Cluster, der sich am wiederhergestellten Standort befindet.
@@ -30,13 +32,21 @@ In diesem Workflow repliziert (resynchronisiert) NetApp Disaster Recovery alle �
 * Schalten Sie die virtuellen Quellmaschinen ein, registrieren Sie sie und mounten Sie die Volumes auf der Quelle.
 
 
-.Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+
+
+== Bevor Sie beginnen
+
+Wenn Sie einen datenspeicherbasierten Schutz verwenden, können VMs, die dem Datenspeicher hinzugefügt wurden, im Failover-Prozess ebenfalls dem Datenspeicher hinzugefügt werden. Falls dies der Fall ist, stellen Sie sicher, dass Sie die zusätzlichen Mapping-Informationen für diese VMs bereitstellen, bevor Sie das Failback einleiten. Informationen zum Bearbeiten der Ressourcenzuordnung finden Sie unter link:manage.html#manage-replication-plans["Verwalten von Replikationsplänen"]Die
+
+
+
+== Schritte
+
 . Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 . Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
 . Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failback*.
-. Geben Sie den Namen des Replikationsplans ein, um das Failback zu bestätigen und zu starten.
-. Wählen Sie den Snapshot für den Datenspeicher aus, aus dem die Wiederherstellung erfolgen soll.  Die Standardeinstellung ist die neueste Version.
-. Um den Fortschritt zu überprüfen, wählen Sie im Menü *Jobüberwachung*.
+. Geben Sie den Namen des Replikationsplans ein, um das Failback zu starten.
+. Wählen Sie den Snapshot für den Datenspeicher aus, aus dem die Wiederherstellung erfolgen soll. Die Standardeinstellung ist die neueste Version.
+. Um den Fortschritt des Auftrags zu überwachen, wählen Sie im Menü „Notfallwiederherstellung“ die Option „Auftragsüberwachung“.
 
