@@ -67,7 +67,7 @@ Bei der Notfallwiederherstellung auf Google Cloud VMware Engine mit Google Cloud
 
 **Überlegungen zum Ausfallmanagement**
 
-* Ein Failover wird nur mit dem neuesten Snapshot unterstützt.  Bei Bedarf können Sie während der Snapshot-Erstellung einen neuen Snapshot erstellen (d. h. die Option für selektive Snapshots muss deaktiviert sein).
+* Failover wird nur mit dem neuesten Snapshot unterstützt. Falls erforderlich, können Sie während des Failovers einen neuen Snapshot erstellen (das heißt, die Option für selektive Snapshots muss deaktiviert sein).
 * Nach einem Failover kann kein neuer Snapshot erstellt werden.
 * Snapshots können nach einem Failover nicht beibehalten und abgeglichen werden.
 
@@ -170,10 +170,10 @@ Der Konsolenagent ist eine Softwarekomponente, die es der Konsole ermöglicht, m
 In der NetApp Console muss ein Konsolenagent eingerichtet werden.  Wenn Sie den Agenten verwenden, enthält er die entsprechenden Funktionen für den Disaster Recovery-Dienst.
 
 * NetApp Disaster Recovery funktioniert nur mit der Agent-Bereitstellung im Standardmodus. Sehen https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-standard-mode.html["Erste Schritte mit der NetApp Console im Standardmodus"^] .
-* Stellen Sie sicher, dass sowohl das Quell- als auch das Ziel-vCenter denselben Konsolenagenten verwenden.
+* Stellen Sie sicher, dass sowohl der Quell- als auch der Ziel-vCenter-Cluster denselben Console-Agenten verwenden.
 * Benötigter Konsolenagenttyp:
 +
-** *Notfallwiederherstellung von vor Ort zu vor Ort*: Installieren Sie den lokalen Konsolen-Agenten am Standort für die Notfallwiederherstellung. Bei dieser Methode verhindert ein Ausfall des primären Standorts nicht, dass der Dienst Ihre virtuellen Ressourcen am DR-Standort neu startet. Siehe https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html["Installieren und Einrichten des Konsolen-Agenten vor Ort"^] .
+** *On-Premises-zu-On-Premises-Disaster-Recovery*: Installieren Sie den On-Premises-Console-Agenten am Disaster-Recovery-Standort. Mit dieser Methode verhindert ein Ausfall des primären Standorts nicht, dass der Dienst Ihre virtuellen Ressourcen am DR-Standort neu startet. Siehe  https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html["Installieren und Einrichten des Konsolen-Agenten vor Ort"^].
 +
 Disaster Recovery unterstützt auch die Verwendung mehrerer Konsolenagenten mit lokalen Konfigurationen. In diesem Szenario leiten die Console-Agenten Aktionen an vCenter- und ONTAP -Array-Cluster weiter, wobei Quelle und Ziel jeweils über einen eigenen Console-Agenten verfügen. Es wird empfohlen, mehrere Console-Agenten zu verwenden, um die Latenz zu verringern und die Wiederherstellungszeit zu verbessern, falls ein Console-Agent oder eine Site ausfällt.
 
@@ -201,4 +201,12 @@ Um sicherzustellen, dass die Prozesse zur Anwendungskonsistenz erfolgreich sind,
 * Stellen Sie sicher, dass VMware-Tools (oder Open VM-Tools) auf den zu schützenden VMs ausgeführt werden.
 * Bei Windows-VMs, auf denen Microsoft SQL Server, Oracle Database oder beides ausgeführt wird, müssen die VSS Writer der Datenbanken aktiviert sein.
 * Bei Oracle-Datenbanken, die auf einem Linux-Betriebssystem laufen, muss die Betriebssystem-Benutzerauthentifizierung für die Oracle-Datenbank-SYSDBA-Rolle aktiviert sein.
+
+
+
+
+== Weitere Informationen
+
+* xref:../reference/vcenter-privileges.html[Erforderliche vCenter Privilegien]
+* xref:../reference/evs-deploy-guide-config-prereqs.html[Voraussetzungen für Amazon EVS mit NetApp Disaster Recovery]
 

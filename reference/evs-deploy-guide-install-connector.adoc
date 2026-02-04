@@ -2,19 +2,25 @@
 sidebar: sidebar 
 permalink: reference/evs-deploy-guide-install-connector.html 
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
-summary: Einführung von NetApp Disaster Recovery mit Amazon EVS und Amazon FSx for NetApp ONTAP.  Obwohl der Connector an jedem Ihrer Netzwerkstandorte installiert werden kann, empfehlen wir für die NetApp Disaster Recovery, den Connector am DR-Standort zu installieren.  Dadurch wird sichergestellt, dass im Falle eines Ausfalls des primären Standorts die NetApp Konsolen-Benutzeroberfläche weiterhin Kontakt mit dem Konsolenagenten hat und den Wiederherstellungsprozess innerhalb dieses DR-Standorts orchestrieren kann. 
+summary: Der NetApp Console-Agent orchestriert die Verbindung und Verwaltung zwischen der NetApp Console und Cloud- oder On-Prem-Speicherressourcen. 
 ---
 = Installieren Sie den NetApp Console -Agenten für NetApp Disaster Recovery
 :allow-uri-read: 
 
 
 [role="lead"]
-Ein NetApp Console Agent ist eine NetApp -Software, die in Ihrer Cloud oder Ihrem lokalen Netzwerk ausgeführt wird.  Es führt die Aktionen aus, die die NetApp Console zur Verwaltung Ihrer Dateninfrastruktur ausführen muss.  Der Konsolenagent fragt die NetApp Disaster Recovery -Software als Serviceebene ständig nach erforderlichen Aktionen ab.
+Ein NetApp Console-Agent ermöglicht es Ihnen, Ihre NetApp Console-Bereitstellungen mit Ihrer Infrastruktur zu verbinden, um Lösungen sicher über AWS, Azure, Google Cloud oder lokale Umgebungen hinweg zu orchestrieren. Der Console-Agent führt die Aktionen aus, die die NetApp Console zur Verwaltung Ihrer Dateninfrastruktur ausführen muss. Der Console-Agent fragt die NetApp Disaster Recovery Software-as-a-Service-Schicht kontinuierlich ab, um alle erforderlichen Aktionen auszuführen.
 
-Bei NetApp Disaster Recovery werden mit den ausgeführten Aktionen VMware vCenter-Cluster und ONTAP Speicherinstanzen mithilfe nativer APIs für jeden jeweiligen Dienst orchestriert, um Schutz für Produktions-VMs zu bieten, die an einem lokalen Standort ausgeführt werden.  Obwohl der Konsolenagent an jedem Ihrer Netzwerkstandorte installiert werden kann, empfehlen wir für NetApp Disaster Recovery, den Konsolenagenten am DR-Standort zu installieren.  Dadurch wird sichergestellt, dass im Falle eines Ausfalls des primären Standorts die Cloud-basierte Konsolen-Benutzeroberfläche von NetApp weiterhin Kontakt mit dem Konsolenagenten hat und den Wiederherstellungsprozess innerhalb dieses DR-Standorts orchestrieren kann.
+Für NetApp Disaster Recovery orchestrieren die ausgeführten Aktionen VMware vCenter-Cluster und ONTAP-Speicherinstanzen mithilfe nativer APIs für jeden jeweiligen Dienst, um Schutz für Produktions-VMs zu bieten, die an einem lokalen Standort ausgeführt werden. Obwohl der Console-Agent an jedem Ihrer Netzwerkstandorte installiert werden kann, wird empfohlen, den Console-Agent am Disaster-Recovery-Standort für NetApp Disaster Recovery zu installieren. Die Installation am DR-Standort stellt sicher, dass im Falle eines Ausfalls des primären Standorts die NetApp Console UI die Verbindung zum Console-Agent aufrechterhält und den Wiederherstellungsprozess innerhalb dieses DR-Standorts orchestrieren kann.
 
-Um den Dienst zu verwenden, installieren Sie den Konsolenagenten im Standardmodus. Um mehr über die verschiedenen Arten von Console-Agent-Installationen zu erfahren, besuchen Sie https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Erfahren Sie mehr über die Bereitstellungsmodi der NetApp Console | NetApp Dokumentation"^] Die
 
-Obwohl der Konsolenagent für die Verwendung des Dienstes von entscheidender Bedeutung ist, hängen die Installationsschritte zur Installation des Konsolenagenten von Ihren Anforderungen und der Netzwerkkonfiguration ab.  Es geht über den Rahmen dieser Informationen hinaus, spezifische Anweisungen zur Installation bereitzustellen.
 
-Die einfachste Methode zum Installieren des Konsolenagenten mit Amazon AWS ist die Verwendung des AWS Marketplace. Einzelheiten zur Installation des Console-Agenten über den AWS Marketplace finden Sie hier: https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-marketplace.html["Erstellen Sie einen Konsolenagenten aus dem AWS Marketplace | NetApp Dokumentation"^] Die
+== Installation
+
+* Um NetApp Disaster Recovery zu nutzen, installieren Sie den Console-Agenten im Standardmodus. Weitere Informationen zu den Typen der Console-Agenten-Installationen finden Sie unter https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Erfahren Sie mehr über die Bereitstellungsmodi der NetApp Console"^].
+
+
+Die konkreten Installationsschritte für den Konsolenagenten hängen von Ihrem Bereitstellungstyp ab. Siehe link:https://docs.netapp.com/us-en/console-setup-admin/concept-agents.html["Erfahren Sie mehr über Konsolenagenten"^] für weitere Informationen.
+
+
+TIP: Die einfachste Methode zur Installation des Console-Agenten mit Amazon AWS ist die Verwendung des AWS Marketplace. Weitere Informationen zur Installation des Console-Agenten über den AWS Marketplace finden Sie unter  https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-marketplace.html["Erstellen Sie einen Console-Agenten aus dem AWS Marketplace"^].

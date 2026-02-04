@@ -9,20 +9,41 @@ summary: Sie sollten sicherstellen, dass mehrere Voraussetzungen erfüllt sind, 
 
 
 [role="lead"]
-Sie sollten sicherstellen, dass mehrere Voraussetzungen erfüllt sind, bevor Sie mit der Konfiguration von Amazon EVS mit NetApp Disaster Recovery fortfahren.
+Stellen Sie sicher, dass Sie die Anforderungen für die Konfiguration von Amazon EVS mit NetApp Disaster Recovery überprüfen und erfüllen.
 
-Gehen Sie insbesondere wie folgt vor:
-
+.Voraussetzungen
+* Überprüfen Sie die link:../get-started/dr-prerequisites["Allgemeine Voraussetzungen für Disaster Recovery"].
 * Erstellen Sie ein vCenter-Benutzerkonto mit den spezifischen VMware-Berechtigungen, die für NetApp Disaster Recovery erforderlich sind, um die erforderlichen Vorgänge auszuführen.
 +
 
-NOTE: Wir empfehlen nicht, das standardmäßige Administratorkonto „\administrator@vsphere.com“ zu verwenden.  Stattdessen sollten Sie auf allen vCenter-Clustern, die am DR-Prozess teilnehmen, ein NetApp Disaster Recovery spezifisches Benutzerkonto erstellen.  Eine Liste der erforderlichen Berechtigungen finden Sie unterlink:vcenter-privileges.html["Für NetApp Disaster Recovery erforderliche vCenter-Berechtigungen"] .
+NOTE: Es wird empfohlen, **nicht** das Standardkonto „\administrator@vsphere.com“ als Administrator zu verwenden. Stattdessen sollten Sie ein NetApp Disaster Recovery-spezifisches Benutzerkonto auf allen vCenter Clustern erstellen, die am Disaster-Recovery-Prozess teilnehmen. Eine Liste der spezifischen erforderlichen Berechtigungen finden Sie unter link:vcenter-privileges.html["Für NetApp Disaster Recovery erforderliche vCenter-Berechtigungen"].
 
-* Stellen Sie sicher, dass sich alle vCenter-Datenspeicher, die durch NetApp Disaster Recovery geschützte VMs hosten, auf NetApp ONTAP -Speicherressourcen befinden.
+* Stellen Sie sicher, dass alle vCenter Datenspeicher, die VMs hosten, die durch Disaster Recovery geschützt sind, sich auf NetApp ONTAP Speicherressourcen befinden.
 +
-Der Dienst unterstützt NFS und VMFS auf iSCSI (und nicht FC) bei Verwendung von Amazon FSx auf NetApp ONTAP.  Während der Dienst FC unterstützt, ist dies bei Amazon FSx for NetApp ONTAP nicht der Fall.
+Disaster Recovery unterstützt NFS und VMFS über iSCSI (und nicht FC) bei Verwendung von Amazon FSx auf NetApp ONTAP. Obwohl Disaster Recovery FC unterstützt, unterstützt Amazon FSx for NetApp ONTAP dies nicht.
 
-* Stellen Sie sicher, dass Ihr Amazon EVS vCenter mit einem Amazon FSx for NetApp ONTAP Speichercluster verbunden ist.
-* Stellen Sie sicher, dass auf allen geschützten VMs VMware-Tools installiert sind.
-* Stellen Sie sicher, dass Ihr lokales Netzwerk über eine von Amazon genehmigte Verbindungsmethode mit Ihrem AWS VPC-Netzwerk verbunden ist.  Wir empfehlen Ihnen, AWS Direct Connect, AWS Private Link oder ein AWS Site-to-Site-VPN zu verwenden.
+* Stellen Sie sicher, dass Ihr Amazon EVS vCenter mit einem Amazon FSx for NetApp ONTAP Storage-Cluster verbunden ist.
+* Stellen Sie sicher, dass VMware tools auf allen geschützten VMs installiert sind.
+* Stellen Sie sicher, dass Ihr lokales Netzwerk über eine von Amazon zugelassene Verbindungsmethode mit Ihrem AWS VPC-Netzwerk verbunden ist. Es wird empfohlen, AWS Direct Connect, AWS Private Link oder eine AWS Site-to-Site VPN zu verwenden.
+* Überprüfen und sicherstellen, dass die Anschluss- und Portanforderungen für EVS mit Disaster Recovery eingehalten werden:
++
+[cols="4"]
+|===
+| Quelle | Ziel | Port | Details 
+
+
+| Amazon FSxN | On-Premises-ONTAP | TCP 11104, 11105, ICMP | SnapMirror 
+
+
+| On-Premises-ONTAP | Amazon FSxN | TCP 11104, 11105, ICMP | SnapMirror 
+
+
+| NetApp Console-Agent | On-Premises-ONTAP | TCP 443, nur ICMP | API-Aufrufe 
+
+
+| NetApp Console-Agent | Amazon FSxN | TCP 441, nur ICMP | API-Aufrufe 
+
+
+| NetApp Console-Agent | vCenter (lokal, EVS), ESXi-Host (lokal, EVS) | 443 | API-Aufrufe, Skriptausführung 
+|===
 
