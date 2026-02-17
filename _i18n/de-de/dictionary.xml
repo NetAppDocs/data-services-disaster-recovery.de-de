@@ -2107,4 +2107,12 @@
   <block id="29526e6f5f21e46912fe5e749afaadeb" category="paragraph">Die konkreten Installationsschritte für den Konsolenagenten hängen von Ihrem Bereitstellungstyp ab. Siehe <block ref="60ce1b0a0c322e03a03b2c2641ba72c3" category="inline-link-macro-rx"></block> für weitere Informationen.</block>
   <block id="1515391ee07716093ddb994cd9906006" category="inline-link">Erstellen Sie einen Console-Agenten aus dem AWS Marketplace</block>
   <block id="7f9f446a286afe8acb3ad25ae1a89a13" category="admonition">Die einfachste Methode zur Installation des Console-Agenten mit Amazon AWS ist die Verwendung des AWS Marketplace. Weitere Informationen zur Installation des Console-Agenten über den AWS Marketplace finden Sie unter <block ref="f267bc5cc8f7e48efa7f9b5434e2039f" category="inline-link-rx"></block>.</block>
+  <block id="83babe62c403f56e76ef6809d4508f91" category="doc">Verbesserte Benutzeroberfläche</block>
+  <block id="438ce765c897095715b03fca4b860a61" category="paragraph">Die Disaster Recovery-Benutzeroberfläche wurde basierend auf Rückmeldungen aktualisiert, um die Leistung und die Benutzerfreundlichkeit zu verbessern.</block>
+  <block id="c99f25325f86d3f0c79c43f7e35c908e" category="section-title">API Swagger-Dokumentation</block>
+  <block id="4dc69d78f0442e6b664baa4e0d9bd594" category="inline-image-macro">Aktionssymbol</block>
+  <block id="c75d11eee9117155e14ba1fe4d4e9609" category="inline-link-macro">URL als Lesezeichen speichern</block>
+  <block id="1ed2e3ee9da6a94c882b1fde4a104444" category="paragraph">Die Swagger-Dokumentation der Disaster Recovery API ist jetzt in einem regulären Browser zugänglich; der Inkognitomodus ist nicht mehr erforderlich. Um auf die API-Dokumentation zuzugreifen, navigieren Sie zum Disaster Recovery Dashboard, wählen Sie das Kontextmenü oben rechts <block ref="9bb01c837d73cae62964f6b5d76c3c64" category="inline-image-macro-rx" type="image"></block> und dann **API Documentation** aus, um die Swagger-Dokumentation zu öffnen. Sie können auch <block ref="1a92440ed6b8c60f65d4cdda7009f427" category="inline-link-macro-rx"></block>.</block>
+  <block id="fb042b7b99959e391eeb7c417511098a" category="section-title">16. Februar 2026</block>
+  <block id="699554d8d02429739cd0995ec1ec3ab8" category="paragraph">Version 4.3.0</block>
 </blocks>
