@@ -95,7 +95,7 @@ image:../use/dr-plan-list.png["Liste der Replikationspläne"]
 
 
 . Kehren Sie zur Liste der Pläne zurück, indem Sie in der Breadcrumb-Navigation links „Replikationspläne“ auswählen.
-. Um Aktionen mit dem Plan auszuführen, wählen Sie aus der Liste der Replikationspläne die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] rechts neben dem Plan und wählen Sie eine der Optionen aus, z. B. *Zeitpläne bearbeiten*, *Failover testen*, *Failover*, *Failback*, *Migrieren*, *Jetzt Snapshot erstellen*, *Alte Snapshots bereinigen*, *Deaktivieren*, *Aktivieren* oder *Löschen*.
+. Um Aktionen mit dem Plan durchzuführen, wählen Sie in der Liste der Replikationspläne die Option *Aktionen* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] rechts neben dem Plan und wählen Sie dann eine Aktion: *Zeitpläne bearbeiten*, *Failover testen*, *Failover*, *Failback*, *Migrieren*, *Jetzt Snapshot erstellen*, *Alte Snapshots bereinigen*, *Deaktivieren*, *Aktivieren* oder *Löschen*.
 . Um einen Test-Failover-Zeitplan festzulegen oder zu ändern oder die Konformitätshäufigkeitsprüfung festzulegen, wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] rechts neben dem Plan und wählen Sie *Zeitpläne bearbeiten*.
 +
 .. Geben Sie auf der Seite „Zeitpläne bearbeiten“ ein, wie oft (in Minuten) die Failover-Konformitätsprüfung durchgeführt werden soll.

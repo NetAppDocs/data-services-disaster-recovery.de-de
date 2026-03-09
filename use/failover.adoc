@@ -36,7 +36,7 @@ Dieses Verfahren unterbricht die Replikationsbeziehung, setzt die vCenter-Quell-
 
 Bevor Sie das Failover starten, können Sie den Vorgang testen.  Der Test schaltet die virtuellen Maschinen nicht offline.
 
-Während eines Failover-Tests erstellt Disaster Recovery vorübergehend virtuelle Maschinen. Risaster Recovery ordnet einen temporären Datenspeicher, der das FlexClone Volume unterstützt, den ESXi-Hosts zu.
+Während eines Failover-Tests erstellt Disaster Recovery vorübergehend virtuelle Maschinen. Disaster Recovery ordnet einen temporären Datenspeicher, der das FlexClone Volume sichert, den ESXi-Hosts zu.
 
 Dieser Prozess beansprucht keine zusätzliche physische Kapazität auf dem lokalen ONTAP Speicher oder dem FSx für NetApp ONTAP -Speicher in AWS. Das ursprüngliche Quellvolume wird nicht verändert, und Replikationsaufträge können auch während der Notfallwiederherstellung fortgesetzt werden.
 

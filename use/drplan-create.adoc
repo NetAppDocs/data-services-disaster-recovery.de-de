@@ -208,7 +208,7 @@ TIP: Wenn ein vCenter über einen Distributed Resource Scheduler (DRS) verfügt,
 
 === Kartenressourcen > Abschnitt „Virtuelle Netzwerke“
 
-VMs verwenden virtuelle Netzwerkkarten, die mit virtuellen Netzwerken verbunden sind.  Beim Failover-Prozess verbindet der Dienst diese virtuellen Netzwerkkarten mit virtuellen Netzwerken, die in der VMware-Zielumgebung definiert sind.  Für jedes von den VMs in der Ressourcengruppe verwendete virtuelle Quellnetzwerk erfordert der Dienst die Zuweisung eines virtuellen Zielnetzwerks.
+VMs verwenden virtuelle Netzwerkkarten, die mit virtuellen Netzwerken verbunden sind. Im Failover-Prozess verbindet der Dienst diese virtuellen Netzwerkkarten mit virtuellen Netzwerken, die in der Ziel-VMware-Umgebung definiert sind. Für jedes von den VMs in der Ressourcengruppe verwendete Quellnetzwerk benötigt der Dienst eine Zuordnung zu einem Zielnetzwerk.
 
 
 NOTE: Sie können demselben virtuellen Zielnetzwerk mehrere virtuelle Quellnetzwerke zuweisen.  Dies kann jedoch zu Konflikten bei der IP-Netzwerkkonfiguration führen.  Sie können mehrere Quellnetzwerke einem einzigen Zielnetzwerk zuordnen, um sicherzustellen, dass alle Quellnetzwerke dieselbe Konfiguration haben.
@@ -446,9 +446,9 @@ Der Plan wird der Liste der Pläne hinzugefügt.
 
 
 
-== Bearbeiten Sie Zeitpläne, um die Konformität zu testen und sicherzustellen, dass Failover-Tests funktionieren
+== Einen Replikationsplan ändern
 
-Möglicherweise möchten Sie Zeitpläne zum Testen der Konformität und des Failovers einrichten, um sicherzustellen, dass diese bei Bedarf ordnungsgemäß funktionieren.
+Sie können einen Replikationsplan-Zeitplan ändern, um die Compliance zu testen und sicherzustellen, dass Failover-Tests erfolgreich abgeschlossen werden.
 
 * *Auswirkungen auf die Compliance-Zeit*: Wenn ein Replikationsplan erstellt wird, erstellt der Dienst standardmäßig einen Compliance-Zeitplan.  Die Standard-Compliance-Zeit beträgt 30 Minuten.  Um diese Zeit zu ändern, können Sie den Zeitplan im Replikationsplan bearbeiten.
 * *Auswirkungen des Failovers testen*: Sie können einen Failover-Prozess bei Bedarf oder nach Zeitplan testen.  Auf diese Weise können Sie das Failover virtueller Maschinen zu einem in einem Replikationsplan angegebenen Ziel testen.
