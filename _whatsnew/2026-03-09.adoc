@@ -8,7 +8,7 @@
 
 Beim Erstellen eines Replikationsplans in Disaster können Sie nun bestimmte Datenspeicher von der Replikation ausschließen. In Situationen, in denen eine VM für die Verwendung mehrerer Datenspeicher konfiguriert ist, können Sie so einschränken, welche repliziert werden.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.adoc["Erstellen eines Replikationsplans"^].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"^].
 
 
 

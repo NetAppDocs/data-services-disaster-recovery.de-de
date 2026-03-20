@@ -72,7 +72,7 @@ Ein Assistent führt Sie durch die folgenden Schritte:
 * Überprüfen Sie den Plan.
 
 
-Beim Erstellen des Plans sollten Sie die folgenden Richtlinien befolgen:
+Befolgen Sie beim Erstellen des Plans diese Richtlinien:
 
 * Verwenden Sie für alle VMs im Plan dieselben Anmeldeinformationen.
 * Verwenden Sie für alle VMs im Plan dasselbe Skript.
@@ -86,14 +86,13 @@ Beim Erstellen des Plans sollten Sie die folgenden Richtlinien befolgen:
 Wählen Sie zuerst das Quell-vCenter und dann das Ziel-vCenter aus.
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
 . Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* und dann *Hinzufügen*.  Oder wählen Sie im Dashboard „Replikationsplan hinzufügen“ aus, wenn Sie den Dienst gerade erst nutzen.
+. Wählen Sie im Menü NetApp Disaster Recovery die Option *Replikationspläne* und anschließend *Hinzufügen*. Wenn Sie zum ersten Mal einen Replikationsplan erstellen, wählen Sie im Dashboard *Replikationsplan hinzufügen*.
+. Geben Sie einen Namen für den Replikationsplan ein.
+. Wählen Sie unter *Quelle vCenter* das vCenter aus, in dem sich die Daten befinden, im Dropdown-Menü. Wählen Sie unter *Ziel vCenter* das vCenter aus, in das die Daten repliziert werden sollen, im Dropdown-Menü.
 +
-image:dr-plan-create-name2.png["Screenshot der Seite „Replikationsplan hinzufügen > Plan hinzufügen“"]
+image:dr-plan-create-name2.png["Screenshot, der die vCenter-Serverseite zeigt"]
 
-. Erstellen Sie einen Namen für den Replikationsplan.
-. Wählen Sie die Quell- und Ziel-vCenter aus den Listen „Quell-“ und „Ziel-vCenter“ aus.
 . Wählen Sie *Weiter*.
 
 
@@ -103,19 +102,17 @@ image:dr-plan-create-name2.png["Screenshot der Seite „Replikationsplan hinzuf�
 
 Der nächste Schritt besteht darin, die erforderlichen VMs oder Datenspeicher in funktionale Ressourcengruppen zu gruppieren.  Mithilfe von Ressourcengruppen können Sie eine Reihe von VMs oder Datenspeichern mit einem gemeinsamen Snapshot schützen.
 
-Wenn Sie im Replikationsplan Anwendungen auswählen, können Sie das Betriebssystem für jede VM oder jeden Datenspeicher im Plan sehen.  Dies ist hilfreich bei der Entscheidung, wie VMs oder Datenspeicher in einer Ressourcengruppe zusammengefasst werden sollen.
-
 
 TIP: Jede Ressourcengruppe kann eine oder mehrere VMs oder Datenspeicher enthalten.
 
 Berücksichtigen Sie beim Erstellen von Ressourcengruppen die folgenden Punkte:
 
 * Bevor Sie Datenspeicher zu Ressourcengruppen hinzufügen, starten Sie zunächst eine manuelle oder geplante Erkennung der VMs.  Dadurch wird sichergestellt, dass die VMs erkannt und in der Ressourcengruppe aufgelistet werden.  Wenn Sie keine manuelle Erkennung auslösen, werden die VMs möglicherweise nicht in der Ressourcengruppe aufgeführt.
-* Stellen Sie sicher, dass sich mindestens eine VM im Datenspeicher befindet.  Wenn sich im Datenspeicher keine VMs befinden, wird der Datenspeicher nicht erkannt.
+* Stellen Sie sicher, dass sich mindestens eine VM im Datenspeicher befindet. Wenn sich keine VMs im Datenspeicher befinden, wird der Datenspeicher nicht erkannt.
 * Ein einzelner Datenspeicher sollte keine VMs hosten, die durch mehr als einen Replikationsplan geschützt sind.
-* Hosten Sie geschützte und ungeschützte VMs nicht auf demselben Datenspeicher.  Wenn geschützte und ungeschützte VMs auf demselben Datenspeicher gehostet werden, können die folgenden Probleme auftreten:
+* Hosten Sie geschützte und ungeschützte VMs nicht auf demselben Datenspeicher. Wenn geschützte und ungeschützte VMs auf demselben Datenspeicher gehostet werden, können diese Probleme auftreten:
 +
-** Da NetApp Disaster Recovery SnapMirror verwendet und das System ganze ONTAP Volumes repliziert, wird die genutzte Kapazität dieses Volumes für Lizenzierungsüberlegungen verwendet.  In diesem Fall würde der von geschützten und ungeschützten VMs belegte Volume-Speicherplatz in diese Berechnung einbezogen.
+** Die belegte Kapazität dieses Volumes kann in die Lizenzberechnung einfließen, weil Disaster Recovery SnapMirror verwendet, was bedeutet, dass das System ganze ONTAP Volumes repliziert. In diesem Fall würde der von geschützten und ungeschützten VMs belegte Speicherplatz in diese Berechnung einbezogen.
 ** Wenn ein Failover der Ressourcengruppe und der zugehörigen Datenspeicher auf den Disaster Recovery-Standort durchgeführt werden muss, sind alle ungeschützten VMs (VMs, die nicht Teil der Ressourcengruppe sind, aber auf dem ONTAP Volume gehostet werden) durch den Failover-Prozess nicht mehr auf dem Quellstandort vorhanden, was zu einem Ausfall ungeschützter VMs am Quellstandort führt.  Außerdem startet NetApp Disaster Recovery diese ungeschützten VMs nicht am Failover-vCenter-Standort.
 
 
@@ -126,32 +123,20 @@ Berücksichtigen Sie beim Erstellen von Ressourcengruppen die folgenden Punkte:
 TIP: Erstellen Sie für Ihre Failover-Tests einen separaten, dedizierten Satz von Zuordnungen, um zu verhindern, dass VMS mit Produktionsnetzwerken über dieselben IP-Adressen verbunden wird.
 
 .Schritte
-. Wählen Sie *Virtuelle Maschinen* oder *Datenspeicher*.
-. Suchen Sie optional nach bestimmten VMs oder Datenspeichern anhand des Namens.
-. Wählen Sie auf der linken Seite der Anwendungsseite die VMs oder Datenspeicher aus, die Sie schützen möchten, und weisen Sie sie der ausgewählten Gruppe zu.
+. Wenn Sie bereits Ressourcengruppen haben, wählen Sie **Ressourcengruppen**, wählen Sie dann die Ressourcengruppe und anschließend **Weiter**.
 +
-Der Quell-vCenter-Server muss sich auf dem lokalen vCenter-Server befinden. Das Ziel-vCenter kann ein zweites lokales vCenter am selben Standort oder an einem entfernten Standort sein, oder ein cloudbasiertes softwaredefiniertes Rechenzentrum (SDDC) wie VMware Cloud on AWS. Beide vCenter-Server sollten bereits in Ihrer Disaster-Recovery-Arbeitsumgebung hinzugefügt sein.
+Wenn Sie keine vorhandenen Ressourcengruppen haben oder Ressourcen zu einer hinzufügen müssen, wählen Sie *Virtual machines* oder *Datastores*.
 
-+
-Die ausgewählte Ressource wird automatisch zur Gruppe 1 hinzugefügt und eine neue Gruppe 2 wird gestartet.  Jedes Mal, wenn Sie der letzten Gruppe eine Ressource hinzufügen, wird eine weitere Gruppe hinzugefügt.
-
+. Wählen Sie die virtuellen Maschinen oder Datenspeicher aus der automatisch generierten Liste aus, die Sie dem Replikationsplan hinzufügen möchten. Für virtuelle Maschinen können Sie nach dem Datenspeicher filtern. Wenn Sie einen Datenspeicher oder eine VM auswählen, wird sie automatisch einer Ressourcengruppe hinzugefügt.
 +
 image:dr-plan-create-apps-vms6.png["Screenshot der Seite „Replikationsplan hinzufügen > Zu replizierende Anwendungen“"]
 
+. Überprüfen Sie auf der rechten Hälfte der Seite die ausgewählten VMs oder Datenspeicher.
 +
-Oder für Datenspeicher:
-
+** Um eine VM oder einen Datenspeicher zu entfernen, bewegen Sie den Mauszeiger über den Namen der Datenquelle und wählen Sie dann *X*.
+** Um die Ressourcen in mehrere Ressourcengruppen zu organisieren, wählen Sie *Click to add another resource group*. Nachdem Sie die Ressourcengruppe hinzugefügt haben, können Sie Ressourcen per Drag & Drop zwischen den Gruppen verschieben. Wählen Sie das Stiftsymbol*, um den Namen der Ressourcengruppe zu bearbeiten.
 +
 image:dr-plan-create-apps-datastores.png["Screenshot der Seite „Replikationsplan hinzufügen > Zu replizierende Anwendungen“"]
-
-. Führen Sie optional einen der folgenden Schritte aus:
-+
-** Um den Namen der Gruppe zu ändern, klicken Sie auf die Gruppe *Bearbeiten*image:icon-pencil.png["Bleistiftsymbol"] Symbol.
-** Um eine Ressource aus einer Gruppe zu entfernen, wählen Sie *X* neben der Ressource aus.
-** Um eine Ressource in eine andere Gruppe zu verschieben, ziehen Sie sie per Drag & Drop in die neue Gruppe.
-+
-
-TIP: Um einen Datenspeicher in eine andere Ressourcengruppe zu verschieben, heben Sie die Auswahl des nicht gewünschten Datenspeichers auf und übermitteln Sie den Replikationsplan.  Erstellen oder bearbeiten Sie dann den anderen Replikationsplan und wählen Sie den Datenspeicher erneut aus.
 
 
 
@@ -186,7 +171,7 @@ image:dr-plan-resource-mapping2.png["Replikationsplan, Registerkarte „Ressourc
 
 
 
-=== Kartenressourcen > Abschnitt „Compute-Ressourcen“
+==== Abschnitt Compute-Ressourcen
 
 Der Abschnitt „Compute-Ressourcen“ definiert, wo VMs nach einem Failover wiederhergestellt werden.  Ordnen Sie das Quell-vCenter-Rechenzentrum und den Cluster einem Ziel-Rechenzentrum und -Cluster zu.
 
@@ -199,6 +184,7 @@ Wählen Sie den Abwärtspfeil neben *Compute-Ressourcen* aus.
 * *Quell- und Ziel-Rechenzentren*
 * *Zielcluster*
 * *Zielhost* (optional): Nachdem Sie den Cluster ausgewählt haben, können Sie diese Informationen festlegen.
+* *Ordner* (optional)
 
 
 
@@ -206,7 +192,7 @@ TIP: Wenn ein vCenter über einen Distributed Resource Scheduler (DRS) verfügt,
 
 
 
-=== Kartenressourcen > Abschnitt „Virtuelle Netzwerke“
+==== Virtuelle Netzwerke
 
 VMs verwenden virtuelle Netzwerkkarten, die mit virtuellen Netzwerken verbunden sind. Im Failover-Prozess verbindet der Dienst diese virtuellen Netzwerkkarten mit virtuellen Netzwerken, die in der Ziel-VMware-Umgebung definiert sind. Für jedes von den VMs in der Ressourcengruppe verwendete Quellnetzwerk benötigt der Dienst eine Zuordnung zu einem Zielnetzwerk.
 
@@ -219,7 +205,7 @@ Wählen Sie die Netzwerkzuordnung zum entsprechenden virtuellen LAN aus.  Die vi
 
 
 
-=== Kartenressourcen > Abschnitt Virtuelle Maschinen
+==== Virtuelle Maschinen
 
 Sie können jede VM in der durch den Replikationsplan geschützten Ressourcengruppe so konfigurieren, dass sie zur virtuellen vCenter-Zielumgebung passt, indem Sie eine der folgenden Optionen festlegen:
 
@@ -243,6 +229,9 @@ NOTE: Wenn Sie die Einstellungen auf „Abweichend von der Quelle“ ändern, m�
 In diesem Abschnitt werden je nach Ihrer Auswahl möglicherweise unterschiedliche Felder angezeigt.
 
 Sie können die Anzahl der virtuellen CPUs, die jeder VM zugewiesen sind, die ausgefallen ist, erhöhen oder verringern.  Allerdings benötigt jede VM mindestens eine virtuelle CPU.  Sie können die Anzahl der virtuellen CPUs und des virtuellen DRAM ändern, die jeder VM zugewiesen sind.  Der häufigste Grund, warum Sie die Standardeinstellungen für virtuelle CPU und virtuellen DRAM ändern möchten, liegt darin, dass die Zielknoten des vCenter-Clusters nicht über so viele verfügbare Ressourcen verfügen wie der Quell-vCenter-Cluster.
+
+
+NOTE: Aktivieren Sie die erweiterten Einstellungen, um *Skripte* und *applikationskonsistente* Einstellungen hinzuzufügen.
 
 *Netzwerkeinstellungen* Disaster Recovery unterstützt eine umfangreiche Reihe von Konfigurationsoptionen für VM-Netzwerke.  Eine Änderung dieser Einstellungen kann erforderlich sein, wenn die Zielsite über virtuelle Netzwerke verfügt, die andere TCP/IP-Einstellungen verwenden als die virtuellen Produktionsnetzwerke auf der Quellsite.
 
@@ -288,13 +277,10 @@ Deaktivieren Sie dieses Kontrollkästchen, um die ursprüngliche Ordnerhierarchi
 +
 Sie können die alternative Methode zum Festlegen des Ziel-VM-Ordners im Abschnitt „Compute-Ressourcen“ verwenden.
 
-* *CPU und RAM der Quell-VM*: Unter den Details der virtuellen Maschinen können Sie optional die Größe der VM-CPU- und RAM-Parameter ändern.
+* *CPU* und *Arbeitsspeicher (GB)*: Unter den Details der virtuellen Maschinen können Sie optional die VM-CPU und den Arbeitsspeicher anpassen.
 +
 
 NOTE: Sie können DRAM entweder in Gigabyte (GiB) oder Megabyte (MiB) konfigurieren.  Obwohl jede VM mindestens ein MiB RAM benötigt, muss die tatsächliche Menge sicherstellen, dass das VM-Gastbetriebssystem und alle laufenden Anwendungen effizient arbeiten können.
-
-+
-image:dr-plan-resource-mapping-vm-boot-order.png["Screenshot mit „Replikationsplan hinzufügen > Ressourcenzuordnung > virtuelle Maschinen“"]
 
 * *Startreihenfolge*: Sie können die Startreihenfolge nach einem Failover für alle ausgewählten virtuellen Maschinen in den Ressourcengruppen ändern.  Standardmäßig werden alle VMs parallel gestartet. Sie können in dieser Phase jedoch Änderungen vornehmen.  Dies ist hilfreich, um sicherzustellen, dass alle Ihre VMs mit der Priorität 1 ausgeführt werden, bevor die VMs mit der nachfolgenden Priorität gestartet werden.
 +
@@ -306,19 +292,13 @@ Die Notfallwiederherstellung startet alle VMs mit der gleichen Startreihenfolgen
 
 
 * *Startverzögerung*: Passen Sie die Verzögerung des Startvorgangs in Minuten an und geben Sie die Zeit an, die die VM wartet, bevor sie mit dem Einschaltvorgang beginnt.  Geben Sie einen Wert zwischen 0 und 10 Minuten ein.
+* *Applikationskonsistent*: Geben Sie an, ob applikationskonsistente Snapshot-Kopien erstellt werden sollen. Der Service wird die Anwendung anhalten und dann einen Snapshot erstellen, um einen konsistenten Zustand der Anwendung zu erhalten. Diese Funktion wird mit Oracle unter Windows und Linux sowie mit SQL Server unter Windows unterstützt. Weitere Details folgen als Nächstes.
 +
-
-TIP: Um die Startreihenfolge auf die Standardeinstellung zurückzusetzen, wählen Sie *VM-Einstellungen auf Standard zurücksetzen* und wählen Sie dann aus, welche Einstellungen Sie wieder auf die Standardeinstellung zurücksetzen möchten.
-
-* *Anwendungskonsistente Replikate erstellen*: Geben Sie an, ob anwendungskonsistente Snapshot-Kopien erstellt werden sollen.  Der Dienst legt die Anwendung still und erstellt dann einen Snapshot, um einen konsistenten Zustand der Anwendung zu erhalten.  Diese Funktion wird von Oracle unter Windows und Linux sowie von SQL Server unter Windows unterstützt.  Weitere Einzelheiten finden Sie weiter unten.
-* *Windows LAPS verwenden*: Wenn Sie die Windows Local Administrator Password Solution (Windows LAPS) verwenden, aktivieren Sie dieses Kontrollkästchen.  Diese Option ist nur verfügbar, wenn Sie die Option *Statische IP* ausgewählt haben.  Wenn Sie dieses Kontrollkästchen aktivieren, müssen Sie nicht für jede Ihrer virtuellen Maschinen ein Kennwort angeben.  Stattdessen geben Sie die Domänencontrollerdetails an.
-+
-Wenn Sie Windows LAPS nicht verwenden, handelt es sich bei der VM um eine Windows-VM und die Anmeldeinformationsoption in der VM-Zeile ist aktiviert.  Sie können die Anmeldeinformationen für die VM angeben.
-
-+
-image:dr-plan-resource-mapping-vm-boot-order.png["Screenshot mit „Replikationsplan hinzufügen > Ressourcenzuordnung > virtuelle Maschinen“"]
+Sie müssen den Schalter für *Advance settings* für diese Option umlegen. Wenn Sie die applikationskonsistente Option aktivieren, müssen Sie Anmeldeinformationen in Form von Benutzername und Passwort angeben.
 
 
+
+image:dr-plan-resource-mapping-vm-boot-order.png["Screenshot, der den Abschnitt „Virtuelle Maschine“ der Ressourcenzuordnungen zeigt"]
 
 
 
@@ -363,7 +343,7 @@ Um anwendungskonsistente Replikate der VMs und ihrer Hosting-Datenspeicher zu ak
 
 
 
-=== Kartenressourcen > Abschnitt „Datenspeicher“
+==== Datastores-Abschnitt
 
 VMware-Datenspeicher werden auf ONTAP FlexVol -Volumes oder ONTAP iSCSI- oder FC-LUNs unter Verwendung von VMware VMFS gehostet.  Verwenden Sie den Abschnitt „Datenspeicher“, um den Ziel ONTAP Cluster, die Storage Virtual Machine (SVM) und das Volume oder LUN zu definieren, um die Daten auf der Festplatte zum Ziel zu replizieren.
 
@@ -380,9 +360,9 @@ Wenn diese Option ausgewählt ist, konfiguriert NetApp Disaster Recovery keinen 
 +
 Nach der Konfiguration erstellt der Dienst keine regelmäßig geplanten Snapshots, sondern verlässt sich stattdessen darauf, dass die externe Entität diese Snapshots erstellt und aktualisiert.
 
-* *Startzeit*: Geben Sie das Datum und die Uhrzeit ein, zu der die Sicherungen und die Aufbewahrung beginnen sollen.
-* *Ausführungsintervall*: Geben Sie das Zeitintervall in Stunden und Minuten ein.  Wenn Sie beispielsweise 1 Stunde eingeben, erstellt der Dienst jede Stunde einen Snapshot.
-* *Aufbewahrungsanzahl*: Geben Sie die Anzahl der Snapshots ein, die Sie aufbewahren möchten.
+* *Startzeitpunkt für Backups und Aufbewahrung*: Geben Sie das Datum und die Uhrzeit ein, zu der Backups und Aufbewahrung beginnen sollen.
+* *Backups und Aufbewahrungshäufigkeit*: Geben Sie das Zeitintervall in Stunden und Minuten ein. Wenn Sie beispielsweise 1 Stunde eingeben, erstellt der Service jede Stunde einen Snapshot.
+* *Aufbewahrungsanzahl für alle Datenspeicher*: Geben Sie die Anzahl der Snapshots ein, die Sie aufbewahren möchten.
 +
 
 TIP: Die Anzahl der beibehaltenen Snapshots sowie die Datenänderungsrate zwischen den einzelnen Snapshots bestimmen die Menge des sowohl auf der Quelle als auch auf dem Ziel verbrauchten Speicherplatzes.  Je mehr Snapshots Sie behalten, desto mehr Speicherplatz wird verbraucht.
@@ -399,17 +379,7 @@ NOTE: Wenn Sie in diesem Dienst eine SnapMirror -Beziehung erstellen möchten, s
 ** Während des Failovers können Sie einen beliebigen Snapshot auswählen.  Wenn Sie den neuesten Snapshot auswählen, erstellt der Dienst ein On-Demand-Backup, aktualisiert das Ziel und verwendet diesen Snapshot für das Failover.
 
 
-* *Bevorzugtes NFS-LIF* und *Exportrichtlinie*: Lassen Sie den Dienst normalerweise das bevorzugte NFS-LIF und die Exportrichtlinie auswählen.  Wenn Sie eine bestimmte NFS-LIF- oder Exportrichtlinie verwenden möchten, wählen Sie den Abwärtspfeil neben jedem Feld und wählen Sie die entsprechende Option aus.
-+
-Sie können optional bestimmte Datenschnittstellen (LIFs) für ein Volume nach einem Failover-Ereignis verwenden.  Dies ist für den Datenverkehrsausgleich nützlich, wenn die Ziel-SVM über mehrere LIFs verfügt.
 
-+
-Zur zusätzlichen Kontrolle der NAS-Datenzugriffssicherheit kann der Dienst verschiedenen Datenspeichervolumes spezifische NAS-Exportrichtlinien zuweisen.  Exportrichtlinien definieren die Zugriffskontrollregeln für NFS-Clients, die auf die Datenspeichervolumes zugreifen.  Wenn Sie keine Exportrichtlinie angeben, verwendet der Dienst die Standardexportrichtlinie für die SVM.
-
-
-
-
-TIP: Es wird empfohlen, eine dedizierte Exportrichtlinie zu erstellen, die den Zugriff auf das Volume _ausschließlich_ auf die Quell- und Ziel-vCenter-ESXi-Hosts beschränkt, auf denen die geschützten VMs gehostet werden. Dadurch wird sichergestellt, dass externe Entitäten keinen Zugriff auf den NFS-Export erhalten.
 
 
 
