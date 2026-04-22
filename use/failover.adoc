@@ -108,7 +108,7 @@ TIP: Nachdem das Failover gestartet wurde, können Sie die wiederhergestellten V
 .Schritte
 . Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failover*.
+. Wählen Sie rechts die Option *Aktionen* aus image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Fail over* aus.
 +
 image:dr-plan-failover3.png["Failover-Seite"]
 
