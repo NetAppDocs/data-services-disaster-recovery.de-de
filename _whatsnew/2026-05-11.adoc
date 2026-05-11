@@ -15,4 +15,4 @@ Hauptmerkmale der Kubernetes-basierten Workload-Unterstützung:
 * **Vereinfachte Orchestrierung**: Disaster Recovery bietet intuitive Workflows zur Automatisierung der Sicherung und Replikation von Kubernetes-Workloads und nutzt dabei dieselbe effiziente SnapMirror-Technologie wie in VMware-Umgebungen.
 
 
-Die Unterstützung für Kubernetes-basierte Workloads befindet sich derzeit in der Vorschauphase. Um mit dem Schutz von Kubernetes-basierten Workloads zu beginnen, siehe link:https://docs.netapp.com/us-en/data-services-disaster-recovery/task-kubernetes-requirements.html["Kubernetes-Anforderungen für NetApp Disaster Recovery"^].
+Die Unterstützung für Kubernetes-basierte Workloads befindet sich derzeit in der Vorschauphase. Um mit dem Schutz von Kubernetes-basierten Workloads zu beginnen, siehe link:https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/task-kubernetes-requirements.html["Kubernetes-Anforderungen für NetApp Disaster Recovery"^].
