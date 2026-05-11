@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: get-started/reference-vmware-prerequisites.html 
+keywords: vmware cluster prerequisites, vmware 
+summary: Bevor Sie NetApp Disaster Recovery verwenden, stellen Sie sicher, dass Ihre Umgebung die VMware vCenter Clusteranforderungen erfüllt. 
+---
+= VMware vCenter-Cluster-Voraussetzungen für NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Bevor Sie NetApp Disaster Recovery verwenden, stellen Sie sicher, dass Ihre Umgebung die VMware vCenter Clusteranforderungen erfüllt.
+
+
+
+== Allgemeine Voraussetzungen
+
+Diese Voraussetzungen gelten sowohl für lokale vCenter-Cluster als auch für das softwaredefinierte Rechenzentrum (SDDC) von VMware Cloud für AWS.
+
+* Rezensionlink:../reference/vcenter-privileges.html["vCenter-Berechtigungen"] erforderlich für NetApp Disaster Recovery.
+* Alle VMware-Cluster, die von NetApp Disaster Recovery verwaltet werden sollen, verwenden ONTAP Volumes zum Hosten aller VMs, die Sie schützen möchten.
+* Alle VMware-Datenspeicher, die von NetApp Disaster Recovery verwaltet werden sollen, müssen eines der folgenden Protokolle verwenden:
++
+** NFS
+** VMFS mit dem iSCSI- oder FC-Protokoll
+
+
+* VMware vSphere Version 7.0 Update 3 (7.0v3) oder höher
+
+
+
+
+== VMware Cloud SDDC-Voraussetzungen
+
+Wenn Sie VMware Cloud SDDC verwenden, gelten folgende zusätzliche Voraussetzungen:
+
+* Verwenden Sie in der VMware Cloud Console die Dienstrollen „Administrator“ und „NSX Cloud-Administrator“.  Verwenden Sie den Organisationseigentümer auch für die Organisationsrolle. Siehe https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/vmware-cloud-ontap.html["Dokumentation zur Verwendung von VMware Cloud Foundations mit AWS FSx für NetApp ONTAP"^] .
+* Verknüpfen Sie das VMware Cloud SDDC mit der Amazon FSx for NetApp ONTAP Instanz. Siehe https://vmc.techzone.vmware.com/fsx-guide#overview["VMware Cloud auf AWS-Integration mit Amazon FSx for NetApp ONTAP -Bereitstellungsinformationen"^] .
+

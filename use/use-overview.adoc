@@ -14,14 +14,14 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 [role="lead"]
 Mit NetApp Disaster Recovery können Sie die folgenden Ziele erreichen:
 
-* link:../use/dashboard-view.html["Überprüfen Sie den Zustand Ihrer Notfallwiederherstellungspläne"] .
-* link:../use/sites-add.html["vCenter-Sites hinzufügen"] .
-* link:../use/resource-group.html["Erstellen Sie Ressourcengruppen, um VMs gemeinsam zu organisieren"]
-* link:../use/drplan-create.html["Erstellen Sie einen Notfallwiederherstellungsplan"] .
-* link:../use/replicate.html["Replizieren von VMware-Apps"]auf Ihrem primären Standort zu einem Remote-Standort zur Notfallwiederherstellung in der Cloud mithilfe der SnapMirror -Replikation.
-* link:../use/migrate.html["Migrieren von VMware-Apps"]auf Ihrer primären Site zu einer anderen Site.
-* link:../use/failover.html["Testen des Failovers"]ohne die ursprünglichen virtuellen Maschinen zu stören.
-* Im Falle einer Katastrophelink:../use/failover.html["Failover Ihrer primären Site"] zu VMware Cloud auf AWS mit FSx für NetApp ONTAP.
-* Nachdem die Katastrophe behoben ist,link:../use/failback.html["Failback"] vom Disaster-Recovery-Standort zum primären Standort.
-* link:../use/monitor-jobs.html["Überwachen von Notfallwiederherstellungsvorgängen"]auf der Seite „Jobüberwachung“.
+* link:../use/dashboard-view.html["Überprüfen Sie den Zustand Ihrer Notfallwiederherstellungspläne"]
+* link:../use/sites-add.html["Fügen Sie einer Website Ressourcen hinzu"]
+* link:../use/resource-group.html["Erstellen Sie Ressourcengruppen, um Datenquellen zu organisieren"]
+* link:../use/drplan-create.html["Erstellen Sie einen Notfallwiederherstellungsplan"]
+* link:../use/replicate.html["Replizieren von VMware-Apps"] von Ihrem primären Standort zu einem entfernten Notfallwiederherstellungsstandort in der Cloud mittels SnapMirror-Replikation
+* link:../use/migrate.html["Anwendungen migrieren"] von Ihrer primären Website zu einer anderen Website
+* link:../use/failover.html["Testen des Failovers"]ohne Ressourcen zu beeinträchtigen
+* Im Katastrophenfall link:../use/failover.html["Failover Ihrer primären Site"]
+* Nach Behebung der Katastrophe link:../use/failback.html["Failback"] vom Katastrophenwiederherstellungsort zum primären Standort
+* link:../use/monitor-jobs.html["Überwachen von Notfallwiederherstellungsvorgängen"] auf der Seite „Auftragsüberwachung“
 

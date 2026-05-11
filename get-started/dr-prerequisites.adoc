@@ -105,37 +105,15 @@ Der NetApp Console Konsolenbenutzer muss über folgende Rollen verfügen:
 
 == ONTAP -Speichervoraussetzungen
 
-Diese Voraussetzungen gelten entweder für ONTAP oder Amazon FSX für NetApp ONTAP Instanzen.
+Diese Voraussetzungen gelten für ONTAP und Amazon FSX für NetApp ONTAP Instanzen.
 
 * Quell- und Zielcluster müssen eine Peer-Beziehung haben.
 * Die SVM, die die Disaster-Recovery-Volumes hostet, muss auf dem Zielcluster vorhanden sein.
 * Zwischen Quell-SVM und Ziel-SVM muss eine Peer-Beziehung bestehen.
+* link:task-kubernetes-requirements.html["Überprüfen Sie die zusätzlichen Anforderungen für Kubernetes-Cluster"].
 * Bei der Bereitstellung mit Amazon FSx for NetApp ONTAP gilt die folgende Voraussetzung:
 +
 ** In Ihrer VPC muss eine Amazon FSx for NetApp ONTAP -Instanz zum Hosten von VMware DR-Datenspeichern vorhanden sein. Um loszulegen, siehelink:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started-step1.html["die Amazon FSx für ONTAP -Dokumentation"^] Die
-
-
-
-
-
-
-== Voraussetzungen für VMware vCenter-Cluster
-
-Diese Voraussetzungen gelten sowohl für lokale vCenter-Cluster als auch für das softwaredefinierte Rechenzentrum (SDDC) von VMware Cloud für AWS.
-
-* Rezensionlink:../reference/vcenter-privileges.html["vCenter-Berechtigungen"] erforderlich für NetApp Disaster Recovery.
-* Alle VMware-Cluster, die von NetApp Disaster Recovery verwaltet werden sollen, verwenden ONTAP Volumes zum Hosten aller VMs, die Sie schützen möchten.
-* Alle VMware-Datenspeicher, die von NetApp Disaster Recovery verwaltet werden sollen, müssen eines der folgenden Protokolle verwenden:
-+
-** NFS
-** VMFS mit dem iSCSI- oder FC-Protokoll
-
-
-* VMware vSphere Version 7.0 Update 3 (7.0v3) oder höher
-* Wenn Sie VMware Cloud SDDC verwenden, gelten diese Voraussetzungen.
-+
-** Verwenden Sie in der VMware Cloud Console die Dienstrollen „Administrator“ und „NSX Cloud-Administrator“.  Verwenden Sie den Organisationseigentümer auch für die Organisationsrolle. Siehe https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/vmware-cloud-ontap.html["Dokumentation zur Verwendung von VMware Cloud Foundations mit AWS FSx für NetApp ONTAP"^] .
-** Verknüpfen Sie das VMware Cloud SDDC mit der Amazon FSx for NetApp ONTAP Instanz. Siehe https://vmc.techzone.vmware.com/fsx-guide#overview["VMware Cloud auf AWS-Integration mit Amazon FSx for NetApp ONTAP -Bereitstellungsinformationen"^] .
 
 
 
@@ -202,6 +180,9 @@ Um sicherzustellen, dass die Prozesse zur Anwendungskonsistenz erfolgreich sind,
 * Bei Windows-VMs, auf denen Microsoft SQL Server, Oracle Database oder beides ausgeführt wird, müssen die VSS Writer der Datenbanken aktiviert sein.
 * Bei Oracle-Datenbanken, die auf einem Linux-Betriebssystem laufen, muss die Betriebssystem-Benutzerauthentifizierung für die Oracle-Datenbank-SYSDBA-Rolle aktiviert sein.
 
+
+
+IMPORTANT: Je nach Bereitstellungstyp überprüfen Sie die link:reference-vmware-prerequisites.html["VMware-Cluster-Voraussetzungen"] und link:task-kubernetes-requirements.html["Voraussetzungen für einen Kubernetes-Cluster"].
 
 
 

@@ -4,7 +4,7 @@ permalink: use/sites-add.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
 summary: Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie in NetApp Disaster Recovery einen primären vCenter-Standort und einen vCenter-Ziel-Notfallwiederherstellungsstandort hinzufügen. 
 ---
-= Hinzufügen von vCentern zu einer Site in NetApp Disaster Recovery
+= Standorte in NetApp Disaster Recovery hinzufügen
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,10 +12,10 @@ summary: Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müsse
 
 
 [role="lead"]
-Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie einem Standort einen primären vCenter-Server und in der NetApp Console einen vCenter-Zielstandort für die Notfallwiederherstellung hinzufügen.
+Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie Standorte zur Disaster Recovery hinzufügen. Ein Standort ist eine Sammlung von vCenter Servern oder Kubernetes-Clustern (lokal oder in der Cloud). Sie sollten den primären oder Produktionsstandort und den Standort für die Disaster Recovery hinzufügen.
 
 
-TIP: Stellen Sie sicher, dass sowohl das Quell- als auch das Ziel-vCenter denselben NetApp Console verwenden.
+TIP: Stellen Sie sicher, dass sowohl die Quelle als auch das Ziel denselben NetApp Console-Agenten verwenden.
 
 Nachdem vCenter hinzugefügt wurden, führt NetApp Disaster Recovery eine umfassende Erkennung der vCenter-Umgebungen durch, einschließlich vCenter-Cluster, ESXi-Hosts, Datenspeicher, Speicherbedarf, Details zu virtuellen Maschinen, SnapMirror Replikaten und Netzwerken virtueller Maschinen.
 
@@ -23,12 +23,33 @@ Nachdem vCenter hinzugefügt wurden, führt NetApp Disaster Recovery eine umfass
 
 link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
-*Über diese Aufgabe*
+
+
+== Hinzufügen einer Site
+
+Beim Hinzufügen eines Standorts zur NetApp Disaster Recovery müssen Sie anhand der Art der Ressourcen im Standort unterscheiden. Sie können entweder vCenters oder Kubernetes-Cluster hinzufügen.
+
+.Schritte
+. Wählen Sie in der Seitenleiste unter „Disaster Recovery“ **Sites** aus.
+. Wählen Sie im Dropdown-Menü den Site-Typ aus: **vCenter** oder **Kubernetes**.
++
+image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
+
+. Wählen Sie **Hinzufügen**.
+. Weisen Sie der Website einen **Namen** zu. Für vCenters müssen Sie außerdem einen Standort für die Website auswählen.
+. Wählen Sie **Hinzufügen**.
+
+
+Nachdem Sie einen Standort zur Disaster Recovery hinzugefügt haben, müssen Sie Ressourcen mit dem Standort verknüpfen.
+
+
+
+== Fügen Sie einer Website Ressourcen hinzu
 
 Wenn Sie in früheren Versionen vCenter hinzugefügt haben und den Erkennungszeitplan anpassen möchten, müssen Sie die vCenter-Server-Site bearbeiten und den Zeitplan festlegen.
 
 
-TIP: NetApp Disaster Recovery führt alle 24 Stunden eine Erkennung durch.  Nachdem Sie eine Site eingerichtet haben, können Sie das vCenter später bearbeiten, um den Erkennungszeitplan an Ihre Anforderungen anzupassen.  Wenn Sie beispielsweise über eine große Anzahl VMs verfügen, können Sie den Erkennungszeitplan so einstellen, dass er alle 23 Stunden und 59 Minuten ausgeführt wird.  Wenn Sie nur eine kleine Anzahl von VMs haben, können Sie den Erkennungszeitplan so einstellen, dass er alle 12 Stunden ausgeführt wird.  Das Mindestintervall beträgt 30 Minuten und das Höchstintervall 24 Stunden.
+TIP: NetApp Disaster Recovery führt die Erkennung einmal alle 24 Stunden durch. Nach der Einrichtung eines Standorts können Sie später den vCenter oder Kubernetes-Cluster bearbeiten, um den Erkennungszeitplan an Ihre Anforderungen anzupassen. Wenn Sie beispielsweise eine große Anzahl von VMs haben, können Sie den Erkennungszeitplan so einstellen, dass er alle 23 Stunden und 59 Minuten ausgeführt wird. Wenn Sie eine geringe Anzahl von VMs haben, können Sie den Erkennungszeitplan so einstellen, dass er alle 12 Stunden ausgeführt wird. Das minimale Intervall beträgt 30 Minuten und das maximale 24 Stunden.
 
 Sie sollten zunächst einige manuelle Ermittlungen durchführen, um die aktuellsten Informationen zu Ihrer Umgebung zu erhalten.  Danach können Sie den Zeitplan so einstellen, dass er automatisch ausgeführt wird.
 
@@ -36,16 +57,20 @@ Wenn Sie über vCenter aus früheren Versionen verfügen und den Zeitpunkt der E
 
 Neu hinzugefügte oder gelöschte VMs werden bei der nächsten geplanten Erkennung oder während einer sofortigen manuellen Erkennung erkannt.
 
-VMs können nur geschützt werden, wenn sich der Replikationsplan in einem der folgenden Zustände befindet:
+Ressourcen können nur dann geschützt werden, wenn sich der Replikationsplan in einem der folgenden Zustände befindet:
 
 * Bereit
 * Failback durchgeführt
 * Test-Failover festgeschrieben
 
 
+[role="tabbed-block"]
+====
+.vCenter
+--
 *vCenter-Cluster an einem Standort* Jeder Standort enthält ein oder mehrere vCenter.  Diese vCenter verwenden einen oder mehrere ONTAP Speichercluster zum Hosten von NFS- oder VMFS-Datenspeichern.
 
-Ein vCenter-Cluster kann sich nur an einem Standort befinden.  Sie benötigen die folgenden Informationen, um einer Site einen vCenter-Cluster hinzuzufügen:
+Sie benötigen die folgenden Informationen, um einen vCenter-Cluster zu einem Standort hinzuzufügen:
 
 * Die vCenter-Verwaltungs-IP-Adresse oder der FQDN
 * Anmeldeinformationen für ein vCenter-Konto mit den erforderlichen Berechtigungen zum Ausführen von Vorgängen. Sehenlink:../reference/vcenter-privileges.html["erforderliche vCenter-Berechtigungen"] für weitere Informationen.
@@ -58,33 +83,24 @@ NOTE: Der Dienst unterstützt selbstsignierte Sicherheitszertifikate oder Zertif
 
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
-. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
+. Wählen Sie in der Seitenleiste unter „Disaster Recovery“ **Sites** aus.
+. Stellen Sie im Dropdown-Menü den Filter auf *Kubernetes* ein.
 +
-Wenn Sie NetApp Disaster recovery zum ersten Mal verwenden, müssen Sie vCenter-Informationen hinzufügen. Wenn Sie bereits vCenter-Informationen hinzugefügt haben, wird das Dashboard angezeigt.
+image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
+. Wählen Sie den Standort aus, dem Sie einen Kubernetes-Cluster hinzufügen möchten. Wählen Sie im Aktionsmenü des Standorts dann **Cluster hinzufügen**.
+. Auf der Seite „Sites“ wählen Sie im Aktionsmenü für eine Site die Option *Hinzufügen vCenter*.
+. Stellen Sie sicher, dass der *Standort* korrekt ist. Wählen Sie den *Konsolenagenten* aus dem Dropdown-Menü aus.
+. Fügen Sie die *vCenter IP-Adresse*, die *Port*-Nummer, den *vCenter Benutzernamen* und das *vCenter Passwort* hinzu.
 +
+** Wählen Sie für Google Cloud VMware Engine aus den Dropdown-Menüs *Projekt*, *Zone*, *Private cloud* und *Subnet* aus.
+** Für AWS geben Sie das *API-Token* und die *lange Organisations-ID* der VMC an.
 
-NOTE: Je nach Art der Site, die Sie hinzufügen, werden unterschiedliche Felder angezeigt.
 
-. Wenn bereits einige vCenter-Sites vorhanden sind und Sie weitere hinzufügen möchten, wählen Sie im Menü *Sites* und dann *Hinzufügen* aus.
-. Wählen Sie auf der Seite „Sites“ die Site aus und wählen Sie *vCenter hinzufügen*.
-. *Quelle*: Wählen Sie *vCenter-Server ermitteln*, um Informationen zur vCenter-Quellsite einzugeben.
-+
-
-TIP: Um weitere vCenter-Sites hinzuzufügen, wählen Sie *Sites* und anschließend *Hinzufügen*.
-
-+
-image:vcenter-add.png["Screenshot des vCenter-Servers hinzufügen"]
-
-+
-** Wählen Sie einen Standort und anschließend den NetApp Console Agenten aus und geben Sie die vCenter-Anmeldeinformationen an.
-** **Nur für lokale Installationen:** Um selbstsignierte Zertifikate für das Quell-vCenter zu akzeptieren, aktivieren Sie das Kontrollkästchen.
+. Um selbstsignierte Zertifikate für die Quelle vCenter zu akzeptieren, aktivieren Sie das Kontrollkästchen.
 +
 
 NOTE: Selbstsignierte Zertifikate sind nicht so sicher wie andere Zertifikate.  Wenn Ihr vCenter *NICHT* mit Zertifikaten einer Zertifizierungsstelle (CA) konfiguriert ist, sollten Sie dieses Kontrollkästchen aktivieren. Andernfalls funktioniert die Verbindung zum vCenter nicht.
-
-
 
 . Wählen Sie *Hinzufügen*.
 +
@@ -109,8 +125,33 @@ image:sites-list2.png["Screenshot der Sites-Seite"]
 
 
 
-. Um den Fortschritt des Vorgangs anzuzeigen, wählen Sie im Menü *Jobüberwachung* aus.
 
+
+--
+.Kubernetes
+--
+. Wählen Sie in der Seitenleiste unter „Disaster Recovery“ **Sites** aus.
+. Stellen Sie im Dropdown-Menü den Filter auf *Kubernetes* ein.
++
+image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
+
+. Wählen Sie den Standort aus, dem Sie einen Kubernetes-Cluster hinzufügen möchten. Wählen Sie im Aktionsmenü des Standorts dann **Cluster hinzufügen**.
+. Überprüfen Sie, ob die Option **Site** korrekt ist. Wählen Sie den entsprechenden **Console agent** aus dem Dropdown-Menü aus und weisen Sie einen **Cluster name** zu.
++
+Bei der Benennung des Clusters dürfen Sie nur Kleinbuchstaben (a-z), Zahlen (0-9) und Bindestriche (-) verwenden. Der Name muss mit einem Buchstaben beginnen.
+
++
+image:add-kubernetes-cluster.png["Screenshot der Optionen zum Hinzufügen eines Kubernetes-Clusters."]
+
+. Wenn Sie Trident Protect auf dem Cluster installiert haben oder der Cluster von Backup and Recovery verwaltet wird, wählen Sie **Hinzufügen**.
++
+Falls nicht, xref:../get-started/task-kubernetes-requirements.html[Trident Protect installieren]
+
+
+
+--
+====
+Nach dem Hinzufügen von Ressourcen wählen Sie *Job Monitoring*, um den Fortschritt zu verfolgen.
 
 
 

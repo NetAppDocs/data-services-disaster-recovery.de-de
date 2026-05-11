@@ -7,7 +7,7 @@ entries:
 - title: Sehen Sie sich den Zustand Ihrer Notfallwiederherstellungspläne auf dem Dashboard
     an
   url: "/use/dashboard-view.html"
-- title: Hinzufügen von vCentern zu einer Site
+- title: Fügen Sie einer Website Ressourcen hinzu
   url: "/use/sites-add.html"
 - title: Erstellen einer Ressourcengruppe
   url: "/use/resource-group.html"

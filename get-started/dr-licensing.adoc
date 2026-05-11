@@ -64,9 +64,9 @@ image:draas-landing6-free-trial.png["Screenshot der Zielseite für NetApp Disast
 Informationen zum Hinzufügen eines Konsolenagenten finden Sie unter https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html["Erfahren Sie mehr über Konsolenagenten"^] Die
 
 . Nachdem Sie den Agenten eingerichtet haben, ändert sich auf der Zielseite von NetApp Disaster Recovery die Schaltfläche zum Hinzufügen des Agenten in eine Schaltfläche zum Starten einer kostenlosen Testversion.  Wählen Sie *Kostenlose Testversion starten*.
-. Beginnen Sie mit dem Hinzufügen von vCenters.
+. Beginnen Sie mit dem Hinzufügen von primären Standorten und Standorten für die Notfallwiederherstellung.
 +
-Weitere Informationen finden Sie unter link:../use/sites-add.html["vCenter-Sites hinzufügen"] .
+Weitere Informationen finden Sie unter link:../use/sites-add.html["Sites hinzufügen"].
 
 
 
@@ -129,7 +129,7 @@ image:draas-trial-end3.png["Seite „Kostenlose Testversion beenden“"]
 
 . Wenn Sie alle Daten löschen möchten, aktivieren Sie *Daten sofort nach Beendigung meiner kostenlosen Testversion löschen*.
 +
-Dadurch werden alle Zeitpläne, Replikationspläne, Ressourcengruppen, vCenter und Sites gelöscht.  Prüfdaten, Betriebsprotokolle und Auftragsverläufe werden bis zum Ende der Produktlebensdauer aufbewahrt.
+Dadurch werden alle Zeitpläne, Replikationspläne, Ressourcengruppen, vCenters, Kubernetes-Cluster und Standorte gelöscht. Auditdaten, Betriebsprotokolle und der Auftragsverlauf bleiben bis zum Ende des Produktlebenszyklus erhalten.
 
 +
 

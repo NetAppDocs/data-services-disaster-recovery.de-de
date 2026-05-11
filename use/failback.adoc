@@ -42,11 +42,40 @@ Wenn Sie einen datenspeicherbasierten Schutz verwenden, können VMs, die dem Dat
 
 == Schritte
 
-. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
+[role="tabbed-block"]
+====
+.vCenter
+--
+.Schritte
 . Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
-. Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failback*.
-. Geben Sie den Namen des Replikationsplans ein, um das Failback zu starten.
-. Wählen Sie den Snapshot für den Datenspeicher aus, aus dem die Wiederherstellung erfolgen soll. Die Standardeinstellung ist die neueste Version.
-. Um den Fortschritt des Auftrags zu überwachen, wählen Sie im Menü „Notfallwiederherstellung“ die Option „Auftragsüberwachung“.
+. Stellen Sie im Dropdown-Menü den Filter auf *vCenter* Replikationspläne ein.
++
+image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
+. Identifizieren Sie den Replikationsplan, für den Sie ein Failback durchführen möchten. Wählen Sie die Option *Aktionen* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Failback*.
+. Wählen Sie den Snapshot des Datenspeichers aus, von dem die Wiederherstellung erfolgen soll. Wählen Sie *Jetzt Snapshot erstellen*, um einen neuen Snapshot zu initiieren, oder *Auswählen*, um aus verfügbaren Snapshots auszuwählen.
++
+image:failback.png["Screenshot des Failback-Dialogs"]
+
+. Geben Sie „Failback“ ein, um den Vorgang zu bestätigen, und wählen Sie dann *Failback* aus.
+
+
+Um den Fortschritt des Auftrags zu überwachen, wählen Sie im Menü „Notfallwiederherstellung“ die Option „Auftragsüberwachung“.
+
+--
+.Kubernetes
+--
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Dropdown-Menü nach *Kubernetes*-Replikationsplänen filtern.
++
+image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
+
+. Identifizieren Sie den Replikationsplan, für den Sie ein Failback durchführen möchten. Wählen Sie die Option *Aktionen* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Failback*.
+. Wählen Sie den Snapshot des Datenspeichers aus, von dem die Wiederherstellung erfolgen soll. Wählen Sie *Jetzt Snapshot erstellen*, um einen neuen Snapshot zu initiieren, oder *Letzten Snapshot verwenden*, um den aktuellsten erfolgreichen Snapshot zu verwenden.
+. Geben Sie „Failback“ ein, um den Vorgang zu bestätigen, und wählen Sie dann *Failback* aus.
+
+
+Um den Fortschritt des Auftrags zu überwachen, wählen Sie im Menü „Notfallwiederherstellung“ die Option „Auftragsüberwachung“.
+
+--
+====

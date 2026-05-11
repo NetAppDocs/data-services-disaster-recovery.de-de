@@ -20,4 +20,4 @@ Diese FAQ können hilfreich sein, wenn Sie nur schnell eine Antwort auf eine Fra
 
 Einzelheiten zum Einrichten der Lizenzierung für NetApp Disaster Recovery finden Sie unterlink:../get-started/dr-licensing.html["Einrichten der NetApp Disaster Recovery -Lizenzierung"] .
 
-*Wie greifen Sie auf NetApp Disaster Recovery zu?*  Für NetApp Disaster Recovery ist keine Aktivierung erforderlich.  Die Option zur Notfallwiederherstellung wird automatisch in der linken Navigation der NetApp Console angezeigt.
+*Wie greife ich auf NetApp Disaster Recovery zu?* NetApp Disaster Recovery muss nicht aktiviert werden. Disaster Recovery erscheint automatisch in der linken Navigation der NetApp Console.
