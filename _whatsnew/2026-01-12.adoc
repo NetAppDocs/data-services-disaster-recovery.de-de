@@ -36,7 +36,7 @@ Die Notfallwiederherstellung bietet nun E-Mail-Benachrichtigungen für die folge
 
 === Swagger-Verbesserungen
 
-Sie können nun direkt aus dem Disaster Recovery-Bereich auf die Swagger-Dokumentation zugreifen. Wählen Sie im Disaster Recovery-Menü **Einstellungen** und dann **API-Dokumentation**, um auf Swagger zuzugreifen, oder besuchen Sie diese URL im Inkognito-/Privatmodus Ihres Browsers: link:https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas["https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas"^]Die
+Sie können nun direkt aus Disaster Recovery auf die Swagger-Dokumentation zugreifen. Wählen Sie in Disaster Recovery **Einstellungen** und anschließend **API-Dokumentation**. Sie sollten sich im privaten oder Inkognito-Modus befinden, um auf link:https://api.bluexp.netapp.com/v1/services/draas/api/api-doc/draas["der Link"^] zugreifen zu können.
 
 
 

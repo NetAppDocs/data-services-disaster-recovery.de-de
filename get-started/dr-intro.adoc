@@ -12,9 +12,7 @@ summary: Die Notfallwiederherstellung in der Cloud ist eine robuste und kosteng�
 
 
 [role="lead"]
-Die Notfallwiederherstellung in der Cloud ist eine resiliente und kostengünstige Methode, um Workloads vor Standortausfällen und Datenbeschädigung zu schützen. Mit NetApp Disaster Recovery können Sie Ihre lokalen VMware-VM- oder Datenspeicher-Workloads, die auf ONTAP-Speicher laufen, in ein VMware-Software-Defined Data Center in einer Public Cloud mithilfe von NetApp Cloud-Speicher oder in eine andere lokale VMware-Umgebung mit ONTAP-Speicher als Disaster-Recovery-Standort replizieren. Sie können Disaster Recovery auch nutzen, um VM-Workloads von einem Standort zu einem anderen zu migrieren.
-
-NetApp Disaster Recovery ist ein Cloud-basiert Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert. Mit NetApp Disaster Recovery können Sie Ihre lokalen Kubernetes-Cluster, NFS-basierte Workloads und VMware vSphere Virtual Machine File System (VMFS)-Datenspeicher für iSCSI- und FC-basierte NetApp Speichersysteme auf eine der folgenden Arten schützen:
+Die Notfallwiederherstellung in der Cloud ist eine resiliente und kostengünstige Methode, um Workloads vor Standortausfällen und Datenbeschädigung zu schützen. NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Service, der Disaster-Recovery-Workflows automatisiert. Mit NetApp Disaster Recovery können Sie Ihre lokalen Kubernetes-Cluster, NFS-basierte Workloads und VMware vSphere Virtual Machine File System (VMFS)-Datenspeicher für iSCSI- und FC-basierte NetApp Speichersysteme auf eine der folgenden Arten schützen:
 
 * Amazon Elastic VMware Service (EVS) mit Amazon FSx for NetApp ONTAP Weitere Informationen finden Sie unterlink:../reference/evs-deploy-guide-introduction.html["Einführung von NetApp Disaster Recovery mit Amazon Elastic VMware Service und Amazon FSx for NetApp ONTAP"] .
 * VMware Cloud (VMC) auf AWS mit Amazon FSx for NetApp ONTAP
@@ -134,7 +132,7 @@ Im Katastrophenfall unterstützt Sie dieser Dienst bei der Wiederherstellung vir
 
 *Komponenten der Notfallwiederherstellung*
 
-Disaster Recovery verwendet die folgenden Komponenten, um Disaster-Recovery-Workloads bereitzustellen:
+Für die Notfallwiederherstellung werden folgende Komponenten verwendet:
 
 * * NetApp Console*: Die Benutzeroberfläche zum Verwalten Ihrer Notfallwiederherstellungspläne.  Mit der NetApp Console können Sie Replikationspläne, Ressourcengruppen und Failover-Vorgänge in Ihren lokalen und Cloud-Umgebungen erstellen und verwalten.
 * *Konsolenagent*: Eine leichtgewichtige Softwarekomponente, die in Ihrem Cloud-gehosteten Netzwerk oder Ihrer lokalen VMware-Umgebung ausgeführt wird.  Es kommuniziert mit der NetApp Console und verwaltet die Datenreplikation zwischen Ihrer lokalen Umgebung und dem Disaster-Recovery-Standort.  Der Konsolenagent wird auf einer virtuellen Maschine in Ihrer VMware-Umgebung installiert.

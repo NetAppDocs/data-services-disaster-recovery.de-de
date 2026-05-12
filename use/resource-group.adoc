@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/resource-group.html 
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm 
-summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert. Nachdem Sie vCenter-Sites hinzugefügt haben, können Sie einen Notfallwiederherstellungs- oder Replikationsplan erstellen. 
+summary: Mit Ressourcengruppen können Sie eine Reihe abhängiger Ressourcen in logischen Gruppen organisieren, die Ihren Anforderungen entsprechen. 
 ---
 = Erstellen Sie eine Ressourcengruppe, um VMs gemeinsam in NetApp Disaster Recovery zu organisieren
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Nachdem Sie Ressourcenstandorte hinzugefügt haben, können Sie Ressourcengruppen erstellen, um Gruppen von VMs, Datenspeichern oder Kubernetes-Clustern als eine Einheit zusammenzufassen. Mit Ressourcengruppen können Sie eine Reihe abhängiger Ressourcen in logischen Gruppen organisieren, die Ihren Anforderungen entsprechen. Beispielsweise können Sie VMs gruppieren, die mit einer Anwendung verbunden sind, oder Anwendungen gruppieren, die ähnliche Ebenen haben. Ein weiteres Beispiel: Gruppen könnten verzögerte Startreihenfolgen enthalten, die bei der Wiederherstellung ausgeführt werden können.
+Nachdem Sie Ressourcen zu Sites hinzugefügt haben, können Sie Ressourcengruppen erstellen, um VMs, Datastores oder Kubernetes-Cluster als Einheit zu organisieren. Ressourcengruppen ermöglichen es Ihnen, eine Gruppe abhängiger Ressourcen in logische Gruppen zu organisieren, die Ihren Anforderungen entsprechen. Sie könnten beispielsweise VMs gruppieren, die mit einer Anwendung verbunden sind, oder Anwendungen gruppieren, die ähnliche Tiers haben. Ein weiteres Beispiel: Gruppen könnten verzögerte Startreihenfolgen enthalten, die bei der Wiederherstellung ausgeführt werden können.
 
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Notfallwiederherstellungsadministrator oder Notfallwiederherstellungsanwendungsadministrator.
 
@@ -25,7 +25,7 @@ Sie können VMs selbst oder VMs in Datenspeichern gruppieren.
 Sie können Ressourcengruppen mit den folgenden Methoden erstellen:
 
 * Über die Option „Ressourcengruppen“
-* Während Sie einen Notfallwiederherstellungs- oder Replikationsplan erstellen. Wenn Sie viele VMs haben, die von einem Quell-vCenter-Cluster gehostet werden, kann es für Sie einfacher sein, die Ressourcengruppen zu erstellen, während Sie den Replikationsplan erstellen. Anweisungen zum Erstellen von Ressourcengruppen während der Erstellung eines Replikationsplans finden Sie unter link:drplan-create.html["Erstellen eines Replikationsplans"].
+* Während Sie einen Notfallwiederherstellungs- oder Replikationsplan erstellen. Wenn Sie viele VMs haben, die von einem Quell-vCenter-Cluster gehostet werden, kann es für Sie einfacher sein, die Ressourcengruppen während der Erstellung des Replikationsplans anzulegen. Anweisungen zum Erstellen von Ressourcengruppen während der Erstellung eines Replikationsplans finden Sie unter link:drplan-create.html["Erstellen eines Replikationsplans"].
 
 
 
@@ -82,7 +82,7 @@ Berücksichtigen Sie beim Erstellen von Ressourcengruppen die folgenden Punkte:
 --
 .Schritte
 . In Notfallwiederherstellung wählen Sie in der Seitenleiste **Ressourcengruppen** aus.
-. Im Dropdown-Menü nach *vCenter* Ressourcengruppen filtern.
+. Im Dropdown-Menü nach *VMware* filtern.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
@@ -108,18 +108,22 @@ image:dr-resource-groups-datastores-add.png["Screenshot der Seite „Ressourceng
 --
 .Schritte
 . In Notfallwiederherstellung wählen Sie in der Seitenleiste **Ressourcengruppen** aus.
-. Im Dropdown-Menü nach *Kubernetes*-Sites filtern.
+. Im Dropdown-Menü nach *Kubernetes* filtern.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
 . Wählen Sie *Hinzufügen*.
 . Geben Sie einen **Namen** für die Ressourcengruppe ein und wählen Sie den Kubernetes **Cluster** aus dem Dropdown-Menü aus.
 . Wählen Sie die *Namespaces* aus, die der Ressourcengruppe hinzugefügt werden sollen.
+. Klassifizieren Sie die *Ressourcentypen*. Standardmäßig ist die Auswahl „Alle einschließen“ gewählt, was mehrere Ressourcentypen bedeutet.
 . Optional können Sie *Label-Selektoren* einbeziehen.
 +
-image:kubernetes-resource-group.png["Fügen Sie eine Kubernetes-Ressourcengruppe hinzu"]
+image:kubernetes-resource-group.png["Screenshot vom Hinzufügen einer Kubernetes-Ressourcengruppe"]
 
 . Optional können Sie *+ Cluster-scoped resources* auswählen, um Ressourcen hinzuzufügen, die nicht an einen Namespace gebunden sind. Wenn Sie diese Option wählen, wählen Sie die *Group*, *Version*, *Kind* und optional beliebige Label-Selektoren aus. Wählen Sie **Add resource** aus.
++
+image:kubernetes-cluster-scoped.png["Screenshot der Hinzufügung von Kubernetes-Ressourcen mit Clusterbezug"]
+
 . Wählen Sie **Hinzufügen**.
 
 

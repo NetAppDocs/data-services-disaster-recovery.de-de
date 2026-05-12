@@ -20,7 +20,7 @@ Mit NetApp Disaster Recovery können Sie die folgenden Ziele erreichen:
 * link:../use/drplan-create.html["Erstellen Sie einen Notfallwiederherstellungsplan"]
 * link:../use/replicate.html["Replizieren von VMware-Apps"] von Ihrem primären Standort zu einem entfernten Notfallwiederherstellungsstandort in der Cloud mittels SnapMirror-Replikation
 * link:../use/migrate.html["Anwendungen migrieren"] von Ihrer primären Website zu einer anderen Website
-* link:../use/failover.html["Testen des Failovers"]ohne Ressourcen zu beeinträchtigen
+* link:../use/failover.html["Testen des Failovers"] ohne Ressourcen zu beeinträchtigen
 * Im Katastrophenfall link:../use/failover.html["Failover Ihrer primären Site"]
 * Nach Behebung der Katastrophe link:../use/failback.html["Failback"] vom Katastrophenwiederherstellungsort zum primären Standort
 * link:../use/monitor-jobs.html["Überwachen von Notfallwiederherstellungsvorgängen"] auf der Seite „Auftragsüberwachung“

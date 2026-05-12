@@ -94,7 +94,7 @@ image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
 . Wählen Sie *Hinzufügen*.
 . Geben Sie einen Namen für den Replikationsplan ein.
-. Wählen Sie unter *Quelle* den vCenter oder Kubernetes-Cluster aus, der als Quelle verwendet werden soll.
+. Wählen Sie unter *Quelle* den vCenter oder Kubernetes-Cluster aus, der als Quelle festgelegt werden soll.
 . Wählen Sie unter *Quelle vCenter* im Dropdown-Menü das vCenter aus, in dem sich die Daten befinden. Wählen Sie unter *Ziel* das vCenter oder den Kubernetes-Cluster aus, der als Ziel für die Notfallwiederherstellung verwendet werden soll.
 +
 image:dr-plan-create-name2.png["Screenshot, der die vCenter-Serverseite zeigt"]
@@ -106,10 +106,7 @@ image:dr-plan-create-name2.png["Screenshot, der die vCenter-Serverseite zeigt"]
 
 === Auswählen von Anwendungen zum Replizieren und Zuweisen von Ressourcengruppen
 
-Der nächste Schritt besteht darin, die erforderlichen VMs oder Datenspeicher in funktionale Ressourcengruppen zu gruppieren.  Mithilfe von Ressourcengruppen können Sie eine Reihe von VMs oder Datenspeichern mit einem gemeinsamen Snapshot schützen.
-
-
-TIP: Jede Ressourcengruppe kann eine oder mehrere VMs oder Datenspeicher enthalten.
+Im nächsten Schritt werden die benötigten VMs, Datenspeicher oder Kubernetes-Cluster in funktionale Ressourcengruppen zusammengefasst. Ressourcengruppen ermöglichen es, eine Gruppe von Ressourcen wie einen Kubernetes-Cluster oder eine VM mit einem gemeinsamen Snapshot zu schützen.
 
 Berücksichtigen Sie beim Erstellen von Ressourcengruppen die folgenden Punkte:
 
@@ -119,7 +116,7 @@ Berücksichtigen Sie beim Erstellen von Ressourcengruppen die folgenden Punkte:
 * Speichern Sie geschützte und ungeschützte Ressourcen nicht auf demselben Datenspeicher. Wenn geschützte und ungeschützte Ressourcen auf demselben Datenspeicher gespeichert werden, können folgende Probleme auftreten:
 +
 ** Die belegte Kapazität dieses Volumes kann in die Lizenzberechnung einfließen, weil Disaster Recovery SnapMirror verwendet, was bedeutet, dass das System gesamte ONTAP Volumes repliziert. In diesem Fall würde der von geschützten und ungeschützten Ressourcen belegte Speicherplatz in diese Berechnung einbezogen.
-** Wenn die Ressourcengruppe und die zugehörigen Ressourcen auf den Notfallwiederherstellungsstandort verschoben werden müssen, sind nach dem Failover-Prozess keine ungeschützten Ressourcen mehr am Quellstandort vorhanden, was zum Ausfall ungeschützter VMs am Quellstandort führt. Außerdem wird NetApp Disaster Recovery diese ungeschützten VMs am Failover-vCenter-Standort nicht starten.
+** Wenn die Ressourcengruppe und die zugehörigen Ressourcen auf den Notfallwiederherstellungsstandort verschoben werden müssen, sind nach dem Failover-Prozess keine ungeschützten Ressourcen mehr am Quellstandort vorhanden, was zum Ausfall ungeschützter Ressourcen am Quellstandort führt. Außerdem wird NetApp Disaster Recovery diese ungeschützten Ressourcen am Failover-Standort nicht starten.
 
 
 
@@ -224,6 +221,9 @@ Bei der Einstellung der Snapshot-Frequenz beträgt das Minimum fünf Minuten.
 .. Wählen Sie den Cloud-Anbieter für das Hosting der *AppVault* aus.
 .. Basierend auf der Anbieterauswahl füllt Disaster Recovery die vorhandenen konfigurierten Cloud-Abonnements aus. Wählen Sie das *Abonnement*, die *Ressourcengruppe* und das *Speicherkonto* für den Cloud-Anbieter aus.
 .. Wählen Sie **Hinzufügen**.
++
+image:kubernetes-mapping.png["Screenshot der Storage-Klassenzuordnung für Kubernetes"]
+
 
 
 . Wählen Sie **Weiter**.

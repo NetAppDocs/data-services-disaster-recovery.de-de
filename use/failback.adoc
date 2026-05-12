@@ -48,7 +48,7 @@ Wenn Sie einen datenspeicherbasierten Schutz verwenden, können VMs, die dem Dat
 --
 .Schritte
 . Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
-. Stellen Sie im Dropdown-Menü den Filter auf *vCenter* Replikationspläne ein.
+. Stellen Sie im Dropdown-Menü den Filter auf *VMware* ein.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
@@ -71,7 +71,7 @@ Um den Fortschritt des Auftrags zu überwachen, wählen Sie im Menü „Notfallw
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
 . Identifizieren Sie den Replikationsplan, für den Sie ein Failback durchführen möchten. Wählen Sie die Option *Aktionen* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Failback*.
-. Wählen Sie den Snapshot des Datenspeichers aus, von dem die Wiederherstellung erfolgen soll. Wählen Sie *Jetzt Snapshot erstellen*, um einen neuen Snapshot zu initiieren, oder *Letzten Snapshot verwenden*, um den aktuellsten erfolgreichen Snapshot zu verwenden.
+. Wählen Sie den Snapshot des Clusters aus, aus dem die Wiederherstellung erfolgen soll. Wählen Sie *Jetzt Snapshot erstellen*, um einen neuen Snapshot zu initiieren, oder *Neuesten Snapshot verwenden*, um den aktuellsten erfolgreichen Snapshot zu verwenden.
 . Geben Sie „Failback“ ein, um den Vorgang zu bestätigen, und wählen Sie dann *Failback* aus.
 
 

@@ -145,6 +145,7 @@ image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 . Wählen Sie den Replikationsplan aus.
 . Wählen Sie rechts die Option *Aktionen* aus image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Fail over* aus.
 . Wählen Sie die Snapshot-Kopie aus, die Sie für das Failover verwenden möchten. Sie können *Jetzt Snapshot erstellen* wählen, um einen brandneuen Snapshot zu erstellen, der in den Ziel-Cluster kopiert wird, oder *Neuesten Snapshot verwenden*, um den aktuellsten verfügbaren Snapshot im Ziel-Cluster zu verwenden.
+. Wählen Sie *Schutz überspringen*, wenn der Dienst nicht automatisch eine umgekehrte SnapMirror Schutzbeziehung nach einem Failover des Replikationsplans erstellen soll. Dies ist hilfreich, wenn Sie zusätzliche Vorgänge am wiederhergestellten Standort durchführen möchten, bevor Sie ihn im Rahmen der NetApp Disaster Recovery wieder online schalten.
 . Geben Sie „Failover“ ein, um die Aktion zu bestätigen, und wählen Sie dann *Failover* aus.
 
 

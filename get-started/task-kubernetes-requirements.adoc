@@ -181,18 +181,18 @@ Optional können Sie die Volume-Snapshot-Klasse als Standardklasse festlegen. Ve
 
 | Snapshot-APIs | `kubectl get volumesnapshotclass` | CRDs existieren; listet Trident Treiber auf 
 |===
-Nachdem Sie den Status aller Ressourcen überprüft haben, stellen Sie Ihre Workloads bereit oder link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-migrate-apps.html#migrate-applications-from-one-storage-class-to-another-storage-class["migrieren"^] mithilfe Ihrer Trident StorageClass bereit. Wenn Sie link:../use/sites-add.adoc["Kubernetes-Cluster zu einer Website hinzufügen"] , stellt Disaster Recovery Anweisungen zur Installation von Trident Protect auf einem Cluster und zur Registrierung in Ihrer Disaster Recovery-Umgebung bereit.
+Nachdem Sie den Status aller Ressourcen überprüft haben, stellen Sie Ihre Workloads bereit oder link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-migrate-apps.html#migrate-applications-from-one-storage-class-to-another-storage-class["migrieren"^] mithilfe Ihrer Trident StorageClass bereit. Wenn Sie link:../use/sites-add.html["Kubernetes-Cluster zu einer Website hinzufügen"] , stellt Disaster Recovery Anweisungen zur Installation von Trident Protect auf einem Cluster und zur Registrierung in Ihrer Disaster Recovery-Umgebung bereit.
 
 .Lesen Sie die Installationsanleitung für Trident Protect.
 [%collapsible]
 ====
-. Erstellen Sie einen Trident Protect-Namensraum:
+. Erstellen Sie einen Trident Protect-Namespace:
 +
 `kubectl create namespace trident-protect`
 
 . Erstellen Sie ein Kubernetes-Secret mithilfe der Client-ID und des Client-Secrets, um die OCCM-Authentifizierungsdaten zu erstellen.
 +
-`kubectl create secret generic occmauthcreds --namespace=trident-protect --from-literal=client_id=<clidentID> --from-literal=<clientSecret>`
+`kubectl create secret generic occmauthcreds --namespace=trident-protect --from-literal=client_id=<clientID> --from-literal=<clientSecret>`
 
 . Füge das Helm-Repository hinzu oder aktualisiere es:
 +
@@ -209,5 +209,5 @@ Nachdem Sie den Status aller Ressourcen überprüft haben, stellen Sie Ihre Work
 == Weitere Informationen
 
 * link:https://docs.netapp.com/us-en/trident/trident-protect/learn-about-trident-protect.html["Erfahren Sie mehr über Trident Protect"^]
-* link:../use/sites-add.adoc["Fügen Sie einen Standort in der Notfallwiederherstellung hinzu"]
+* link:../use/sites-add.html["Fügen Sie einen Standort in der Notfallwiederherstellung hinzu"]
 

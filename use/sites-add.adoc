@@ -17,8 +17,6 @@ Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie Sta
 
 TIP: Stellen Sie sicher, dass sowohl die Quelle als auch das Ziel denselben NetApp Console-Agenten verwenden.
 
-Nachdem vCenter hinzugefügt wurden, führt NetApp Disaster Recovery eine umfassende Erkennung der vCenter-Umgebungen durch, einschließlich vCenter-Cluster, ESXi-Hosts, Datenspeicher, Speicherbedarf, Details zu virtuellen Maschinen, SnapMirror Replikaten und Netzwerken virtueller Maschinen.
-
 *Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator oder Notfallwiederherstellungsadministrator.
 
 link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
@@ -31,7 +29,7 @@ Beim Hinzufügen eines Standorts zur NetApp Disaster Recovery müssen Sie anhand
 
 .Schritte
 . Wählen Sie in der Seitenleiste unter „Disaster Recovery“ **Sites** aus.
-. Wählen Sie im Dropdown-Menü den Site-Typ aus: **vCenter** oder **Kubernetes**.
+. Wählen Sie im Dropdown-Menü den Site-Typ aus: **VMware** oder **Kubernetes**.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
@@ -84,7 +82,7 @@ NOTE: Der Dienst unterstützt selbstsignierte Sicherheitszertifikate oder Zertif
 
 .Schritte
 . Wählen Sie in der Seitenleiste unter „Disaster Recovery“ **Sites** aus.
-. Stellen Sie im Dropdown-Menü den Filter auf *Kubernetes* ein.
+. Stellen Sie im Dropdown-Menü den Filter auf *VMware* ein.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
@@ -126,6 +124,8 @@ image:sites-list2.png["Screenshot der Sites-Seite"]
 
 
 
+
+Nachdem vCenter hinzugefügt wurden, führt NetApp Disaster Recovery eine umfassende Erkennung der vCenter-Umgebungen durch, einschließlich vCenter-Cluster, ESXi-Hosts, Datenspeicher, Speicherbedarf, Details zu virtuellen Maschinen, SnapMirror Replikaten und Netzwerken virtueller Maschinen.
 
 --
 .Kubernetes
