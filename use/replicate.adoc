@@ -17,9 +17,7 @@ Mit NetApp Disaster Recovery können Sie VMware-Apps auf Ihrem Quellstandort mit
 
 TIP: Nachdem Sie den Notfallwiederherstellungsplan erstellt, die Wiederholung im Assistenten identifiziert und eine Replikation an einen Notfallwiederherstellungsstandort initiiert haben, überprüft NetApp Disaster Recovery alle 30 Minuten, ob die Replikation tatsächlich gemäß Plan erfolgt. Sie können den Fortschritt auf der Seite „Job Monitor“ überwachen.
 
-*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster-Recovery-Administrator oder Disaster-Recovery-Failover-Administratorrolle.
-
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
+*Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadmin“, „Disaster recovery admin“ oder „Disaster recovery failover admin“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Bevor Sie beginnen
 Bevor Sie die Replikation starten, sollten Sie einen Replikationsplan erstellt und die Replikation der Apps ausgewählt haben.  Anschließend wird im Menü „Aktionen“ die Option „Replizieren“ angezeigt.

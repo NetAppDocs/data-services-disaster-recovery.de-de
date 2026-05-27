@@ -14,7 +14,7 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 [role="lead"]
 Nachdem Sie Ressourcen und Standorte hinzugefügt haben, sind Sie bereit, einen  zu erstellen. Replikationspläne verwalten den Datenschutz. Die Erstellung der Replikation umfasst die Festlegung der Quell- und Zielstandorte, die Auswahl der Ressourcengruppen und die Bestimmung, wie Anwendungen wiederhergestellt und eingeschaltet werden sollen. Beispielsweise können Sie virtuelle Maschinen (VMs) gruppieren, die einer Anwendung zugeordnet sind, oder Anwendungen, die ähnliche Ebenen haben.
 
-*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
+*Erforderliche NetApp Console-Rolle* Super admin, Disaster recovery admin, Disaster recovery failover admin oder Disaster recovery application admin Rolle.
 
 link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 

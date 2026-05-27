@@ -14,9 +14,7 @@ summary: Mit NetApp Disaster Recovery können Sie verschiedene Lizenzierungsplä
 [role="lead"]
 Mit NetApp Disaster Recovery können Sie verschiedene Lizenzierungspläne nutzen, darunter eine kostenlose Testversion, ein Pay-as-you-go-Abonnement oder die Nutzung Ihrer eigenen Lizenz.
 
-*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Notfallwiederherstellungsadministrator oder Notfallwiederherstellungsanwendungsadministrator.
-
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über Zugriffsrollen für alle Dienste"^].
+*Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadministrator“, „Administrator für Notfallwiederherstellung“ oder „Anwendungsadministrator für Notfallwiederherstellung“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 *Lizenzierungsoptionen* Sie können die folgenden Lizenzierungsoptionen nutzen:
 

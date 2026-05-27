@@ -14,9 +14,7 @@ summary: Mit Ressourcengruppen können Sie eine Reihe abhängiger Ressourcen in 
 [role="lead"]
 Nachdem Sie Ressourcen zu Sites hinzugefügt haben, können Sie Ressourcengruppen erstellen, um VMs, Datastores oder Kubernetes-Cluster als Einheit zu organisieren. Ressourcengruppen ermöglichen es Ihnen, eine Gruppe abhängiger Ressourcen in logische Gruppen zu organisieren, die Ihren Anforderungen entsprechen. Sie könnten beispielsweise VMs gruppieren, die mit einer Anwendung verbunden sind, oder Anwendungen gruppieren, die ähnliche Tiers haben. Ein weiteres Beispiel: Gruppen könnten verzögerte Startreihenfolgen enthalten, die bei der Wiederherstellung ausgeführt werden können.
 
-*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Notfallwiederherstellungsadministrator oder Notfallwiederherstellungsanwendungsadministrator.
-
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
+*Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadministrator“, „Administrator für Notfallwiederherstellung“ oder „Anwendungsadministrator für Notfallwiederherstellung“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 *Über diese Aufgabe*
 

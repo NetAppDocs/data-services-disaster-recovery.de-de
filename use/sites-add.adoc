@@ -17,9 +17,7 @@ Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie Sta
 
 TIP: Stellen Sie sicher, dass sowohl die Quelle als auch das Ziel denselben NetApp Console-Agenten verwenden.
 
-*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator oder Notfallwiederherstellungsadministrator.
-
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
+*Erforderliche NetApp Console-Rolle* Für diese Aufgabe wird der Superadministrator oder der Administrator für die Notfallwiederherstellung benötigt. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 
 

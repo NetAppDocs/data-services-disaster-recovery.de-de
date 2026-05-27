@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+*Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadmin“, „Disaster recovery admin“ oder „Disaster recovery failover admin“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].

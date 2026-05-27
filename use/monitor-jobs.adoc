@@ -18,7 +18,7 @@ Sie können alle NetApp Disaster Recovery -Jobs überwachen und ihren Fortschrit
 
 == Jobs anzeigen
 
-*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Anwendungsadministrator oder Disaster Recovery-Viewer-Rolle.
+*Erforderliche NetApp Console-Rolle* Super-Admin, Disaster-Recovery-Admin, Disaster-Recovery-Anwendungsadministrator oder Disaster-Recovery-Viewer-Rolle.
 
 link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
@@ -37,7 +37,7 @@ link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-re
 
 Wenn ein Auftrag ausgeführt wird oder sich in einer Warteschlange befindet und Sie nicht möchten, dass er fortgesetzt wird, können Sie ihn abbrechen.  Möglicherweise möchten Sie einen Auftrag abbrechen, wenn er im gleichen Zustand feststeckt und Sie den nächsten Vorgang in der Warteschlange freigeben möchten.  Möglicherweise möchten Sie einen Auftrag abbrechen, bevor die Zeit abläuft.
 
-*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator, Disaster Recovery-Administrator, Disaster Recovery-Failover-Administrator oder Disaster Recovery-Anwendungsadministrator.
+*Erforderliche NetApp Console-Rolle* Super admin, Disaster recovery admin, Disaster recovery failover admin oder Disaster recovery application admin Rolle.
 
 link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
