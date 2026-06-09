@@ -31,7 +31,7 @@ link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-re
 
 Sie können den vCenter-Sitenamen und den Sitetyp (vor Ort oder AWS) bearbeiten.
 
-*Erforderliche NetApp Console * Organisationsadministrator, Ordner- oder Projektadministrator oder Notfallwiederherstellungsadministratorrolle.
+*Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle des Organisationsadministrators, Ordner- oder Projektadministrators oder des Administrators für die Notfallwiederherstellung erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Wählen Sie im Menü *Sites* aus.
@@ -45,7 +45,7 @@ Sie können den vCenter-Sitenamen und den Sitetyp (vor Ort oder AWS) bearbeiten.
 
 Sie können Ressourcengruppen nach VMs oder Datenspeichern erstellen.  Sie können beim Erstellen des Replikationsplans oder auch später hinzugefügt werden.
 
-*Erforderliche NetApp Console-Rolle* Zur Ausführung dieser Aufgabe ist die Rolle des Superadministrators, Disaster-Recovery-Administrators oder Disaster-Recovery-Anwendungsadministrators erforderlich.
+*Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadministrator“, „Administrator für Notfallwiederherstellung“ oder „Anwendungsadministrator für Notfallwiederherstellung“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 Sie können eine Ressourcengruppe nach Datenspeichern auf folgende Weise erstellen:
 
@@ -75,7 +75,7 @@ Einzelheiten zum Erstellen einer Ressourcengruppe finden Sie unterlink:resource-
 
 Sie können Replikationspläne deaktivieren, aktivieren und löschen.  Sie können Zeitpläne ändern.
 
-*Erforderliche NetApp Console-Rolle* Super admin, Disaster recovery admin, Disaster recovery failover admin oder Disaster recovery application admin Rolle.
+*Erforderliche NetApp Console-Rolle* Zur Ausführung dieser Aufgabe ist die Rolle des Super-Admins, Disaster recovery Admins, Disaster recovery Failover Admins oder Disaster recovery Application Admins erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 * Wenn Sie einen Replikationsplan vorübergehend anhalten möchten, können Sie ihn deaktivieren und später aktivieren.
 * Wenn Sie den Plan nicht mehr benötigen, können Sie ihn löschen.
@@ -112,7 +112,7 @@ image:../use/dr-plan-list.png["Liste der Replikationspläne"]
 
 Die Disaster-Recovery-Funktion löscht automatisch alle 24 Stunden Snapshots auf dem Quellsystem.  Sollten Sie feststellen, dass die Snapshots zwischen Quelle und Ziel nicht synchron sind, müssen Sie die Diskrepanz zwischen den Snapshots beheben, um die Konsistenz über alle Standorte hinweg zu gewährleisten.
 
-*Erforderliche NetApp Console-Rolle* Super admin, Disaster recovery admin, Disaster recovery failover admin oder Disaster recovery application admin Rolle.
+*Erforderliche NetApp Console-Rolle* Zur Ausführung dieser Aufgabe ist die Rolle des Super-Admins, Disaster recovery Admins, Disaster recovery Failover Admins oder Disaster recovery Application Admins erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Wählen Sie im Menü *Replikationspläne* aus.
@@ -130,7 +130,7 @@ image:../use/dr-plan-list.png["Liste der Replikationspläne"]
 
 Wenn Sie einen Replikationsplan löschen, können Sie auch die vom Plan erstellten primären und sekundären Snapshots löschen.
 
-*Erforderliche NetApp Console-Rolle* Super admin, Disaster recovery admin, Disaster recovery failover admin oder Disaster recovery application admin Rolle.
+*Erforderliche NetApp Console-Rolle* Zur Ausführung dieser Aufgabe ist die Rolle des Super-Admins, Disaster recovery Admins, Disaster recovery Failover Admins oder Disaster recovery Application Admins erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Wählen Sie im Menü *Replikationspläne* aus.
@@ -144,9 +144,9 @@ Wenn Sie einen Replikationsplan löschen, können Sie auch die vom Plan erstellt
 
 === Ändern der Aufbewahrungsanzahl für Failover-Zeitpläne
 
-Durch die Änderung der Aufbewahrungsanzahl können Sie die Anzahl der gespeicherten Datenspeicher erhöhen oder verringern.
+Durch die Änderung der Aufbewahrungsanzahl können Sie die Anzahl der gespeicherten Snapshots erhöhen oder verringern.
 
-*Erforderliche NetApp Console-Rolle* Zur Ausführung dieser Aufgabe ist die Rolle des Super-Admins, Disaster recovery Admins, Disaster recovery Failover Admins oder Disaster recovery Application Admins erforderlich.
+*Erforderliche NetApp Console-Rolle* Zur Ausführung dieser Aufgabe ist die Rolle des Super-Admins, Disaster recovery Admins, Disaster recovery Failover Admins oder Disaster recovery Application Admins erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Wählen Sie im Menü *Replikationspläne* aus.
@@ -165,7 +165,7 @@ image:../use/dr-plan-failover-edit.png["Seite „Failover-Zuordnungen bearbeiten
 
 Sie können Informationen darüber anzeigen, wie viele Datenspeicher auf der Quelle und auf dem Ziel vorhanden sind.
 
-*Erforderliche NetApp Console-Rolle* Super admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin oder Disaster recovery viewer role.
+*Erforderliche NetApp Console-Rolle* Die Rolle Superadmin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin oder Disaster recovery viewer ist erforderlich, um diese Aufgabe auszuführen. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Wählen Sie im Menü *Dashboard* aus.
@@ -180,7 +180,7 @@ Sie können Informationen darüber anzeigen, wie viele Datenspeicher auf der Que
 
 Sie können Informationen darüber anzeigen, wie viele virtuelle Maschinen auf der Quelle und auf dem Ziel vorhanden sind, sowie Informationen zu CPU, Arbeitsspeicher und verfügbarer Kapazität.
 
-*Erforderliche NetApp Console-Rolle* Super admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin oder Disaster recovery viewer role.
+*Erforderliche NetApp Console-Rolle* Die Rolle Superadmin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin oder Disaster recovery viewer ist erforderlich, um diese Aufgabe auszuführen. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Wählen Sie im Menü *Dashboard* aus.

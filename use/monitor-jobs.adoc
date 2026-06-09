@@ -18,9 +18,7 @@ Sie können alle NetApp Disaster Recovery -Jobs überwachen und ihren Fortschrit
 
 == Jobs anzeigen
 
-*Erforderliche NetApp Console-Rolle* Super-Admin, Disaster-Recovery-Admin, Disaster-Recovery-Anwendungsadministrator oder Disaster-Recovery-Viewer-Rolle.
-
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
+*Erforderliche NetApp Console-Rolle* Die Rolle Superadmin, Disaster recovery admin, Disaster recovery application admin oder Disaster recovery viewer ist erforderlich, um diese Aufgabe auszuführen. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
@@ -35,11 +33,9 @@ link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-re
 
 == Abbrechen eines Auftrags
 
-Wenn ein Auftrag ausgeführt wird oder sich in einer Warteschlange befindet und Sie nicht möchten, dass er fortgesetzt wird, können Sie ihn abbrechen.  Möglicherweise möchten Sie einen Auftrag abbrechen, wenn er im gleichen Zustand feststeckt und Sie den nächsten Vorgang in der Warteschlange freigeben möchten.  Möglicherweise möchten Sie einen Auftrag abbrechen, bevor die Zeit abläuft.
+Sie können einen laufenden oder in der Warteschlange befindlichen Auftrag abbrechen, wenn er festhängt oder um einen ausstehenden Vorgang zu priorisieren.
 
-*Erforderliche NetApp Console-Rolle* Super admin, Disaster recovery admin, Disaster recovery failover admin oder Disaster recovery application admin Rolle.
-
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
+*Erforderliche NetApp Console-Rolle* Zur Ausführung dieser Aufgabe ist die Rolle des Super-Admins, Disaster recovery Admins, Disaster recovery Failover Admins oder Disaster recovery Application Admins erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Schritte
 . Wählen Sie in der linken Navigationsleiste der NetApp Console *Schutz* > *Notfallwiederherstellung*.

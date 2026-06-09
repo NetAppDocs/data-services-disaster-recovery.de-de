@@ -1,0 +1,61 @@
+= Kubernetes-Updates
+:allow-uri-read: 
+
+
+
+
+=== Kubernetes-Updates
+
+Die Notfallwiederherstellung hat die folgenden Änderungen für Kubernetes-basierte Workloads eingeführt:
+
+
+
+==== Testen Sie die Failover-Unterstützung für Kubernetes-Workloads
+
+Die Notfallwiederherstellung unterstützt jetzt das Testen des Failover-Prozesses für Kubernetes-Workloads. Durch das Testen des Failovers können Sie Notfallwiederherstellungspläne validieren. Nach Abschluss des Tests können Sie den Test-Failover bereinigen, sodass das System die Testressourcen automatisch freigibt, um den Overhead zu reduzieren und die Konsistenz Ihrer Umgebung sicherzustellen.
+
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html#test-the-failover-process["Testen des Failover-Prozesses"^].
+
+
+
+==== Geplante Test-Failover
+
+Sie können jetzt Notfallwiederherstellungstests automatisieren, indem Sie Test-Failover planen. Sie können Zeitpläne für wiederkehrende Test-Failover festlegen, um Wiederherstellungspläne kontinuierlich ohne manuelle Eingriffe zu validieren, was dazu beiträgt, das Vertrauen in die Wiederherstellungsziele zu erhalten und Compliance-Anforderungen zu erfüllen.
+
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html#manage-replication-plans["Verwalten von Replikationsplänen"^].
+
+
+
+==== Geplante Erkennung von Kubernetes-Workloads
+
+Mit der geplanten Erkennung können Sie steuern, wie häufig Disaster Recovery nach neuen Kubernetes-Workloads sucht. Sie können die Erkennungsintervalle an Ihren Betriebsrhythmus anpassen und so unnötigen Systemaufwand reduzieren, während gleichzeitig sichergestellt wird, dass neue Workloads rechtzeitig erkannt und geschützt werden.
+
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/sites-add.html#edit-the-site-and-customize-the-discovery-schedule["Entdeckungszeitplan anpassen"^].
+
+
+
+=== VMware-Updates
+
+
+
+==== Schutz für leere Datenspeicher
+
+Die Notfallwiederherstellung ermöglicht nun die Konfiguration des Schutzes für Datenspeicher, die keine virtuellen Maschinen (VMs) enthalten. Alle VMs, die dem Datenspeicher später hinzugefügt werden, werden von der Notfallwiederherstellung automatisch erkannt, zu diesem Zeitpunkt müssen Sie link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/sites-add.html#add-subnet-mapping-for-a-vcenter-site["Mapping-Informationen"^] angeben.
+
+Wenn Sie einen leeren Datenspeicher zu einem Schutzplan hinzufügen, müssen Sie entweder den Datenspeicher vor dem Failover aus dem Schutzplan entfernen oder ein erzwungenes Failover durchführen. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover zu einem Remote-Standort"^].
+
+
+
+==== Zuvor ausgeschlossene Datenspeicher in einen Schutzplan zurückholen
+
+Datenspeicher, die zuvor vom Schutz ausgeschlossen waren, können nun wieder einbezogen werden. Diese Verbesserung bietet mehr Flexibilität bei der Verwaltung und Aktualisierung Ihrer Notfallwiederherstellungskonfigurationen im Laufe der Zeit.
+
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html["Verwalten von Sites, Ressourcengruppen und Replikationsplänen"^].
+
+
+
+==== Schnelleres Failover für VMFS-basierte Datastores
+
+Die Notfallwiederherstellung hat die Failover-Performance für VMFS-basierte Datenspeicher verbessert. Host Bus Adapter (HBA) Rescan- und Datenspeicher-Mount-Operationen werden nun parallel ausgeführt, wodurch die gesamten Failover-Zeiten verkürzt und Ausfallzeiten während Wiederherstellungsereignissen minimiert werden.
+
+Weitere Informationen zu Failover-Prozessen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Ausfallsicherung mit Notfallwiederherstellung"^].

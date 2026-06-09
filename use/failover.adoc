@@ -32,7 +32,7 @@ Dieses Verfahren unterbricht die Replikationsbeziehung, setzt die vCenter-Quell-
 
 == Testen des Failover-Prozesses
 
-Bevor Sie das Failover starten, können Sie den Prozess testen. Der Test führt nicht dazu, dass die VMs offline genommen werden.
+Vor einem Live-Failover können Sie einen Test durchführen, um Ihre Bereitschaft zu überprüfen. Die Workloads bleiben während des Testvorgangs online.
 
 Während eines Failover-Tests erstellt Disaster Recovery temporär VMs. Disaster Recovery ordnet einen temporären Datenspeicher, der das FlexClone Volume sichert, den ESXi-Hosts zu.
 
@@ -59,7 +59,10 @@ Für ein Test-Failover führt Disaster Recovery die folgenden Vorgänge aus:
 . Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
 . Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failover testen*.
-. Geben Sie auf der Seite „Testfailover“ „Testfailover“ ein und wählen Sie *Testfailover* aus.
+. Wählen Sie auf der Seite „Failover testen“ den Snapshot für den Failover-Test aus: Wählen Sie **Jetzt Snapshot erstellen** oder **Auswählen**, um einen vorhandenen Snapshot auszuwählen. Wenn Sie **Auswählen** wählen, wählen Sie den vorhandenen Snapshot aus.
++
+Geben Sie anschließend „Test failover“ ein und wählen Sie *Test fail over*.
+
 . Nachdem der Test abgeschlossen ist, bereinigen Sie die Testumgebung.
 
 
@@ -105,6 +108,9 @@ TIP: Nach dem Start des Failovers können Sie die wiederhergestellten VMs im vCe
 .vCenter
 --
 Bei datenspeicherbasierten Replikationsplänen werden VMs, die Sie hinzugefügt und erkannt haben, für die aber keine Zuordnungsdetails angegeben wurden, in das Failover einbezogen. Der Failover schlägt fehl und es wird eine Benachrichtigung in den Jobs angezeigt. Sie müssen die Zuordnungsdetails angeben, um das Failover erfolgreich abzuschließen.
+
+
+IMPORTANT: Falls der Replikationsplan einen leeren Datenspeicher enthält, müssen Sie zuerst den leeren Datenspeicher aus dem Plan entfernen oder die Option **Force failover** verwenden, die die leeren Datenspeicher überspringt.
 
 .Schritte
 . Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.

@@ -30,6 +30,15 @@ Die folgende Tabelle listet alle Berechtigungen auf, die für Disaster Recovery 
 | Datastore.Rename | Datenspeicher umbenennen | Ermöglicht das Umbenennen eines Datenspeichers. 
 
 
+.2+| Host | Host.Config.AdvancedConfig | Erweiterte Einstellungen | Ermöglicht das Festlegen erweiterter Host-Konfigurationsoptionen. 
+
+
+| Host.Config.Storage | Speicherpartitionskonfiguration | Ermöglicht das Scannen neuer Speichergeräte und die Verwaltung von iSCSI. 
+
+
+| Ressource | Resource.AssignVMToPool | Ressourcenpools | Ermöglicht die Zuweisung von VMs zu einem Ressourcenpool 
+
+
 .3+| Ordner | Ordner.Create | Ordner erstellen | Ermöglicht das Erstellen eines neuen Ordners. 
 
 
@@ -45,7 +54,16 @@ Die folgende Tabelle listet alle Berechtigungen auf, die für Disaster Recovery 
 | Network.Config | Konfigurieren | Ermöglicht die Konfiguration eines Netzwerks. 
 
 
-.9+| Konfiguration der virtuellen Maschine | VirtualMachine.Config.AdvancedConfig | Erweiterte Konfiguration | Ermöglicht das Hinzufügen oder Ändern erweiterter Parameter in der Konfigurationsdatei der VM. 
+.12+| Konfiguration der virtuellen Maschine | VirtualMachine.Config.AdvancedConfig | Erweiterte Konfiguration | Ermöglicht das Hinzufügen oder Ändern erweiterter Parameter in der Konfigurationsdatei der VM. 
+
+
+| VirtualMachine.Config.AddExistingDisk | Vorhandene Festplatte hinzufügen | Ermöglicht das Hinzufügen einer vorhandenen virtuellen Festplatte zu einer VM. 
+
+
+| VirtualMachine.Config.AddNewDisk | Neue Festplatte hinzufügen | Ermöglicht das Erstellen einer neuen virtuellen Festplatte, die einer VM hinzugefügt werden kann. 
+
+
+| VirtualMachine.Config.RemoveDisk | Datenträger entfernen | Ermöglicht die Entfernung eines virtuellen Datenträgers. 
 
 
 | VirtualMachine.Config.Settings | Einstellungen ändern | Ermöglicht das Ändern allgemeiner VM-Einstellungen. 

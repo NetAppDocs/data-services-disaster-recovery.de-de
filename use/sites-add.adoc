@@ -17,7 +17,7 @@ Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie Sta
 
 TIP: Stellen Sie sicher, dass sowohl die Quelle als auch das Ziel denselben NetApp Console-Agenten verwenden.
 
-*Erforderliche NetApp Console-Rolle* Für diese Aufgabe wird der Superadministrator oder der Administrator für die Notfallwiederherstellung benötigt. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
+*Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle Super admin oder Disaster recovery admin erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 
 
@@ -129,7 +129,7 @@ Nachdem vCenter hinzugefügt wurden, führt NetApp Disaster Recovery eine umfass
 .Kubernetes
 --
 . Wählen Sie in der Seitenleiste unter „Disaster Recovery“ **Sites** aus.
-. Stellen Sie im Dropdown-Menü den Filter auf *Kubernetes* ein.
+. Stellen Sie im Dropdown-Menü „Workload“ den Filter auf *Kubernetes* ein.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
@@ -245,6 +245,8 @@ Wenn Sie die Erkennung nicht planen möchten, können Sie die Option zur geplant
 . Wählen Sie im NetApp Disaster Recovery Menü *Sites* aus.
 . Wählen Sie die Site aus, die Sie bearbeiten möchten.
 . Wählen Sie die Aktionenimage:icon-vertical-dots.png["Symbol „Aktionen“"] Symbol rechts und wählen Sie *Bearbeiten*.
+. Im Einstellungsfenster bearbeiten Sie die Felder nach Bedarf.
+. Um den Ermittlungszeitplan anzupassen, aktivieren Sie das Kontrollkästchen *Geplante Ermittlung aktivieren*. Wählen Sie das Datum aus, an dem die Ermittlung beginnen soll, sowie das Intervall der Ermittlung in Stunden und Minuten.
 . Bearbeiten Sie auf der Seite „vCenter-Server bearbeiten“ die Felder nach Bedarf.
 . Um den Erkennungszeitplan anzupassen, aktivieren Sie das Kontrollkästchen *Geplante Erkennung aktivieren* und wählen Sie das gewünschte Datum und Zeitintervall aus.
 +
