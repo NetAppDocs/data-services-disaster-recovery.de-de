@@ -4,6 +4,7 @@
 
 
 
+[[kubernetes-updates]]
 === Kubernetes-Updates
 
 Die Notfallwiederherstellung hat die folgenden Änderungen für Kubernetes-basierte Workloads eingeführt:
@@ -34,6 +35,7 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[vmware-updates]]
 === VMware-Updates
 
 

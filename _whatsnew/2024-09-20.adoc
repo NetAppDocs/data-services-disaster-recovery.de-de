@@ -4,6 +4,7 @@
 
 
 
+[[support-for-on-premises-to-on-premises-vmware-vmfs-datastores]]
 === Unterstützung für lokale VMware VMFS-Datenspeicher
 
 Diese Version umfasst Unterstützung für VMs, die auf VMware vSphere Virtual Machine File System (VMFS)-Datenspeichern für iSCSI und FC gemountet sind und auf lokalem Speicher geschützt sind.  Zuvor bot der Dienst eine _Technologievorschau_, die VMFS-Datenspeicher für iSCSI und FC unterstützte.

@@ -15,6 +15,7 @@ Weitere Informationen zu NetApp Disaster Recovery Lizenzen finden Sie unterlink:
 
 
 
+[[license-types]]
 == Lizenztypen
 
 Es gibt zwei primäre Lizenztypen:
@@ -25,6 +26,7 @@ Es gibt zwei primäre Lizenztypen:
 
 
 
+[[size-your-disaster-recovery-capacity-needs]]
 == Bemessen Sie Ihren Kapazitätsbedarf für die Notfallwiederherstellung
 
 Bevor Sie Ihre Lizenz erwerben, sollten Sie wissen, wie viel ONTAP Speicherkapazität Sie schützen müssen.  Einer der Vorteile der Verwendung von NetApp ONTAP Speicher ist die hohe Effizienz, mit der NetApp Ihre Daten speichert.  Alle in einem ONTAP Volume gespeicherten Daten – beispielsweise VMware-Datenspeicher, die VMs hosten – werden auf hocheffiziente Weise gespeichert.  ONTAP verwendet beim Schreiben von Daten in den physischen Speicher standardmäßig drei Arten der Speichereffizienz: Komprimierung, Deduplizierung und Komprimierung.  Das Nettoergebnis ist eine Speichereffizienz zwischen 1,5:1 und 4:1, abhängig von den gespeicherten Datentypen.  Tatsächlich bietet NetApp eine https://www.netapp.com/media/79014-ng-937-Efficiency-Guarantee-Customer-Flyer.pdf["Speichereffizienzgarantie"^] für bestimmte Arbeitslasten.

@@ -16,12 +16,14 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 
 
 
+[[wait-until-failback-completes-before-running-discovery]]
 == Warten Sie, bis das Failback abgeschlossen ist, bevor Sie die Erkennung ausführen
 
 Starten Sie nach Abschluss eines Failovers die Erkennung im Quell-vCenter nicht manuell.  Warten Sie, bis das Failback abgeschlossen ist, und starten Sie dann die Erkennung im Quell-vCenter.
 
 
 
+[[netapp-console-might-not-discover-amazon-fsx-for-netapp-ontap]]
 == Die NetApp Console erkennt Amazon FSx for NetApp ONTAP möglicherweise nicht
 
 Manchmal erkennt die NetApp Console Amazon FSx for NetApp ONTAP -Cluster nicht.  Dies kann daran liegen, dass die FSx-Anmeldeinformationen nicht korrekt waren.
@@ -47,6 +49,7 @@ Dadurch werden der Datenspeicher, seine virtuellen Maschinen und seine Zielbezie
 
 
 
+[[limitations-with-google-cloud-netapp-volumes]]
 == Einschränkungen bei Google Cloud NetApp Volumes
 
 * Nach einem Failover-Test müssen Sie mindestens 52 Stunden warten, bevor Sie das geklonte Volume löschen können.  Sie müssen das Volume manuell löschen.  Nach 52 Stunden können Sie den Failover erneut testen.

@@ -27,6 +27,7 @@ link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-re
 
 
 
+[[manage-vcenter-sites]]
 == Verwalten von vCenter-Sites
 
 Sie können den vCenter-Sitenamen und den Sitetyp (vor Ort oder AWS) bearbeiten.
@@ -41,6 +42,7 @@ Sie können den vCenter-Sitenamen und den Sitetyp (vor Ort oder AWS) bearbeiten.
 
 
 
+[[manage-resource-groups]]
 == Verwalten von Ressourcengruppen
 
 Sie können Ressourcengruppen nach VMs oder Datenspeichern erstellen.  Sie können beim Erstellen des Replikationsplans oder auch später hinzugefügt werden.
@@ -71,6 +73,7 @@ Einzelheiten zum Erstellen einer Ressourcengruppe finden Sie unterlink:resource-
 
 
 
+[[manage-replication-plans]]
 == Verwalten von Replikationsplänen
 
 Sie können Replikationspläne deaktivieren, aktivieren und löschen.  Sie können Zeitpläne ändern.
@@ -108,6 +111,7 @@ image:../use/dr-plan-list.png["Liste der Replikationspläne"]
 
 
 
+[[reconcile-snapshots-on-demand]]
 === Snapshots bei Bedarf abgleichen
 
 Die Disaster-Recovery-Funktion löscht automatisch alle 24 Stunden Snapshots auf dem Quellsystem.  Sollten Sie feststellen, dass die Snapshots zwischen Quelle und Ziel nicht synchron sind, müssen Sie die Diskrepanz zwischen den Snapshots beheben, um die Konsistenz über alle Standorte hinweg zu gewährleisten.
@@ -126,6 +130,7 @@ image:../use/dr-plan-list.png["Liste der Replikationspläne"]
 
 
 
+[[delete-a-replication-plan]]
 === Löschen eines Replikationsplans
 
 Wenn Sie einen Replikationsplan löschen, können Sie auch die vom Plan erstellten primären und sekundären Snapshots löschen.
@@ -142,6 +147,7 @@ Wenn Sie einen Replikationsplan löschen, können Sie auch die vom Plan erstellt
 
 
 
+[[change-retention-count-for-failover-schedules]]
 === Ändern der Aufbewahrungsanzahl für Failover-Zeitpläne
 
 Durch die Änderung der Aufbewahrungsanzahl können Sie die Anzahl der gespeicherten Snapshots erhöhen oder verringern.
@@ -161,7 +167,38 @@ image:../use/dr-plan-failover-edit.png["Seite „Failover-Zuordnungen bearbeiten
 
 
 
-== Anzeigen von Datenspeicherinformationen
+[[manage-trident-protect]]
+== Trident Protect verwalten
+
+Über die Disaster Recovery Benutzeroberfläche ist ein Upgrade oder die Entfernung von Trident Protect möglich.
+
+.Trident Protect aktualisieren
+. In „Notfallwiederherstellung“ in der Seitenleiste **Standorte** auswählen.
+. Im Dropdown-Menü **Kubernetes** auswählen.
+. Im Aktionsmenü des Clusters, das Sie ändern möchten, die Option **Upgrade cluster** auswählen.
+. Im Dropdown-Menü **Zielversion auswählen** die Version von Trident Protect auswählen, auf die ein Upgrade erfolgen soll. Die link:https://docs.netapp.com/us-en/trident/trident-rn.html["Trident Versionshinweise"^] sollte vor dem Upgrade geprüft werden, um die Unterschiede zwischen den Versionen und deren Auswirkungen auf den Cluster zu verstehen.
+. **Upgrade** auswählen, um das Upgrade zu starten.
+
+
+.Trident Protect entfernen
+. In „Notfallwiederherstellung“ in der Seitenleiste **Standorte** auswählen.
+. Im Dropdown-Menü **Kubernetes** auswählen.
+. Im Aktionsmenü der Site, die Sie ändern möchten, die Option **Remove cluster** auswählen.
+. Den Dialog überprüfen und anschließend den Deinstallationsbefehl auf dem Cluster ausführen, von dem Sie Trident Protect entfernen möchten: `helm uninstall trident-protect -n trident-protect`.
+. Um die Entfernung von Trident Protect abzuschließen, zur Disaster Recovery UI zurückwechseln und **Site entfernen** auswählen.
+
+
+.Einen Cluster von einer Site entfernen
+. In „Notfallwiederherstellung“ in der Seitenleiste **Standorte** auswählen.
+. Im Dropdown-Menü **Kubernetes** auswählen.
+. Im Aktionsmenü der Site, die Sie ändern möchten, die Option **Remove cluster** auswählen.
+. Überprüfen Sie das Dialogmenü und wählen Sie dann **Remove from site**. Es ist sicherzustellen, dass die richtige Option gewählt wird, um den Betrieb von Trident Protect fortzusetzen.
+
+
+
+
+[[view-datastore-information]]
+== Datenspeicherinformationen anzeigen
 
 Sie können Informationen darüber anzeigen, wie viele Datenspeicher auf der Quelle und auf dem Ziel vorhanden sind.
 
@@ -176,6 +213,7 @@ Sie können Informationen darüber anzeigen, wie viele Datenspeicher auf der Que
 
 
 
+[[view-virtual-machines-information]]
 == Anzeigen von Informationen zu virtuellen Maschinen
 
 Sie können Informationen darüber anzeigen, wie viele virtuelle Maschinen auf der Quelle und auf dem Ziel vorhanden sind, sowie Informationen zu CPU, Arbeitsspeicher und verfügbarer Kapazität.

@@ -16,6 +16,7 @@ Bevor Sie NetApp Disaster Recovery verwenden, stellen Sie sicher, dass Ihre Umge
 
 
 
+[[software-versions]]
 == Softwareversionen
 
 [cols="35,55a"]
@@ -49,6 +50,7 @@ Neuste verfügbare Version
 |===
 
 
+[[google-cloud-prerequisites-and-considerations]]
 == Voraussetzungen und Überlegungen für Google Cloud
 
 Bei der Notfallwiederherstellung auf Google Cloud VMware Engine mit Google Cloud NetApp Volumes müssen Sie sicherstellen, dass Sie die richtigen Berechtigungen konfigurieren und die genannten Hinweise beachten.
@@ -80,6 +82,7 @@ Bei der Notfallwiederherstellung auf Google Cloud VMware Engine mit Google Cloud
 
 
 
+[[google-cloud-permissions]]
 === Google Cloud-Berechtigungen
 
 Dem Dienstprinzipal in Google Cloud sollten die folgenden Rollen oder gleichwertige Berechtigungen zugewiesen werden:
@@ -92,6 +95,7 @@ Dem Dienstprinzipal in Google Cloud sollten die folgenden Rollen oder gleichwert
 
 
 
+[[netapp-console-permissions]]
 === NetApp Console
 
 Der NetApp Console Konsolenbenutzer muss über folgende Rollen verfügen:
@@ -103,6 +107,7 @@ Der NetApp Console Konsolenbenutzer muss über folgende Rollen verfügen:
 
 
 
+[[ontap-storage-prerequisites]]
 == ONTAP -Speichervoraussetzungen
 
 Diese Voraussetzungen gelten für ONTAP und Amazon FSX für NetApp ONTAP Instanzen.
@@ -120,16 +125,19 @@ Diese Voraussetzungen gelten für ONTAP und Amazon FSX für NetApp ONTAP Instanz
 
 
 
+[[netapp-console-prerequisites]]
 == Voraussetzungen für die NetApp Console
 
 
 
+[[get-started-with-the-netapp-console]]
 === Erste Schritte mit der NetApp Console
 
 Falls Sie dies noch nicht getan haben, https://docs.netapp.com/us-en/console-setup-admin/task-sign-up-saas.html["Melden Sie sich bei der NetApp Console an und erstellen Sie eine Organisation"^] Die
 
 
 
+[[gather-credentials-for-ontap-and-vmware]]
 === Sammeln Sie Anmeldeinformationen für ONTAP und VMware
 
 * Die Anmeldeinformationen für Amazon FSx for ONTAP und AWS müssen im NetApp Console Projekt, das NetApp Disaster Recovery verwaltet, zum System hinzugefügt werden.
@@ -144,6 +152,7 @@ TIP: Informationen zur Verwendung von Disaster Recovery mit Amazon Elastic VMwar
 
 
 
+[[create-the-netapp-console-agent]]
 === Erstellen Sie den NetApp Console Agenten
 
 Der Konsolenagent ist eine Softwarekomponente, die es der Konsole ermöglicht, mit Ihrem ONTAP Speicher und Ihren VMware vCenter-Clustern zu kommunizieren. Es ist erforderlich, damit die Notfallwiederherstellung ordnungsgemäß funktioniert. Der Agent befindet sich in Ihrem privaten Netzwerk (entweder in einem lokalen Rechenzentrum oder in einer Cloud-VPC) und kommuniziert mit Ihren ONTAP Speicherinstanzen sowie allen weiteren Server- und Anwendungskomponenten. Für die Notfallwiederherstellung ist dies der Zugriff auf Ihre verwalteten vCenter-Cluster.
@@ -175,6 +184,7 @@ Sehen https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discove
 
 
 
+[[workload-prerequisites]]
 == Workload-Voraussetzungen
 
 Um sicherzustellen, dass die Prozesse zur Anwendungskonsistenz erfolgreich sind, müssen Sie die folgenden Voraussetzungen erfüllen:
@@ -189,6 +199,7 @@ IMPORTANT: Je nach Bereitstellungstyp überprüfen Sie die link:reference-vmware
 
 
 
+[[more-information]]
 == Weitere Informationen
 
 * xref:../reference/vcenter-privileges.html[Erforderliche vCenter Privilegien]

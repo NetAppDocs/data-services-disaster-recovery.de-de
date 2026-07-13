@@ -19,6 +19,7 @@ Sie müssen Folgendes erstellen:
 
 
 
+[[create-on-premises-sites]]
 == Erstellen lokaler Websites
 
 Erstellen Sie eine vCenter-Produktionssite.
@@ -45,6 +46,7 @@ Wenn Sie über andere vCenter-Produktionssites verfügen, können Sie diese mit 
 
 
 
+[[create-amazon-cloud-sites]]
 == Erstellen Sie Amazon Cloud-Sites
 
 Erstellen Sie eine DR-Site für Amazon EVS mit Amazon FSx for NetApp ONTAP -Speicher.

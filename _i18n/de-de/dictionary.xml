@@ -1082,12 +1082,10 @@
   <block id="d26cf1f0512a50b32d5a10b931f5fbe0" category="list-text">Überprüfen Sie alle Vorgänge im Aktivitätsbereich.  Um alle Vorgänge im Job Monitor anzuzeigen, wählen Sie *Alle Jobs anzeigen*.</block>
   <block id="d15994bcf2411bb66762cdf4c58704b3" category="doc">Erstellen eines Replikationsplans in NetApp Disaster Recovery</block>
   <block id="78166ce4ccceeedfbf6aeb8682851072" category="paragraph">*Über diese Aufgabe*</block>
-  <block id="978c7c7ea4c54312c02456ee28acd332" category="paragraph">Sie können einen Replikationsplan erstellen und auch Zeitpläne für Compliance und Tests bearbeiten.  Führen Sie Test-Failover von VMs durch, ohne die Produktionsarbeitslasten zu beeinträchtigen.</block>
   <block id="fba54b7da5e3ceabe7362e860f7df87d" category="paragraph">Sie können mehrere VMs auf mehreren Datenspeichern schützen.  NetApp Disaster Recovery erstellt ONTAP Konsistenzgruppen für alle ONTAP Volumes, die geschützte VM-Datenspeicher hosten.</block>
   <block id="e7d31fc0602fb2ede144d18cdffd816b" category="list-text">Bereit</block>
   <block id="eca4b06cc957b067c25916bf563bfcb1" category="list-text">Failback durchgeführt</block>
   <block id="55af57d923ed95c2495c25a0e4762077" category="list-text">Test-Failover festgeschrieben</block>
-  <block id="2cd55dfb5ccc1ffae31967c7321620ec" category="paragraph">*Replikationsplan-Snapshots*</block>
   <block id="65dd859759570a8a07801053fcf54421" category="paragraph">Disaster Recovery verwaltet die gleiche Anzahl von Snapshots auf den Quell- und Zielclustern.  Standardmäßig führt der Dienst alle 24 Stunden einen Snapshot-Abgleichprozess durch, um sicherzustellen, dass die Anzahl der Snapshots auf den Quell- und Zielclustern gleich ist.</block>
   <block id="4e5a9a818385822100abb8be4a2ef9c3" category="paragraph">Die folgenden Situationen können dazu führen, dass die Anzahl der Snapshots zwischen den Quell- und Zielclustern unterschiedlich ist:</block>
   <block id="44dfcfef8dbab15db411756f3ccc6b01" category="list-text">In einigen Situationen können ONTAP -Vorgänge außerhalb der Notfallwiederherstellung dazu führen, dass Snapshots zum Volume hinzugefügt oder daraus entfernt werden:</block>
@@ -1096,10 +1094,7 @@
   <block id="4a72656aa601ed9d31033e4be368a919" category="list-text">Eine Reduzierung der Snapshot-Aufbewahrungsanzahl des Replikationsplans kann dazu führen, dass der Dienst die ältesten Snapshots sowohl auf der Quell- als auch auf der Zielsite löscht, um die neu reduzierte Aufbewahrungsanzahl einzuhalten.</block>
   <block id="49ff95b6dcd137f59a6acecf04a4c3b1" category="inline-image-macro">Horizontale Punkte Aktionsmenü</block>
   <block id="7639ea3b77d367f127d70d668027673c" category="paragraph">In diesen Fällen entfernt Disaster Recovery bei der nächsten Konsistenzprüfung ältere Snapshots aus den Quell- und Zielclustern.  Alternativ kann der Administrator eine sofortige Snapshot-Bereinigung durchführen, indem er die *Aktionen* auswählt.<block ref="6b4b871445179eda383c81faf6cf5a92" category="inline-image-macro-rx" type="image"></block> Symbol im Replikationsplan und Auswahl von *Snapshots bereinigen*.</block>
-  <block id="3f1d340403a26ed0ad46982a91385d32" category="paragraph">Der Dienst führt alle 24 Stunden Snapshot-Symmetrieprüfungen durch.</block>
-  <block id="17e2d63e3b45ecbfe13bcc32fec929d0" category="paragraph">*Bevor Sie beginnen*</block>
   <block id="1059d7b16ffe2236c36ae0e8c15872ca" category="paragraph">Bevor Sie eine SnapMirror -Beziehung erstellen, richten Sie das Cluster- und SVM-Peering außerhalb der Notfallwiederherstellung ein.</block>
-  <block id="89dd75b1f79276c7e30e794e1c739f04" category="section-title">Erstellen Sie den Plan</block>
   <block id="4f27ef77939e5393adc6b44aec83a6b7" category="paragraph">Ein Assistent führt Sie durch die folgenden Schritte:</block>
   <block id="3baff38a392d31950fc8d4d62ea2adc0" category="list-text">Wählen Sie vCenter-Server aus.</block>
   <block id="d813bc25d25a7f816dde51c17f6c6ba0" category="list-text">Ordnen Sie zu, wie Ressourcen aus der Quellumgebung dem Ziel zugeordnet werden.</block>
@@ -1319,7 +1314,6 @@
   <block id="ee9e0fb0a09a468f33fa6f2dabc4ff49" category="inline-image-macro">Seite „Failover-Zuordnungen bearbeiten“</block>
   <block id="2aef38b97efb9369d3e496e8d062d8fd" category="paragraph"><block ref="2aef38b97efb9369d3e496e8d062d8fd" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e3a15d734e1eafd89e04f5eb526ec5cc" category="list-text">Wählen Sie bei ausgewähltem Replikationsplan das Menü „Aktionen“ und dann „Alte Snapshots bereinigen“ aus, um alte Snapshots auf dem Ziel zu entfernen und sie an die neue Aufbewahrungsanzahl anzupassen.</block>
-  <block id="a6dcfee4cd10f2ad60c3d81bc2a3b8ad" category="section-title">Anzeigen von Datenspeicherinformationen</block>
   <block id="432624070ae1b8a0b19fd42c048a224c" category="paragraph">Sie können Informationen darüber anzeigen, wie viele Datenspeicher auf der Quelle und auf dem Ziel vorhanden sind.</block>
   <block id="7e551addf2432bb9127be36e3a23db1c" category="list-text">Wählen Sie im Menü *Dashboard* aus.</block>
   <block id="5e141a758f792ce4ad7e1b2107b1f7a4" category="list-text">Wählen Sie das vCenter in der Sitezeile aus.</block>
@@ -2319,7 +2313,6 @@
   <block id="fd41d6f681fcde1d5668de60a04c0563" category="paragraph"><block ref="fa5ae6d9db1798cb96b18ea5809b60d9" prefix="" category="inline-code"></block></block>
   <block id="83e1151ac17b113708a4a8f22a39063c" category="list-text"><block ref="83e1151ac17b113708a4a8f22a39063c" category="inline-link-macro-rx"></block></block>
   <block id="d1078d331fc762f6c1e11445777639f1" category="list-text">Überprüfen Sie die <block ref="e169d85ddc666c008a7e023ca382e5b3" category="inline-link-macro-rx"></block>.</block>
-  <block id="3e2600f2f1048cf9d96b25b85a3b12b5" category="paragraph">Nachdem Sie Ressourcen und Standorte hinzugefügt haben, sind Sie bereit, einen  zu erstellen. Replikationspläne verwalten den Datenschutz. Die Erstellung der Replikation umfasst die Festlegung der Quell- und Zielstandorte, die Auswahl der Ressourcengruppen und die Bestimmung, wie Anwendungen wiederhergestellt und eingeschaltet werden sollen. Beispielsweise können Sie virtuelle Maschinen (VMs) gruppieren, die einer Anwendung zugeordnet sind, oder Anwendungen, die ähnliche Ebenen haben.</block>
   <block id="fd0863d0dc188b339645e359055610e4" category="admonition">Organisieren Sie Ihre VMs oder Kubernetes-Cluster, bevor Sie NetApp Disaster Recovery bereitstellen, um eine unkontrollierte Ausbreitung zu minimieren. Platzieren Sie Ressourcen, die geschützt werden müssen, auf einer Teilmenge der Datenspeicher und Ressourcen, die nicht geschützt werden sollen, auf einer anderen Teilmenge der Datenspeicher. Um Ressourcengruppen vor der Erstellung des Replikationsplans zu organisieren, siehe <block ref="2e9e1519a300bb9dc6a403652e82bcd7" category="inline-link-macro-rx"></block>.</block>
   <block id="65dea983a95654f072023e3fd251790f" category="list-text">Wählen Sie unter *Quelle* den vCenter oder Kubernetes-Cluster aus, der als Quelle festgelegt werden soll.</block>
   <block id="56da8dc4cd41826eefa46f92a1310a8b" category="paragraph">Im nächsten Schritt werden die benötigten VMs, Datenspeicher oder Kubernetes-Cluster in funktionale Ressourcengruppen zusammengefasst. Ressourcengruppen ermöglichen es, eine Gruppe von Ressourcen wie einen Kubernetes-Cluster oder eine VM mit einem gemeinsamen Snapshot zu schützen.</block>
@@ -2404,10 +2397,48 @@
   <block id="7aa7ac5ef00e37e99f8bb57b253d37ed" category="paragraph">Vor einem Live-Failover können Sie einen Test durchführen, um Ihre Bereitschaft zu überprüfen. Die Workloads bleiben während des Testvorgangs online.</block>
   <block id="f5fa15f6901bb980064f0a1e081fbfb7" category="list-text">Wählen Sie auf der Seite „Failover testen“ den Snapshot für den Failover-Test aus: Wählen Sie **Jetzt Snapshot erstellen** oder **Auswählen**, um einen vorhandenen Snapshot auszuwählen. Wenn Sie **Auswählen** wählen, wählen Sie den vorhandenen Snapshot aus.</block>
   <block id="0a07084d59200e5f62afd96db98a68b5" category="paragraph">Geben Sie anschließend „Test failover“ ein und wählen Sie *Test fail over*.</block>
-  <block id="962e92831673929912f04cd68819059b" category="admonition">Falls der Replikationsplan einen leeren Datenspeicher enthält, müssen Sie zuerst den leeren Datenspeicher aus dem Plan entfernen oder die Option **Force failover** verwenden, die die leeren Datenspeicher überspringt.</block>
   <block id="919dfe02d5a57784fd83bb645e8f8b8e" category="paragraph">Durch die Änderung der Aufbewahrungsanzahl können Sie die Anzahl der gespeicherten Snapshots erhöhen oder verringern.</block>
   <block id="e363882b79ccd237ac1f4dd679c679c2" category="paragraph">Sie können einen laufenden oder in der Warteschlange befindlichen Auftrag abbrechen, wenn er festhängt oder um einen ausstehenden Vorgang zu priorisieren.</block>
   <block id="caf5841d5a0afa8a150bf6da9c22fc2f" category="list-text">Stellen Sie im Dropdown-Menü „Workload“ den Filter auf *Kubernetes* ein.</block>
   <block id="86839797735bfc02dea42929601e887a" category="list-text">Im Einstellungsfenster bearbeiten Sie die Felder nach Bedarf.</block>
   <block id="83cfc8bb47b46515d41842fa32fa608b" category="list-text">Um den Ermittlungszeitplan anzupassen, aktivieren Sie das Kontrollkästchen *Geplante Ermittlung aktivieren*. Wählen Sie das Datum aus, an dem die Ermittlung beginnen soll, sowie das Intervall der Ermittlung in Stunden und Minuten.</block>
+  <block id="a3385cf694f169469155cf608126cc13" category="section-title">Trident Protect über das Menü „Standorte“ verwalten</block>
+  <block id="d108f39d7ac8db7fc5eab434cd7df7fc" category="paragraph">Disaster Recovery unterstützt jetzt die direkte Verwaltung von Trident Protect über das Menü „Sites“ in der Disaster Recovery-Benutzeroberfläche. Trident Protect kann aktualisiert oder aus Disaster Recovery entfernt werden, wodurch die Verwaltung Ihrer Kubernetes-Ressourcen vereinfacht wird.</block>
+  <block id="ceb6da856e73533ddb08cf15abe120b7" category="inline-link-macro">Standorte verwalten</block>
+  <block id="cee9739236651212176e7c87838bb2d3" category="paragraph">Weitere Informationen finden sich unter <block ref="b4c4c365d924dbf2ff79378d36f70a71" category="inline-link-macro-rx"></block>.</block>
+  <block id="cc6fa95b1e18a1fb7c53cf32734ead26" category="paragraph">Die Notfallwiederherstellung hat die folgenden Änderungen für VMware basierte Workloads eingeführt:</block>
+  <block id="7f2d139bc27153ad07daea80fab0a433" category="section-title">Failover bei leeren Datenspeichern</block>
+  <block id="bfea9e3d533bac76e79429a83d38837c" category="paragraph">Replikationspläne mit leeren Datenspeichern können nun erfolgreich per Failover übernommen werden, ohne dass diese aus dem Plan ausgeschlossen oder ein Failover erzwungen werden muss. Während des Failovers bindet Disaster Recovery den leeren Datenspeicher automatisch am Disaster Recovery-Standort ein, sodass VMs hinzugefügt und für Failback-Operationen geschützt werden können.</block>
+  <block id="d3835be5f3c2a797d5fc948f95289e0c" category="paragraph">Weitere Informationen finden sich unter <block ref="a16180f75826879573c72d14ccfccc18" category="inline-link-macro-rx"></block>.</block>
+  <block id="0fddd8fb8cd772934e1e5021d105b7fb" category="section-title">vCenter Netzwerkautomapping</block>
+  <block id="07efa6bd1ca4b90d1c4eb002786f661b" category="paragraph">Netzwerkzuordnungen können nun auf vCenter-Ebene (also außerhalb des Dialogfelds für Replikationspläne) konfiguriert werden. Nach der Konfiguration wendet Disaster Recovery diese Netzwerkzuordnungen beim Hinzufügen oder Bearbeiten eines Replikationsplans automatisch an, was die Verwaltung von Replikationsplänen vereinfacht.</block>
+  <block id="1eee5c19633b811fc646be143dcd283f" category="paragraph">Die Notfallwiederherstellung unterstützt weiterhin planbezogene Überschreibungen. Bestehende Netzwerkzuordnungen, die innerhalb eines Replikationsplans definiert sind, können weiterhin netzwerkbezogen bearbeitet werden; diese Zuordnungen haben Vorrang vor den vCenter-Definitionen auf Netzwerkebene.</block>
+  <block id="d315df6836105d6791cc83a6539ee7e9" category="section-title">Einschränkung der Disaster Recovery Viewer-Rolle</block>
+  <block id="266377e44a916fdf2cc18bfbb23cf6bf" category="paragraph">Die Möglichkeit, die Registerkarte „Upgrade System“ anzuzeigen, wurde aus der Rolle „Disaster Recovery viewer“ entfernt. Diese Änderung stimmt die Rolle besser auf die angemessene Erfahrung für Benutzer mit Nur-Lesezugriff ab. <block ref="8100c1fe7b8d110e1492908ee1d65a0c" category="inline-link-macro-rx"></block>.</block>
+  <block id="3ddd9403dd985627a83f357af005a768" category="section-title">Systemleistungsverbesserungen</block>
+  <block id="baa35064269b3904d8b57c0745ca18f8" category="paragraph">Disaster Recovery hat Änderungen eingeführt, um den Systemressourcenverbrauch zu reduzieren und die Leistung bei allen Vorgängen zu verbessern.</block>
+  <block id="de2e4685966d24481dfab35c95ad44dc" category="section-title">13. Juli 2026</block>
+  <block id="17d61647c38ceaeec784c2ea23dd1f02" category="paragraph">Version 4.3.5</block>
+  <block id="460dfd853a44f41cd7e36e73abb3183d" category="paragraph">Nachdem Sie Ressourcen und Standorte hinzugefügt haben, können Sie einen _Replikationsplan_ erstellen, um den Datenschutz zu verwalten. Das Erstellen des Replikationsplans umfasst das Festlegen der Quell- und Zielstandorte, die Auswahl der Ressourcengruppen sowie die Auswahl, wie Anwendungen wiederhergestellt und eingeschaltet werden sollen. Beispielsweise können Sie virtuelle Maschinen (VMs) gruppieren, die einer Anwendung zugeordnet sind, oder Sie können Anwendungen mit ähnlichen Tiers gruppieren.</block>
+  <block id="64a6f997b6cbcf26c538dbf71179cfe3" category="paragraph">Beim Erstellen eines Replikationsplans besteht außerdem die Möglichkeit, Zeitpläne für Compliance und Tests zu bearbeiten und Test-Failover durchzuführen, ohne die Produktionsdaten zu beeinträchtigen.</block>
+  <block id="aa0c550dfb503c90e6b173a0a07f63e0" category="section-title">Über Replikationspläne</block>
+  <block id="70e9daad0ce38ec31033633e81624571" category="section-title">Snapshots des Replikationsplans</block>
+  <block id="f4cbef5ca3f18eff6d1ab043a838c42d" category="paragraph">Die Notfallwiederherstellung führt alle 24 Stunden Snapshot-Symmetrieprüfungen durch.</block>
+  <block id="0199f8e45e93965175d2ac0013366462" category="list-text">Wenn Sie Netzwerkzuordnungen auf der vCenter-Ebene konfigurieren, erkennt Disaster Recovery diese Zuordnungen beim Erstellen des Replikationsplans. Wenn Sie die Netzwerkzuordnung auf der vCenter-Ebene nach dem Erstellen des Replikationsplans ändern oder hinzufügen, erkennt Disaster Recovery diese Zuordnungen bei der manuellen Bearbeitung des Replikationsplans.</block>
+  <block id="8545a0d7cdafff8da2dece1a851630dc" category="section-title">Trident Protect verwalten</block>
+  <block id="3609f175bfca3663a769d710b6693940" category="paragraph">Über die Disaster Recovery Benutzeroberfläche ist ein Upgrade oder die Entfernung von Trident Protect möglich.</block>
+  <block id="516ee22feede3bac94e552d7d7d47c7a" category="list-title">Trident Protect aktualisieren</block>
+  <block id="852fd4e3ec5d4c29fa8a8cefa3c21471" category="list-text">In „Notfallwiederherstellung“ in der Seitenleiste **Standorte** auswählen.</block>
+  <block id="8cfefefc34bbe900b668594477ef4ad5" category="list-text">Im Dropdown-Menü **Kubernetes** auswählen.</block>
+  <block id="78804847b12a6563801a02b538c145df" category="list-text">Im Aktionsmenü des Clusters, das Sie ändern möchten, die Option **Upgrade cluster** auswählen.</block>
+  <block id="d67cab9a5414e00a7ccf215f2d7dbd33" category="inline-link-macro">Trident Versionshinweise</block>
+  <block id="2a5efaa429a3a54de621dd8d0ad21ea4" category="list-text">Im Dropdown-Menü **Zielversion auswählen** die Version von Trident Protect auswählen, auf die ein Upgrade erfolgen soll. Die <block ref="135c4f4ed1782a7c491e834c1b93041f" category="inline-link-macro-rx"></block> sollte vor dem Upgrade geprüft werden, um die Unterschiede zwischen den Versionen und deren Auswirkungen auf den Cluster zu verstehen.</block>
+  <block id="38f32ced896e30548fa0f6bcfbba01a5" category="list-text">**Upgrade** auswählen, um das Upgrade zu starten.</block>
+  <block id="b402cd35b5fb9a57addd459fc4b1882a" category="list-title">Trident Protect entfernen</block>
+  <block id="b97f5202b0568bf1ab06be0a84b05837" category="list-text">Im Aktionsmenü der Site, die Sie ändern möchten, die Option **Remove cluster** auswählen.</block>
+  <block id="f4721b43df8877d17946e2b9dd373ced" category="list-text">Den Dialog überprüfen und anschließend den Deinstallationsbefehl auf dem Cluster ausführen, von dem Sie Trident Protect entfernen möchten:<block ref="e32e94385e578bc57593f18c76552bb7" prefix=" " category="inline-code"></block>.</block>
+  <block id="d7d19228040ec612e692641319a73229" category="list-text">Um die Entfernung von Trident Protect abzuschließen, zur Disaster Recovery UI zurückwechseln und **Site entfernen** auswählen.</block>
+  <block id="8527638a378e1869ef948cf228cb1967" category="list-title">Einen Cluster von einer Site entfernen</block>
+  <block id="2e6e87ad0d5bb097a11e43a094522ce3" category="list-text">Überprüfen Sie das Dialogmenü und wählen Sie dann **Remove from site**. Es ist sicherzustellen, dass die richtige Option gewählt wird, um den Betrieb von Trident Protect fortzusetzen.</block>
+  <block id="4c6f2ecfa631674b204ee705d90449fe" category="section-title">Datenspeicherinformationen anzeigen</block>
 </blocks>

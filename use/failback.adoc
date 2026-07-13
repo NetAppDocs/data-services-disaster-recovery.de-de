@@ -18,6 +18,7 @@ Nachdem ein Notfall behoben wurde, führen Sie ein Failback vom Notfallwiederher
 
 
 
+[[about-failback]]
 == Über Failback
 
 Im Failback-Modus repliziert (resynchronisiert) NetApp Disaster Recovery alle Änderungen zurück auf die ursprüngliche virtuelle Quellmaschine, bevor die Replikationsrichtung umgekehrt wird. Dieser Prozess beginnt mit einer Beziehung, die vollständig auf ein Ziel umgeschaltet wurde, und umfasst die folgenden Schritte:
@@ -32,12 +33,14 @@ Im Failback-Modus repliziert (resynchronisiert) NetApp Disaster Recovery alle Ä
 
 
 
+[[before-you-begin]]
 == Bevor Sie beginnen
 
 Wenn Sie einen datenspeicherbasierten Schutz verwenden, können VMs, die dem Datenspeicher hinzugefügt wurden, im Failover-Prozess ebenfalls dem Datenspeicher hinzugefügt werden. Falls dies der Fall ist, stellen Sie sicher, dass Sie die zusätzlichen Mapping-Informationen für diese VMs bereitstellen, bevor Sie das Failback einleiten. Informationen zum Bearbeiten der Ressourcenzuordnung finden Sie unter link:manage.html#manage-replication-plans["Verwalten von Replikationsplänen"]Die
 
 
 
+[[steps]]
 == Schritte
 
 [role="tabbed-block"]

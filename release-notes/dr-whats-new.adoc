@@ -16,12 +16,73 @@ Erfahren Sie mehr über die Neuerungen im Bereich NetApp Disaster Recovery.
 
 
 
+[[13-july-2026]]
+== 13. Juli 2026
+
+Version 4.3.5
+
+
+
+[[kubernetes-updates]]
+=== Kubernetes-Updates
+
+Die Notfallwiederherstellung hat die folgenden Änderungen für Kubernetes-basierte Workloads eingeführt:
+
+
+
+==== Trident Protect über das Menü „Standorte“ verwalten
+
+Disaster Recovery unterstützt jetzt die direkte Verwaltung von Trident Protect über das Menü „Sites“ in der Disaster Recovery-Benutzeroberfläche. Trident Protect kann aktualisiert oder aus Disaster Recovery entfernt werden, wodurch die Verwaltung Ihrer Kubernetes-Ressourcen vereinfacht wird.
+
+Weitere Informationen finden sich unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html["Standorte verwalten"^].
+
+
+
+[[vmware-updates]]
+=== VMware-Updates
+
+Die Notfallwiederherstellung hat die folgenden Änderungen für VMware basierte Workloads eingeführt:
+
+
+
+==== Failover bei leeren Datenspeichern
+
+Replikationspläne mit leeren Datenspeichern können nun erfolgreich per Failover übernommen werden, ohne dass diese aus dem Plan ausgeschlossen oder ein Failover erzwungen werden muss. Während des Failovers bindet Disaster Recovery den leeren Datenspeicher automatisch am Disaster Recovery-Standort ein, sodass VMs hinzugefügt und für Failback-Operationen geschützt werden können.
+
+Weitere Informationen finden sich unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover zu einem Remote-Standort"^].
+
+
+
+==== vCenter Netzwerkautomapping
+
+Netzwerkzuordnungen können nun auf vCenter-Ebene (also außerhalb des Dialogfelds für Replikationspläne) konfiguriert werden. Nach der Konfiguration wendet Disaster Recovery diese Netzwerkzuordnungen beim Hinzufügen oder Bearbeiten eines Replikationsplans automatisch an, was die Verwaltung von Replikationsplänen vereinfacht.
+
+Die Notfallwiederherstellung unterstützt weiterhin planbezogene Überschreibungen. Bestehende Netzwerkzuordnungen, die innerhalb eines Replikationsplans definiert sind, können weiterhin netzwerkbezogen bearbeitet werden; diese Zuordnungen haben Vorrang vor den vCenter-Definitionen auf Netzwerkebene.
+
+
+
+[[disaster-recovery-viewer-role-tightening]]
+=== Einschränkung der Disaster Recovery Viewer-Rolle
+
+Die Möglichkeit, die Registerkarte „Upgrade System“ anzuzeigen, wurde aus der Rolle „Disaster Recovery viewer“ entfernt. Diese Änderung stimmt die Rolle besser auf die angemessene Erfahrung für Benutzer mit Nur-Lesezugriff ab. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^].
+
+
+
+[[system-performance-enhancements]]
+=== Systemleistungsverbesserungen
+
+Disaster Recovery hat Änderungen eingeführt, um den Systemressourcenverbrauch zu reduzieren und die Leistung bei allen Vorgängen zu verbessern.
+
+
+
+[[08-june-2026]]
 == 08. Juni 2026
 
 Version 4.3.4
 
 
 
+[[kubernetes-updates]]
 === Kubernetes-Updates
 
 Die Notfallwiederherstellung hat die folgenden Änderungen für Kubernetes-basierte Workloads eingeführt:
@@ -52,6 +113,7 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[vmware-updates]]
 === VMware-Updates
 
 
@@ -80,12 +142,14 @@ Weitere Informationen zu Failover-Prozessen finden Sie unter link:https://docs.n
 
 
 
+[[11-may-2026]]
 == 11. Mai 2026
 
 Version 4.3.3
 
 
 
+[[kubernetes-based-workload-support-preview]]
 === Unterstützung für Kubernetes-basierte Workloads (Vorschau)
 
 NetApp Disaster Recovery unterstützt jetzt auch Kubernetes-basierte Workloads. Mit Kubernetes-Unterstützung können Sie Anwendungen schützen, die auf Kubernetes-Clustern laufen, einschließlich OpenShift Virtualisierungsumgebungen. Disaster Recovery unterstützt link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html["jede derzeit von Trident Protect unterstützte Kubernetes-Version"^], was eine nahtlose Integration und robuste Disaster-Recovery-Funktionen für containerisierte Anwendungen gewährleistet.
@@ -101,12 +165,14 @@ Die Unterstützung für Kubernetes-basierte Workloads befindet sich derzeit in d
 
 
 
+[[13-april-2026]]
 == 13. April 2026
 
 Version 4.3.2
 
 
 
+[[google-cloud-vmware-engine-gcve-support-is-now-generally-available-ga]]
 === Google Cloud VMware Engine (GCVE) wird ab sofort allgemein unterstützt (GA)
 
 NetApp Disaster Recovery-Unterstützung für GCVE ist jetzt allgemein verfügbar (GA). Mit GA-Unterstützung unterstützt Disaster Recovery für GCVE jetzt:
@@ -121,12 +187,14 @@ Weitere Informationen zur Unterstützung von GCVE finden Sie unter link:https://
 
 
 
+[[09-march-2026]]
 == 09. März 2026
 
 Version 4.3.1
 
 
 
+[[exclude-a-datastore-from-replication-plans]]
 === Einen Datenspeicher von Replikationsplänen ausschließen
 
 Beim Erstellen eines Replikationsplans in Disaster können Sie nun bestimmte Datenspeicher von der Replikation ausschließen. In Situationen, in denen eine VM für die Verwendung mehrerer Datenspeicher konfiguriert ist, können Sie so einschränken, welche repliziert werden.
@@ -135,6 +203,7 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[removed-password-validation-from-vcenter-password]]
 === Passwortvalidierung aus vCenter-Passwort entfernt
 
 Die Notfallwiederherstellung hat die Passwortbeschränkungen für vCenter-Passwörter aufgehoben, sodass Passwörter Leerzeichen enthalten dürfen.
@@ -143,6 +212,7 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[new-replication-plan-submenu]]
 === Neues Untermenü für Replikationsplan
 
 Disaster Recover bietet jetzt neue Menüoptionen, um vCenter-Aktualisierungen vom Replikationsplan-Dashboard aus auszulösen. Sie können auf das Untermenü über das Aktionsmenü des Replikationsplan-Dashboards zugreifen: Wählen Sie **Plan Health** und dann **Refresh Source vCenter / Refresh Target vCenter**.
@@ -151,36 +221,42 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[improved-network-discovery]]
 === Verbesserte Netzwerkerkennung
 
 Disaster Recovery umfasst nun eine verbesserte Netzwerkerkennung, um ein breiteres Spektrum an Netzwerkkonfigurationen zu unterstützen.
 
 
 
+[[16-february-2026]]
 == 16. Februar 2026
 
 Version 4.3.0
 
 
 
+[[improved-user-interface]]
 === Verbesserte Benutzeroberfläche
 
 Die Disaster Recovery-Benutzeroberfläche wurde basierend auf Rückmeldungen aktualisiert, um die Leistung und die Benutzerfreundlichkeit zu verbessern.
 
 
 
+[[api-swagger-documentation]]
 === API Swagger-Dokumentation
 
 Die Swagger-Dokumentation der Disaster Recovery API ist jetzt in einem regulären Browser zugänglich; der Inkognitomodus ist nicht mehr erforderlich. Um auf die API-Dokumentation zuzugreifen, navigieren Sie zum Disaster Recovery Dashboard, wählen Sie das Kontextmenü oben rechts image:../media/use/icon-vertical-dots.png["Aktionssymbol"] und dann **API Documentation** aus, um die Swagger-Dokumentation zu öffnen. Sie können auch link:https://api.bluexp.netapp.com/v1/services/draas/api/api-doc/draas["URL als Lesezeichen speichern"^].
 
 
 
+[[12-january-2026]]
 == 12. Januar 2026
 
 Version 4.2.9
 
 
 
+[[support-for-multiple-console-agents-in-on-premises-environments]]
 === Unterstützung für mehrere Konsolenagenten in lokalen Umgebungen
 
 Wenn Sie Disaster Recovery lokal einsetzen, können Sie jetzt für jede vCenter-Instanz einen Console-Agenten bereitstellen und so die Ausfallsicherheit verbessern.
@@ -191,6 +267,7 @@ Informationen zum Console-Agenten in der Notfallwiederherstellung finden Sie unt
 
 
 
+[[add-vms-after-failover-for-replication-plans-using-datastore-based-protection]]
 === Fügen Sie nach einem Failover VMs für Replikationspläne hinzu, die datenspeicherbasierten Schutz verwenden.
 
 Wenn ein Failover ausgelöst wird, umfasst jeder Replikationsplan, der datenspeicherbasierten Schutz verwendet, auch VMs, die dem Datenspeicher hinzugefügt wurden, sofern diese erkannt wurden. Sie müssen die Zuordnungsdetails für die hinzugefügten VMs angeben, bevor das Failover abgeschlossen ist.
@@ -199,6 +276,7 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[new-email-notifications]]
 === Neue E-Mail-Benachrichtigungen
 
 Die Notfallwiederherstellung bietet nun E-Mail-Benachrichtigungen für die folgenden Ereignisse:
@@ -211,18 +289,21 @@ Die Notfallwiederherstellung bietet nun E-Mail-Benachrichtigungen für die folge
 
 
 
+[[swagger-improvements]]
 === Swagger-Verbesserungen
 
 Sie können nun direkt aus Disaster Recovery auf die Swagger-Dokumentation zugreifen. Wählen Sie in Disaster Recovery **Einstellungen** und anschließend **API-Dokumentation**. Sie sollten sich im privaten oder Inkognito-Modus befinden, um auf link:https://api.bluexp.netapp.com/v1/services/draas/api/api-doc/draas["der Link"^] zugreifen zu können.
 
 
 
+[[improved-user-interfaces]]
 === Verbesserte Benutzeroberflächen
 
 Die Notfallwiederherstellung bietet jetzt verbesserte Warnungen und Fehlerbehebungen. Diese Version behebt einen Fehler, der verhinderte, dass abgebrochene Aufträge in der Benutzeroberfläche angezeigt wurden. Stornierte Aufträge sind jetzt sichtbar. Außerdem gibt es eine neue Warnung, wenn dasselbe Zielnetzwerk mehreren verschiedenen Quellnetzwerken zugeordnet wird.
 
 
 
+[[retain-vm-folder-structure-added-as-default-in-replication-plans]]
 === Die als Standard hinzugefügte VM-Ordnerstruktur in Replikationsplänen beibehalten
 
 Beim Erstellen einer Replikation ist die neue Standardeinstellung, die Ordnerstruktur der VM beizubehalten. Falls das Wiederherstellungsziel nicht über die ursprüngliche Ordnerhierarchie verfügt, erstellt Disaster Recovery diese. Sie können diese Option deaktivieren, um die ursprüngliche Ordnerhierarchie zu ignorieren.
@@ -231,12 +312,14 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[09-december-2025]]
 == 9. Dezember 2025
 
 Version 4.2.8P1
 
 
 
+[[folder-hierarchy-retention]]
 === Beibehaltung der Ordnerhierarchie
 
 Standardmäßig behält Disaster Recovery die VM-Inventarhierarchie (Ordnerstruktur) beim Failover bei.  Falls das Wiederherstellungsziel den erforderlichen Ordner nicht enthält, wird dieser von Disaster Recovery erstellt.
@@ -247,6 +330,7 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[streamlined-console-agent-updating]]
 === Optimierte Aktualisierung des Konsolenagenten
 
 Die Disaster-Recovery-Lösung unterstützt nun einen optimierten Prozess für die Verwendung mehrerer Console-Agenten in einer Arbeitsumgebung.  Um zwischen verschiedenen Console-Agenten zu wechseln, müssen Sie Ihre vCenter-Konfiguration bearbeiten, die Anmeldeinformationen neu ermitteln und die Replikationspläne aktualisieren, um den neuen Console-Agenten zu verwenden.
@@ -255,12 +339,14 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[01-december-2025]]
 == 01. Dezember 2025
 
 Version 4.2.8
 
 
 
+[[support-for-google-cloud-vmware-engine-using-google-cloud-netapp-volumes]]
 === Unterstützung für Google Cloud VMware Engine mit Google Cloud NetApp Volumes
 
 NetApp Disaster Recovery unterstützt jetzt Google Cloud VMware Engine unter Verwendung von Google Cloud NetApp Volumes für Migrations-, Failover-, Failback- und Testvorgänge.  Diese Integration ermöglicht nahtlose Disaster-Recovery-Workflows zwischen lokalen Umgebungen und Google Cloud.
@@ -269,18 +355,21 @@ Bitte überprüfen Sie dielink:https://docs.netapp.com/us-en/data-services-disas
 
 
 
+[[10-november-2025]]
 == 10. November 2025
 
 Version 4.2.7
 
 
 
+[[cascading-failover-support]]
 === Kaskadierende Ausfallunterstützung
 
 Sie können nun in ONTAP eine kaskadierende Beziehung konfigurieren und jeden Zweig dieser Replikationsbeziehung für die Notfallwiederherstellung nutzen.
 
 
 
+[[downgrade-vmware-hardware-support-during-registration]]
 === Herabstufung der VMware-Hardwareunterstützung während der Registrierung
 
 Disaster Recovery unterstützt jetzt das Downgrade von VMware-Hardware auf eine frühere Version von vSphere während der Registrierung. Dies ist nützlich, wenn auf dem Quell-ESX-Host eine neuere Version ausgeführt wird als auf dem Disaster-Recovery-Standort.
@@ -289,12 +378,14 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[graceful-shutdown]]
 === Geordnetes Herunterfahren
 
 Die Notfallwiederherstellung fährt VMs nun ordnungsgemäß herunter, anstatt sie auszuschalten. Wenn eine bestimmte VM länger als zehn Minuten zum Herunterfahren benötigt, schaltet Disaster Recovery sie ab.
 
 
 
+[[pre-backup-scripting-support]]
 === Unterstützung für Pre-Backup-Skripte
 
 Sie können nun benutzerdefinierte Skripte in den Failover-Workflow einfügen, die vor der Erstellung eines Backups ausgeführt werden. Mithilfe von Pre-Backup-Skripten können Sie den Zustand der VM vor der Replikation eines Snapshots steuern und eine VM für einen Übergang vorbereiten. Beispielsweise kann man ein Skript einfügen, das eine NFS-Freigabe aushängt, die nach einem Failover mithilfe eines anderen Skripts wieder eingehängt wird.
@@ -303,18 +394,21 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[06-october-2025]]
 == 06. Oktober 2025
 
 Version 4.2.6
 
 
 
+[[bluexp-disaster-recovery-is-now-netapp-disaster-recovery]]
 === BlueXP disaster recovery heißt jetzt NetApp Disaster Recovery
 
 BlueXP disaster recovery wurde in NetApp Disaster Recovery umbenannt.
 
 
 
+[[bluexp-is-now-netapp-console]]
 === BlueXP heißt jetzt NetApp Console
 
 Die NetApp Console basiert auf der verbesserten und neu strukturierten BlueXP -Grundlage und ermöglicht die zentrale Verwaltung von NetApp -Speicher und NetApp Data Services in On-Premises- und Cloud-Umgebungen auf Unternehmensniveau. Sie liefert Einblicke in Echtzeit, schnellere Arbeitsabläufe und eine vereinfachte Verwaltung mit hoher Sicherheit und Konformität.
@@ -323,6 +417,7 @@ Einzelheiten zu den Änderungen finden Sie unter link:https://docs.netapp.com/us
 
 
 
+[[other-updates]]
 === Weitere Updates
 
 * Die Unterstützung für Amazon Elastic VMware Service (EVS) mit Amazon FSx for NetApp ONTAP befand sich in einer öffentlichen Vorschau. Mit dieser Version ist es nun allgemein verfügbar. Weitere Einzelheiten finden Sie unterlink:../reference/evs-deploy-guide-introduction.html["Einführung von NetApp Disaster Recovery mit Amazon Elastic VMware Service und Amazon FSx for NetApp ONTAP"] .
@@ -333,12 +428,14 @@ Einzelheiten zu den Änderungen finden Sie unter link:https://docs.netapp.com/us
 
 
 
+[[04-august-2025]]
 == 04. August 2025
 
 Version 4.2.5P2
 
 
 
+[[netapp-disaster-recovery-updates]]
 === NetApp Disaster Recovery -Updates
 
 Diese Version enthält die folgenden Updates:
@@ -356,12 +453,14 @@ Für weitere Details siehe https://docs.netapp.com/us-en/data-services-disaster-
 
 
 
+[[14-july-2025]]
 == 14. Juli 2025
 
 Version 4.2.5
 
 
 
+[[user-roles-in-netapp-disaster-recovery]]
 === Benutzerrollen in NetApp Disaster Recovery
 
 NetApp Disaster Recovery verwendet jetzt Rollen, um den Zugriff jedes Benutzers auf bestimmte Funktionen und Aktionen zu regeln.
@@ -382,6 +481,7 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles
 
 
 
+[[other-updates-in-netapp-disaster-recovery]]
 === Weitere Updates in NetApp Disaster Recovery
 
 * Verbesserte Netzwerkerkennung
@@ -410,36 +510,42 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles
 
 
 
+[[30-june-2025]]
 == 30. Juni 2025
 
 Version 4.2.4P2
 
 
 
+[[discovery-improvements]]
 === Verbesserungen bei der Erkennung
 
 Dieses Update verbessert den Erkennungsprozess und verkürzt so die für die Erkennung benötigte Zeit.
 
 
 
+[[23-june-2025]]
 == 23. Juni 2025
 
 Version 4.2.4P1
 
 
 
+[[subnet-mapping-improvements]]
 === Verbesserungen der Subnetzzuordnung
 
 Dieses Update erweitert den Dialog „Subnetzzuordnung hinzufügen und bearbeiten“ um eine neue Suchfunktion.  Sie können jetzt durch Eingabe von Suchbegriffen schnell bestimmte Subnetze finden, was die Verwaltung von Subnetzzuordnungen vereinfacht.
 
 
 
+[[09-june-2025]]
 == 09. Juni 2025
 
 Version 4.2.4
 
 
 
+[[windows-local-administrator-password-solution-laps-support]]
 === Unterstützung für Windows Local Administrator Password Solution (LAPS)
 
 Windows Local Administrator Password Solution (Windows LAPS) ist eine Windows-Funktion, die das Kennwort eines lokalen Administratorkontos im Active Directory automatisch verwaltet und sichert.
@@ -450,12 +556,14 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[13-may-2025]]
 == 13. Mai 2025
 
 Version 4.2.3
 
 
 
+[[subnet-mapping]]
 === Subnetzzuordnung
 
 Mit dieser Version können Sie IP-Adressen beim Failover auf eine neue Art und Weise verwalten, indem Sie die Subnetzzuordnung verwenden, die es Ihnen ermöglicht, für jedes vCenter Subnetze hinzuzufügen.  Dabei definieren Sie das IPv4-CIDR, das Standard-Gateway und das DNS für jedes virtuelle Netzwerk.
@@ -478,6 +586,7 @@ Einzelheiten zum Einbinden von Subnetzmapping in Ihre Websites finden Sie unter 
 
 
 
+[[skip-protection]]
 === Skip-Schutz
 
 Sie können jetzt den Schutz überspringen, sodass der Dienst nach einem Failover des Replikationsplans nicht automatisch eine umgekehrte Schutzbeziehung erstellt.  Dies ist nützlich, wenn Sie zusätzliche Vorgänge auf der wiederhergestellten Site durchführen möchten, bevor Sie sie in NetApp Disaster Recovery wieder online schalten.
@@ -492,6 +601,7 @@ Einzelheiten zum Umgehen des Schutzes finden Sie unter https://docs.netapp.com/u
 
 
 
+[[snapmirror-schedule-updates-in-the-replication-plan]]
 === SnapMirror -Zeitplanaktualisierungen im Replikationsplan
 
 NetApp Disaster Recovery unterstützt jetzt die Verwendung externer Snapshot-Management-Lösungen wie den nativen ONTAP SnapMirror Policy Scheduler oder Drittanbieter-Integrationen mit ONTAP.  Wenn jeder Datenspeicher (Volume) im Replikationsplan bereits über eine SnapMirror -Beziehung verfügt, die anderswo verwaltet wird, können Sie diese Snapshots als Wiederherstellungspunkte in NetApp Disaster Recovery verwenden.
@@ -506,12 +616,14 @@ Einzelheiten zur Verwendung externer Snapshot-Lösungen im Replikationsplan find
 
 
 
+[[16-april-2025]]
 == 16. April 2025
 
 Version 4.2.2
 
 
 
+[[scheduled-discovery-for-vms]]
 === Geplante Erkennung für VMs
 
 NetApp Disaster Recovery führt alle 24 Stunden eine Erkennung durch.  Mit dieser Version können Sie jetzt den Erkennungszeitplan an Ihre Anforderungen anpassen und die Auswirkungen auf die Leistung bei Bedarf reduzieren.  Wenn Sie beispielsweise über eine große Anzahl VMs verfügen, können Sie den Erkennungszeitplan so einstellen, dass er alle 48 Stunden ausgeführt wird.  Wenn Sie nur eine kleine Anzahl von VMs haben, können Sie den Erkennungszeitplan so einstellen, dass er alle 12 Stunden ausgeführt wird.
@@ -522,6 +634,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[resource-group-datastore-support]]
 === Unterstützung für Ressourcengruppen-Datenspeicher
 
 Bisher konnten Sie Ressourcengruppen nur nach VMs erstellen.  Mit dieser Version können Sie eine Ressourcengruppe nach Datenspeichern erstellen.  Wenn Sie einen Replikationsplan erstellen und eine Ressourcengruppe für diesen Plan erstellen, werden alle VMs in einem Datenspeicher aufgelistet.  Dies ist nützlich, wenn Sie über eine große Anzahl VMs verfügen und diese nach Datenspeicher gruppieren möchten.
@@ -536,24 +649,28 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[notifications-of-free-trial-or-license-expiration]]
 === Benachrichtigungen zum Ablauf der kostenlosen Testversion oder Lizenz
 
 Diese Version enthält Benachrichtigungen, dass die kostenlose Testversion in 60 Tagen abläuft, um sicherzustellen, dass Sie Zeit haben, eine Lizenz zu erwerben.  Diese Version bietet auch Benachrichtigungen am Tag des Lizenzablaufs.
 
 
 
+[[notification-of-service-updates]]
 === Benachrichtigung über Service-Updates
 
 Mit dieser Version wird oben ein Banner angezeigt, das darauf hinweist, dass die Dienste aktualisiert werden und der Dienst in den Wartungsmodus versetzt wird.  Das Banner wird angezeigt, wenn der Dienst aktualisiert wird, und verschwindet, wenn die Aktualisierung abgeschlossen ist.  Während des Upgrades können Sie zwar weiterhin in der Benutzeroberfläche arbeiten, Sie können jedoch keine neuen Aufträge übermitteln.  Geplante Jobs werden ausgeführt, nachdem das Update abgeschlossen ist und der Dienst in den Produktionsmodus zurückkehrt.
 
 
 
+[[10-march-2025]]
 == 10. März 2025
 
 Version 4.2.1
 
 
 
+[[intelligent-proxy-support]]
 === Intelligente Proxy-Unterstützung
 
 Der NetApp Console Agent unterstützt intelligente Proxys.  Intelligent Proxy ist eine einfache, sichere und effiziente Möglichkeit, Ihr lokales System mit NetApp Disaster Recovery zu verbinden.  Es bietet eine sichere Verbindung zwischen Ihrem System und NetApp Disaster Recovery, ohne dass ein VPN oder direkter Internetzugang erforderlich ist.  Diese optimierte Proxy-Implementierung entlastet den API-Verkehr innerhalb des lokalen Netzwerks.
@@ -568,6 +685,7 @@ Weitere Informationen zur allgemeinen Proxy-Einrichtung in der NetApp Console fi
 
 
 
+[[end-the-free-trial-any-time]]
 === Beenden Sie die kostenlose Testversion jederzeit
 
 Sie können die kostenlose Testversion jederzeit beenden oder warten, bis sie abläuft.
@@ -576,12 +694,14 @@ Sehen https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/
 
 
 
+[[19-february-2025]]
 == 19. Februar 2025
 
 Version 4.2
 
 
 
+[[asa-r2-support-for-vms-and-datastores-on-vmfs-storage]]
 === ASA R2-Unterstützung für VMs und Datenspeicher auf VMFS-Speicher
 
 Diese Version von NetApp Disaster Recovery bietet Unterstützung für ASA r2 für VMs und Datenspeicher auf VMFS-Speicher.  Auf einem ASA R2-System unterstützt die ONTAP -Software wesentliche SAN-Funktionen und entfernt Funktionen, die in SAN-Umgebungen nicht unterstützt werden.
@@ -598,10 +718,12 @@ Während Datenspeicher auf einem ONTAP Volume oder einer ASA r2-Speichereinheit 
 
 
 
+[[30-october-2024]]
 == 30. Oktober 2024
 
 
 
+[[reporting]]
 === Berichterstattung
 
 Sie können jetzt Berichte erstellen und herunterladen, die Ihnen bei der Analyse Ihrer Landschaft helfen.  Vorgefertigte Berichte fassen Failovers und Failbacks zusammen, zeigen Replikationsdetails auf allen Sites und zeigen Jobdetails für die letzten sieben Tage.
@@ -610,6 +732,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/reports.
 
 
 
+[[30-day-free-trial]]
 === 30 Tage kostenlos testen
 
 Sie können sich jetzt für eine 30-tägige kostenlose Testversion von NetApp Disaster Recovery anmelden.  Bisher waren kostenlose Testversionen 90 Tage lang verfügbar.
@@ -618,6 +741,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/
 
 
 
+[[disable-and-enable-replication-plans]]
 === Deaktivieren und Aktivieren von Replikationsplänen
 
 Eine frühere Version enthielt Aktualisierungen der Failover-Testplanstruktur, die zur Unterstützung täglicher und wöchentlicher Zeitpläne erforderlich waren.  Für dieses Update war es erforderlich, dass Sie alle vorhandenen Replikationspläne deaktivieren und erneut aktivieren, damit Sie die neuen täglichen und wöchentlichen Failover-Testpläne verwenden können.  Dies ist eine einmalige Anforderung.
@@ -632,6 +756,7 @@ So geht's:
 
 
 
+[[folder-mapping]]
 === Ordnerzuordnung
 
 Wenn Sie einen Replikationsplan erstellen und Rechenressourcen zuordnen, können Sie jetzt Ordner zuordnen, sodass VMs in einem Ordner wiederhergestellt werden, den Sie für Rechenzentrum, Cluster und Host angeben.
@@ -640,6 +765,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[vm-details-available-for-failover-failback-and-test-failover]]
 === VM-Details für Failover, Failback und Test-Failover verfügbar
 
 Wenn ein Fehler auftritt und Sie ein Failover starten, ein Failback durchführen oder das Failover testen, können Sie jetzt Details der VMs anzeigen und feststellen, welche VMs nicht neu gestartet wurden.
@@ -648,6 +774,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover
 
 
 
+[[vm-boot-delay-with-ordered-boot-sequence]]
 === VM-Startverzögerung mit geordneter Startsequenz
 
 Wenn Sie einen Replikationsplan erstellen, können Sie jetzt für jede VM im Plan eine Startverzögerung festlegen.  Auf diese Weise können Sie eine Reihenfolge für den Start der VMs festlegen, um sicherzustellen, dass alle Ihre VMs mit Priorität eins ausgeführt werden, bevor die VMs mit nachfolgender Priorität gestartet werden.
@@ -656,6 +783,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[vm-operating-system-information]]
 === Informationen zum VM-Betriebssystem
 
 Wenn Sie einen Replikationsplan erstellen, können Sie jetzt das Betriebssystem für jede VM im Plan sehen.  Dies ist hilfreich bei der Entscheidung, wie VMs in einer Ressourcengruppe zusammengefasst werden sollen.
@@ -664,6 +792,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[vm-name-aliasing]]
 === VM-Namensaliasing
 
 Wenn Sie einen Replikationsplan erstellen, können Sie den VM-Namen auf der Disaster-Recovery-Site jetzt ein Präfix und ein Suffix hinzufügen.  Dadurch können Sie für die VMs im Plan einen aussagekräftigeren Namen verwenden.
@@ -672,6 +801,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[clean-up-old-snapshots]]
 === Bereinigen Sie alte Snapshots
 
 Sie können alle Snapshots löschen, die Sie nach der von Ihnen angegebenen Aufbewahrungsdauer nicht mehr benötigen.  Wenn Sie die Anzahl der Snapshot-Aufbewahrungen verringern, können sich mit der Zeit Snapshots ansammeln. Sie können diese jetzt entfernen, um Speicherplatz freizugeben.  Sie können dies jederzeit bei Bedarf oder beim Löschen eines Replikationsplans tun.
@@ -680,6 +810,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[reconcile-snapshots]]
 === Snapshots abgleichen
 
 Sie können jetzt Snapshots abgleichen, die zwischen Quelle und Ziel nicht synchron sind.  Dies kann auftreten, wenn Snapshots auf einem Ziel außerhalb von NetApp Disaster Recovery gelöscht werden.  Der Dienst löscht den Snapshot auf der Quelle automatisch alle 24 Stunden.  Sie können dies jedoch auf Anfrage durchführen.  Mit dieser Funktion können Sie sicherstellen, dass die Snapshots auf allen Sites konsistent sind.
@@ -688,10 +819,12 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[20-september-2024]]
 == 20. September 2024
 
 
 
+[[support-for-on-premises-to-on-premises-vmware-vmfs-datastores]]
 === Unterstützung für lokale VMware VMFS-Datenspeicher
 
 Diese Version umfasst Unterstützung für VMs, die auf VMware vSphere Virtual Machine File System (VMFS)-Datenspeichern für iSCSI und FC gemountet sind und auf lokalem Speicher geschützt sind.  Zuvor bot der Dienst eine _Technologievorschau_, die VMFS-Datenspeicher für iSCSI und FC unterstützte.
@@ -705,10 +838,12 @@ Hier sind einige zusätzliche Überlegungen zu den iSCSI- und FC-Protokollen:
 
 
 
+[[02-august-2024]]
 == 02. August 2024
 
 
 
+[[support-for-on-premises-to-on-premises-vmware-vmfs-datastores-for-fc]]
 === Unterstützung für lokale VMware VMFS-Datenspeicher für FC
 
 Diese Version enthält eine _Technologievorschau_ der Unterstützung für VMs, die auf VMware vSphere Virtual Machine File System (VMFS)-Datenspeichern für FC gemountet sind, die auf lokalem Speicher geschützt sind.  Zuvor bot der Dienst eine Technologievorschau, die VMFS-Datenspeicher für iSCSI unterstützte.
@@ -718,6 +853,7 @@ NOTE: NetApp berechnet Ihnen keine Kosten für die in der Vorschau angezeigte Wo
 
 
 
+[[job-cancel]]
 === Job abbrechen
 
 Mit dieser Version können Sie jetzt einen Job in der Job Monitor-Benutzeroberfläche abbrechen.
@@ -726,10 +862,12 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/monitor-
 
 
 
+[[17-july-2024]]
 == 17. Juli 2024
 
 
 
+[[failover-test-schedules]]
 === Failover-Testpläne
 
 Diese Version enthält Aktualisierungen der Failover-Testplanstruktur, die zur Unterstützung täglicher und wöchentlicher Zeitpläne erforderlich waren.  Dieses Update erfordert, dass Sie alle vorhandenen Replikationspläne deaktivieren und erneut aktivieren, damit Sie die neuen täglichen und wöchentlichen Failover-Testpläne verwenden können.  Dies ist eine einmalige Anforderung.
@@ -744,6 +882,7 @@ So geht's:
 
 
 
+[[replication-plan-updates]]
 === Aktualisierungen des Replikationsplans
 
 Diese Version enthält Aktualisierungen der Replikationsplandaten, die das Problem „Snapshot nicht gefunden“ beheben.  Dazu müssen Sie die Aufbewahrungsanzahl in allen Replikationsplänen auf 1 ändern und einen On-Demand-Snapshot initiieren.  Dieser Vorgang erstellt ein neues Backup und entfernt alle älteren Backups.
@@ -762,18 +901,21 @@ So geht's:
 
 
 
+[[05-july-2024]]
 == 05. Juli 2024
 
 Diese NetApp Disaster Recovery -Version enthält die folgenden Updates:
 
 
 
+[[support-for-aff-a-series]]
 === Unterstützung für AFF A-Serie
 
 Diese Version unterstützt die Hardwareplattformen der NetApp AFF A-Serie.
 
 
 
+[[support-for-on-premises-to-on-premises-vmware-vmfs-datastores]]
 === Unterstützung für lokale VMware VMFS-Datenspeicher
 
 Diese Version enthält eine _Technologievorschau_ der Unterstützung für VMs, die auf VMware vSphere Virtual Machine File System (VMFS)-Datenspeichern gemountet sind, die auf lokalem Speicher geschützt sind.  Mit dieser Version wird die Notfallwiederherstellung in einer Technologievorschau für lokale VMware-Workloads in einer lokalen VMware-Umgebung mit VMFS-Datenspeichern unterstützt.
@@ -783,12 +925,14 @@ NOTE: NetApp berechnet Ihnen keine Kosten für die in der Vorschau angezeigte Wo
 
 
 
+[[replication-plan-updates]]
 === Aktualisierungen des Replikationsplans
 
 Sie können einen Replikationsplan einfacher hinzufügen, indem Sie VMs auf der Seite „Anwendungen“ nach Datenspeicher filtern und auf der Seite „Ressourcenzuordnung“ weitere Zieldetails auswählen. Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
 
 
 
+[[edit-replication-plans]]
 === Replikationspläne bearbeiten
 
 Mit dieser Version wurde die Seite „Failover-Zuordnungen“ zur besseren Übersichtlichkeit verbessert.
@@ -797,6 +941,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.h
 
 
 
+[[edit-vms]]
 === VMs bearbeiten
 
 Mit dieser Version wurden beim Bearbeiten von VMs im Plan einige kleinere Verbesserungen der Benutzeroberfläche vorgenommen.
@@ -805,6 +950,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.h
 
 
 
+[[fail-over-updates]]
 === Failover-Updates
 
 Bevor Sie ein Failover einleiten, können Sie jetzt den Status der VMs ermitteln und feststellen, ob sie ein- oder ausgeschaltet sind.  Der Failover-Prozess ermöglicht es Ihnen nun, sofort einen Snapshot zu erstellen oder die Snapshots auszuwählen.
@@ -813,6 +959,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover
 
 
 
+[[failover-test-schedules]]
 === Failover-Testpläne
 
 Sie können jetzt die Failover-Tests bearbeiten und tägliche, wöchentliche und monatliche Zeitpläne für den Failover-Test festlegen.
@@ -821,6 +968,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.h
 
 
 
+[[updates-to-prerequisite-information]]
 === Aktualisierungen der erforderlichen Informationen
 
 Die Informationen zu den Voraussetzungen für NetApp Disaster Recovery wurden aktualisiert.
@@ -829,18 +977,21 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/
 
 
 
+[[15-may-2024]]
 == 15. Mai 2024
 
 Diese NetApp Disaster Recovery -Version enthält die folgenden Updates:
 
 
 
+[[replicating-vmware-workloads-from-on-premises-to-on-premises]]
 === Replizieren von VMware-Workloads von On-Premises zu On-Premises
 
 Dies wird jetzt als allgemein verfügbare Funktion veröffentlicht.  Zuvor handelte es sich um eine Technologievorschau mit eingeschränkter Funktionalität.
 
 
 
+[[licensing-updates]]
 === Lizenzierungsupdates
 
 Bei NetApp Disaster Recovery können Sie sich für eine kostenlose 90-Tage-Testversion anmelden, ein Pay-as-you-go-Abonnement (PAYGO) bei Amazon Marketplace erwerben oder Ihre eigene Lizenz (BYOL) mitbringen. Dabei handelt es sich um eine NetApp Lizenzdatei (NLF), die Sie von Ihrem NetApp Vertriebsmitarbeiter oder von der NetApp -Support-Site (NSS) erhalten.
@@ -851,12 +1002,14 @@ https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-int
 
 
 
+[[05-march-2024]]
 == 05. März 2024
 
 Dies ist die allgemein verfügbare Version von NetApp Disaster Recovery, die die folgenden Updates enthält.
 
 
 
+[[licensing-updates]]
 === Lizenzierungsupdates
 
 Bei NetApp Disaster Recovery können Sie sich für eine kostenlose 90-Tage-Testversion anmelden oder Ihre eigene Lizenz (BYOL) mitbringen. Dabei handelt es sich um eine NetApp -Lizenzdatei (NLF), die Sie von Ihrem NetApp Vertriebsmitarbeiter erhalten.  Sie können die Seriennummer der Lizenz verwenden, um BYOL in den NetApp Console -Abonnements zu aktivieren.  Die Gebühren für NetApp Disaster Recovery basieren auf der bereitgestellten Kapazität der Datenspeicher.
@@ -867,6 +1020,7 @@ Einzelheiten zur Lizenzverwaltung für *alle* NetApp Console -Datendienste finde
 
 
 
+[[edit-schedules]]
 === Zeitpläne bearbeiten
 
 Mit dieser Version können Sie jetzt Zeitpläne zum Testen von Konformitäts- und Failover-Tests einrichten, um sicherzustellen, dass sie bei Bedarf ordnungsgemäß funktionieren.
@@ -875,12 +1029,14 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[01-february-2024]]
 == 01. Februar 2024
 
 Diese Vorschauversion von NetApp Disaster Recovery enthält die folgenden Updates:
 
 
 
+[[network-enhancement]]
 === Netzwerkerweiterung
 
 Mit dieser Version können Sie jetzt die Größe der VM-CPU- und RAM-Werte ändern.  Sie können jetzt auch eine Netzwerk-DHCP- oder statische IP-Adresse für die VM auswählen.
@@ -893,6 +1049,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[custom-scripts]]
 === Benutzerdefinierte Skripte
 
 Können jetzt als Prozesse nach dem Failover einbezogen werden.  Mit benutzerdefinierten Skripten können Sie NetApp Disaster Recovery Ihr Skript nach einem Failover-Prozess ausführen lassen.  Sie können beispielsweise ein benutzerdefiniertes Skript verwenden, um alle Datenbanktransaktionen nach Abschluss des Failovers fortzusetzen.
@@ -901,6 +1058,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[snapmirror-relationship]]
 === SnapMirror -Beziehung
 
 Sie können jetzt beim Entwickeln des Replikationsplans eine SnapMirror -Beziehung erstellen.  Bisher mussten Sie die Beziehung außerhalb von NetApp Disaster Recovery erstellen.
@@ -909,6 +1067,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[consistency-groups]]
 === Konsistenzgruppen
 
 Wenn Sie einen Replikationsplan erstellen, können Sie VMs aus unterschiedlichen Volumes und unterschiedlichen SVMs einschließen.  NetApp Disaster Recovery erstellt einen Consistency Group Snapshot, indem es alle Volumes einbezieht und alle sekundären Standorte aktualisiert.
@@ -917,6 +1076,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[vm-power-on-delay-option]]
 === Option zur VM-Einschaltverzögerung
 
 Wenn Sie einen Replikationsplan erstellen, können Sie VMs zu einer Ressourcengruppe hinzufügen.  Mit Ressourcengruppen können Sie für jede VM eine Verzögerung festlegen, sodass sie in einer verzögerten Reihenfolge hochgefahren werden.
@@ -925,6 +1085,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[application-consistent-snapshot-copies]]
 === Anwendungskonsistente Snapshot-Kopien
 
 Sie können angeben, dass anwendungskonsistente Snapshot-Kopien erstellt werden sollen.  Der Dienst legt die Anwendung still und erstellt dann einen Snapshot, um einen konsistenten Zustand der Anwendung zu erhalten.
@@ -933,12 +1094,14 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[11-january-2024]]
 == 11. Januar 2024
 
 Diese Vorschauversion von NetApp Disaster Recovery enthält die folgenden Updates:
 
 
 
+[[dashboard-more-quickly]]
 === Schneller Dashboard
 
 Mit dieser Version können Sie vom Dashboard aus schneller auf Informationen auf anderen Seiten zugreifen.
@@ -947,12 +1110,14 @@ https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-int
 
 
 
+[[20-october-2023]]
 == 20. Oktober 2023
 
 Diese Vorabversion von NetApp Disaster Recovery enthält die folgenden Updates.
 
 
 
+[[protect-on-premises-nfs-based-vmware-workloads]]
 === Schützen Sie lokale, NFS-basierte VMware-Workloads
 
 Mit NetApp Disaster Recovery können Sie jetzt Ihre lokalen, NFS-basierten VMware-Workloads zusätzlich zur öffentlichen Cloud vor Katastrophen in einer anderen lokalen, NFS-basierten VMware-Umgebung schützen.  NetApp Disaster Recovery orchestriert die Durchführung der Notfallwiederherstellungspläne.
@@ -964,12 +1129,14 @@ https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-int
 
 
 
+[[27-september-2023]]
 == 27. September 2023
 
 Diese Vorschauversion von NetApp Disaster Recovery enthält die folgenden Updates:
 
 
 
+[[dashboard-updates]]
 === Dashboard-Updates
 
 Sie können nun die Optionen auf dem Dashboard auswählen, was es Ihnen erleichtert, die Informationen schnell einzusehen. Außerdem zeigt das Dashboard jetzt den Status von Failovers und Migrationen an.
@@ -978,6 +1145,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/dashboar
 
 
 
+[[replication-plan-updates]]
 === Aktualisierungen des Replikationsplans
 
 * *RPO*: Sie können jetzt das Recovery Point Objective (RPO) und die Aufbewahrungsanzahl im Abschnitt „Datenspeicher“ des Replikationsplans eingeben. Dies gibt die Menge an Daten an, die vorhanden sein müssen und nicht älter als die eingestellte Zeit sind. Wenn Sie ihn beispielsweise auf 5 Minuten einstellen, kann das System im Katastrophenfall bis zu 5 Minuten Daten verlieren, ohne dass geschäftskritische Anforderungen beeinträchtigt werden.
@@ -1007,10 +1175,12 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-c
 
 
 
+[[01-august-2023]]
 == 01. August 2023
 
 
 
+[[netapp-disaster-recovery-preview]]
 === NetApp Disaster Recovery -Vorschau
 
 NetApp Disaster Recovery Preview ist ein Cloud-basierter Disaster Recovery-Dienst, der Disaster Recovery-Workflows automatisiert.  Mit der Vorschau von NetApp Disaster Recovery können Sie zunächst Ihre lokalen, NFS-basierten VMware-Workloads, auf denen NetApp -Speicher ausgeführt wird, mit Amazon FSx für ONTAP in VMware Cloud (VMC) auf AWS schützen.
@@ -1024,36 +1194,42 @@ Diese Version enthält die folgenden Updates:
 
 
 
+[[resource-groups-update-for-boot-order]]
 === Ressourcengruppen-Update für die Startreihenfolge
 
 Wenn Sie einen Notfallwiederherstellungs- oder Replikationsplan erstellen, können Sie virtuelle Maschinen zu funktionalen Ressourcengruppen hinzufügen. Mithilfe von Ressourcengruppen können Sie eine Reihe abhängiger virtueller Maschinen in logische Gruppen einteilen, die Ihren Anforderungen entsprechen. Beispielsweise könnten Gruppen eine Startreihenfolge enthalten, die bei der Wiederherstellung ausgeführt werden kann. Mit dieser Version kann jede Ressourcengruppe eine oder mehrere virtuelle Maschinen enthalten. Die virtuellen Maschinen werden basierend auf der Reihenfolge eingeschaltet, in der Sie sie in den Plan aufnehmen. Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#select-applications-to-replicate-and-assign-resource-groups["Auswählen von Anwendungen zum Replizieren und Zuweisen von Ressourcengruppen"] .
 
 
 
+[[replication-verification]]
 === Replikationsüberprüfung
 
 Nachdem Sie den Disaster Recovery- oder Replikationsplan erstellt, die Wiederholung im Assistenten identifiziert und eine Replikation zu einem Disaster Recovery-Standort initiiert haben, überprüft NetApp Disaster Recovery alle 30 Minuten, ob die Replikation tatsächlich gemäß Plan erfolgt. Sie können den Fortschritt auf der Seite „Job Monitor“ überwachen. Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/replicate.html["Replizieren von Anwendungen auf eine andere Site"] .
 
 
 
+[[replication-plan-shows-recovery-point-objective-rpo-transfer-schedules]]
 === Der Replikationsplan zeigt die Übertragungspläne für das Recovery Point Objective (RPO)
 
 Wenn Sie einen Notfallwiederherstellungs- oder Replikationsplan erstellen, wählen Sie die VMs aus. In dieser Version können Sie jetzt den SnapMirror anzeigen, der mit jedem der Volumes verknüpft ist, die mit dem Datenspeicher oder der VM verknüpft sind. Sie können auch die RPO-Übertragungspläne sehen, die mit dem SnapMirror -Zeitplan verknüpft sind. Mithilfe von RPO können Sie feststellen, ob Ihr Sicherungsplan für die Wiederherstellung nach einem Notfall ausreicht. Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
 
 
 
+[[job-monitor-update]]
 === Job Monitor-Update
 
 Die Seite „Job Monitor“ enthält jetzt eine Aktualisierungsoption, sodass Sie einen aktuellen Status der Vorgänge erhalten. Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/monitor-jobs.html["Überwachen von Disaster Recovery-Jobs"] .
 
 
 
+[[18-may-2023]]
 == 18. Mai 2023
 
 Dies ist die Erstveröffentlichung von NetApp Disaster Recovery.
 
 
 
+[[cloud-based-disaster-recovery-service]]
 === Cloudbasierter Disaster-Recovery-Dienst
 
 NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert.  Mit der Vorschau von NetApp Disaster Recovery können Sie zunächst Ihre lokalen, NFS-basierten VMware-Workloads, auf denen NetApp -Speicher ausgeführt wird, mit Amazon FSx für ONTAP in VMware Cloud (VMC) auf AWS schützen.

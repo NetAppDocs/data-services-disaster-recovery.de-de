@@ -4,6 +4,7 @@
 
 
 
+[[reporting]]
 === Berichterstattung
 
 Sie können jetzt Berichte erstellen und herunterladen, die Ihnen bei der Analyse Ihrer Landschaft helfen.  Vorgefertigte Berichte fassen Failovers und Failbacks zusammen, zeigen Replikationsdetails auf allen Sites und zeigen Jobdetails für die letzten sieben Tage.
@@ -12,6 +13,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/reports.
 
 
 
+[[30-day-free-trial]]
 === 30 Tage kostenlos testen
 
 Sie können sich jetzt für eine 30-tägige kostenlose Testversion von NetApp Disaster Recovery anmelden.  Bisher waren kostenlose Testversionen 90 Tage lang verfügbar.
@@ -20,6 +22,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/
 
 
 
+[[disable-and-enable-replication-plans]]
 === Deaktivieren und Aktivieren von Replikationsplänen
 
 Eine frühere Version enthielt Aktualisierungen der Failover-Testplanstruktur, die zur Unterstützung täglicher und wöchentlicher Zeitpläne erforderlich waren.  Für dieses Update war es erforderlich, dass Sie alle vorhandenen Replikationspläne deaktivieren und erneut aktivieren, damit Sie die neuen täglichen und wöchentlichen Failover-Testpläne verwenden können.  Dies ist eine einmalige Anforderung.
@@ -34,6 +37,7 @@ So geht's:
 
 
 
+[[folder-mapping]]
 === Ordnerzuordnung
 
 Wenn Sie einen Replikationsplan erstellen und Rechenressourcen zuordnen, können Sie jetzt Ordner zuordnen, sodass VMs in einem Ordner wiederhergestellt werden, den Sie für Rechenzentrum, Cluster und Host angeben.
@@ -42,6 +46,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[vm-details-available-for-failover-failback-and-test-failover]]
 === VM-Details für Failover, Failback und Test-Failover verfügbar
 
 Wenn ein Fehler auftritt und Sie ein Failover starten, ein Failback durchführen oder das Failover testen, können Sie jetzt Details der VMs anzeigen und feststellen, welche VMs nicht neu gestartet wurden.
@@ -50,6 +55,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover
 
 
 
+[[vm-boot-delay-with-ordered-boot-sequence]]
 === VM-Startverzögerung mit geordneter Startsequenz
 
 Wenn Sie einen Replikationsplan erstellen, können Sie jetzt für jede VM im Plan eine Startverzögerung festlegen.  Auf diese Weise können Sie eine Reihenfolge für den Start der VMs festlegen, um sicherzustellen, dass alle Ihre VMs mit Priorität eins ausgeführt werden, bevor die VMs mit nachfolgender Priorität gestartet werden.
@@ -58,6 +64,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[vm-operating-system-information]]
 === Informationen zum VM-Betriebssystem
 
 Wenn Sie einen Replikationsplan erstellen, können Sie jetzt das Betriebssystem für jede VM im Plan sehen.  Dies ist hilfreich bei der Entscheidung, wie VMs in einer Ressourcengruppe zusammengefasst werden sollen.
@@ -66,6 +73,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[vm-name-aliasing]]
 === VM-Namensaliasing
 
 Wenn Sie einen Replikationsplan erstellen, können Sie den VM-Namen auf der Disaster-Recovery-Site jetzt ein Präfix und ein Suffix hinzufügen.  Dadurch können Sie für die VMs im Plan einen aussagekräftigeren Namen verwenden.
@@ -74,6 +82,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[clean-up-old-snapshots]]
 === Bereinigen Sie alte Snapshots
 
 Sie können alle Snapshots löschen, die Sie nach der von Ihnen angegebenen Aufbewahrungsdauer nicht mehr benötigen.  Wenn Sie die Anzahl der Snapshot-Aufbewahrungen verringern, können sich mit der Zeit Snapshots ansammeln. Sie können diese jetzt entfernen, um Speicherplatz freizugeben.  Sie können dies jederzeit bei Bedarf oder beim Löschen eines Replikationsplans tun.
@@ -82,6 +91,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 
 
 
+[[reconcile-snapshots]]
 === Snapshots abgleichen
 
 Sie können jetzt Snapshots abgleichen, die zwischen Quelle und Ziel nicht synchron sind.  Dies kann auftreten, wenn Snapshots auf einem Ziel außerhalb von NetApp Disaster Recovery gelöscht werden.  Der Dienst löscht den Snapshot auf der Quelle automatisch alle 24 Stunden.  Sie können dies jedoch auf Anfrage durchführen.  Mit dieser Funktion können Sie sicherstellen, dass die Snapshots auf allen Sites konsistent sind.

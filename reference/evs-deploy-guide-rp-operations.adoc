@@ -13,6 +13,7 @@ Verwenden Sie NetApp Disaster Recovery mit Amazon EVS und Amazon FSx for NetApp 
 
 
 
+[[fail-over]]
 == Failover
 
 Der wichtigste Vorgang, den Sie möglicherweise durchführen müssen, ist der, von dem Sie hoffen, dass er nie eintritt: das Failover zum DR-(Ziel-)Rechenzentrum im Falle eines katastrophalen Fehlers am Produktionsstandort vor Ort.
@@ -43,6 +44,7 @@ image:evs-rp-failover-dialog.png["Dialogfeld „Failover“"]
 
 
 
+[[test-failover]]
 == Testen des Failovers
 
 Ein Test-Failover ähnelt einem Failover, weist jedoch zwei Unterschiede auf.
@@ -72,6 +74,7 @@ image:evs-test-failover-dialog.png["Dialogfeld „Failover testen“"]
 
 
 
+[[run-a-compliance-check]]
 == Führen Sie eine Konformitätsprüfung durch
 
 Konformitätsprüfungen werden standardmäßig alle drei Stunden durchgeführt.  Sie können jederzeit manuell eine Konformitätsprüfung durchführen.
@@ -87,6 +90,7 @@ image:evs-rp-menu-compliance-check.png["Menüoption „Konformitätsprüfung aus
 
 
 
+[[refresh-resources]]
 == Ressourcen aktualisieren
 
 Jedes Mal, wenn Sie Änderungen an Ihrer virtuellen Infrastruktur vornehmen – beispielsweise VMs hinzufügen oder löschen, Datenspeicher hinzufügen oder löschen oder VMs zwischen Datenspeichern verschieben – müssen Sie eine Aktualisierung der betroffenen vCenter-Cluster im NetApp Disaster Recovery Dienst durchführen.  Der Dienst führt dies standardmäßig alle 24 Stunden automatisch durch, eine manuelle Aktualisierung stellt jedoch sicher, dass die neuesten Informationen zur virtuellen Infrastruktur verfügbar sind und für den DR-Schutz berücksichtigt werden.
@@ -101,6 +105,7 @@ image::evs-rp-menu-refresh-resources.png[Menüoption „Ressourcen aktualisieren
 
 
 
+[[migrate]]
 == Wandern
 
 NetApp Disaster Recovery wird zwar in erster Linie für Notfallwiederherstellungsfälle verwendet, kann aber auch einmalige Verschiebungen einer Reihe von VMs vom Quellstandort zum Zielstandort ermöglichen.  Dies könnte für ein konzertiertes Migrationsprojekt in die Cloud oder zur Katastrophenvermeidung genutzt werden – etwa bei schlechtem Wetter, politischen Unruhen oder anderen potenziellen vorübergehenden Katastrophenereignissen.
@@ -115,6 +120,7 @@ image::evs-rp-menu-migrate.png[Menüoption „Migrieren“]
 
 
 
+[[take-a-snapshot-now]]
 == Jetzt Schnappschuss machen
 
 Sie können jederzeit sofort einen Snapshot des Replikationsplans erstellen.  Dieser Snapshot ist in den Überlegungen zur NetApp Disaster Recovery enthalten, die durch die Snapshot-Aufbewahrungsanzahl des Replikationsplans festgelegt werden.
@@ -128,6 +134,7 @@ image::evs-rp-menu-take-snapshot-now.png[Menüoption „Jetzt Schnappschuss mach
 
 
 
+[[disable-or-enable-replication-plan]]
 == Replikationsplan deaktivieren oder aktivieren
 
 Möglicherweise müssen Sie den Replikationsplan vorübergehend anhalten, um Vorgänge oder Wartungsarbeiten durchzuführen, die sich auf den Replikationsprozess auswirken könnten.  Der Dienst bietet eine Methode zum Stoppen und Starten der Replikation.
@@ -144,6 +151,7 @@ image::evs-rp-menu-disable-enable.png[Menüoption „Deaktivieren/Aktivieren“]
 
 
 
+[[clean-up-old-snapshots]]
 == Bereinigen Sie alte Snapshots
 
 Möglicherweise möchten Sie ältere Snapshots bereinigen, die auf den Quell- und Zielsites aufbewahrt wurden.  Dies kann passieren, wenn die Snapshot-Aufbewahrungsanzahl des Replikationsplans geändert wird.
@@ -157,6 +165,7 @@ image::evs-rp-menu-cleanup-old-snapshots.png[Menüoption „Alte Snapshots berei
 
 
 
+[[reconcile-snapshots]]
 == Snapshots abgleichen
 
 Da der Dienst ONTAP -Volume-Snapshots orchestriert, kann ein ONTAP Speicheradministrator Snapshots direkt mithilfe von ONTAP System Manager, der ONTAP CLI oder den ONTAP REST APIs löschen, ohne dass der Dienst davon Kenntnis hat.  Der Dienst löscht automatisch alle 24 Stunden alle Snapshots auf der Quelle, die sich nicht auf dem Zielcluster befinden.  Sie können dies jedoch auf Anfrage durchführen.  Mit dieser Funktion können Sie sicherstellen, dass die Snapshots auf allen Sites konsistent sind.
@@ -170,6 +179,7 @@ image::evs-rp-menu-reconcile-snapshots.png[Menüoption „Snapshots abgleichen�
 
 
 
+[[delete-replication-plan]]
 == Replikationsplan löschen
 
 Wenn der Replikationsplan nicht mehr benötigt wird, können Sie ihn löschen.
@@ -183,6 +193,7 @@ image::evs-rp-menu-delete.png[Menüoption „Löschen“]
 
 
 
+[[edit-schedules]]
 == Zeitpläne bearbeiten
 
 Zwei Vorgänge werden automatisch und regelmäßig durchgeführt: Test-Failover und Konformitätsprüfungen.
@@ -196,6 +207,7 @@ image::evs-rp-menu-edit-schedules.png[Menüoption „Zeitpläne bearbeiten“]
 
 
 
+[[change-compliance-check-interval]]
 === Intervall für die Konformitätsprüfung ändern
 
 Standardmäßig werden alle drei Stunden Konformitätsprüfungen durchgeführt.  Sie können dies auf ein beliebiges Intervall zwischen 30 Minuten und 24 Stunden ändern.
@@ -206,6 +218,7 @@ image::evs-rp-edit-compliance-check-schedule.png[Zeitplan für die Konformitäts
 
 
 
+[[schedule-automated-test-failovers]]
 === Planen Sie automatisierte Test-Failover
 
 Test-Failover werden standardmäßig manuell ausgeführt.  Sie können automatische Test-Failover planen, um sicherzustellen, dass Ihre Replikationspläne wie erwartet funktionieren.  Weitere Informationen zum Test-Failover-Prozess finden Sie unterlink:../use/failover.html["Testen des Failover-Prozesses"] .

@@ -37,6 +37,7 @@ Nach Ablauf der kostenlosen Testversion oder der Lizenz können Sie im Dienst we
 
 
 
+[[try-it-out-using-a-30-day-free-trial]]
 == Probieren Sie es mit einer 30-tägigen kostenlosen Testversion aus
 
 Sie können NetApp Disaster Recovery mit einer 30-tägigen kostenlosen Testversion ausprobieren.
@@ -70,6 +71,7 @@ Weitere Informationen finden Sie unter link:../use/sites-add.html["Sites hinzuf�
 
 
 
+[[after-the-trial-ends-subscribe-through-one-of-the-marketplaces]]
 == Nach Ablauf der Testphase abonnieren Sie über einen der Marketplaces
 
 Nach Ablauf der kostenlosen Testversion können Sie entweder eine Lizenz von NetApp erwerben oder ein Abonnement über AWS Marketplace oder Microsoft Azure Marketplace abschließen. Dieses Verfahren bietet einen allgemeinen Überblick darüber, wie Sie sich direkt bei einem der Marktplätze anmelden können.
@@ -92,6 +94,7 @@ Sie können Abonnementdetails auf der Abonnementseite der NetApp Console anzeige
 
 
 
+[[after-the-trial-ends-purchase-a-byol-license-through-netapp]]
 == Nach Ablauf der Testphase können Sie über NetApp eine BYOL-Lizenz erwerben.
 
 Nach Ablauf der Testphase können Sie über Ihren NetApp Vertriebsmitarbeiter eine Lizenz erwerben.
@@ -104,6 +107,7 @@ https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-se
 
 
 
+[[update-your-license-when-it-expires]]
 == Aktualisieren Sie Ihre Lizenz, wenn sie abläuft
 
 Wenn sich Ihre Lizenzlaufzeit dem Ablaufdatum nähert oder Ihre lizenzierte Kapazität das Limit erreicht, werden Sie in der NetApp Disaster Recovery Benutzeroberfläche benachrichtigt.  Sie können Ihre NetApp Disaster Recovery -Lizenz vor Ablauf aktualisieren, sodass Ihr Zugriff auf die gescannten Daten ohne Unterbrechung möglich ist.
@@ -115,6 +119,7 @@ https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-se
 
 
 
+[[end-the-free-trial]]
 == Kostenlose Testversion beenden
 
 Sie können die kostenlose Testversion jederzeit beenden oder warten, bis sie abläuft.

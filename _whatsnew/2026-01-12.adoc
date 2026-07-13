@@ -4,6 +4,7 @@
 
 
 
+[[support-for-multiple-console-agents-in-on-premises-environments]]
 === Unterstützung für mehrere Konsolenagenten in lokalen Umgebungen
 
 Wenn Sie Disaster Recovery lokal einsetzen, können Sie jetzt für jede vCenter-Instanz einen Console-Agenten bereitstellen und so die Ausfallsicherheit verbessern.
@@ -14,6 +15,7 @@ Informationen zum Console-Agenten in der Notfallwiederherstellung finden Sie unt
 
 
 
+[[add-vms-after-failover-for-replication-plans-using-datastore-based-protection]]
 === Fügen Sie nach einem Failover VMs für Replikationspläne hinzu, die datenspeicherbasierten Schutz verwenden.
 
 Wenn ein Failover ausgelöst wird, umfasst jeder Replikationsplan, der datenspeicherbasierten Schutz verwendet, auch VMs, die dem Datenspeicher hinzugefügt wurden, sofern diese erkannt wurden. Sie müssen die Zuordnungsdetails für die hinzugefügten VMs angeben, bevor das Failover abgeschlossen ist.
@@ -22,6 +24,7 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 
 
+[[new-email-notifications]]
 === Neue E-Mail-Benachrichtigungen
 
 Die Notfallwiederherstellung bietet nun E-Mail-Benachrichtigungen für die folgenden Ereignisse:
@@ -34,18 +37,21 @@ Die Notfallwiederherstellung bietet nun E-Mail-Benachrichtigungen für die folge
 
 
 
+[[swagger-improvements]]
 === Swagger-Verbesserungen
 
 Sie können nun direkt aus Disaster Recovery auf die Swagger-Dokumentation zugreifen. Wählen Sie in Disaster Recovery **Einstellungen** und anschließend **API-Dokumentation**. Sie sollten sich im privaten oder Inkognito-Modus befinden, um auf link:https://api.bluexp.netapp.com/v1/services/draas/api/api-doc/draas["der Link"^] zugreifen zu können.
 
 
 
+[[improved-user-interfaces]]
 === Verbesserte Benutzeroberflächen
 
 Die Notfallwiederherstellung bietet jetzt verbesserte Warnungen und Fehlerbehebungen. Diese Version behebt einen Fehler, der verhinderte, dass abgebrochene Aufträge in der Benutzeroberfläche angezeigt wurden. Stornierte Aufträge sind jetzt sichtbar. Außerdem gibt es eine neue Warnung, wenn dasselbe Zielnetzwerk mehreren verschiedenen Quellnetzwerken zugeordnet wird.
 
 
 
+[[retain-vm-folder-structure-added-as-default-in-replication-plans]]
 === Die als Standard hinzugefügte VM-Ordnerstruktur in Replikationsplänen beibehalten
 
 Beim Erstellen einer Replikation ist die neue Standardeinstellung, die Ordnerstruktur der VM beizubehalten. Falls das Wiederherstellungsziel nicht über die ursprüngliche Ordnerhierarchie verfügt, erstellt Disaster Recovery diese. Sie können diese Option deaktivieren, um die ursprüngliche Ordnerhierarchie zu ignorieren.

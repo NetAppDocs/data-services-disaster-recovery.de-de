@@ -1,0 +1,55 @@
+= Kubernetes-Updates
+:allow-uri-read: 
+
+
+
+
+[[kubernetes-updates]]
+=== Kubernetes-Updates
+
+Die Notfallwiederherstellung hat die folgenden Änderungen für Kubernetes-basierte Workloads eingeführt:
+
+
+
+==== Trident Protect über das Menü „Standorte“ verwalten
+
+Disaster Recovery unterstützt jetzt die direkte Verwaltung von Trident Protect über das Menü „Sites“ in der Disaster Recovery-Benutzeroberfläche. Trident Protect kann aktualisiert oder aus Disaster Recovery entfernt werden, wodurch die Verwaltung Ihrer Kubernetes-Ressourcen vereinfacht wird.
+
+Weitere Informationen finden sich unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html["Standorte verwalten"^].
+
+
+
+[[vmware-updates]]
+=== VMware-Updates
+
+Die Notfallwiederherstellung hat die folgenden Änderungen für VMware basierte Workloads eingeführt:
+
+
+
+==== Failover bei leeren Datenspeichern
+
+Replikationspläne mit leeren Datenspeichern können nun erfolgreich per Failover übernommen werden, ohne dass diese aus dem Plan ausgeschlossen oder ein Failover erzwungen werden muss. Während des Failovers bindet Disaster Recovery den leeren Datenspeicher automatisch am Disaster Recovery-Standort ein, sodass VMs hinzugefügt und für Failback-Operationen geschützt werden können.
+
+Weitere Informationen finden sich unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover zu einem Remote-Standort"^].
+
+
+
+==== vCenter Netzwerkautomapping
+
+Netzwerkzuordnungen können nun auf vCenter-Ebene (also außerhalb des Dialogfelds für Replikationspläne) konfiguriert werden. Nach der Konfiguration wendet Disaster Recovery diese Netzwerkzuordnungen beim Hinzufügen oder Bearbeiten eines Replikationsplans automatisch an, was die Verwaltung von Replikationsplänen vereinfacht.
+
+Die Notfallwiederherstellung unterstützt weiterhin planbezogene Überschreibungen. Bestehende Netzwerkzuordnungen, die innerhalb eines Replikationsplans definiert sind, können weiterhin netzwerkbezogen bearbeitet werden; diese Zuordnungen haben Vorrang vor den vCenter-Definitionen auf Netzwerkebene.
+
+
+
+[[disaster-recovery-viewer-role-tightening]]
+=== Einschränkung der Disaster Recovery Viewer-Rolle
+
+Die Möglichkeit, die Registerkarte „Upgrade System“ anzuzeigen, wurde aus der Rolle „Disaster Recovery viewer“ entfernt. Diese Änderung stimmt die Rolle besser auf die angemessene Erfahrung für Benutzer mit Nur-Lesezugriff ab. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^].
+
+
+
+[[system-performance-enhancements]]
+=== Systemleistungsverbesserungen
+
+Disaster Recovery hat Änderungen eingeführt, um den Systemressourcenverbrauch zu reduzieren und die Leistung bei allen Vorgängen zu verbessern.

@@ -4,6 +4,7 @@
 
 
 
+[[discovery-improvements]]
 === Verbesserungen bei der Erkennung
 
 Dieses Update verbessert den Erkennungsprozess und verkürzt so die für die Erkennung benötigte Zeit.

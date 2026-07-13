@@ -16,6 +16,7 @@ Sie können alle NetApp Disaster Recovery -Jobs überwachen und ihren Fortschrit
 
 
 
+[[view-jobs]]
 == Jobs anzeigen
 
 *Erforderliche NetApp Console-Rolle* Die Rolle Superadmin, Disaster recovery admin, Disaster recovery application admin oder Disaster recovery viewer ist erforderlich, um diese Aufgabe auszuführen. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
@@ -31,6 +32,7 @@ Sie können alle NetApp Disaster Recovery -Jobs überwachen und ihren Fortschrit
 
 
 
+[[cancel-a-job]]
 == Abbrechen eines Auftrags
 
 Sie können einen laufenden oder in der Warteschlange befindlichen Auftrag abbrechen, wenn er festhängt oder um einen ausstehenden Vorgang zu priorisieren.

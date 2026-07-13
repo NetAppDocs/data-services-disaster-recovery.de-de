@@ -16,6 +16,7 @@ Bevor Sie NetApp Disaster Recovery verwenden, stellen Sie sicher, dass Ihre Umge
 
 
 
+[[general-prerequisites]]
 == Allgemeine Voraussetzungen
 
 Diese Voraussetzungen gelten sowohl für lokale vCenter-Cluster als auch für das softwaredefinierte Rechenzentrum (SDDC) von VMware Cloud für AWS.
@@ -33,6 +34,7 @@ Diese Voraussetzungen gelten sowohl für lokale vCenter-Cluster als auch für da
 
 
 
+[[vmware-cloud-sddc-prerequisites]]
 == VMware Cloud SDDC-Voraussetzungen
 
 Wenn Sie VMware Cloud SDDC verwenden, gelten folgende zusätzliche Voraussetzungen:

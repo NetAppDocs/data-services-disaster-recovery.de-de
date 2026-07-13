@@ -4,6 +4,7 @@
 
 
 
+[[subnet-mapping]]
 === Subnetzzuordnung
 
 Mit dieser Version können Sie IP-Adressen beim Failover auf eine neue Art und Weise verwalten, indem Sie die Subnetzzuordnung verwenden, die es Ihnen ermöglicht, für jedes vCenter Subnetze hinzuzufügen.  Dabei definieren Sie das IPv4-CIDR, das Standard-Gateway und das DNS für jedes virtuelle Netzwerk.
@@ -26,6 +27,7 @@ Einzelheiten zum Einbinden von Subnetzmapping in Ihre Websites finden Sie unter 
 
 
 
+[[skip-protection]]
 === Skip-Schutz
 
 Sie können jetzt den Schutz überspringen, sodass der Dienst nach einem Failover des Replikationsplans nicht automatisch eine umgekehrte Schutzbeziehung erstellt.  Dies ist nützlich, wenn Sie zusätzliche Vorgänge auf der wiederhergestellten Site durchführen möchten, bevor Sie sie in NetApp Disaster Recovery wieder online schalten.
@@ -40,6 +42,7 @@ Einzelheiten zum Umgehen des Schutzes finden Sie unter https://docs.netapp.com/u
 
 
 
+[[snapmirror-schedule-updates-in-the-replication-plan]]
 === SnapMirror -Zeitplanaktualisierungen im Replikationsplan
 
 NetApp Disaster Recovery unterstützt jetzt die Verwendung externer Snapshot-Management-Lösungen wie den nativen ONTAP SnapMirror Policy Scheduler oder Drittanbieter-Integrationen mit ONTAP.  Wenn jeder Datenspeicher (Volume) im Replikationsplan bereits über eine SnapMirror -Beziehung verfügt, die anderswo verwaltet wird, können Sie diese Snapshots als Wiederherstellungspunkte in NetApp Disaster Recovery verwenden.

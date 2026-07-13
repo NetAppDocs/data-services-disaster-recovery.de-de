@@ -19,6 +19,7 @@ Sie müssen Folgendes tun:
 
 
 
+[[add-on-premises-storage-arrays-to-netapp-console-system]]
 == Fügen Sie dem NetApp Console lokale Speicher-Arrays hinzu
 
 Fügen Sie Ihrem NetApp Console lokale ONTAP Speicherressourcen hinzu.
@@ -51,6 +52,7 @@ image:evs-canvas-add-working-env-4-5.png["Systemabbild hinzufügen"]
 
 
 
+[[add-amazon-fsx-for-netapp-ontap-storage-instances-to-netapp-console-system]]
 == Fügen Sie Amazon FSx for NetApp ONTAP Speicherinstanzen zum NetApp Console hinzu
 
 Fügen Sie als Nächstes Ihrem NetApp Console Amazon FSx for NetApp ONTAP -Speicherressourcen hinzu.

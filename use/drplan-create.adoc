@@ -12,13 +12,16 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Nachdem Sie Ressourcen und Standorte hinzugefügt haben, sind Sie bereit, einen  zu erstellen. Replikationspläne verwalten den Datenschutz. Die Erstellung der Replikation umfasst die Festlegung der Quell- und Zielstandorte, die Auswahl der Ressourcengruppen und die Bestimmung, wie Anwendungen wiederhergestellt und eingeschaltet werden sollen. Beispielsweise können Sie virtuelle Maschinen (VMs) gruppieren, die einer Anwendung zugeordnet sind, oder Anwendungen, die ähnliche Ebenen haben.
+Nachdem Sie Ressourcen und Standorte hinzugefügt haben, können Sie einen _Replikationsplan_ erstellen, um den Datenschutz zu verwalten. Das Erstellen des Replikationsplans umfasst das Festlegen der Quell- und Zielstandorte, die Auswahl der Ressourcengruppen sowie die Auswahl, wie Anwendungen wiederhergestellt und eingeschaltet werden sollen. Beispielsweise können Sie virtuelle Maschinen (VMs) gruppieren, die einer Anwendung zugeordnet sind, oder Sie können Anwendungen mit ähnlichen Tiers gruppieren.
+
+Beim Erstellen eines Replikationsplans besteht außerdem die Möglichkeit, Zeitpläne für Compliance und Tests zu bearbeiten und Test-Failover durchzuführen, ohne die Produktionsdaten zu beeinträchtigen.
 
 *Erforderliche NetApp Console-Rolle* Zur Ausführung dieser Aufgabe ist die Rolle des Super-Admins, Disaster recovery Admins, Disaster recovery Failover Admins oder Disaster recovery Application Admins erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
-*Über diese Aufgabe*
 
-Sie können einen Replikationsplan erstellen und auch Zeitpläne für Compliance und Tests bearbeiten.  Führen Sie Test-Failover von VMs durch, ohne die Produktionsarbeitslasten zu beeinträchtigen.
+
+[[about-replication-plans]]
+== Über Replikationspläne
 
 Sie können mehrere VMs auf mehreren Datenspeichern schützen.  NetApp Disaster Recovery erstellt ONTAP Konsistenzgruppen für alle ONTAP Volumes, die geschützte VM-Datenspeicher hosten.
 
@@ -29,7 +32,10 @@ Der Schutz kann nur aktiviert werden, wenn sich der Replikationsplan in einem de
 * Test-Failover festgeschrieben
 
 
-*Replikationsplan-Snapshots*
+
+
+[[replication-plan-snapshots]]
+=== Snapshots des Replikationsplans
 
 Disaster Recovery verwaltet die gleiche Anzahl von Snapshots auf den Quell- und Zielclustern.  Standardmäßig führt der Dienst alle 24 Stunden einen Snapshot-Abgleichprozess durch, um sicherzustellen, dass die Anzahl der Snapshots auf den Quell- und Zielclustern gleich ist.
 
@@ -46,11 +52,15 @@ Die folgenden Situationen können dazu führen, dass die Anzahl der Snapshots zw
 
 In diesen Fällen entfernt Disaster Recovery bei der nächsten Konsistenzprüfung ältere Snapshots aus den Quell- und Zielclustern.  Alternativ kann der Administrator eine sofortige Snapshot-Bereinigung durchführen, indem er die *Aktionen* auswählt.image:icon-horizontal-dots.png["Horizontale Punkte Aktionsmenü"] Symbol im Replikationsplan und Auswahl von *Snapshots bereinigen*.
 
-Der Dienst führt alle 24 Stunden Snapshot-Symmetrieprüfungen durch.
+Die Notfallwiederherstellung führt alle 24 Stunden Snapshot-Symmetrieprüfungen durch.
 
-*Bevor Sie beginnen*
+
+
+[[before-you-begin]]
+== Bevor Sie beginnen
 
 * Bevor Sie eine SnapMirror -Beziehung erstellen, richten Sie das Cluster- und SVM-Peering außerhalb der Notfallwiederherstellung ein.
+* Wenn Sie Netzwerkzuordnungen auf der vCenter-Ebene konfigurieren, erkennt Disaster Recovery diese Zuordnungen beim Erstellen des Replikationsplans. Wenn Sie die Netzwerkzuordnung auf der vCenter-Ebene nach dem Erstellen des Replikationsplans ändern oder hinzufügen, erkennt Disaster Recovery diese Zuordnungen bei der manuellen Bearbeitung des Replikationsplans.
 * Mit Google Cloud können Sie einem Replikationsplan nur ein Volume oder einen Datenspeicher hinzufügen.
 
 
@@ -59,7 +69,8 @@ TIP: Organisieren Sie Ihre VMs oder Kubernetes-Cluster, bevor Sie NetApp Disaste
 
 
 
-== Erstellen Sie den Plan
+[[create-the-replication-plan]]
+== Erstellen des Replikationsplans
 
 Ein Assistent führt Sie durch die folgenden Schritte:
 
@@ -79,6 +90,7 @@ Befolgen Sie beim Erstellen des Plans diese Richtlinien:
 
 
 
+[[select-vcenter-servers]]
 === vCenter-Server auswählen
 
 Wählen Sie zuerst das Quell-vCenter und dann das Ziel-vCenter aus.
@@ -102,6 +114,7 @@ image:dr-plan-create-name2.png["Screenshot, der die vCenter-Serverseite zeigt"]
 
 
 
+[[select-applications-to-replicate-and-assign-resource-groups]]
 === Auswählen von Anwendungen zum Replizieren und Zuweisen von Ressourcengruppen
 
 Im nächsten Schritt werden die benötigten VMs, Datenspeicher oder Kubernetes-Cluster in funktionale Ressourcengruppen zusammengefasst. Ressourcengruppen ermöglichen es, eine Gruppe von Ressourcen wie einen Kubernetes-Cluster oder eine VM mit einem gemeinsamen Snapshot zu schützen.
@@ -168,6 +181,7 @@ Bei der Benennung einer Ressourcengruppe sind nur Kleinbuchstaben und Zahlen als
 ====
 
 
+[[map-source-resources-to-the-target]]
 === Ordnen Sie Quellressourcen dem Ziel zu
 
 Geben Sie im Schritt „Ressourcenzuordnung“ an, wie die Ressourcen aus der Quellumgebung dem Ziel zugeordnet werden sollen.  Wenn Sie einen Replikationsplan erstellen, können Sie für jede VM im Plan eine Startverzögerung und -reihenfolge festlegen.  Dadurch können Sie eine Reihenfolge für den Start der VMs festlegen.
@@ -453,6 +467,7 @@ NOTE: Wenn Sie in diesem Dienst eine SnapMirror -Beziehung erstellen möchten, s
 
 
 
+[[add-test-failover-mappings]]
 === Test-Failover-Zuordnungen hinzufügen
 
 .Schritte
@@ -469,6 +484,7 @@ TIP: Sie können den gesamten Plan später testen.  Im Moment richten Sie die Zu
 
 
 
+[[review-the-replication-plan]]
 === Überprüfen des Replikationsplans
 
 Nehmen Sie sich abschließend einen Moment Zeit, um den Replikationsplan zu überprüfen.
@@ -486,6 +502,7 @@ Der Plan wird der Liste der Pläne hinzugefügt.
 
 
 
+[[modify-a-replication-plan]]
 == Einen Replikationsplan ändern
 
 Sie können einen Replikationsplan-Zeitplan ändern, um die Compliance zu testen und sicherzustellen, dass Failover-Tests erfolgreich abgeschlossen werden.

@@ -4,6 +4,7 @@
 
 
 
+[[kubernetes-based-workload-support-preview]]
 === Unterstützung für Kubernetes-basierte Workloads (Vorschau)
 
 NetApp Disaster Recovery unterstützt jetzt auch Kubernetes-basierte Workloads. Mit Kubernetes-Unterstützung können Sie Anwendungen schützen, die auf Kubernetes-Clustern laufen, einschließlich OpenShift Virtualisierungsumgebungen. Disaster Recovery unterstützt link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html["jede derzeit von Trident Protect unterstützte Kubernetes-Version"^], was eine nahtlose Integration und robuste Disaster-Recovery-Funktionen für containerisierte Anwendungen gewährleistet.

@@ -16,6 +16,7 @@ Die NetApp Console unterstützt die Verwendung mehrerer Console-Agenten in einer
 
 
 
+[[before-you-begin]]
 == Bevor Sie beginnen
 
 * Du musst habenxref:../get-started/dr-prerequisites.html#create-the-netapp-console-agent[Fügen Sie mindestens zwei Console-Agenten für Ihre Arbeitsumgebung hinzu.] Die
@@ -24,6 +25,7 @@ Die NetApp Console unterstützt die Verwendung mehrerer Console-Agenten in einer
 
 
 
+[[steps]]
 == Schritte
 
 . Im Bereich „Notfallwiederherstellung“ wählen Sie **Standorte** aus.
@@ -43,6 +45,7 @@ image:edit-vcenter.png["Screenshot vom Wechsel des Konsolenagenten"]
 
 
 
+[[more-information]]
 == Weitere Informationen
 
 * link:https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-on-prem.html["Erfahren Sie mehr über Konsolenagenten"^]

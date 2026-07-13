@@ -4,6 +4,7 @@
 
 
 
+[[windows-local-administrator-password-solution-laps-support]]
 === Unterstützung für Windows Local Administrator Password Solution (LAPS)
 
 Windows Local Administrator Password Solution (Windows LAPS) ist eine Windows-Funktion, die das Kennwort eines lokalen Administratorkontos im Active Directory automatisch verwaltet und sichert.

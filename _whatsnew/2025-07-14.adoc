@@ -4,6 +4,7 @@
 
 
 
+[[user-roles-in-netapp-disaster-recovery]]
 === Benutzerrollen in NetApp Disaster Recovery
 
 NetApp Disaster Recovery verwendet jetzt Rollen, um den Zugriff jedes Benutzers auf bestimmte Funktionen und Aktionen zu regeln.
@@ -24,6 +25,7 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles
 
 
 
+[[other-updates-in-netapp-disaster-recovery]]
 === Weitere Updates in NetApp Disaster Recovery
 
 * Verbesserte Netzwerkerkennung

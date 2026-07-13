@@ -30,6 +30,7 @@ Dieses Verfahren unterbricht die Replikationsbeziehung, setzt die vCenter-Quell-
 
 
 
+[[test-the-failover-process]]
 == Testen des Failover-Prozesses
 
 Vor einem Live-Failover können Sie einen Test durchführen, um Ihre Bereitschaft zu überprüfen. Die Workloads bleiben während des Testvorgangs online.
@@ -68,6 +69,7 @@ Geben Sie anschließend „Test failover“ ein und wählen Sie *Test fail over*
 
 
 
+[[clean-up-the-test-environment-after-a-failover-test]]
 == Bereinigen der Testumgebung nach einem Failovertest
 
 Nachdem der Failover-Test abgeschlossen ist, sollten Sie die Testumgebung bereinigen.  Dieser Prozess entfernt die temporären VMs vom Teststandort, den FlexClones und den temporären Datenspeichern.
@@ -81,6 +83,7 @@ Nachdem der Failover-Test abgeschlossen ist, sollten Sie die Testumgebung berein
 
 
 
+[[fail-over-the-source-site-to-a-disaster-recovery-site]]
 == Führen Sie ein Failover des Quellstandorts auf einen Notfallwiederherstellungsstandort durch
 
 Führen Sie im Katastrophenfall bei Bedarf ein Failover Ihres primären VMware-Standorts vor Ort auf einen anderen VMware-Standort vor Ort oder auf VMware Cloud auf AWS mit FSx für NetApp ONTAP durch.
@@ -108,9 +111,6 @@ TIP: Nach dem Start des Failovers können Sie die wiederhergestellten VMs im vCe
 .vCenter
 --
 Bei datenspeicherbasierten Replikationsplänen werden VMs, die Sie hinzugefügt und erkannt haben, für die aber keine Zuordnungsdetails angegeben wurden, in das Failover einbezogen. Der Failover schlägt fehl und es wird eine Benachrichtigung in den Jobs angezeigt. Sie müssen die Zuordnungsdetails angeben, um das Failover erfolgreich abzuschließen.
-
-
-IMPORTANT: Falls der Replikationsplan einen leeren Datenspeicher enthält, müssen Sie zuerst den leeren Datenspeicher aus dem Plan entfernen oder die Option **Force failover** verwenden, die die leeren Datenspeicher überspringt.
 
 .Schritte
 . Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.

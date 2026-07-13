@@ -4,6 +4,7 @@
 
 
 
+[[support-for-on-premises-to-on-premises-vmware-vmfs-datastores-for-fc]]
 === Unterstützung für lokale VMware VMFS-Datenspeicher für FC
 
 Diese Version enthält eine _Technologievorschau_ der Unterstützung für VMs, die auf VMware vSphere Virtual Machine File System (VMFS)-Datenspeichern für FC gemountet sind, die auf lokalem Speicher geschützt sind.  Zuvor bot der Dienst eine Technologievorschau, die VMFS-Datenspeicher für iSCSI unterstützte.
@@ -13,6 +14,7 @@ NOTE: NetApp berechnet Ihnen keine Kosten für die in der Vorschau angezeigte Wo
 
 
 
+[[job-cancel]]
 === Job abbrechen
 
 Mit dieser Version können Sie jetzt einen Job in der Job Monitor-Benutzeroberfläche abbrechen.

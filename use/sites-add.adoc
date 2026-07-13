@@ -21,6 +21,7 @@ TIP: Stellen Sie sicher, dass sowohl die Quelle als auch das Ziel denselben NetA
 
 
 
+[[add-a-site]]
 == Hinzufügen einer Site
 
 Beim Hinzufügen eines Standorts zur NetApp Disaster Recovery müssen Sie anhand der Art der Ressourcen im Standort unterscheiden. Sie können entweder vCenters oder Kubernetes-Cluster hinzufügen.
@@ -40,6 +41,7 @@ Nachdem Sie einen Standort zur Disaster Recovery hinzugefügt haben, müssen Sie
 
 
 
+[[add-resources-to-a-site]]
 == Fügen Sie einer Website Ressourcen hinzu
 
 Wenn Sie in früheren Versionen vCenter hinzugefügt haben und den Erkennungszeitplan anpassen möchten, müssen Sie die vCenter-Server-Site bearbeiten und den Zeitplan festlegen.
@@ -153,6 +155,7 @@ Nach dem Hinzufügen von Ressourcen wählen Sie *Job Monitoring*, um den Fortsch
 
 
 
+[[add-subnet-mapping-for-a-vcenter-site]]
 == Subnetzzuordnung für eine vCenter-Site hinzufügen
 
 Sie können IP-Adressen bei Failover-Vorgängen mithilfe der Subnetzzuordnung verwalten, wodurch Sie für jedes vCenter Subnetze hinzufügen können.  Dabei definieren Sie das IPv4-CIDR, das Standard-Gateway und das DNS für jedes virtuelle Netzwerk.
@@ -205,6 +208,7 @@ TIP: Die CIDR-Notation ist eine Methode zum Angeben von IP-Adressen und ihren Ne
 
 
 
+[[select-subnet-mapping-for-a-replication-plan]]
 === Auswählen der Subnetzzuordnung für einen Replikationsplan
 
 Wenn Sie einen Replikationsplan erstellen, können Sie die Subnetzzuordnung für den Replikationsplan auswählen.
@@ -233,6 +237,7 @@ NOTE: Wenn zwei VMs vorhanden sind (beispielsweise eine mit Linux und die andere
 
 
 
+[[edit-the-vcenter-server-site-and-customize-the-discovery-schedule]]
 == Bearbeiten Sie die vCenter-Server-Site und passen Sie den Erkennungszeitplan an
 
 Sie können die vCenter-Server-Site bearbeiten, um den Erkennungszeitplan anzupassen.  Wenn Sie beispielsweise über eine große Anzahl von VMs verfügen, können Sie den Erkennungszeitplan so einstellen, dass er alle 23 Stunden und 59 Minuten ausgeführt wird.  Wenn Sie nur eine kleine Anzahl von VMs haben, können Sie den Erkennungszeitplan so einstellen, dass er alle 12 Stunden ausgeführt wird.
@@ -257,6 +262,7 @@ image:sites-edit-schedule.png["Screenshot „Erkennungsplan bearbeiten“"]
 
 
 
+[[refresh-discovery-manually]]
 == Erkennung manuell aktualisieren
 
 Sie können die Erkennung jederzeit manuell aktualisieren.  Dies ist nützlich, wenn Sie VMs hinzugefügt oder entfernt haben und die Informationen in NetApp Disaster Recovery aktualisieren möchten.
