@@ -12,7 +12,7 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Mithilfe des NetApp Disaster Recovery Dashboards können Sie den Zustand Ihrer Disaster Recovery-Sites und Replikationspläne ermitteln.  Sie können schnell feststellen, welche Websites und Pläne fehlerfrei, getrennt oder beeinträchtigt sind.
+Mit dem NetApp Disaster Recovery Dashboard lässt sich der Zustand der Disaster Recovery Standorte und Replikationspläne bestimmen. Es ist leicht ersichtlich, welche Standorte und Pläne funktionsfähig, getrennt oder beeinträchtigt sind. Zudem können aktuelle Warnungen und fehlgeschlagene Jobs überprüft werden, es wird angezeigt, welche Workloads geschützt sind und welche nicht, sowie eine Übersicht über die Kapazität bereitgestellt.
 
 *Erforderliche NetApp Console-Rolle* Die Rolle Superadmin, Disaster recovery admin, Disaster recovery application admin oder Disaster recovery viewer ist erforderlich, um diese Aufgabe auszuführen. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
@@ -23,15 +23,15 @@ Mithilfe des NetApp Disaster Recovery Dashboards können Sie den Zustand Ihrer D
 +
 image:dr-dashboard.png["NetApp Disaster Recovery Dashboard"]
 
-. Überprüfen Sie die folgenden Informationen auf dem Dashboard:
+. Die Gesundheitsinformationen im Dashboard anzeigen:
 +
 ** *Sites*: Zeigen Sie den Zustand Ihrer Sites an.  Eine Site kann einen der folgenden Status haben:
 +
-*** *Läuft*: Das vCenter ist verbunden, fehlerfrei und läuft.
-*** *Down*: Das vCenter ist nicht erreichbar oder hat Verbindungsprobleme.
-*** *Problem*: Das vCenter ist nicht erreichbar oder hat Verbindungsprobleme.
+*** *Wird ausgeführt*: Die Site ist verbunden, fehlerfrei und in Betrieb.
+*** *Nicht erreichbar*: Die Site ist nicht erreichbar oder es bestehen Verbindungsprobleme.
+*** *Problem*: Die Website hat Verbindungsprobleme.
 +
-Um Sitedetails anzuzeigen, wählen Sie *Alle anzeigen* für einen Status oder *Sites anzeigen*, um sie alle anzuzeigen.
+Details sind unter **Alle Standorte anzeigen** verfügbar.
 
 
 
@@ -39,19 +39,14 @@ Um Sitedetails anzuzeigen, wählen Sie *Alle anzeigen* für einen Status oder *S
 +
 *** *Bereit*
 *** *Fehlgeschlagen*
+*** *Warnung*
 +
-Um die Details des Replikationsplans zu überprüfen, wählen Sie *Alle anzeigen* für einen Status oder *Replikationspläne anzeigen*, um sie alle anzuzeigen.
+Details des Replikationsplans sind unter *Alle Replikationspläne anzeigen* einsehbar.
 
 
 
-** *Ressourcengruppen*: Zeigen Sie den Zustand Ihrer Ressourcengruppen an.  Eine Ressourcengruppe kann einen der folgenden Status haben:
-** *Geschützte VMs*: Die VMs sind Teil einer Ressourcengruppe.
-** *Ungeschützte VMs*: Die VMs sind nicht Teil einer Ressourcengruppe.
-+
-Um die Details zu überprüfen, wählen Sie jeweils den Link *Anzeigen* darunter aus.
-
-** Die Anzahl der Failovers, Test-Failover und Migrationen.  Wenn Sie beispielsweise zwei Pläne erstellt und zu den Zielen migriert haben, wird als Migrationsanzahl „2“ angezeigt.
 
 
-. Überprüfen Sie alle Vorgänge im Aktivitätsbereich.  Um alle Vorgänge im Job Monitor anzuzeigen, wählen Sie *Alle Jobs anzeigen*.
+. *Letzte Warnungen und Aufträge* zeigt die zuletzt ausgeführten Aufträge und Warnungen sowie deren zugehörige Status an. *Alle Aufträge anzeigen* zeigt alle Aufträge an.
+. Der *Erkennungs- und Schutzstatus* zeigt die Anzahl der erkannten Workloads sowie eine numerische Aufschlüsselung der geschützten und ungeschützten Workloads nach Typ. Auch die insgesamt erkannte Kapazität aller Workloads und die Workloads nach Typ werden angezeigt.
 

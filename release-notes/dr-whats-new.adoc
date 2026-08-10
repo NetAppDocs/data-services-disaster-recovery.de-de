@@ -16,6 +16,56 @@ Erfahren Sie mehr über die Neuerungen im Bereich NetApp Disaster Recovery.
 
 
 
+[[10-august-2026]]
+== 10. August 2026
+
+Version 4.3.6
+
+
+
+[[improved-dashboard]]
+=== Verbessertes Dashboard
+
+Das NetApp Disaster Recovery Dashboard wurde überarbeitet und bietet nun eine verbesserte Benutzeroberfläche mit einem umfassenden Überblick über Ihre gesamte NetApp Disaster Recovery Umgebung. Das neue Dashboard umfasst:
+
+* *Einheitliche Workload-Transparenz* – Überwachung von VMware- und Kubernetes-Workloads sowie des Zustands der zugrunde liegenden Infrastruktur über eine zentrale Benutzeroberfläche.
+* *Proaktive Problemerkennung* – Das Dashboard hebt jetzt automatisch Umweltprobleme hervor, wodurch eine schnellere Diagnose und kürzere Lösungszeiten ermöglicht werden.
+* *Kapazitätsauslastung* – Kapazitätskennzahlen werden jetzt direkt im Dashboard angezeigt, was das Verständnis des Ressourcenverbrauchs erleichtert.
+
+
+Weitere Informationen sind unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/dashboard-view.html["Sehen Sie sich den Zustand Ihrer NetApp Disaster Recovery -Pläne auf dem Dashboard an"^] zu finden.
+
+
+
+[[improved-reports]]
+=== Verbesserte Berichte
+
+Die Berichtsfunktionen wurden erweitert, um einen tieferen Einblick in die NetApp Disaster Recovery-Aktivitäten in Ihrer gesamten Umgebung zu bieten:
+
+* Berichte können auf VMware Workloads, Kubernetes Workloads oder beides bezogen werden, was die Flexibilität bietet, die Berichte auf die jeweilige Zielgruppe abzustimmen.
+* Jeder Bericht liefert eine vollständige Aktivitätsübersicht für einen bestimmten Zeitraum und gewährleistet so volle Transparenz über die Ereignisse in Ihrer NetApp Disaster Recovery Umgebung.
+
+
+Weitere Informationen sind unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/reports.html["Erstellen Sie NetApp Disaster Recovery -Berichte"^] zu finden.
+
+
+
+[[user-job-logging]]
+=== Protokollierung von Benutzeraufträgen
+
+NetApp Disaster Recovery hat die Nachvollziehbarkeit und Prüfbarkeit von Jobs durch die benutzerbezogene Job-Protokollierung verbessert. Jeder ausgeführte Job zeichnet nun den Benutzer auf, der ihn initiiert hat, wodurch ein klarer Audit-Trail für Compliance- und Fehlerbehebungszwecke entsteht. Jobs, die automatisch von NetApp Disaster Recovery ausgelöst werden, sind als „system“ gekennzeichnet, sodass sich benutzerinitiierte und dienstinitiierte Aktivitäten leicht unterscheiden lassen.
+
+Weitere Informationen sind unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/monitor-jobs.html["Überwachen Sie NetApp Disaster Recovery -Jobs"^] zu finden.
+
+
+
+[[performance-and-resource-optimization]]
+=== Leistungs- und Ressourcenoptimierung
+
+Es wurden diverse Verbesserungen im Hintergrund vorgenommen, um den Gesamtressourcenverbrauch des Systems zu reduzieren und die Leistung bei Disaster Recovery-Operationen zu steigern.
+
+
+
 [[13-july-2026]]
 == 13. Juli 2026
 

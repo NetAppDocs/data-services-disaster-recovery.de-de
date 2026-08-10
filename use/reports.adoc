@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: use/reports.html 
-keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp, protection, reports 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp, protection, reports, kubernetes 
 summary: Durch die Überprüfung von Notfallwiederherstellungsberichten können Sie Ihre Notfallwiederherstellungsvorbereitung analysieren.  Vorgefertigte Berichte enthalten eine Zusammenfassung der Failovers und Failbacks, Replikationsdetails für alle Sites und Jobdetails für das vergangene Jahr. 
 ---
-= Erstellen Sie NetApp Disaster Recovery -Berichte
+= Berichte in NetApp Disaster Recovery erstellen
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,22 +12,26 @@ summary: Durch die Überprüfung von Notfallwiederherstellungsberichten können 
 
 
 [role="lead"]
-Durch die Überprüfung der NetApp Disaster Recovery -Berichte können Sie Ihre Disaster Recovery-Vorbereitung analysieren.  Vorgefertigte Berichte enthalten eine Zusammenfassung der Test-Failover, Replikationsplandetails und Jobdetails für alle Sites innerhalb eines Kontos für die letzten sieben Tage.
+NetApp Disaster Recovery-Berichte können bei der Analyse der Notfallwiederherstellungsbereitschaft unterstützen. Berichte bieten Einblicke in die Replikationspläne, einschließlich der Anzahl der Ressourcengruppen, VMs oder Kubernetes-Cluster sowie der vom Plan abgedeckten Datenspeicher. Sie zeigen außerdem den Compliance-Status, eine Zusammenfassung der Jobs und die Backup-Einstellungen, einschließlich Recovery Point Objective (RPO) und Aufbewahrungsanzahl.
 
 Sie können Berichte im PDF-, HTML- oder JSON-Format herunterladen.
 
-Der Download-Link ist sechs Stunden gültig.
+Der Link zum Herunterladen des Berichts ist nach dessen Generierung sechs Stunden lang gültig.
 
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
+. Melden Sie sich bei der link:https://console.netapp.com/["NetApp Console"^] an.
 . Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 . Wählen Sie in der linken Navigationsleiste der NetApp Console *Replikationspläne* aus.
 . Wählen Sie *Bericht erstellen*.
-. Wählen Sie den Dateiformattyp und den Zeitraum innerhalb der letzten 7 Tage aus.
-. Wählen Sie *Erstellen*.
+. Wählen Sie aus, auf welche *Workload* sich der Bericht beziehen soll: Kubernetes, VMware oder alle.
+. Den *Dateityp* (PDF, HTML oder JSON) und den *Zeitraum* (zwischen den vergangenen ein und sieben Tagen) auswählen, die der Bericht abdecken soll.
++
+image::report.png[Screenshot des Berichterstellens]
+
+. *Erstellen* auswählen, um den Bericht zu generieren.
 +
 
-NOTE: Die Anzeige des Berichts kann einige Minuten dauern.
+NOTE: Die Erstellung des Berichts kann einige Minuten dauern.
 
-. Um einen Bericht herunterzuladen, wählen Sie *Bericht herunterladen* und wählen Sie ihn im Download-Ordner des Administrators aus.
+. Im Dashboard „Replikationspläne“ die Option *Bericht herunterladen* auswählen.
 
