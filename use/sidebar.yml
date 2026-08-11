@@ -2,8 +2,6 @@
 section: use
 title: Verwenden Sie NetApp Disaster Recovery
 entries:
-- title: Übersicht zur NetApp Disaster Recovery verwenden
-  url: "/use/use-overview.html"
 - title: Sehen Sie sich den Zustand Ihrer Notfallwiederherstellungspläne auf dem Dashboard
     an
   url: "/use/dashboard-view.html"

@@ -56,6 +56,42 @@ Die Notfallwiederherstellung führt alle 24 Stunden Snapshot-Symmetrieprüfungen
 
 
 
+[[considerations-for-platform-managed-backups]]
+=== Überlegungen zu plattformverwalteten Backups
+
+Wenn Sie plattformverwaltete Backups (das heißt, ONTAP-verwaltete Snapshots) verwenden, wird die Verwendung der *MirrorAll* Replikationsrichtlinie empfohlen. Die Tabelle zeigt die Auswirkungen der verschiedenen SnapMirror Replikationsrichtlinien und erläutert, warum MirrorAll die empfohlene Option ist.
+
+[cols="10,10,80"]
+|===
+
+
+| Richtlinie | Empfehlung | Hinweise 
+
+
+| *MirrorAll* | Empfohlen | Keine SnapMirror Transfer-Snapshots für Failover- oder Failback-Vorgänge verwenden. 
+
+
+| *MirrorVault* .2+| Alternative Empfehlung .2+| Stellen Sie sicher, dass die während des Failovers oder Failbacks ausgewählten Snapshots sowohl auf dem Quell- als auch auf dem Zielvolume vorhanden sind. Andernfalls tritt der Fehler auf: „Übergang in den Zustand 'snapmirrored' fehlgeschlagen. Grund: Kein gemeinsamer Snapshot gefunden.“ 
+
+
+| *Asynchron* 
+
+
+| *MirrorLatest* | NICHT empfohlen | Diese Vorgehensweise führt dazu, dass das Zielsystem effektiv nur einen gemeinsamen Snapshot für Failover besitzt, was für Disaster Recovery-Szenarien suboptimal ist. 
+|===
+
+
+[[considerations-for-disaster-recovery-managed-backups]]
+=== Überlegungen zu von Disaster Recovery verwalteten Backups
+
+Bei der Verwendung von Disaster Recovery verwalteten Backups gelten die folgenden Richtlinien für SnapMirror Beziehungen, die außerhalb von NetApp Disaster Recovery erstellt wurden:
+
+* SnapMirror Beziehungen können die MirrorAll, MirrorVault, MirrorLatest und asynchronen Replikationsrichtlinien unterstützen.
+* Planen Sie *keine* Aktualisierungen für diese Beziehungen ein, da diese vom Disaster Recovery Service verwaltet werden.
+
+
+
+
 [[before-you-begin]]
 == Bevor Sie beginnen
 
@@ -437,7 +473,10 @@ Dieser Abschnitt kann je nach Ihrer Auswahl aktiviert oder deaktiviert sein.
 
 image:dr-plan-datastore-platform.png["Screenshot mit Replikationsplan hinzufügen > Ressourcenzuordnung > Datenspeicher"]
 
-* *Plattformverwaltete Backups und Aufbewahrungspläne verwenden*: Wenn Sie eine externe Snapshot-Verwaltungslösung verwenden, aktivieren Sie dieses Kontrollkästchen.  NetApp Disaster Recovery unterstützt die Verwendung externer Snapshot-Management-Lösungen wie den nativen ONTAP SnapMirror Policy Scheduler oder Integrationen von Drittanbietern.  Wenn jeder Datenspeicher (Volume) im Replikationsplan bereits über eine SnapMirror -Beziehung verfügt, die anderswo verwaltet wird, können Sie diese Snapshots als Wiederherstellungspunkte in NetApp Disaster Recovery verwenden.
+
+TIP: Überprüfung der <<Überlegungen zu plattformverwalteten Backups>> vor der Auswahl dieser Optionen.
+
+* *Plattformverwaltete Backups und Aufbewahrungspläne verwenden*: Wenn eine externe Snapshot-Verwaltungslösung verwendet wird, sollte dieses Kontrollkästchen aktiviert werden. Disaster Recovery unterstützt die Verwendung externer Snapshot-Verwaltungslösungen wie den nativen ONTAP SnapMirror Richtlinienplaner oder Integrationen von Drittanbietern. Wenn für jeden Datenspeicher (Volume) im Replikationsplan bereits eine SnapMirror Beziehung besteht, die anderweitig verwaltet wird, können diese Snapshots als Wiederherstellungspunkte in NetApp Disaster Recovery genutzt werden.
 +
 Wenn diese Option ausgewählt ist, konfiguriert NetApp Disaster Recovery keinen Sicherungszeitplan.  Sie müssen jedoch weiterhin einen Aufbewahrungszeitplan konfigurieren, da möglicherweise weiterhin Snapshots für Test-, Failover- und Failback-Vorgänge erstellt werden.
 
