@@ -71,7 +71,7 @@ Wenn Sie plattformverwaltete Backups (das heißt, ONTAP-verwaltete Snapshots) ve
 | *MirrorAll* | Empfohlen | Keine SnapMirror Transfer-Snapshots für Failover- oder Failback-Vorgänge verwenden. 
 
 
-| *MirrorVault* .2+| Alternative Empfehlung .2+| Stellen Sie sicher, dass die während des Failovers oder Failbacks ausgewählten Snapshots sowohl auf dem Quell- als auch auf dem Zielvolume vorhanden sind. Andernfalls tritt der Fehler auf: „Übergang in den Zustand 'snapmirrored' fehlgeschlagen. Grund: Kein gemeinsamer Snapshot gefunden.“ 
+| *MirrorVault* .2+| Alternative Empfehlung .2+| Stellen Sie sicher, dass die während des Failovers oder Failbacks ausgewählten Snapshots sowohl auf dem Quell- als auch auf dem Zielvolume vorhanden sind. Andernfalls tritt der Fehler auf: „Übergang in den Zustand 'snapmirrored' fehlgeschlagen. Grund: Kein gemeinsamer Snapshot gefunden.“ Keine SnapMirror Transfer-Snapshots für Failover- oder Failback-Vorgänge verwenden. 
 
 
 | *Asynchron* 
