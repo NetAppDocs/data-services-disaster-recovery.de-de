@@ -54,6 +54,6 @@ Die Notfallwiederherstellung bietet jetzt verbesserte Warnungen und Fehlerbehebu
 [[retain-vm-folder-structure-added-as-default-in-replication-plans]]
 === Die als Standard hinzugefügte VM-Ordnerstruktur in Replikationsplänen beibehalten
 
-Beim Erstellen einer Replikation ist die neue Standardeinstellung, die Ordnerstruktur der VM beizubehalten. Falls das Wiederherstellungsziel nicht über die ursprüngliche Ordnerhierarchie verfügt, erstellt Disaster Recovery diese. Sie können diese Option deaktivieren, um die ursprüngliche Ordnerhierarchie zu ignorieren.
+Beim Erstellen eines Replikationsplans wird standardmäßig die Ordnerstruktur der VM beibehalten. Falls das Wiederherstellungsziel nicht über die ursprüngliche Ordnerhierarchie verfügt, erstellt Disaster Recovery diese. Diese Option kann deaktiviert werden, um die ursprüngliche Ordnerhierarchie zu ignorieren.
 
 Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"^].

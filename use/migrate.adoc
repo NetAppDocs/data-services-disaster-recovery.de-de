@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/migrate.html 
 keywords: disaster recovery, bluexp disaster recovery, migrate, vmware, vcenter 
-summary: Mit NetApp Disaster Recovery können Sie VMware-Apps von Ihrem Quellstandort auf einen anderen Standort migrieren. 
+summary: Mit NetApp Disaster Recovery ist die Migration von VMware-Anwendungen vom Quellstandort zu einem anderen Standort möglich. 
 ---
 = Migrieren Sie Anwendungen mit NetApp Disaster Recovery an einen anderen Standort
 :hardbreaks:
@@ -15,13 +15,13 @@ summary: Mit NetApp Disaster Recovery können Sie VMware-Apps von Ihrem Quellsta
 Mit NetApp Disaster Recovery können Sie VMware-Apps von Ihrem Quellstandort auf einen anderen Standort migrieren.
 
 
-TIP: Nachdem Sie den Replikationsplan erstellt, die Wiederholung im Assistenten identifiziert und die Migration initiiert haben, überprüft NetApp Disaster Recovery alle 30 Minuten, ob die Migration tatsächlich gemäß Plan erfolgt. Sie können den Fortschritt auf der Seite „Job Monitor“ überwachen.
+TIP: Nachdem der Replikationsplan erstellt, die Wiederholung im Assistenten festgelegt und die Migration initiiert wurde, führt Disaster Recovery alle 30 Minuten eine Überprüfung durch, ob die Migration gemäß dem Plan verläuft. Der Fortschritt kann auf der Seite „Job Monitor“ überwacht werden.
 
 
 NOTE: Die Migration wird derzeit für Kubernetes-basierte Workloads nicht unterstützt.
 
 .Bevor Sie beginnen
-Bevor Sie die Migration starten, sollten Sie einen Replikationsplan erstellt und die Migration der Apps ausgewählt haben.  Anschließend wird im Menü „Aktionen“ die Option „Migrieren“ angezeigt.
+Bevor die Migration gestartet wird, sollte ein Replikationsplan erstellt und für die Migration konfiguriert werden. Danach erscheint die Option *Migrieren* im Menü „Aktionen“.
 
 .Schritte
 . Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
@@ -30,5 +30,5 @@ Bevor Sie die Migration starten, sollten Sie einen Replikationsplan erstellt und
 . Wählen Sie den Replikationsplan aus.
 . Wählen Sie rechts die Option *Aktionen* aus image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Migrieren* aus.
 . Im Dialogfeld können Sie *Jetzt einen Snapshot erstellen* wählen, um einen neuen Snapshot für die Migration zu erstellen, oder *Auswählen*, um einen vorhandenen Snapshot für die Migration auszuwählen.
-. Geben Sie "Migrieren" im Textfeld ein, um den Vorgang zu bestätigen, und wählen Sie dann *Migrieren* aus.
+. Geben Sie "Migrate" in das Textfeld ein, um den Vorgang zu bestätigen, und wählen Sie dann *Migrate* aus.
 

@@ -12,13 +12,16 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Führen Sie im Katastrophenfall ein Failover Ihres primären VMware-Standorts vor Ort auf einen anderen VMware-Standort vor Ort oder auf VMware Cloud auf AWS durch.  Sie können den Failover-Prozess testen, um sicherzustellen, dass er bei Bedarf erfolgreich ist.
+Im Katastrophenfall kann das primäre lokale VMware-System auf ein anderes lokales VMware-System oder auf VMware Cloud on AWS umgeschaltet werden. Auch ein vorheriger Test des Failover-Prozesses ist möglich, um zu bestätigen, dass die Wiederherstellung wie erwartet funktioniert.
 
 *Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadmin“, „Disaster recovery admin“ oder „Disaster recovery failover admin“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
-*Über diese Aufgabe*
 
-Im Falle eines Failovers verwendet Disaster Recovery standardmäßig die aktuellste SnapMirror Snapshot-Kopie. Sie können jedoch einen bestimmten Snapshot aus einem Point-in-Time-Snapshot auswählen (gemäß der Aufbewahrungsrichtlinie von SnapMirror). Verwenden Sie die Option „Zeitpunkt“.
+
+[[about-this-task]]
+== Über diese Aufgabe
+
+Während des Failovers verwendet NetApp Disaster Recovery standardmäßig die aktuellste SnapMirror Snapshot-Kopie, es kann jedoch ein bestimmter Snapshot aus einer zeitpunktgenauen Snapshot-Kopie ausgewählt werden (gemäß der Aufbewahrungsrichtlinie von SnapMirror). Die zeitpunktgenaue Option ist zu verwenden, wenn die aktuellsten Replikate kompromittiert sind, beispielsweise bei einem Ransomware-Angriff.
 
 Dieser Prozess unterscheidet sich, je nachdem, ob der Produktionsstandort fehlerfrei ist und Sie aus anderen Gründen als einem kritischen Infrastrukturausfall ein Failover zum Disaster Recovery-Standort durchführen:
 
@@ -33,7 +36,7 @@ Dieses Verfahren unterbricht die Replikationsbeziehung, setzt die vCenter-Quell-
 [[test-the-failover-process]]
 == Testen des Failover-Prozesses
 
-Vor einem Live-Failover können Sie einen Test durchführen, um Ihre Bereitschaft zu überprüfen. Die Workloads bleiben während des Testvorgangs online.
+Vor einem Live-Failover kann ein Test durchgeführt werden, um die Einsatzbereitschaft zu überprüfen. Die Workloads bleiben während des Testvorgangs online.
 
 Während eines Failover-Tests erstellt Disaster Recovery temporär VMs. Disaster Recovery ordnet einen temporären Datenspeicher, der das FlexClone Volume sichert, den ESXi-Hosts zu.
 
@@ -62,7 +65,7 @@ Für ein Test-Failover führt Disaster Recovery die folgenden Vorgänge aus:
 . Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failover testen*.
 . Wählen Sie auf der Seite „Failover testen“ den Snapshot für den Failover-Test aus: Wählen Sie **Jetzt Snapshot erstellen** oder **Auswählen**, um einen vorhandenen Snapshot auszuwählen. Wenn Sie **Auswählen** wählen, wählen Sie den vorhandenen Snapshot aus.
 +
-Geben Sie anschließend „Test failover“ ein und wählen Sie *Test fail over*.
+Anschließend „Test failover“ eingeben und *Test failover* auswählen.
 
 . Nachdem der Test abgeschlossen ist, bereinigen Sie die Testumgebung.
 
@@ -86,7 +89,7 @@ Nachdem der Failover-Test abgeschlossen ist, sollten Sie die Testumgebung berein
 [[fail-over-the-source-site-to-a-disaster-recovery-site]]
 == Führen Sie ein Failover des Quellstandorts auf einen Notfallwiederherstellungsstandort durch
 
-Führen Sie im Katastrophenfall bei Bedarf ein Failover Ihres primären VMware-Standorts vor Ort auf einen anderen VMware-Standort vor Ort oder auf VMware Cloud auf AWS mit FSx für NetApp ONTAP durch.
+Im Katastrophenfall erfolgt das Failover Ihres primären lokalen VMware-Standorts bei Bedarf auf einen anderen lokalen VMware-Standort oder auf VMware Cloud on AWS mit FSx for NetApp ONTAP.
 
 Der Failover-Prozess umfasst die folgenden Vorgänge:
 
@@ -125,9 +128,9 @@ image:dr-plan-failover3.png["Failover-Seite"]
 
 . Auf der Failover-Seite können Sie entweder jetzt einen neuen Snapshot erstellen oder einen vorhandenen Snapshot für den Datenspeicher auswählen, der als Grundlage für die Wiederherstellung dienen soll. Standardmäßig wird die neueste Version verwendet.
 +
-Vor dem Failover wird ein Snapshot der aktuellen Quelle erstellt und zum aktuellen Ziel repliziert.
+Eine Momentaufnahme der aktuellen Quelle wird erstellt und an das aktuelle Ziel repliziert, bevor das Failover erfolgt.
 
-. Wählen Sie *Failover erzwingen*, wenn der Failover auch dann erfolgen soll, wenn ein Fehler erkannt wird, der normalerweise das Auftreten des Failovers verhindern würde.
+. *Failover erzwingen* auswählen, wenn der Failover auch dann fortgesetzt werden soll, wenn der Dienst einen Fehler erkennt, der ihn normalerweise blockieren würde.
 . Wählen Sie *Schutz überspringen*, wenn der Dienst nicht automatisch eine umgekehrte SnapMirror Schutzbeziehung nach einem Failover des Replikationsplans erstellen soll. Dies ist hilfreich, wenn Sie zusätzliche Vorgänge am wiederhergestellten Standort durchführen möchten, bevor Sie ihn im Rahmen der NetApp Disaster Recovery wieder online schalten.
 +
 

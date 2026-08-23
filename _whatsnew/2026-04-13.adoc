@@ -12,7 +12,7 @@ NetApp Disaster Recovery-Unterstützung für GCVE ist jetzt allgemein verfügbar
 * *Plattformverwaltete Snapshots:* Backups und Aufbewahrungsrichtlinien lassen sich nahtlos über ONTAP oder Google Cloud Platform (GCP) verwalten.
 * *Mehrere Datenspeicher pro Replikationsplan:* Vereinfachen Sie Ihre Disaster Recovery-Pläne, indem Sie mehrere Datenspeicher in einer einzigen Replikationsstrategie konsolidieren.
 * *Erzwingen eines Failovers bei nicht verfügbaren Quellstandorten:* Wechseln Sie zu einem Disaster Recovery-Standort, wenn die Quelle nicht verfügbar ist.
-* *Die SnapMirror-Resynchronisierung aufschieben und die Replikation bei Bedarf wiederherstellen:* Schieben Sie SnapMirror-Resynchronisierungen auf, um Auswirkungen auf Produktions-Workloads während Spitzenbetriebszeiten mit der Option „skip protect“ zu vermeiden, und stellen Sie die Replikation später bei Bedarf mit der Option „re-protect“ wieder her.
+* *Neusynchronisierung von SnapMirror verzögern und Replikation bei Bedarf wiederherstellen:* SnapMirror-Neusynchronisierungen können mithilfe der Option "skip protect" verzögert werden, um Auswirkungen auf Produktionsworkloads während Spitzenzeiten zu vermeiden. Die Replikation lässt sich später bei Bedarf mit der Option "re-protect" wiederherstellen.
 
 
 Weitere Informationen zur Unterstützung von GCVE finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/release-notes/dr-limitations.html["Unterstützte Konfigurationen für die Notfallwiederherstellung"^].

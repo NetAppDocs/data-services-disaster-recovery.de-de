@@ -19,7 +19,7 @@ Beispiel:
 
 VM1 verfügt über eine vNIC (10.1.1.50), die mit NetworkA verbunden ist.  In den Replikationsplaneinstellungen wird NetworkA NetworkB zugeordnet.
 
-Beim Failover ersetzt NetApp Disaster Recovery den Netzwerkteil der ursprünglichen IP-Adresse (10.1.1) und behält die Hostadresse (.50) der ursprünglichen IP-Adresse (10.1.1.50) bei.  Für VM1 prüft NetApp Disaster Recovery die CIDR-Einstellungen für NetworkB und verwendet den NetworkB-Netzwerkteil 192.168.1, während der Hostteil (.50) beibehalten wird, um die neue IP-Adresse für VM1 zu erstellen.  Die neue IP wird 192.168.1.50.
+Im Failover-Fall ersetzt NetApp Disaster Recovery den Netzwerkanteil der ursprünglichen IP-Adresse (10.1.1) und behält die Hostadresse (.50) der ursprünglichen IP-Adresse (10.1.1.50) bei. Für VM1 betrachtet NetApp Disaster Recovery die CIDR-Einstellungen für NetworkB und verwendet den Netzwerkanteil von NetworkB (192.168.1), während der Hostanteil (.50) beibehalten wird, um die neue IP-Adresse für VM1 zu erstellen. Die neue IP-Adresse ist 192.168.1.50.
 
 Zusammenfassend lässt sich sagen, dass die Hostadresse gleich bleibt, während die Netzwerkadresse durch die in der Site-Subnetzzuordnung konfigurierte Adresse ersetzt wird.  Auf diese Weise können Sie die Neuzuweisung von IP-Adressen bei einem Failover einfacher verwalten, insbesondere wenn Sie Hunderte von Netzwerken und Tausende von VMs verwalten müssen.
 
@@ -38,7 +38,7 @@ Beim Einleiten eines Failovers können Sie jetzt die Option *Schutz überspringe
 
 Nachdem die ursprüngliche Quellsite wieder online ist, können Sie einen umgekehrten Schutz einrichten, indem Sie im Menü „Aktionen“ des Replikationsplans die Option „Ressourcen schützen“ auswählen.  Dadurch wird versucht, für jedes Volume im Plan eine umgekehrte Replikationsbeziehung zu erstellen.  Sie können diesen Job wiederholt ausführen, bis der Schutz wiederhergestellt ist.  Wenn der Schutz wiederhergestellt ist, können Sie auf die übliche Weise ein Failback einleiten.
 
-Einzelheiten zum Umgehen des Schutzes finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover von Anwendungen auf einen Remote-Standort"] Die
+Weitere Informationen zum Überspringen des Schutzes finden Sie unter  https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover von Anwendungen auf einen Remote-Standort"].
 
 
 

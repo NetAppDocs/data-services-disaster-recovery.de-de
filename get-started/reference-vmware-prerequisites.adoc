@@ -22,7 +22,7 @@ Bevor Sie NetApp Disaster Recovery verwenden, stellen Sie sicher, dass Ihre Umge
 Diese Voraussetzungen gelten sowohl für lokale vCenter-Cluster als auch für das softwaredefinierte Rechenzentrum (SDDC) von VMware Cloud für AWS.
 
 * Rezensionlink:../reference/vcenter-privileges.html["vCenter-Berechtigungen"] erforderlich für NetApp Disaster Recovery.
-* Alle VMware-Cluster, die von NetApp Disaster Recovery verwaltet werden sollen, verwenden ONTAP Volumes zum Hosten aller VMs, die Sie schützen möchten.
+* Alle VMware-Cluster, die von NetApp Disaster Recovery verwaltet werden, müssen ONTAP Volumes verwenden, um die VMs zu hosten, die geschützt werden sollen.
 * Alle VMware-Datenspeicher, die von NetApp Disaster Recovery verwaltet werden sollen, müssen eines der folgenden Protokolle verwenden:
 +
 ** NFS
@@ -40,5 +40,5 @@ Diese Voraussetzungen gelten sowohl für lokale vCenter-Cluster als auch für da
 Wenn Sie VMware Cloud SDDC verwenden, gelten folgende zusätzliche Voraussetzungen:
 
 * Verwenden Sie in der VMware Cloud Console die Dienstrollen „Administrator“ und „NSX Cloud-Administrator“.  Verwenden Sie den Organisationseigentümer auch für die Organisationsrolle. Siehe https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/vmware-cloud-ontap.html["Dokumentation zur Verwendung von VMware Cloud Foundations mit AWS FSx für NetApp ONTAP"^] .
-* Verknüpfen Sie das VMware Cloud SDDC mit der Amazon FSx for NetApp ONTAP Instanz. Siehe https://vmc.techzone.vmware.com/fsx-guide#overview["VMware Cloud auf AWS-Integration mit Amazon FSx for NetApp ONTAP -Bereitstellungsinformationen"^] .
+* Das VMware Cloud SDDC mit einer Amazon FSx for NetApp ONTAP Instanz verknüpfen. Siehe  https://vmc.techzone.vmware.com/fsx-guide#overview["VMware Cloud auf AWS-Integration mit Amazon FSx for NetApp ONTAP -Bereitstellungsinformationen"^].
 

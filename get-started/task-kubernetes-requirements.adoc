@@ -12,14 +12,14 @@ summary: Bevor Sie NetApp Disaster Recovery einsetzen, stellen Sie sicher, dass 
 
 
 [role="lead"]
-Bevor Sie NetApp Disaster Recovery für Kubernetes-Cluster konfigurieren, müssen Sie jeden Kubernetes-Cluster vorbereiten. Der Schutz gilt üblicherweise für einen Quell- und einen separaten Ziel-Cluster, das heißt, diese Verfahren müssen auf jeden Cluster des Paares angewendet werden.
+Vor der Konfiguration von NetApp Disaster Recovery für Kubernetes sollte jeder Kubernetes-Cluster vorbereitet werden. Der Schutz bezieht sich in der Regel auf einen Quell-Cluster und einen separaten Ziel-Cluster, daher sind diese Schritte auf jedem Cluster des Paares durchzuführen.
 
 
 
 [[prerequisites]]
 == Voraussetzungen
 
-Bevor Sie die Anforderungen für den Kubernetes-Cluster konfigurieren, stellen Sie sicher, dass Sie Ihren Kubernetes-Cluster und Ihre ONTAP-Cluster konfiguriert haben.
+Bevor Sie beginnen, stellen Sie sicher, dass Ihr Kubernetes-Cluster und Ihre ONTAP Cluster konfiguriert sind.
 
 Disaster Recovery unterstützt link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html["jede derzeit von Trident Protect unterstützte Kubernetes-Version"^].
 
@@ -31,7 +31,7 @@ Disaster Recovery unterstützt link:https://docs.netapp.com/us-en/trident/triden
 Stellen Sie für jeden Kubernetes-Cluster Folgendes sicher:
 
 * Sie haben Administrator `kubectl`zugriff auf jeden Kubernetes-Cluster.
-* Helm 3 ist dort verfügbar, wo Sie Installationsbefehle ausführen
+* Helm 3 ist dort verfügbar, wo Installationsbefehle ausgeführt werden.
 
 
 
@@ -41,10 +41,10 @@ Stellen Sie für jeden Kubernetes-Cluster Folgendes sicher:
 
 Stellen Sie für jeden ONTAP Cluster sicher, dass Sie die folgenden Ressourcen konfiguriert haben:
 
-* **Management-LIF** – dies wird von Trident für den Zugriff auf die Management-API verwendet
-* **Daten (NFS) LIF** - dies wird für den NFS-Datenverkehr für Volumes verwendet
-* **SVM-Name** – die Speicher-VM, die die Volumes hostet
-* **Anmeldeinformationen** - Das Konto, das Trident verwenden wird (in der Regel  `admin` oder ein Konto mit SVM-Bereich)
+* **Management LIF**: Wird von Trident für den Zugriff auf die Management-API verwendet.
+* **Data (NFS) LIF**: Wird für den NFS-Datenverkehr für Volumes verwendet.
+* **SVM name**: Die Storage-VM, die die Volumes hostet.
+* **Zugangsdaten**: Das Konto, das Trident verwendet, in der Regel  `admin` oder ein SVM-bezogenes Konto.
 * Die Worker-Knoten müssen in der Lage sein, ONTAP-Management- und Daten-LIFs zu erreichen.
 * Wenn Sie  `autoExportPolicy` mit CIDR-Beschränkungen verwenden, schließen Sie Ihre Knotensubnetze ein.
 
@@ -86,7 +86,7 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/triden
 [[create-the-tridentbackendconfig]]
 === Erstelle die TridentBackendConfig
 
-Du kannst
+Einen Link anwenden:https://docs.netapp.com/us-en/trident/trident-use/backend-kubectl.html#step-2-create-the-tridentbackendconfig-cr[`TridentBackendConfig`, der auf Ihre SVM verweist. Beispielsweise:
 
 [source, yaml]
 ----
@@ -147,7 +147,7 @@ Damit Trident Protect Ihre Anwendungsdaten replizieren kann, müssen die Anwendu
 [[configure-volume-group-snapshot-custom-resource-definitions-crd]]
 == Konfigurieren von benutzerdefinierten Ressourcendefinitionen (CRD) für Snapshots von Volume-Gruppen
 
-link:https://docs.netapp.com/us-en/trident/trident-use/vol-group-snapshots.html#deploy-a-volume-snapshot-controller["Installieren Sie die Snapshot-CRD und den Snapshot-Controller."^]. Diese Installationen sind für Volume-Snapshots in Trident Protect erforderlich.
+Installieren Sie das link:https://docs.netapp.com/us-en/trident/trident-use/vol-group-snapshots.html#deploy-a-volume-snapshot-controller["Snapshot CRD und Snapshot Controller"^]. Diese Installationen sind für Volume-Snapshots in Trident Protect erforderlich.
 
 Überprüfen Sie die benutzerdefinierten Ressourcendefinitionen mit dem Befehl:
 
@@ -203,7 +203,7 @@ Nachdem Sie den Status aller Ressourcen überprüft haben, stellen Sie Ihre Work
 
 . Erstellen Sie ein Kubernetes-Secret mithilfe der Client-ID und des Client-Secrets, um die OCCM-Authentifizierungsdaten zu erstellen.
 +
-`kubectl create secret generic occmauthcreds --namespace=trident-protect --from-literal=client_id=<clientID> --from-literal=<clientSecret>`
+`kubectl create secret generic occmauthcreds --namespace=trident-protect --from-literal=client_id=<clientID> --from-literal=client_secret=<clientSecret>`
 
 . Füge das Helm-Repository hinzu oder aktualisiere es:
 +

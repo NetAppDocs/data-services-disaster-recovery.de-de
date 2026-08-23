@@ -14,11 +14,11 @@ summary: Die Notfallwiederherstellung in der Cloud ist eine robuste und kosteng�
 [role="lead"]
 Die Notfallwiederherstellung in der Cloud ist eine resiliente und kostengünstige Methode, um Workloads vor Standortausfällen und Datenbeschädigung zu schützen. NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Service, der Disaster-Recovery-Workflows automatisiert. Mit NetApp Disaster Recovery können Sie Ihre lokalen Kubernetes-Cluster, NFS-basierte Workloads und VMware vSphere Virtual Machine File System (VMFS)-Datenspeicher für iSCSI- und FC-basierte NetApp Speichersysteme auf eine der folgenden Arten schützen:
 
-* Amazon Elastic VMware Service (EVS) mit Amazon FSx for NetApp ONTAP Weitere Informationen finden Sie unterlink:../reference/evs-deploy-guide-introduction.html["Einführung von NetApp Disaster Recovery mit Amazon Elastic VMware Service und Amazon FSx for NetApp ONTAP"] .
+* Amazon Elastic VMware Service (EVS) mit Amazon FSx für NetApp ONTAP. Weitere Informationen unter link:../reference/evs-deploy-guide-introduction.html["Einführung in die NetApp Disaster Recovery mit Amazon Elastic VMware Service und Amazon FSx für NetApp ONTAP"].
 * VMware Cloud (VMC) auf AWS mit Amazon FSx for NetApp ONTAP
-* Azure VMware Solution (AVS) mit NetApp Cloud Volumes ONTAP (iSCSI) (Private Vorschau)
+* Azure VMware Solution mit NetApp Cloud Volumes ONTAP (iSCSI) (Private Preview)
 * Google Cloud VMware Engine (GCVE) mit Google Cloud NetApp Volumes
-* Eine weitere lokale NFS- und/oder VMFS-basierte (iSCSI/FC) VMware-Umgebung mit ONTAP Speicher
+* Eine weitere lokale NFS- und/oder VMFS-basierte (iSCSI/FC) VMware Umgebung mit ONTAP Speicher
 
 
 NetApp Disaster Recovery verwendet die ONTAP SnapMirror -Technologie mit integrierter nativer VMware-Orchestrierung, um VMware-VMs und die zugehörigen On-Disk-Betriebssystemimages zu schützen und gleichzeitig alle Speichereffizienzvorteile von ONTAP beizubehalten.  Disaster Recovery verwendet diese Technologien als Replikationstransport zum Disaster Recovery-Standort.  Dies ermöglicht die branchenweit beste Speichereffizienz (Komprimierung und Deduplizierung) an primären und sekundären Standorten.
@@ -185,9 +185,9 @@ Nachdem Disaster Recovery alle Beziehungen erstellt und initialisiert hat, führ
 *Unterstützte Schutzziele*
 
 * VMware Cloud (VMC) auf AWS mit Amazon FSx for NetApp ONTAP
-* Eine weitere lokale, NFS-basierte VMware-Umgebung mit ONTAP Speicher oder eine lokale FC/iSCSI-VMSF
+* Eine weitere lokale, NFS-basierte VMware-Umgebung mit ONTAP Storage oder eine lokale FC/iSCSI VMFS-Umgebung
 * Amazon Elastic VMware Service
-* Azure VMware Solution (AVS) mit NetApp Cloud Volumes ONTAP (iSCSI) (Private Vorschau)
+* Azure VMware Solution mit NetApp Cloud Volumes ONTAP (iSCSI) (Private Preview)
 * Google Cloud VMware Engine (GCVE) mit Google Cloud NetApp Volumes
 
 

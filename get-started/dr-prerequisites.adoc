@@ -53,9 +53,9 @@ Neuste verfügbare Version
 [[google-cloud-prerequisites-and-considerations]]
 == Voraussetzungen und Überlegungen für Google Cloud
 
-Bei der Notfallwiederherstellung auf Google Cloud VMware Engine mit Google Cloud NetApp Volumes müssen Sie sicherstellen, dass Sie die richtigen Berechtigungen konfigurieren und die genannten Hinweise beachten.
+Bei der Verwendung von NetApp Disaster Recovery mit Google Cloud VMware Engine und Google Cloud NetApp Volumes ist sicherzustellen, dass die richtigen Berechtigungen konfiguriert werden und die folgenden Hinweise berücksichtigt werden.
 
-* Wenden Sie sich an das Google SRE-Team, um die folgenden Dienste auf die Whitelist setzen zu lassen:
+* Wenden Sie sich an das Google SRE-Team, damit die folgenden Einträge auf die Zulassungsliste gesetzt werden:
 +
 ** Synchronisierungs-API zum Übertragen von Snapshots vom lokalen Speicher in Google Cloud NetApp Volumes.
 ** Das Google-Projekt mit der VMware-Engine zum Erstellen, Einbinden und Ausbinden von Datenspeichern.
@@ -110,7 +110,7 @@ Der NetApp Console Konsolenbenutzer muss über folgende Rollen verfügen:
 [[ontap-storage-prerequisites]]
 == ONTAP -Speichervoraussetzungen
 
-Diese Voraussetzungen gelten für ONTAP und Amazon FSX für NetApp ONTAP Instanzen.
+Diese Voraussetzungen gelten für ONTAP und Amazon FSx for NetApp ONTAP Instanzen.
 
 * Quell- und Zielcluster müssen eine Peer-Beziehung haben.
 * Die SVM, die die Disaster-Recovery-Volumes hostet, muss auf dem Zielcluster vorhanden sein.
@@ -133,7 +133,7 @@ Diese Voraussetzungen gelten für ONTAP und Amazon FSX für NetApp ONTAP Instanz
 [[get-started-with-the-netapp-console]]
 === Erste Schritte mit der NetApp Console
 
-Falls Sie dies noch nicht getan haben, https://docs.netapp.com/us-en/console-setup-admin/task-sign-up-saas.html["Melden Sie sich bei der NetApp Console an und erstellen Sie eine Organisation"^] Die
+Falls Sie dies noch nicht getan haben, https://docs.netapp.com/us-en/console-setup-admin/task-sign-up-saas.html["Registrierung für die NetApp Console und Erstellen einer Organisation"^].
 
 
 

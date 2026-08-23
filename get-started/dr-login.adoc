@@ -12,9 +12,9 @@ summary: Beginnen Sie mit NetApp Disaster Recovery , indem Sie in der NetApp Con
 
 
 [role="lead"]
-Sie verwenden die NetApp Console , um sich beim NetApp Disaster Recovery -Dienst anzumelden.
+Melden Sie sich bei NetApp Disaster Recovery über die NetApp Console an.
 
-Zum Anmelden können Sie Ihre Anmeldeinformationen für die NetApp Support-Site verwenden oder sich mit Ihrer E-Mail-Adresse und einem Kennwort für eine NetApp Cloud-Anmeldung registrieren. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["Erfahren Sie mehr über die Anmeldung"^] .
+Zum Anmelden verwenden Sie Ihre NetApp Support Site-Zugangsdaten oder melden Sie sich mit Ihrer E-Mail-Adresse und Ihrem Passwort für einen NetApp Cloud-Login an https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["Erfahren Sie mehr über die Anmeldung"^].
 
 Bestimmte Aufgaben erfordern bestimmte Benutzerrollen. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
@@ -35,8 +35,8 @@ image:draas-landing6-free-trial.png["Screenshot der Zielseite für NetApp Disast
 Andernfalls wird das NetApp Disaster Recovery Dashboard angezeigt.
 
 +
-** Wenn Sie noch keinen NetApp Console Agenten hinzugefügt haben, müssen Sie einen hinzufügen. Um den Agenten hinzuzufügen, siehe https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html["Erfahren Sie mehr über Konsolenagenten"^] Die
-** Wenn Sie ein NetApp Console mit einem vorhandenen Agenten sind und „Notfallwiederherstellung“ auswählen, wird eine Meldung zur Anmeldung angezeigt.
+** Falls Sie noch keinen NetApp Console Agent hinzugefügt haben, fügen Sie einen hinzu. Weitere Informationen finden Sie unter  https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html["Erfahren Sie mehr über Konsolenagenten"^].
+** Wenn Sie ein NetApp Console-Benutzer mit einem bestehenden Agenten sind, erscheint beim Auswählen von *Disaster recovery* eine Meldung zur Registrierung.
 ** Wenn Sie den Dienst bereits verwenden und „Notfallwiederherstellung“ auswählen, wird das Dashboard angezeigt.
 
 

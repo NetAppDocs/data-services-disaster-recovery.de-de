@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/replicate.html 
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
-summary: Mit NetApp Disaster Recovery können Sie VMware-Apps auf Ihrem Quellstandort mithilfe der SnapMirror -Replikation auf einen Remote-Standort zur Notfallwiederherstellung in der Cloud replizieren. 
+summary: Mit NetApp Disaster Recovery können VMware-Anwendungen mithilfe der SnapMirror Replizierung vom Quellstandort zu einem entfernten Disaster Recovery-Standort in der Cloud repliziert werden. 
 ---
 = Replizieren Sie Anwendungen an einen anderen Standort mit NetApp Disaster Recovery
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Mit NetApp Disaster Recovery können Sie VMware-Apps auf Ihrem Quellsta
 
 
 [role="lead"]
-Mit NetApp Disaster Recovery können Sie VMware-Apps auf Ihrem Quellstandort mithilfe der SnapMirror -Replikation auf einen Remote-Standort zur Notfallwiederherstellung in der Cloud replizieren.
+Mit NetApp Disaster Recovery können VMware-Anwendungen mithilfe der SnapMirror Replizierung vom Quellstandort zu einem entfernten Disaster Recovery-Standort in der Cloud repliziert werden.
 
 
 TIP: Nachdem Sie den Notfallwiederherstellungsplan erstellt, die Wiederholung im Assistenten identifiziert und eine Replikation an einen Notfallwiederherstellungsstandort initiiert haben, überprüft NetApp Disaster Recovery alle 30 Minuten, ob die Replikation tatsächlich gemäß Plan erfolgt. Sie können den Fortschritt auf der Seite „Job Monitor“ überwachen.
@@ -20,12 +20,12 @@ TIP: Nachdem Sie den Notfallwiederherstellungsplan erstellt, die Wiederholung im
 *Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadmin“, „Disaster recovery admin“ oder „Disaster recovery failover admin“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
 .Bevor Sie beginnen
-Bevor Sie die Replikation starten, sollten Sie einen Replikationsplan erstellt und die Replikation der Apps ausgewählt haben.  Anschließend wird im Menü „Aktionen“ die Option „Replizieren“ angezeigt.
+Bevor die Replikation initiiert wird, sollte ein Replikationsplan erstellt und für die Replikation konfiguriert werden. Dann erscheint die Option *Replicate* im Menü „Aktionen“.
 
 .Schritte
 . Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
 . Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 . Wählen Sie im Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Replizieren*.
+. Rechts das Menü *Aktionen* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] auswählen und anschließend *Replizieren* wählen.
 

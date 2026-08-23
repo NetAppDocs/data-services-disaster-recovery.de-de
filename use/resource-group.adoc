@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: use/resource-group.html 
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm 
-summary: Mit Ressourcengruppen können Sie eine Reihe abhängiger Ressourcen in logischen Gruppen organisieren, die Ihren Anforderungen entsprechen. 
+summary: Mit Ressourcengruppen lassen sich abhängige Ressourcen in logische Gruppen zusammenfassen, die den jeweiligen Anforderungen entsprechen. 
 ---
-= Erstellen Sie eine Ressourcengruppe, um VMs gemeinsam in NetApp Disaster Recovery zu organisieren
+= Eine Ressourcengruppe in NetApp Disaster Recovery erstellen
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,7 +12,7 @@ summary: Mit Ressourcengruppen können Sie eine Reihe abhängiger Ressourcen in 
 
 
 [role="lead"]
-Nachdem Sie Ressourcen zu Sites hinzugefügt haben, können Sie Ressourcengruppen erstellen, um VMs, Datastores oder Kubernetes-Cluster als Einheit zu organisieren. Ressourcengruppen ermöglichen es Ihnen, eine Gruppe abhängiger Ressourcen in logische Gruppen zu organisieren, die Ihren Anforderungen entsprechen. Sie könnten beispielsweise VMs gruppieren, die mit einer Anwendung verbunden sind, oder Anwendungen gruppieren, die ähnliche Tiers haben. Ein weiteres Beispiel: Gruppen könnten verzögerte Startreihenfolgen enthalten, die bei der Wiederherstellung ausgeführt werden können.
+Nachdem Sie Ressourcen zu Standorten hinzugefügt haben, können Ressourcengruppen erstellt werden, um VMs, Datenspeicher oder Kubernetes-Cluster als eine Einheit zu organisieren. Ressourcengruppen ermöglichen die Organisation abhängiger Ressourcen in logischen Gruppen, die den jeweiligen Anforderungen entsprechen. So lassen sich beispielsweise VMs für eine Anwendung oder Anwendungen mit ähnlichen Ebenen gruppieren. Ressourcengruppen können außerdem verzögerte Startreihenfolgen enthalten, die während der Wiederherstellung ausgeführt werden.
 
 *Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadministrator“, „Administrator für Notfallwiederherstellung“ oder „Anwendungsadministrator für Notfallwiederherstellung“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
@@ -27,7 +27,7 @@ Sie können Ressourcengruppen mit den folgenden Methoden erstellen:
 
 
 
-TIP: Jede Ressourcengruppe kann eine oder mehrere VMs, Datenspeicher oder Kubernetes-Cluster enthalten. Die VMs werden in der Reihenfolge eingeschaltet, in der Sie sie im Replikationsplan aufnehmen. Sie können die Reihenfolge ändern, indem Sie die VMs oder Datenspeicher in der Ressourcengruppenliste nach oben oder unten ziehen.
+TIP: Jede Ressourcengruppe kann eine oder mehrere VMs, Datenspeicher oder Kubernetes-Cluster enthalten. Die VMs werden entsprechend der Reihenfolge eingeschaltet, in der Sie sie im Replikationsplan aufnehmen. Die Reihenfolge lässt sich ändern, indem die VMs oder Datenspeicher in der Ressourcengruppenliste nach oben oder unten gezogen werden.
 
 .Informationen zu Ressourcengruppen
 Mit Ressourcengruppen können Sie VMs, Datastores oder Kubernetes-Anwendungen zu einer einzigen Einheit zusammenfassen.
@@ -35,7 +35,7 @@ Mit Ressourcengruppen können Sie VMs, Datastores oder Kubernetes-Anwendungen zu
 Beispielsweise könnte eine Point-of-Sale-Anwendung mehrere VMs für Datenbanken, Geschäftslogik und Storefronts verwenden.  Sie können alle diese VMs mit einer Ressourcengruppe verwalten.  Richten Sie Ressourcengruppen ein, um Replikationsplanregeln für die VM-Startreihenfolge, Netzwerkverbindung und Wiederherstellung aller für die Anwendung benötigten VMs anzuwenden.
 
 .Wie funktioniert es?
-NetApp Disaster Recovery schützt VMs durch Replikation der zugrunde liegenden ONTAP Volumes und LUNs, die die VMs in der Ressourcengruppe hosten.  Dazu fragt das System vCenter nach dem Namen jedes Datenspeichers ab, der VMs in einer Ressourcengruppe hostet.  NetApp Disaster Recovery identifiziert dann das Quell ONTAP -Volume oder die LUN, auf der dieser Datenspeicher gehostet wird.  Der gesamte Schutz wird auf ONTAP Volume-Ebene mithilfe der SnapMirror -Replikation durchgeführt.
+NetApp Disaster Recovery schützt VMs, indem die zugrunde liegenden ONTAP Volumes und LUNs repliziert werden, auf denen die VMs in der Ressourcengruppe gehostet werden. Zu diesem Zweck fragt das System vCenter nach dem Namen jedes Datenspeichers ab, der VMs in einer Ressourcengruppe hostet. NetApp Disaster Recovery identifiziert anschließend das Quell-ONTAP Volume oder die Quell-LUN, auf der dieser Datenspeicher gehostet wird. Der gesamte Schutz erfolgt auf ONTAP Volume Ebene unter Verwendung der SnapMirror Replikation.
 
 Wenn VMs in der Ressourcengruppe auf verschiedenen Datenspeichern gehostet werden, verwendet NetApp Disaster Recovery eine der folgenden Methoden, um einen datenkonsistenten Snapshot der ONTAP Volumes oder LUNs zu erstellen.
 
@@ -113,7 +113,7 @@ image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 . Wählen Sie *Hinzufügen*.
 . Geben Sie einen **Namen** für die Ressourcengruppe ein und wählen Sie den Kubernetes **Cluster** aus dem Dropdown-Menü aus.
 . Wählen Sie die *Namespaces* aus, die der Ressourcengruppe hinzugefügt werden sollen.
-. Klassifizieren Sie die *Ressourcentypen*. Standardmäßig ist die Auswahl „Alle einschließen“ gewählt, was mehrere Ressourcentypen bedeutet.
+. Die *Ressourcentypen* klassifizieren. Standardmäßig ist die Auswahl „Alle einschließen“ aktiviert, was mehrere Ressourcentypen bezeichnet.
 . Optional können Sie *Label-Selektoren* einbeziehen.
 +
 image:kubernetes-resource-group.png["Screenshot vom Hinzufügen einer Kubernetes-Ressourcengruppe"]

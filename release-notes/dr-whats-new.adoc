@@ -230,7 +230,7 @@ NetApp Disaster Recovery-Unterstützung für GCVE ist jetzt allgemein verfügbar
 * *Plattformverwaltete Snapshots:* Backups und Aufbewahrungsrichtlinien lassen sich nahtlos über ONTAP oder Google Cloud Platform (GCP) verwalten.
 * *Mehrere Datenspeicher pro Replikationsplan:* Vereinfachen Sie Ihre Disaster Recovery-Pläne, indem Sie mehrere Datenspeicher in einer einzigen Replikationsstrategie konsolidieren.
 * *Erzwingen eines Failovers bei nicht verfügbaren Quellstandorten:* Wechseln Sie zu einem Disaster Recovery-Standort, wenn die Quelle nicht verfügbar ist.
-* *Die SnapMirror-Resynchronisierung aufschieben und die Replikation bei Bedarf wiederherstellen:* Schieben Sie SnapMirror-Resynchronisierungen auf, um Auswirkungen auf Produktions-Workloads während Spitzenbetriebszeiten mit der Option „skip protect“ zu vermeiden, und stellen Sie die Replikation später bei Bedarf mit der Option „re-protect“ wieder her.
+* *Neusynchronisierung von SnapMirror verzögern und Replikation bei Bedarf wiederherstellen:* SnapMirror-Neusynchronisierungen können mithilfe der Option "skip protect" verzögert werden, um Auswirkungen auf Produktionsworkloads während Spitzenzeiten zu vermeiden. Die Replikation lässt sich später bei Bedarf mit der Option "re-protect" wiederherstellen.
 
 
 Weitere Informationen zur Unterstützung von GCVE finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/release-notes/dr-limitations.html["Unterstützte Konfigurationen für die Notfallwiederherstellung"^].
@@ -247,7 +247,7 @@ Version 4.3.1
 [[exclude-a-datastore-from-replication-plans]]
 === Einen Datenspeicher von Replikationsplänen ausschließen
 
-Beim Erstellen eines Replikationsplans in Disaster können Sie nun bestimmte Datenspeicher von der Replikation ausschließen. In Situationen, in denen eine VM für die Verwendung mehrerer Datenspeicher konfiguriert ist, können Sie so einschränken, welche repliziert werden.
+Beim Erstellen eines Replikationsplans in Disaster Recovery können nun bestimmte Datenspeicher von der Replikation ausgeschlossen werden. In Situationen, in denen eine VM für die Verwendung mehrerer Datenspeicher konfiguriert ist, lässt sich damit einschränken, welche Datenspeicher repliziert werden.
 
 Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"^].
 
@@ -265,7 +265,7 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 [[new-replication-plan-submenu]]
 === Neues Untermenü für Replikationsplan
 
-Disaster Recover bietet jetzt neue Menüoptionen, um vCenter-Aktualisierungen vom Replikationsplan-Dashboard aus auszulösen. Sie können auf das Untermenü über das Aktionsmenü des Replikationsplan-Dashboards zugreifen: Wählen Sie **Plan Health** und dann **Refresh Source vCenter / Refresh Target vCenter**.
+Die Notfallwiederherstellung bietet jetzt neue Menüoptionen, um vCenter-Aktualisierungen über das Replikationsplan-Dashboard auszulösen. Das Untermenü ist über das Aktionsmenü des Replikationsplan-Dashboards zugänglich: Zuerst **Plan Health** und dann **Refresh Source vCenter / Refresh Target vCenter** auswählen.
 
 Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#modify-a-replication-plan["Einen Replikationsplan ändern"^].
 
@@ -356,7 +356,7 @@ Die Notfallwiederherstellung bietet jetzt verbesserte Warnungen und Fehlerbehebu
 [[retain-vm-folder-structure-added-as-default-in-replication-plans]]
 === Die als Standard hinzugefügte VM-Ordnerstruktur in Replikationsplänen beibehalten
 
-Beim Erstellen einer Replikation ist die neue Standardeinstellung, die Ordnerstruktur der VM beizubehalten. Falls das Wiederherstellungsziel nicht über die ursprüngliche Ordnerhierarchie verfügt, erstellt Disaster Recovery diese. Sie können diese Option deaktivieren, um die ursprüngliche Ordnerhierarchie zu ignorieren.
+Beim Erstellen eines Replikationsplans wird standardmäßig die Ordnerstruktur der VM beibehalten. Falls das Wiederherstellungsziel nicht über die ursprüngliche Ordnerhierarchie verfügt, erstellt Disaster Recovery diese. Diese Option kann deaktiviert werden, um die ursprüngliche Ordnerhierarchie zu ignorieren.
 
 Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"^].
 
@@ -461,7 +461,7 @@ BlueXP disaster recovery wurde in NetApp Disaster Recovery umbenannt.
 [[bluexp-is-now-netapp-console]]
 === BlueXP heißt jetzt NetApp Console
 
-Die NetApp Console basiert auf der verbesserten und neu strukturierten BlueXP -Grundlage und ermöglicht die zentrale Verwaltung von NetApp -Speicher und NetApp Data Services in On-Premises- und Cloud-Umgebungen auf Unternehmensniveau. Sie liefert Einblicke in Echtzeit, schnellere Arbeitsabläufe und eine vereinfachte Verwaltung mit hoher Sicherheit und Konformität.
+Die NetApp Console, basierend auf der verbesserten und restrukturierten BlueXP Grundlage, ermöglicht die zentrale Verwaltung von NetApp Storage und NetApp Data Services in On-Premises- und Cloud-Umgebungen auf Unternehmensebene und bietet Echtzeit-Einblicke, schnellere Workflows und eine vereinfachte Administration, die hochsicher und konform ist.
 
 Einzelheiten zu den Änderungen finden Sie unter link:https://docs.netapp.com/us-en/console-relnotes/index.html["Versionshinweise zur NetApp Console"]Die
 
@@ -598,7 +598,7 @@ Version 4.2.4
 [[windows-local-administrator-password-solution-laps-support]]
 === Unterstützung für Windows Local Administrator Password Solution (LAPS)
 
-Windows Local Administrator Password Solution (Windows LAPS) ist eine Windows-Funktion, die das Kennwort eines lokalen Administratorkontos im Active Directory automatisch verwaltet und sichert.
+Windows Local Administrator Password Solution (Windows LAPS) ist eine Windows-Funktion, die das Kennwort eines lokalen Administratorkontos in Active Directory automatisch verwaltet und sichert.
 
 Sie können jetzt Subnetzzuordnungsoptionen auswählen und die LAPS-Option überprüfen, indem Sie die Domänencontrollerdetails angeben.  Wenn Sie diese Option verwenden, müssen Sie nicht für jede Ihrer virtuellen Maschinen ein Kennwort angeben.
 
@@ -628,7 +628,7 @@ Beispiel:
 
 VM1 verfügt über eine vNIC (10.1.1.50), die mit NetworkA verbunden ist.  In den Replikationsplaneinstellungen wird NetworkA NetworkB zugeordnet.
 
-Beim Failover ersetzt NetApp Disaster Recovery den Netzwerkteil der ursprünglichen IP-Adresse (10.1.1) und behält die Hostadresse (.50) der ursprünglichen IP-Adresse (10.1.1.50) bei.  Für VM1 prüft NetApp Disaster Recovery die CIDR-Einstellungen für NetworkB und verwendet den NetworkB-Netzwerkteil 192.168.1, während der Hostteil (.50) beibehalten wird, um die neue IP-Adresse für VM1 zu erstellen.  Die neue IP wird 192.168.1.50.
+Im Failover-Fall ersetzt NetApp Disaster Recovery den Netzwerkanteil der ursprünglichen IP-Adresse (10.1.1) und behält die Hostadresse (.50) der ursprünglichen IP-Adresse (10.1.1.50) bei. Für VM1 betrachtet NetApp Disaster Recovery die CIDR-Einstellungen für NetworkB und verwendet den Netzwerkanteil von NetworkB (192.168.1), während der Hostanteil (.50) beibehalten wird, um die neue IP-Adresse für VM1 zu erstellen. Die neue IP-Adresse ist 192.168.1.50.
 
 Zusammenfassend lässt sich sagen, dass die Hostadresse gleich bleibt, während die Netzwerkadresse durch die in der Site-Subnetzzuordnung konfigurierte Adresse ersetzt wird.  Auf diese Weise können Sie die Neuzuweisung von IP-Adressen bei einem Failover einfacher verwalten, insbesondere wenn Sie Hunderte von Netzwerken und Tausende von VMs verwalten müssen.
 
@@ -647,7 +647,7 @@ Beim Einleiten eines Failovers können Sie jetzt die Option *Schutz überspringe
 
 Nachdem die ursprüngliche Quellsite wieder online ist, können Sie einen umgekehrten Schutz einrichten, indem Sie im Menü „Aktionen“ des Replikationsplans die Option „Ressourcen schützen“ auswählen.  Dadurch wird versucht, für jedes Volume im Plan eine umgekehrte Replikationsbeziehung zu erstellen.  Sie können diesen Job wiederholt ausführen, bis der Schutz wiederhergestellt ist.  Wenn der Schutz wiederhergestellt ist, können Sie auf die übliche Weise ein Failback einleiten.
 
-Einzelheiten zum Umgehen des Schutzes finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover von Anwendungen auf einen Remote-Standort"] Die
+Weitere Informationen zum Überspringen des Schutzes finden Sie unter  https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover von Anwendungen auf einen Remote-Standort"].
 
 
 
@@ -754,7 +754,7 @@ Version 4.2
 [[asa-r2-support-for-vms-and-datastores-on-vmfs-storage]]
 === ASA R2-Unterstützung für VMs und Datenspeicher auf VMFS-Speicher
 
-Diese Version von NetApp Disaster Recovery bietet Unterstützung für ASA r2 für VMs und Datenspeicher auf VMFS-Speicher.  Auf einem ASA R2-System unterstützt die ONTAP -Software wesentliche SAN-Funktionen und entfernt Funktionen, die in SAN-Umgebungen nicht unterstützt werden.
+Diese Version von NetApp Disaster Recovery bietet Unterstützung für ASA r2 für VMs und Datenspeicher auf VMFS-Speicher. Auf einem ASA r2-System unterstützt die ONTAP Software grundlegende SAN-Funktionen, während Funktionen, die in SAN-Umgebungen nicht unterstützt werden, entfernt werden.
 
 Diese Version unterstützt die folgenden Funktionen für ASA r2:
 
@@ -845,7 +845,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 [[vm-name-aliasing]]
 === VM-Namensaliasing
 
-Wenn Sie einen Replikationsplan erstellen, können Sie den VM-Namen auf der Disaster-Recovery-Site jetzt ein Präfix und ein Suffix hinzufügen.  Dadurch können Sie für die VMs im Plan einen aussagekräftigeren Namen verwenden.
+Beim Erstellen eines Replikationsplans können Sie nun den VM-Namen am Disaster Recovery-Standort ein Präfix und ein Suffix hinzufügen. Dies ermöglicht die Verwendung eines aussagekräftigeren Namens für die VMs im Plan.
 
 Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
 

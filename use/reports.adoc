@@ -12,7 +12,7 @@ summary: Durch die Überprüfung von Notfallwiederherstellungsberichten können 
 
 
 [role="lead"]
-NetApp Disaster Recovery-Berichte können bei der Analyse der Notfallwiederherstellungsbereitschaft unterstützen. Berichte bieten Einblicke in die Replikationspläne, einschließlich der Anzahl der Ressourcengruppen, VMs oder Kubernetes-Cluster sowie der vom Plan abgedeckten Datenspeicher. Sie zeigen außerdem den Compliance-Status, eine Zusammenfassung der Jobs und die Backup-Einstellungen, einschließlich Recovery Point Objective (RPO) und Aufbewahrungsanzahl.
+NetApp Disaster Recovery-Berichte dienen zur Bewertung der Notfallwiederherstellungsbereitschaft. Die Berichte enthalten Details zu Replikationsplänen, einschließlich der Anzahl der Ressourcengruppen, VMs, Kubernetes-Cluster und Datenspeicher, die von jedem Plan abgedeckt werden. Die Berichte zeigen außerdem den Compliance-Status, Zusammenfassungen der Jobs und Backup-Einstellungen wie Recovery Point Objective (RPO) und Aufbewahrungsanzahl.
 
 Sie können Berichte im PDF-, HTML- oder JSON-Format herunterladen.
 
@@ -23,8 +23,8 @@ Der Link zum Herunterladen des Berichts ist nach dessen Generierung sechs Stunde
 . Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 . Wählen Sie in der linken Navigationsleiste der NetApp Console *Replikationspläne* aus.
 . Wählen Sie *Bericht erstellen*.
-. Wählen Sie aus, auf welche *Workload* sich der Bericht beziehen soll: Kubernetes, VMware oder alle.
-. Den *Dateityp* (PDF, HTML oder JSON) und den *Zeitraum* (zwischen den vergangenen ein und sieben Tagen) auswählen, die der Bericht abdecken soll.
+. Wählen Sie die *Workload* aus, auf die sich der Bericht beziehen soll: Kubernetes, VMware oder Alle.
+. Wählen Sie den *Dateityp* (PDF, HTML oder JSON) und den *Zeitraum* (von den letzten ein bis sieben Tagen) für den Bericht.
 +
 image::report.png[Screenshot des Berichterstellens]
 

@@ -76,7 +76,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 [[vm-name-aliasing]]
 === VM-Namensaliasing
 
-Wenn Sie einen Replikationsplan erstellen, können Sie den VM-Namen auf der Disaster-Recovery-Site jetzt ein Präfix und ein Suffix hinzufügen.  Dadurch können Sie für die VMs im Plan einen aussagekräftigeren Namen verwenden.
+Beim Erstellen eines Replikationsplans können Sie nun den VM-Namen am Disaster Recovery-Standort ein Präfix und ein Suffix hinzufügen. Dies ermöglicht die Verwendung eines aussagekräftigeren Namens für die VMs im Plan.
 
 Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] .
 

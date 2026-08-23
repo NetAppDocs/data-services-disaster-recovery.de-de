@@ -12,7 +12,7 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Nachdem ein Notfall behoben wurde, führen Sie ein Failback vom Notfallwiederherstellungsstandort zum Quellstandort durch, um zum Normalbetrieb zurückzukehren.  Sie können den Snapshot auswählen, von dem die Wiederherstellung erfolgen soll.
+Nach Behebung des Problems erfolgt das Failback vom Notfallwiederherstellungsstandort zum Quellstandort, sodass der Normalbetrieb wieder aufgenommen wird. Es besteht die Möglichkeit, den für die Wiederherstellung zu verwendenden Snapshot auszuwählen.
 
 *Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadmin“, „Disaster recovery admin“ oder „Disaster recovery failover admin“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
@@ -21,7 +21,7 @@ Nachdem ein Notfall behoben wurde, führen Sie ein Failback vom Notfallwiederher
 [[about-failback]]
 == Über Failback
 
-Im Failback-Modus repliziert (resynchronisiert) NetApp Disaster Recovery alle Änderungen zurück auf die ursprüngliche virtuelle Quellmaschine, bevor die Replikationsrichtung umgekehrt wird. Dieser Prozess beginnt mit einer Beziehung, die vollständig auf ein Ziel umgeschaltet wurde, und umfasst die folgenden Schritte:
+Beim Failback repliziert (resynchronisiert) NetApp Disaster Recovery alle Änderungen zurück auf die ursprüngliche Quell-VM, bevor die Replikationsrichtung umgekehrt wird. Dieser Prozess beginnt, nachdem eine SnapMirror Beziehung auf das Ziel-Cluster umgeschaltet wurde, und umfasst die folgenden Schritte:
 
 * Führen Sie eine Konformitätsprüfung auf der wiederhergestellten Site durch.
 * Aktualisieren Sie die vCenter-Informationen für jeden vCenter-Cluster, der sich am wiederhergestellten Standort befindet.
@@ -36,7 +36,7 @@ Im Failback-Modus repliziert (resynchronisiert) NetApp Disaster Recovery alle Ä
 [[before-you-begin]]
 == Bevor Sie beginnen
 
-Wenn Sie einen datenspeicherbasierten Schutz verwenden, können VMs, die dem Datenspeicher hinzugefügt wurden, im Failover-Prozess ebenfalls dem Datenspeicher hinzugefügt werden. Falls dies der Fall ist, stellen Sie sicher, dass Sie die zusätzlichen Mapping-Informationen für diese VMs bereitstellen, bevor Sie das Failback einleiten. Informationen zum Bearbeiten der Ressourcenzuordnung finden Sie unter link:manage.html#manage-replication-plans["Verwalten von Replikationsplänen"]Die
+Wenn Sie datenspeicherbasierten Schutz verwenden, können während eines Failovers VMs dem Datenspeicher hinzugefügt werden. Falls dies geschehen ist, sollte sichergestellt werden, dass die zusätzlichen Zuordnungsinformationen für diese VMs bereitgestellt werden, bevor das Failback eingeleitet wird. Zum Bearbeiten der Ressourcenzuordnung siehe link:manage.html#manage-replication-plans["Verwalten von Replikationsplänen"].
 
 
 
@@ -53,7 +53,7 @@ Wenn Sie einen datenspeicherbasierten Schutz verwenden, können VMs, die dem Dat
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
-. Identifizieren Sie den Replikationsplan, für den Sie ein Failback durchführen möchten. Wählen Sie die Option *Aktionen* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Failback*.
+. Den Replikationsplan identifizieren, zu dem ein Failback durchgeführt werden soll. Die Option *Actions* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] auswählen, mit dem Mauszeiger über *Recover* fahren und anschließend *Failback* auswählen.
 . Wählen Sie den Snapshot des Datenspeichers aus, von dem die Wiederherstellung erfolgen soll. Wählen Sie *Jetzt Snapshot erstellen*, um einen neuen Snapshot zu initiieren, oder *Auswählen*, um aus verfügbaren Snapshots auszuwählen.
 +
 image:failback.png["Screenshot des Failback-Dialogs"]
@@ -71,7 +71,7 @@ Um den Fortschritt des Auftrags zu überwachen, wählen Sie im Menü „Notfallw
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
-. Identifizieren Sie den Replikationsplan, für den Sie ein Failback durchführen möchten. Wählen Sie die Option *Aktionen* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Failback*.
+. Den Replikationsplan identifizieren, zu dem ein Failback durchgeführt werden soll. Die Option *Actions* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] auswählen, mit dem Mauszeiger über *Recover* fahren und anschließend *Failback* auswählen.
 . Wählen Sie den Snapshot des Clusters aus, aus dem die Wiederherstellung erfolgen soll. Wählen Sie *Jetzt Snapshot erstellen*, um einen neuen Snapshot zu initiieren, oder *Neuesten Snapshot verwenden*, um den aktuellsten erfolgreichen Snapshot zu verwenden.
 . Geben Sie „Failback“ ein, um den Vorgang zu bestätigen, und wählen Sie dann *Failback* aus.
 
