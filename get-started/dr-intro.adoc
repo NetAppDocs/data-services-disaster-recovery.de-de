@@ -93,7 +93,7 @@ IMPORTANT: Einige Versionen enthalten eine Technologievorschau.  NetApp berechne
 Sie können die folgenden Lizenztypen verwenden:
 
 * Melden Sie sich für eine 30-tägige kostenlose Testversion an.
-* Erwerben Sie ein Pay-as-you-go-Abonnement (PAYGO) über den Amazon Web Services (AWS) Marketplace oder den Microsoft Azure Marketplace.  Mit dieser Lizenz können Sie eine Lizenz mit fester, geschützter Kapazität ohne langfristige Bindung erwerben.
+* Ein Pay-as-you-go (PAYGO)-Abonnement kann über den Amazon Web Services (AWS) Marketplace, den Azure Marketplace oder den Google Cloud Marketplace erworben werden. Diese Lizenz ermöglicht den Erwerb einer Lizenz mit fester, geschützter Kapazität ohne langfristige Verpflichtung.
 * Bringen Sie Ihre eigene Lizenz (BYOL) mit. Dabei handelt es sich um eine NetApp Lizenzdatei (NLF), die Sie von Ihrem NetApp Vertriebsmitarbeiter erhalten. Sie können die Seriennummer der Lizenz verwenden, um BYOL in der NetApp Console zu aktivieren.
 
 
@@ -104,7 +104,7 @@ Die Lizenzierung der Notfallwiederherstellung basiert auf der Datenmenge, die au
 Geschützte Volumes können viele VMs hosten.  Einige sind möglicherweise nicht Teil einer NetApp Disaster Recovery -Ressourcengruppe.  Unabhängig davon wird der von allen VMs auf diesem Volume oder LUN verbrauchte Speicher auf die maximale Lizenzkapazität angerechnet.
 
 
-NOTE: Die Gebühren für NetApp Disaster Recovery basieren auf der genutzten Kapazität der Datenspeicher am Quellstandort, wenn mindestens eine VM über einen Replikationsplan verfügt.  Die Kapazität für einen ausgefallenen Datenspeicher ist nicht in der Kapazitätszuteilung enthalten.  Wenn bei einem BYOL die Daten die zulässige Kapazität überschreiten, sind die Vorgänge im Dienst eingeschränkt, bis Sie eine zusätzliche Kapazitätslizenz erwerben oder die Lizenz in der NetApp Console aktualisieren.
+NOTE: NetApp Disaster Recovery-Gebühren basieren auf der genutzten Kapazität der Datenspeicher am Quellstandort, wenn mindestens eine VM oder Kubernetes-Ressource über einen Replikationsplan verfügt. Die Kapazität eines übergewechselten Datenspeichers ist nicht im Kapazitätskontingent enthalten. Bei einer BYOL-Lizenz sind die Vorgänge im Dienst eingeschränkt, wenn die Datenmenge die zulässige Kapazität überschreitet, bis eine zusätzliche Kapazitätslizenz erworben oder die Lizenz in der NetApp Console aktualisiert wird.
 
 Einzelheiten zum Einrichten der Lizenzierung für NetApp Disaster Recovery finden Sie unterlink:../get-started/dr-licensing.html["Einrichten der NetApp Disaster Recovery -Lizenzierung"] .
 
