@@ -91,7 +91,7 @@ Nachdem der Failover-Test abgeschlossen ist, sollten Sie die Testumgebung berein
 
 Im Katastrophenfall erfolgt das Failover Ihres primären lokalen VMware-Standorts bei Bedarf auf einen anderen lokalen VMware-Standort oder auf VMware Cloud on AWS mit FSx for NetApp ONTAP.
 
-Der Failover-Prozess umfasst die folgenden Vorgänge:
+Der Failover-Prozess umfasst die folgenden Operationen:
 
 * Disaster Recovery führt Vorprüfungen des Zielclusters und der SnapMirror -Beziehung durch.
 * Wenn Sie den neuesten Snapshot ausgewählt haben, wird das SnapMirror Update durchgeführt, um die neuesten Änderungen zu replizieren.
@@ -101,9 +101,9 @@ Der Failover-Prozess umfasst die folgenden Vorgänge:
 * Datenspeicher werden basierend auf den im Replikationsplan erfassten Informationen erstellt und im VMware- oder VMC-Cluster oder -Host bereitgestellt.  Wenn es sich bei einem der Datenspeicher um VMFS handelt, erstellen Sie eine iGroup und ordnen Sie sie jeder LUN zu.
 * Die Ziel-VMs werden innerhalb von vCenter als neue Datenspeicher registriert.
 * Die Ziel-VMs werden gemäß der auf der Seite „Ressourcengruppen“ erfassten Bootreihenfolge eingeschaltet.
-* Wenn das Quell-vCenter noch aktiv ist, schalten Sie alle VMs auf der Quellseite aus, für die ein Failover durchgeführt wird.
+* Wenn das Quell-vCenter noch aktiv ist, müssen alle Quellseiten-VMs, die gerade ein Failover durchlaufen, ausgeschaltet werden.
 * Führen Sie eine Stilllegung aller unterstützten Datenbankanwendungen in VMs durch, die als „anwendungskonsistent“ gekennzeichnet sind.
-* Wenn die Quell-vCenter- und ONTAP Cluster noch aktiv sind, erstellen Sie eine SnapMirror -Beziehung in umgekehrter Richtung, um alle Änderungen im Failover-Zustand zurück auf die ursprüngliche Quellsite zu replizieren.  Die SnapMirror -Beziehung wird von der Ziel- zur Quell-VM umgekehrt.
+* Wenn Quell-vCenter und ONTAP Cluster noch aktiv sind, wird eine umgekehrte SnapMirror Beziehung erstellt, um alle Änderungen im Failover-Zustand zurück zum ursprünglichen Quellstandort zu replizieren. Die SnapMirror Beziehung wird von der Ziel- zur Quell-VM umgekehrt.
 
 
 
@@ -126,9 +126,16 @@ image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 +
 image:dr-plan-failover3.png["Failover-Seite"]
 
-. Auf der Failover-Seite können Sie entweder jetzt einen neuen Snapshot erstellen oder einen vorhandenen Snapshot für den Datenspeicher auswählen, der als Grundlage für die Wiederherstellung dienen soll. Standardmäßig wird die neueste Version verwendet.
+. Wählen Sie die Snapshot-Kopie aus, die Sie für den Failover-Zustand verwenden möchten:
 +
-Eine Momentaufnahme der aktuellen Quelle wird erstellt und an das aktuelle Ziel repliziert, bevor das Failover erfolgt.
+** *Jetzt Snapshot erstellen* auswählen, um einen brandneuen Snapshot zu erstellen, der vor dem Failover in den Ziel-Cluster kopiert wird.
+** *Neuesten Snapshot verwenden* ermöglicht die Nutzung des aktuellsten verfügbaren Snapshots auf dem Ziel-Cluster.
+** *Auswählen* zeigt eine nach Aktualität sortierte Liste der Momentaufnahmen an.
++
+
+NOTE: Bei Auswahl einer bestimmten Snapshot-Baseline werden SnapMirror Transfer-Snapshots standardmäßig ausgeblendet, da sie während eines Failovers gelöscht werden können. Diese Löschung führt dazu, dass die Workload nach dem Failover aufgrund des Fehlers „Kein gemeinsamer Snapshot gefunden“ nicht erneut geschützt werden kann. SnapMirror Transfer-Snapshots können weiterhin verwendet werden, allerdings ist eine zusätzliche Bestätigungsabfrage erforderlich, um das Risiko zu bestätigen.
+
+
 
 . *Failover erzwingen* auswählen, wenn der Failover auch dann fortgesetzt werden soll, wenn der Dienst einen Fehler erkennt, der ihn normalerweise blockieren würde.
 . Wählen Sie *Schutz überspringen*, wenn der Dienst nicht automatisch eine umgekehrte SnapMirror Schutzbeziehung nach einem Failover des Replikationsplans erstellen soll. Dies ist hilfreich, wenn Sie zusätzliche Vorgänge am wiederhergestellten Standort durchführen möchten, bevor Sie ihn im Rahmen der NetApp Disaster Recovery wieder online schalten.
@@ -151,8 +158,18 @@ image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
 . Wählen Sie den Replikationsplan aus.
 . Wählen Sie rechts die Option *Aktionen* aus image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Fail over* aus.
-. Wählen Sie die Snapshot-Kopie aus, die Sie für das Failover verwenden möchten. Sie können *Jetzt Snapshot erstellen* wählen, um einen brandneuen Snapshot zu erstellen, der in den Ziel-Cluster kopiert wird, oder *Neuesten Snapshot verwenden*, um den aktuellsten verfügbaren Snapshot im Ziel-Cluster zu verwenden.
-. Wählen Sie *Schutz überspringen*, wenn der Dienst nicht automatisch eine umgekehrte SnapMirror Schutzbeziehung nach einem Failover des Replikationsplans erstellen soll. Dies ist hilfreich, wenn Sie zusätzliche Vorgänge am wiederhergestellten Standort durchführen möchten, bevor Sie ihn im Rahmen der NetApp Disaster Recovery wieder online schalten.
+. Wählen Sie die Snapshot-Kopie aus, die Sie für den Failover-Zustand verwenden möchten:
++
+** *Jetzt Snapshot erstellen* auswählen, um einen brandneuen Snapshot zu erstellen, der in den Ziel-Cluster kopiert wird.
+** *Neuesten Snapshot verwenden* ermöglicht die Nutzung des aktuellsten verfügbaren Snapshots auf dem Ziel-Cluster.
+** *Auswählen* zeigt eine nach Aktualität sortierte Liste der Momentaufnahmen an.
++
+
+NOTE: Bei Auswahl einer bestimmten Snapshot-Baseline werden SnapMirror Transfer-Snapshots standardmäßig ausgeblendet, da sie während eines Failovers gelöscht werden können. Diese Löschung führt dazu, dass die Workload nach dem Failover aufgrund des Fehlers „Kein gemeinsamer Snapshot gefunden“ nicht erneut geschützt werden kann. SnapMirror Transfer-Snapshots können weiterhin verwendet werden, allerdings ist eine zusätzliche Bestätigungsabfrage erforderlich, um das Risiko zu bestätigen.
+
+
+
+. Wählen Sie *Schutz überspringen*, wenn Disaster Recovery nach einem Failover des Replikationsplans nicht automatisch eine umgekehrte SnapMirror Schutzbeziehung erstellen soll. Dies ist hilfreich, wenn zusätzliche Vorgänge auf dem wiederhergestellten Standort durchgeführt werden sollen, bevor dieser innerhalb von NetApp Disaster Recovery wieder online geschaltet wird.
 . Geben Sie „Failover“ ein, um die Aktion zu bestätigen, und wählen Sie dann *Failover* aus.
 
 

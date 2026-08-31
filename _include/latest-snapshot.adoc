@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: Bei Auswahl einer bestimmten Snapshot-Baseline werden SnapMirror Transfer-Snapshots standardmäßig ausgeblendet, da sie während eines Failovers gelöscht werden können. Diese Löschung führt dazu, dass die Workload nach dem Failover aufgrund des Fehlers „Kein gemeinsamer Snapshot gefunden“ nicht erneut geschützt werden kann. SnapMirror Transfer-Snapshots können weiterhin verwendet werden, allerdings ist eine zusätzliche Bestätigungsabfrage erforderlich, um das Risiko zu bestätigen.

@@ -16,6 +16,33 @@ Erfahren Sie mehr über die Neuerungen im Bereich NetApp Disaster Recovery.
 
 
 
+[[31-august-2026]]
+== 31. August 2026
+
+Version 4.3.6P1
+
+
+
+[[improved-snapmirror-snapshot-management]]
+=== Verbesserte SnapMirror Snapshot-Verwaltung
+
+Sie können nun ein Failover mithilfe des neuesten Snapshots auslösen, was die bevorzugte Methode ist, wenn kein neuer Snapshot erstellt wird.
+
+Bei Auswahl einer bestimmten Snapshot-Baseline werden SnapMirror Transfer-Snapshots standardmäßig ausgeblendet. Dies liegt daran, dass sie während eines Failovers gelöscht werden können, was dazu führt, dass die Workload nach dem Failover aufgrund des Fehlers „Kein gemeinsamer Snapshot gefunden“ nicht wiederhergestellt werden kann. Diese Snapshots können weiterhin verwendet werden, allerdings ist eine zusätzliche Bestätigungsabfrage erforderlich, um das Risiko zu bestätigen.
+
+Weitere Informationen finden sich unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover zu einem Remotestandort"^].
+
+
+
+[[other-improvements]]
+=== Weitere Verbesserungen
+
+* Kleinere Verbesserungen wurden vorgenommen, um die Ausfallsicherheit des Test Failover-Workflows zu erhöhen.
+* Ein Validierungsfehler beim Hinzufügen eines Skripts wurde behoben.
+
+
+
+
 [[10-august-2026]]
 == 10. August 2026
 
