@@ -12,7 +12,7 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Überwachung der NetApp Disaster Recovery Jobs, um deren Status und Fortschritt nachzuverfolgen.
+Überwachung von NetApp Disaster Recovery Jobs ermöglicht die Einsicht in deren Verlauf, Status und Details. Das Nachverfolgen von Auftragsstatus und Fortschritt ermöglicht das Erkennen fehlgeschlagener oder blockierter Vorgänge, bevor diese die Wiederherstellungsbereitschaft beeinträchtigen.
 
 
 
