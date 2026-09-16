@@ -12,7 +12,9 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Im Katastrophenfall kann das primäre lokale VMware-System auf ein anderes lokales VMware-System oder auf VMware Cloud on AWS umgeschaltet werden. Auch ein vorheriger Test des Failover-Prozesses ist möglich, um zu bestätigen, dass die Wiederherstellung wie erwartet funktioniert.
+Wenn eine Katastrophe oder ein ähnliches Ereignis eintritt, kann NetApp Disaster Recovery verwendet werden, um kritische Workloads wiederherzustellen, sodass Anwendungen am Disaster-Recovery-Standort mit geplanten Zuordnungen fortgesetzt werden können.
+
+Disaster Recovery unterstützt auch das Testen von Failover-Vorgängen. Tests tragen dazu bei, sich mit dem Prozess vertraut zu machen und zu bestätigen, dass die Wiederherstellung wie erwartet funktioniert.
 
 *Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadmin“, „Disaster recovery admin“ oder „Disaster recovery failover admin“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 

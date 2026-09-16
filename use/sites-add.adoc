@@ -12,7 +12,7 @@ summary: Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müsse
 
 
 [role="lead"]
-Bevor ein Notfallwiederherstellungsplan erstellt wird, werden die zu schützenden Standorte in NetApp Disaster Recovery hinzugefügt. Ein Standort ist eine Sammlung von vCenter Servern oder Kubernetes-Clustern, entweder lokal oder in der Cloud. Sowohl der Produktionsstandort als auch der Notfallwiederherstellungsstandort werden hinzugefügt.
+Bevor Sie einen Notfallwiederherstellungsplan erstellen, fügen Sie die zu schützenden Standorte in NetApp Disaster Recovery hinzu. Ein Standort ist eine Sammlung von vCenter Servern oder Kubernetes-Clustern, entweder lokal oder in der Cloud. Sowohl der Produktionsstandort als auch der Notfallwiederherstellungsstandort sollten hinzugefügt werden, damit Disaster Recovery die für die Wiederherstellung verwendeten Ressourcen koordinieren kann.
 
 
 TIP: Stellen Sie sicher, dass sowohl die Quelle als auch das Ziel denselben NetApp Console-Agenten verwenden.

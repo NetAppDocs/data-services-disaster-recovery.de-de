@@ -14,6 +14,16 @@ summary: Durch die Überprüfung von Notfallwiederherstellungsberichten können 
 [role="lead"]
 NetApp Disaster Recovery-Berichte dienen zur Bewertung der Notfallwiederherstellungsbereitschaft. Die Berichte enthalten Details zu Replikationsplänen, einschließlich der Anzahl der Ressourcengruppen, VMs, Kubernetes-Cluster und Datenspeicher, die von jedem Plan abgedeckt werden. Die Berichte zeigen außerdem den Compliance-Status, Zusammenfassungen der Jobs und Backup-Einstellungen wie Recovery Point Objective (RPO) und Aufbewahrungsanzahl.
 
+Berichte bieten die Möglichkeit, die Einhaltung der Replikationsrichtlinien und die Wiederherstellungshistorie vor einem Vorfall zu bewerten, sodass Schutzlücken identifiziert werden können.
+
+
+TIP: link:dashboard-view.html["Der Schutzstatus kann auf hoher Ebene im Dashboard oder nach Arbeitslast auf der Seite „Arbeitslasten“ eingesehen werden."]
+
+
+
+[[about-disaster-recovery-reports]]
+== Über Disaster Recovery-Berichte
+
 Sie können Berichte im PDF-, HTML- oder JSON-Format herunterladen.
 
 Der Link zum Herunterladen des Berichts ist nach dessen Generierung sechs Stunden lang gültig.

@@ -12,7 +12,7 @@ summary: Mit NetApp Disaster Recovery ist die Migration von VMware-Anwendungen v
 
 
 [role="lead"]
-Mit NetApp Disaster Recovery können Sie VMware-Apps von Ihrem Quellstandort auf einen anderen Standort migrieren.
+NetApp Disaster Recovery unterstützt die Migration von VMware-Anwendungen vom Quellstandort zu einem sekundären Standort. Die Migrationsfunktion kann beispielsweise genutzt werden, wenn Infrastrukturänderungen vorgenommen werden, sodass die Zielumgebung den Produktionsbetrieb übernehmen kann.
 
 
 TIP: Nachdem der Replikationsplan erstellt, die Wiederholung im Assistenten festgelegt und die Migration initiiert wurde, führt Disaster Recovery alle 30 Minuten eine Überprüfung durch, ob die Migration gemäß dem Plan verläuft. Der Fortschritt kann auf der Seite „Job Monitor“ überwacht werden.

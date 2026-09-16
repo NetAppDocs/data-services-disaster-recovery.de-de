@@ -19,9 +19,10 @@ Vor der Konfiguration von NetApp Disaster Recovery für Kubernetes sollte jeder 
 [[prerequisites]]
 == Voraussetzungen
 
-Bevor Sie beginnen, stellen Sie sicher, dass Ihr Kubernetes-Cluster und Ihre ONTAP Cluster konfiguriert sind.
+* Bevor Sie die Anforderungen für den Kubernetes-Cluster konfigurieren, stellen Sie sicher, dass Sie Ihren Kubernetes-Cluster und Ihre ONTAP-Cluster konfiguriert haben.
+* Stellen Sie sicher, dass Sie eine unterstützte Version von Kubernetes verwenden. Disaster Recovery unterstützt link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html["jede derzeit von Trident Protect unterstützte Kubernetes-Version"^].
+* Die entsprechenden Einstellungen link:../reference/trident-permissions.html["Berechtigungen für Trident Protect"] konfigurieren.
 
-Disaster Recovery unterstützt link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html["jede derzeit von Trident Protect unterstützte Kubernetes-Version"^].
 
 
 
@@ -61,13 +62,8 @@ Wenn Sie Trident bereits installiert haben, überprüfen Sie die Installation mi
 
 
 
-[[configure-ontap-backend-and-trident-storageclass]]
-== Konfigurieren Sie das ONTAP-Backend und die Trident StorageClass
-
-
-
 [[create-a-kubernetes-secret]]
-=== Erstelle ein Kubernetes-Secret
+== Erstelle ein Kubernetes-Secret
 
 Erstellen Sie ein Kubernetes-Secret im Namespace:
 
@@ -113,7 +109,7 @@ Sie können die Konfiguration mit dem Befehl `kubectl get TridentBackendConfig -
 
 
 [[configure-the-storage-class]]
-=== Konfigurieren Sie die Speicherklasse
+== Konfigurieren Sie die Speicherklasse
 
 link:https://docs.netapp.com/us-en/trident/trident-use/create-stor-class.html["Erstellen Sie das Speicherklassenobjekt"^]. Verwenden Sie den Provisioner `csi.trident.netapp.io`. Zum Beispiel:
 
@@ -215,6 +211,13 @@ Nachdem Sie den Status aller Ressourcen überprüft haben, stellen Sie Ihre Work
 
 
 ====
+
+
+[[netapp-console-roles]]
+== NetApp Console-Rollen
+
+Nach der Durchführung Ihrer Trident Protect und Kubernetes Konfigurationen,link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Es sollte sichergestellt sein, dass die richtigen NetApp Console Rollen für NetApp Disaster Recovery vorhanden sind, damit Erkennung, Failover und andere Aufgaben ausgeführt werden können."^]
+
 
 
 [[more-information]]

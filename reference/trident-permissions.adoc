@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: reference/trident-permissions.html 
+keywords: disaster recovery, IAM, permissions, Trident Protect, S3, StorageGrid, AppVault, cluster registration, cluster discover 
+summary: Bei der Verwendung von NetApp Disaster Recovery ist darauf zu achten, dass die richtigen Trident Protect Konfigurationen eingerichtet sind, damit Ihre Kubernetes-Cluster erkannt und registriert werden können. 
+---
+= Trident Protect-Berechtigungen für NetApp Disaster Recovery konfigurieren
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Bei der Verwendung von NetApp Disaster Recovery ist darauf zu achten, dass die richtigen Trident Protect Konfigurationen eingerichtet sind, damit Ihre Kubernetes-Cluster erkannt und registriert werden können.
+
+
+
+[[trident-protect-cluster-permissions]]
+== Trident Protect Cluster-Berechtigungen
+
+Für die NetApp Disaster Recovery sind folgende Clusterberechtigungen erforderlich:
+
+[cols="3,1"]
+|===
+| Berechtigung | Funktion 
+
+
+| dr:trident_cluster-view | Registrierte Kubernetes-Cluster und das von NetApp Disaster Recovery verwendete Clusterinventar anzeigen 
+
+
+| dr:trident_cluster-create | Ein Kubernetes-Cluster wird registriert und Setup-Befehle werden generiert. 
+
+
+| dr:trident_cluster-update | Einen registrierten Kubernetes Cluster modifizieren. 
+
+
+| dr:trident_cluster-delete | Einen registrierten Kubernetes Cluster löschen. 
+
+
+| dr:trident_cluster-refresh | Trident Clustererkennung ausführen. 
+|===
+
+
+[[trident-protect-appvault-permissions]]
+== Trident Protect AppVault-Berechtigungen
+
+Für die Notfallwiederherstellung sind folgende AppVault-Berechtigungen erforderlich:
+
+[cols="3,1"]
+|===
+| Berechtigung | Funktion 
+
+
+| dr:trident_appvault-view | Trident AppVaults und Cloud-/Objektspeicher-Erkennungsdaten anzeigen, die für die AppVault-Einrichtung erforderlich sind. 
+
+
+| dr:trident_appvault-create | Eine benutzerdefinierte Trident AppVault-Ressource kann über NetApp Disaster Recovery erstellt werden. 
+|===
+
+
+[[trident-protect-credential-permissions]]
+== Trident Protect Anmeldeberechtigungen
+
+Für die NetApp Disaster Recovery sind folgende Berechtigungen für Anmeldeinformationen erforderlich:
+
+[cols="3,1"]
+|===
+| Berechtigung | Funktion 
+
+
+| dr:credential-view | Metadaten der Anmeldeinformationen anzeigen und ONTAP S3/StorageGRID Buckets für die AppVault Einrichtung auflisten. 
+
+
+| dr:credential-create | Anmeldeinformationen einschließlich ONTAP S3 und StorageGRID registrieren. 
+
+
+| dr:credential-update | Anmeldedaten einschließlich ONTAP S3 und StorageGRID aktualisieren. 
+
+
+| dr:credential-delete | Anmeldeinformationen einschließlich ONTAP S3 und StorageGRID löschen. 
+|===

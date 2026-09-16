@@ -12,7 +12,7 @@ summary: Mit NetApp Disaster Recovery können VMware-Anwendungen mithilfe der Sn
 
 
 [role="lead"]
-Mit NetApp Disaster Recovery können VMware-Anwendungen mithilfe der SnapMirror Replizierung vom Quellstandort zu einem entfernten Disaster Recovery-Standort in der Cloud repliziert werden.
+Mit NetApp Disaster Recovery können VMware-Anwendungen vom Quellstandort mithilfe der SnapMirror Replizierung an einen entfernten Notfallwiederherstellungsstandort in der Cloud repliziert werden. Die Aktualität der Wiederherstellungsdaten an einem entfernten Standort stellt sicher, dass geschützte Anwendungen aus aktuellen SnapMirror Snapshots wiederhergestellt werden können.
 
 
 TIP: Nachdem Sie den Notfallwiederherstellungsplan erstellt, die Wiederholung im Assistenten identifiziert und eine Replikation an einen Notfallwiederherstellungsstandort initiiert haben, überprüft NetApp Disaster Recovery alle 30 Minuten, ob die Replikation tatsächlich gemäß Plan erfolgt. Sie können den Fortschritt auf der Seite „Job Monitor“ überwachen.
