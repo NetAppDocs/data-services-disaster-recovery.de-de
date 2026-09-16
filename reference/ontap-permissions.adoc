@@ -12,14 +12,14 @@ summary: Wenn Sie NetApp Disaster Recovery verwenden, stellen Sie sicher, dass S
 
 
 [role="lead"]
-Wenn Sie NetApp Disaster Recovery verwenden, stellen Sie sicher, dass Sie die richtigen Berechtigungen in ONTAP konfiguriert haben, um ein ordnungsgemäßes Funktionieren zu gewährleisten.
+Die erforderlichen ONTAP Berechtigungen konfigurieren, damit NetApp Disaster Recovery ordnungsgemäß funktioniert.
 
 
 
 [[minimum-ontap-permissions]]
 == Mindestberechtigungen für ONTAP
 
-Für die NetApp Disaster Recovery sind folgende ONTAP-Berechtigungen erforderlich:
+Für die Notfallwiederherstellung sind folgende ONTAP Berechtigungen erforderlich:
 
 [cols="3,1"]
 |===
@@ -111,7 +111,7 @@ Für die NetApp Disaster Recovery sind folgende ONTAP-Berechtigungen erforderlic
 [[add-permissions-in-ontap]]
 == Berechtigungen in ONTAP hinzufügen
 
-Das Hinzufügen von Berechtigungen in ONTAP erfordert das Erstellen einer Rolle mit den erforderlichen Berechtigungen und das Zuweisen der Rolle zu einem Benutzer. Sie können diese Aufgabe in ONTAP mit dem System Manager oder der ONTAP CLI durchführen.
+Um Berechtigungen in ONTAP hinzuzufügen, eine Rolle mit den erforderlichen Berechtigungen erstellen und diese einem Benutzer zuweisen. Diese Aufgabe kann in ONTAP mit System Manager oder der ONTAP CLI abgeschlossen werden.
 
 [role="tabbed-block"]
 ====

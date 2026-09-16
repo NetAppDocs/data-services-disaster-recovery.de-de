@@ -259,13 +259,20 @@ TIP: Führen Sie den CLI-Befehl  `kubectl get pvc -n <namespace>` im Namespace a
 Wählen Sie den *Startzeitpunkt für Snapshots und Aufbewahrung* (Kalenderdatum und Uhrzeit), die *Snapshot- und Aufbewahrungshäufigkeit* (wie oft Snapshots initiiert werden) und die *Snapshot-Aufbewahrungsanzahl* (wie viele Snapshots gespeichert werden).
 
 +
-Bei der Einstellung der Snapshot-Frequenz beträgt das Minimum fünf Minuten.
+Bei der Festlegung der Snapshot-Frequenz muss eine Frequenz von mindestens fünf Minuten gewählt werden.
 
 . Wählen Sie *Hinzufügen AppVault*, um den AppVault zu erstellen, in dem die Schutzdaten gespeichert werden.
 +
 .. Geben Sie einen *Namen* ein und wählen Sie den *Konsolenagenten* aus, mit dem AppVault verbunden werden soll.
 .. Wählen Sie den Cloud-Anbieter für das Hosting der *AppVault* aus.
-.. Basierend auf der Anbieterauswahl füllt Disaster Recovery die vorhandenen konfigurierten Cloud-Abonnements aus. Wählen Sie das *Abonnement*, die *Ressourcengruppe* und das *Speicherkonto* für den Cloud-Anbieter aus.
+.. Basierend auf der Anbieterauswahl füllt Disaster Recovery die vorhandenen konfigurierten Cloud-Abonnements aus.
++
+Für Azure sind das *Abonnement*, die *Ressourcengruppe* und das *Speicherkonto* für den Cloud-Anbieter auszuwählen.
+
++
+Für AWS, ONTAP S3 und StorageGRID das *Konto*, die *Anmeldeinformationen* und den *Bucket* auswählen.
+
+.. Wenn Sie ONTAP S3 oder StorageGRID ausgewählt haben, können Sie optional Anmeldeinformationen hinzufügen. *Anmeldeinformationen hinzufügen* auswählen, um die Optionen anzuzeigen, dann den *Namen der Anmeldeinformationen*, den *Gateway-Knoten-FQDN*, die *Portnummer*, den *Access Key* und den *Secret Key* hinzufügen.
 .. Wählen Sie **Hinzufügen**.
 +
 image:kubernetes-mapping.png["Screenshot der Storage-Klassenzuordnung für Kubernetes"]
@@ -282,7 +289,29 @@ Nach Auswahl von „Hinzufügen“ können Sie die verschiedenen Jobs in **Job m
 --
 ====
 
-NOTE: Für Kubernetes ist dies der letzte Schritt zum Erstellen einer Replikation. Für vCenters fahren Sie mit <<Abschnitt Compute-Ressourcen>> fort.
+
+==== Ressourcentransformationen und Skriptausführungen
+
+Für Kubernetes-Replikationspläne können Ressourcentransformationen und Skriptausführungen angewendet werden. Diese Schritte sind optional.
+
+.Eine Ressourcentransformation hinzufügen
+Durch das Hinzufügen einer Ressourcentransformation wird es möglich, jeden Aspekt einer Arbeitslast während eines Failovers zu ändern. Ressourcentransformationen bieten Flexibilität, um Arbeitslasten während eines Notfallwiederherstellungsereignisses an unterschiedliche Umgebungen und Konfigurationen anzupassen. link:task-resource-transformation.html["Informationen zur Erstellung und Ressourcenzuweisung von Transformationen."^]
+
+Ressourcentransformationen werden in der Reihenfolge angewendet, in der sie aufgelistet sind.
+
+. Wählen Sie im Dropdown-Menü die Ressourcentransformation aus, die hinzugefügt werden soll.
+. Wählen Sie aus, auf welche Ressourcen die Transformation angewendet werden soll, und fügen Sie die erforderlichen Werte hinzu.
+. Die Reihenfolge der Transformationen sollte überprüft werden, damit die Operationen in der richtigen Reihenfolge ausgeführt werden.
+
+
+.Eine Skriptausführung hinzufügen
+NetApp Disaster Recovery kann vor oder nach der Erstellung eines Snapshots ein Skript ausführen, um den Ruhezustand und die Wiederaufnahme einer Anwendung zu steuern. Durch diese Vorgehensweise ist gewährleistet, dass Anwendungen vor der Replikation und Wiederherstellung eines Snapshots ordnungsgemäß vorbereitet sind und nach einem Failover nahtlos weiterarbeiten können.
+
+. *+ Skript hinzufügen* auswählen.
+. *Hochladen* auswählen, um die Skriptdatei auszuwählen.
+. Wählen Sie die *Ausführungsphase*: *Vor dem Snapshot*, um die Ausführung vor der Erstellung des Snapshots auszuführen, oder *Nach dem Snapshot*, um die Ausführung danach auszuführen.
+. Wählen Sie *Speichern*.
+
 
 
 

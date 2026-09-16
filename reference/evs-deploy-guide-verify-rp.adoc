@@ -9,13 +9,13 @@ summary: Einführung von NetApp Disaster Recovery mit Amazon EVS und Amazon FSx 
 
 
 [role="lead"]
-Nachdem Sie den Replikationsplan in NetApp Disaster Recovery hinzugefügt haben, kehren Sie zur Seite „Replikationspläne“ zurück, auf der Sie Ihre Replikationspläne und deren Status anzeigen können.  Sie sollten überprüfen, ob sich der Replikationsplan im Zustand *Healthy* befindet.  Wenn dies nicht der Fall ist, sollten Sie den Status des Replikationsplans überprüfen und alle Probleme beheben, bevor Sie fortfahren.
+Nachdem in NetApp Disaster Recovery ein Replikationsplan hinzugefügt wurde, sollte vor dem Fortfahren überprüft werden, ob sich der Plan im Status *Fehlerfrei* befindet.
 
 Abbildung: Seite „Replikationspläne“image:evs-replication-plan-post-create.png["Seite „Replikationspläne“"]
 
-NetApp Disaster Recovery führt eine Reihe von Tests durch, um sicherzustellen, dass alle Komponenten (ONTAP Cluster, vCenter-Cluster und VMs) zugänglich sind und sich im richtigen Zustand befinden, damit der Dienst die VMs schützen kann.  Dies wird als Compliance-Prüfung bezeichnet und regelmäßig durchgeführt.
+NetApp Disaster Recovery führt eine Reihe von Tests durch, um zu überprüfen, ob alle Komponenten, einschließlich des ONTAP Clusters, der vCenter Cluster und der VMs, erreichbar und bereit für den Schutz sind. Dies wird als Konformitätsprüfung bezeichnet und regelmäßig durchgeführt.
 
-Auf der Seite „Replikationspläne“ können Sie die folgenden Informationen sehen:
+Die Seite „Replikationspläne“ zeigt die folgenden Informationen an:
 
 * Status der letzten Compliance-Prüfung
 * Der Replikationsstatus des Replikationsplans

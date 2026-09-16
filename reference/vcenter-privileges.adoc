@@ -12,9 +12,9 @@ summary: Das vCenter-Konto muss über einen Mindestsatz an vCenter-Berechtigunge
 
 
 [role="lead"]
-Damit NetApp Disaster Recovery seine Dienste ausführen kann, muss das vCenter-Konto über einen Mindestumfang an vCenter-Berechtigungen verfügen. Diese Berechtigungen umfassen das Registrieren und Deregistrieren von Datenspeichern, das Starten und Stoppen virtueller Maschinen (VMs) sowie das Rekonfigurieren von VMs.
+Das vCenter-Konto für NetApp Disaster Recovery muss über einen Mindestsatz an Berechtigungen verfügen, um Datenspeicher zu registrieren und abzumelden, virtuelle Maschinen (VMs) zu starten und zu stoppen sowie VMs neu zu konfigurieren.
 
-Die folgende Tabelle listet alle Berechtigungen auf, die für Disaster Recovery zur Schnittstelle mit einem vCenter-Cluster erforderlich sind.
+Die folgende Tabelle listet die Berechtigungen auf, die Disaster Recovery für die Arbeit mit einem vCenter Cluster benötigt.
 
 [cols="1,2,2,3"]
 |===

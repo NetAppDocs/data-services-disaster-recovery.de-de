@@ -9,7 +9,7 @@ summary: 'Einführung von NetApp Disaster Recovery mit Amazon EVS und Amazon FSx
 
 
 [role="lead"]
-Nachdem Sie vCenter zum Schutz auf der lokalen Site haben und eine Amazon EVS-Site für die Verwendung von Amazon FSx for NetApp ONTAP konfiguriert haben, die Sie als DR-Ziel verwenden können, können Sie einen Replikationsplan (RP) erstellen, um alle auf dem vCenter-Cluster innerhalb Ihrer lokalen Site gehosteten VM-Gruppen zu schützen.
+Nachdem die lokalen vCenters identifiziert und eine Amazon EVS Site konfiguriert wurden, die Amazon FSx for NetApp ONTAP als Ziel-Cluster für die Notfallwiederherstellung verwendet, wird ein Replikationsplan erstellt, um die VMs auf dem lokalen vCenter Cluster zu schützen.
 
 
 
@@ -54,8 +54,8 @@ image:evs-create-rp-wiz-a-1-4.png["Replikationsplan erstellen, vCenter auswähle
 Es gibt mehrere Möglichkeiten, VMs für den Schutz auszuwählen. Die folgenden Schritte zeigen, wie der gesamte vCenter Datenspeicher geschützt werden kann, jedoch sollte die Methode gewählt werden, die den eigenen Anforderungen am besten entspricht.
 
 * *Einzelne VMs auswählen*: Über die Schaltfläche *Virtuelle Maschinen* können Sie einzelne VMs zum Schutz auswählen. Wenn Sie eine VM auswählen, wird sie vom Dienst einer Standardressourcengruppe auf der rechten Seite des Bildschirms hinzugefügt.
-* *Vorher erstellte Ressourcengruppen auswählen*: Sie können benutzerdefinierte Ressourcengruppen im Voraus über die Option „Ressourcengruppe“ im Menü „Disaster Recovery“ erstellen. Dies ist nicht erforderlich, da auch die beiden anderen Methoden zur Erstellung einer Ressourcengruppe im Rahmen des Replikationsplan-Prozesses verwendet werden können. Weitere Informationen finden Sie unter link:../use/drplan-create.html["Erstellen eines Replikationsplans"].
-* *Gesamte vCenter Datenspeicher auswählen*: Wenn viele VMs mit diesem Replikationsplan geschützt werden sollen, ist die Auswahl einzelner VMs möglicherweise nicht so effizient. Da Disaster Recovery volumenbasierte SnapMirror Replikation verwendet, um die VMs zu schützen, werden alle VMs, die sich auf einem Datenspeicher befinden, als Teil des Volumes repliziert. In den meisten Fällen sollte Disaster Recovery alle auf dem Datenspeicher befindlichen VMs schützen und neu starten. Mit dieser Option wird dem Service mitgeteilt, dass alle auf einem ausgewählten Datenspeicher gehosteten VMs zur Liste der geschützten VMs hinzugefügt werden.
+* *Vorher erstellte Ressourcengruppen auswählen*: Sie können benutzerdefinierte Ressourcengruppen vorab über die Option „Ressourcengruppe“ im Menü „Disaster Recovery“ erstellen. Dies ist optional, da Sie die beiden anderen Methoden verwenden können, um während der Erstellung des Replikationsplans eine Ressourcengruppe zu erstellen. Weitere Informationen finden Sie unter link:../use/drplan-create.html["Erstellen eines Replikationsplans"].
+* *Gesamte vCenter Datenspeicher auswählen*: Mit dieser Option werden alle VMs, die sich auf einem Datenspeicher befinden, als Teil des Volumes repliziert. Diese Option eignet sich, wenn mehrere VMs mit dem Replikationsplan geschützt werden sollen, um die Auswahl einzelner VMs zu vermeiden. In den meisten Fällen sollte Disaster Recovery alle VMs, die sich auf dem Datenspeicher befinden, schützen und neu starten. Mit dieser Option wird dem Dienst mitgeteilt, dass alle auf einem ausgewählten Datenspeicher gehosteten VMs zur Liste der geschützten VMs hinzugefügt werden.
 
 
 .Schritte zum Zugriff auf diese Seite
@@ -86,7 +86,7 @@ Nachdem Sie die zu schützenden VMs ausgewählt haben, muss die Netzwerkzuordnun
 Jede VM benötigt die ersten drei Arten von Informationen.  Für jeden Datenspeicher, der zu schützende VMs hostet, ist eine Datenspeicherzuordnung erforderlich.
 
 * Die Abschnitte mit dem Warnsymbol (image:evs-caution-icon.png["20,20"]) erfordern die Angabe von Zuordnungsinformationen.
-* Die mit dem Häkchensymbol (image:evs-check-icon.png["20,20"]) gekennzeichneten Abschnitte wurden bereits zugeordnet oder verfügen über Standardzuordnungen. Diese können überprüft werden, um sicherzustellen, dass die aktuelle Konfiguration den Anforderungen entspricht.
+* Die mit dem Häkchensymbol (image:evs-check-icon.png["20,20"]) gekennzeichneten Abschnitte verwenden entweder Standardzuordnungen oder wurden bereits zugeordnet. Die Zuordnungen sollten überprüft werden, damit die aktuelle Konfiguration den Anforderungen entspricht.
 
 
 .Zugriffsressourcen Zuordnung
@@ -103,14 +103,14 @@ image:evs-create-rp-wiz-c0.png["Replikationsplan erstellen, Seite zur Ressourcen
 [[compute-resources-mapping]]
 === Zuordnung von Rechenressourcen
 
-Da ein Standort mehrere virtuelle Rechenzentren und mehrere vCenter-Cluster hosten kann, müssen Sie ermitteln, auf welchem vCenter-Cluster die VMs im Falle eines Failovers wiederhergestellt werden sollen.
+Da ein Standort mehrere virtuelle Rechenzentren und mehrere vCenter Cluster beherbergen kann, muss ermittelt werden, auf welchem vCenter Cluster die VMs im Falle eines Failovers wiederhergestellt werden sollen.
 
 .Schritte
 . Wählen Sie das virtuelle Rechenzentrum aus der Liste der Rechenzentren am DR-Standort aus.
 . Wählen Sie aus der Liste der Cluster im ausgewählten virtuellen Rechenzentrum den Cluster aus, der die Datenspeicher und VMs hosten soll.
 . Optional kann ein Zielhost im Zielcluster ausgewählt werden.
 +
-Dieser Schritt ist nicht erforderlich, da Disaster Recovery den ersten dem Cluster in vCenter hinzugefügten Host auswählt. An diesem Punkt laufen die VMs entweder weiterhin auf diesem ESXi-Host oder VMware DRS verschiebt die VM bei Bedarf entsprechend den konfigurierten DRS-Regeln auf einen anderen ESXi-Host.
+Dieser Schritt ist nicht erforderlich, da Disaster Recovery den ersten dem Cluster in vCenter hinzugefügten Host auswählt. Die VMs laufen entweder weiterhin auf diesem ESXi Host oder VMware DRS verschiebt sie gemäß den konfigurierten DRS-Regeln auf einen anderen ESXi Host.
 
 . Optional kann der Name eines übergeordneten vCenter-Ordners angegeben werden, in dem die VM-Registrierungen abgelegt werden sollen. Dieser Schritt kann organisatorischen Anforderungen dienen, ist aber nicht erforderlich.
 +
@@ -123,7 +123,7 @@ image:evs-create-rp-wiz-c-compute-resources-1-4.png["Replikationsplan erstellen,
 [[map-virtual-network-resources]]
 === Zuordnen virtueller Netzwerkressourcen
 
-Jede VM kann über eine oder mehrere virtuelle Netzwerkkarten verfügen, die mit virtuellen Netzwerken innerhalb der vCenter-Netzwerkinfrastruktur verbunden sind.  Um sicherzustellen, dass jede VM beim Neustart am DR-Standort ordnungsgemäß mit den gewünschten Netzwerken verbunden ist, ermitteln Sie, mit welchen virtuellen Netzwerken am DR-Standort diese VMs verbunden werden sollen.  Ordnen Sie dazu jedes virtuelle Netzwerk am lokalen Standort einem zugehörigen Netzwerk am DR-Standort zu.
+Jede VM kann über eine oder mehrere virtuelle Netzwerkkarten (NICs) verfügen, die mit virtuellen Netzwerken innerhalb der vCenter Netzwerkinfrastruktur verbunden sind. Damit jede VM beim Neustart am Disaster Recovery-Standort ordnungsgemäß mit den gewünschten Netzwerken verbunden ist, sollte festgelegt werden, mit welchen virtuellen Netzwerken am Disaster Recovery-Standort diese VMs verbunden werden. Dies erfolgt durch die Zuordnung jedes virtuellen Netzwerks am lokalen Standort zu einem zugehörigen Netzwerk am Disaster Recovery-Standort.
 
 . Wählen Sie das Zielsegment aus der Dropdown-Liste aus.
 . Wiederholen Sie den vorherigen Schritt für jedes aufgeführte virtuelle Quellnetzwerk.
@@ -153,9 +153,9 @@ Unterstützte IP-Adresstypen sind statisch und DHCP.  Für statische IP-Adressen
 * *Subnetzzuordnung*: Diese Option konfiguriert die IP-Adresse jeder VM basierend auf der CIDR-Konfiguration des virtuellen Zielnetzwerks neu.  Um diese Funktion zu verwenden, stellen Sie sicher, dass die virtuellen Netzwerke jedes vCenters über eine definierte CIDR-Einstellung innerhalb des Dienstes verfügen, wie in den vCenter-Informationen auf der Sites-Seite geändert.
 
 
-Nachdem Sie Subnetze konfiguriert haben, verwendet die Subnetzzuordnung dieselbe Einheitenkomponente der IP-Adresse für die Quell- und Ziel-VM-Konfiguration, ersetzt jedoch die Subnetzkomponente der IP-Adresse basierend auf den bereitgestellten CIDR-Informationen.  Diese Funktion erfordert außerdem, dass sowohl das virtuelle Quell- als auch das virtuelle Zielnetzwerk dieselbe IP-Adressklasse haben (die `/xx` Komponente des CIDR).  Dadurch wird sichergestellt, dass am Zielstandort genügend IP-Adressen verfügbar sind, um alle geschützten VMs zu hosten.
+Nach der Konfiguration von Subnetzen verwendet die Subnetzzuordnung für die Quell- und Ziel-VM-Konfiguration denselben Hostanteil der IP-Adresse, ersetzt jedoch den Subnetzanteil der IP-Adresse anhand der bereitgestellten CIDR-Informationen. Diese Funktion setzt außerdem voraus, dass sowohl das Quell- als auch das Zielnetzwerk dieselbe IP-Adressklasse (die  `/xx` Komponente der CIDR) aufweisen. Dadurch ist gewährleistet, dass am Zielstandort genügend IP-Adressen für alle geschützten VMs verfügbar sind.
 
-Bei diesem EVS-Setup gehen wir davon aus, dass die Quell- und Ziel-IP-Konfigurationen identisch sind und keine zusätzliche Neukonfiguration erforderlich ist.
+Für diese Amazon EVS Konfiguration wird angenommen, dass die Quell- und Ziel-IP-Konfigurationen identisch sind und keine zusätzliche Neukonfiguration erforderlich ist.
 
 .Netzwerkeinstellungen neu konfigurieren
 . Wählen Sie den IP-Adresstyp aus, der für VMs verwendet werden soll, bei denen ein Failover durchgeführt wurde.
@@ -209,7 +209,7 @@ image:evs-create-rp-wiz-c-vm-resources-boot-delay-1-2.png["Replikationsplan und 
 Die Notfallwiederherstellung unterstützt einige Gastbetriebssystemoperationen für jede VM:
 
 * NetApp Disaster Recovery kann applikationskonsistente Backups von VMs für VMs erstellen, auf denen Oracle Datenbanken und Microsoft SQL Server Datenbanken ausgeführt werden.
-* NetApp Disaster Recovery kann für jede VM benutzerdefinierte Skripte ausführen, die für das jeweilige Gastbetriebssystem geeignet sind. Für die Ausführung solcher Skripte sind Benutzeranmeldeinformationen erforderlich, die vom Gastbetriebssystem akzeptiert werden und über ausreichende Berechtigungen zur Ausführung der im Skript aufgeführten Operationen verfügen.
+* NetApp Disaster Recovery kann benutzerdefinierte Skripte für das Gastbetriebssystem für jede VM ausführen. Für die Ausführung solcher Skripte sind Benutzeranmeldeinformationen erforderlich, die vom Gastbetriebssystem akzeptiert werden und über ausreichende Berechtigungen zur Ausführung der im Skript aufgeführten Operationen verfügen.
 
 
 .Ändern Sie die benutzerdefinierten Gastbetriebssystemvorgänge jeder VM

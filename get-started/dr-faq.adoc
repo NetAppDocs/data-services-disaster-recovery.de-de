@@ -242,4 +242,4 @@ Berichte können für VMware, Kubernetes oder alle Workloads erstellt werden und
 == Kubernetes-spezifische Fragen
 
 .Was ist ein AppVault?
-Ein AppVault ist das Cloud-Speicherziel, in dem Trident Protect Kubernetes-Schutzdaten speichert. Ein AppVault wird beim Konfigurieren eines Kubernetes-Replikationsplans erstellt.
+Ein AppVault ist das Cloud-Speicherziel, an dem Trident Protect die Kubernetes-Schutzdaten speichert. Ein AppVault wird beim Konfigurieren eines Kubernetes-Replikationsplans erstellt. AppVaults können auch auf der Seite „Einstellungen“ verwaltet werden.

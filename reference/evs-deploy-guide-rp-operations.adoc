@@ -9,14 +9,12 @@ summary: Einführung von NetApp Disaster Recovery mit Amazon EVS und Amazon FSx 
 
 
 [role="lead"]
-Verwenden Sie NetApp Disaster Recovery mit Amazon EVS und Amazon FSx for NetApp ONTAP, um die folgenden Vorgänge auszuführen: Failover, Test-Failover, Ressourcen aktualisieren, migrieren, jetzt einen Snapshot erstellen, Replikationsplan deaktivieren/aktivieren, alte Snapshots bereinigen, Snapshots abgleichen, Replikationsplan löschen und Zeitpläne bearbeiten.
+Nach der Konfiguration des Replikationsplans in NetApp Disaster Recovery können Failover durchgeführt, Failover getestet, Ressourcen aktualisiert, migriert sowie Snapshots und Replikationspläne verwaltet werden. Die wichtigste Maßnahme neben der Wartung ist das Failover im Fehlerfall.
 
 
 
 [[fail-over]]
 == Failover
-
-Der wichtigste Vorgang, den Sie möglicherweise durchführen müssen, ist der, von dem Sie hoffen, dass er nie eintritt: das Failover zum DR-(Ziel-)Rechenzentrum im Falle eines katastrophalen Fehlers am Produktionsstandort vor Ort.
 
 Failover ist ein manuell initiierter Prozess.
 
@@ -63,8 +61,7 @@ Die Schritte zum Ausführen eines Test-Failovers sind mit denen zum Ausführen e
 +
 image:evs-rp-menu-test-failover.png["Menüoption „Failover testen“"]
 
-. Entscheiden Sie, ob Sie den neuesten Stand der Produktionsumgebung abrufen möchten (Jetzt Snapshot erstellen) oder ein zuvor erstelltes Backup des Replikationsplans verwenden möchten (Auswählen).
-. Wenn Sie ein zuvor erstelltes Backup ausgewählt haben, wählen Sie das Backup aus, das für die Wiederherstellung verwendet werden soll.
+. Wählen Sie den gewünschten Snapshot aus. Für die aktuellste Kopie der Produktionsumgebung *Jetzt Snapshot erstellen* auswählen. Für die Verwendung eines zuvor erstellten Snapshots *Auswählen* wählen und anschließend den vorhandenen Snapshot auswählen.
 . Geben Sie das Wort „Test-Failover“ ein, um zu bestätigen, dass Sie fortfahren möchten.
 . Wählen Sie *Failover testen*.
 +
@@ -93,7 +90,7 @@ image:evs-rp-menu-compliance-check.png["Menüoption „Konformitätsprüfung aus
 [[refresh-resources]]
 == Ressourcen aktualisieren
 
-Jedes Mal, wenn Sie Änderungen an Ihrer virtuellen Infrastruktur vornehmen – beispielsweise VMs hinzufügen oder löschen, Datenspeicher hinzufügen oder löschen oder VMs zwischen Datenspeichern verschieben – müssen Sie eine Aktualisierung der betroffenen vCenter-Cluster im NetApp Disaster Recovery Dienst durchführen.  Der Dienst führt dies standardmäßig alle 24 Stunden automatisch durch, eine manuelle Aktualisierung stellt jedoch sicher, dass die neuesten Informationen zur virtuellen Infrastruktur verfügbar sind und für den DR-Schutz berücksichtigt werden.
+Jedes Mal, wenn Änderungen an Ihrer virtuellen Infrastruktur vorgenommen werden, wie zum Beispiel das Hinzufügen oder Löschen von VMs, das Hinzufügen oder Löschen von Datenspeichern oder das Verschieben von VMs zwischen Datenspeichern, ist eine Aktualisierung der betroffenen vCenter Cluster in Disaster Recovery erforderlich. Disaster Recovery wird standardmäßig alle 24 Stunden automatisch aktualisiert, aber eine manuelle Aktualisierung stellt sicher, dass die neuesten Informationen zur virtuellen Infrastruktur verfügbar sind und für den Schutz durch Disaster Recovery berücksichtigt werden.
 
 Es gibt zwei Fälle, in denen eine Aktualisierung erforderlich ist:
 
@@ -108,7 +105,7 @@ image::evs-rp-menu-refresh-resources.png[Menüoption „Ressourcen aktualisieren
 [[migrate]]
 == Wandern
 
-NetApp Disaster Recovery wird zwar in erster Linie für Notfallwiederherstellungsfälle verwendet, kann aber auch einmalige Verschiebungen einer Reihe von VMs vom Quellstandort zum Zielstandort ermöglichen.  Dies könnte für ein konzertiertes Migrationsprojekt in die Cloud oder zur Katastrophenvermeidung genutzt werden – etwa bei schlechtem Wetter, politischen Unruhen oder anderen potenziellen vorübergehenden Katastrophenereignissen.
+Neben der Nutzung von NetApp Disaster Recovery zur Verwaltung von Replikation und Failover im Katastrophenfall kann es auch einmalige VM-Migrationen vom Quellstandort zum Zielstandort unterstützen. Eine einmalige Migration kann Teil eines Umzugs in die Cloud oder einer Maßnahme zur Katastrophenvermeidung bei extremen Wetterereignissen oder politischen Unruhen sein.
 
 . Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
 . Um die VMs in einem Replikationsplan in den Amazon EVS-Zielcluster zu verschieben, wählen Sie im Aktionsmenü des Replikationsplans die Option *Migrieren* aus:
@@ -168,7 +165,7 @@ image::evs-rp-menu-cleanup-old-snapshots.png[Menüoption „Alte Snapshots berei
 [[reconcile-snapshots]]
 == Snapshots abgleichen
 
-Da der Dienst ONTAP -Volume-Snapshots orchestriert, kann ein ONTAP Speicheradministrator Snapshots direkt mithilfe von ONTAP System Manager, der ONTAP CLI oder den ONTAP REST APIs löschen, ohne dass der Dienst davon Kenntnis hat.  Der Dienst löscht automatisch alle 24 Stunden alle Snapshots auf der Quelle, die sich nicht auf dem Zielcluster befinden.  Sie können dies jedoch auf Anfrage durchführen.  Mit dieser Funktion können Sie sicherstellen, dass die Snapshots auf allen Sites konsistent sind.
+Da Disaster Recovery ONTAP Volume Snapshots orchestriert, kann ein ONTAP-Speicheradministrator Snapshots direkt über ONTAP System Manager, die ONTAP CLI oder die ONTAP REST APIs löschen, ohne dass der Dienst davon Kenntnis erhält. Disaster Recovery löscht automatisch alle Snapshots auf der Quelle, die nicht auf dem Ziel-Cluster vorhanden sind, alle 24 Stunden. Snapshots können bei Bedarf manuell gelöscht werden. Diese Funktion ermöglicht die Sicherstellung, dass die Snapshots an allen Standorten konsistent sind.
 
 . Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
 . Um Snapshots aus dem Quellcluster zu löschen, die im Zielcluster nicht vorhanden sind, wählen Sie im Menü „Aktionen“ des Replikationsplans die Option „Snapshots abgleichen“ aus.
@@ -236,7 +233,7 @@ Test-Failover werden standardmäßig manuell ausgeführt.  Sie können automatis
 
 
 . Wählen Sie die Tageszeit für die Ausführung des Test-Failovers
-. Wählen Sie das Startdatum.
+. Das Startdatum auswählen.
 . Entscheiden Sie, ob der Dienst die Testumgebung automatisch bereinigen soll und wie lange die Testumgebung ausgeführt werden soll, bevor der Bereinigungsprozess beginnt.
 . Wählen Sie *Speichern*.
 +

@@ -9,7 +9,7 @@ summary: Einführung in NetApp Disaster Recovery mit Amazon EVS und Amazon FSxN.
 
 
 [role="lead"]
-Nachdem Sie die Sites erstellt haben, fügen Sie nun Ihre vCenter-Cluster zu jeder Site in NetApp Disaster Recovery hinzu.  Beim Erstellen der einzelnen Sites haben wir die einzelnen Site-Typen angegeben.  Dadurch wird NetApp Disaster Recovery mitgeteilt, welche Art von Zugriff für die in jedem Site-Typ gehosteten vCenter erforderlich ist.  Einer der Vorteile von Amazon EVS besteht darin, dass es keinen wirklichen Unterschied zwischen einem Amazon EVS vCenter und einem lokalen vCenter gibt.  Beide erfordern dieselben Verbindungs- und Authentifizierungsinformationen.
+Nachdem Sie Standorte erstellt haben, fügen Sie die vCenter-Cluster für jeden Standort in NetApp Disaster Recovery hinzu. Der Standorttyp bestimmt den Zugriff, den NetApp Disaster Recovery für die vCenters in diesem Standort benötigt. Amazon EVS vCenters und lokale vCenters verwenden dieselben Verbindungs- und Authentifizierungsinformationen.
 
 .Schritte zum Hinzufügen eines vCenters zu jeder Site
 . Wählen Sie unter der Option *Sites* für die gewünschte Site die Option *vCenter hinzufügen* aus.
@@ -20,13 +20,13 @@ image:evs-add-vcenter-1.png["vCenter-Option hinzufügen"]
 +
 .. Der NetApp Console , der in Ihrem AWS VPC gehostet wird.
 .. Die IP-Adresse oder der FQDN für das hinzuzufügende vCenter.
-.. Falls abweichend, ändern Sie den Portwert in den TCP-Port, der von Ihrem vCenter-Cluster-Manager verwendet wird.
+.. Falls erforderlich, den Port auf den TCP-Port ändern, der von Ihrem vCenter Server verwendet wird.
 .. Der vCenter-Benutzername für das zuvor erstellte Konto, der von NetApp Disaster Recovery zum Verwalten des vCenter verwendet wird.
 
 
 
 
-. Wenn Ihr Unternehmen eine externe Zertifizierungsstelle (CA) oder den vCenter Endpoint Certificate Store verwendet, um Zugriff auf Ihre vCenter zu erhalten, deaktivieren Sie das Kontrollkästchen *Selbstsignierte Zertifikate verwenden*.  Andernfalls lassen Sie das Kontrollkästchen aktiviert.
+. Wenn Ihre Organisation eine externe Zertifizierungsstelle (CA) oder den vCenter Endpoint Certificate Store verwendet, das Häkchen bei *Selbstsignierte Zertifikate verwenden* entfernen. Andernfalls das Kontrollkästchen aktiviert lassen.
 +
 .. Wählen Sie *Hinzufügen*.
 +

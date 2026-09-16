@@ -4,7 +4,7 @@ permalink: use/dashboard-view.html
 keywords: disaster recovery remediate, disaster recovery, failover, failback, replication, bluexp, netapp 
 summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert. 
 ---
-= Status des Katastrophenwiederherstellungsplans in NetApp Disaster Recovery anzeigen
+= Integrität des Plans und Workload-Schutzstatus in NetApp Disaster Recovery anzeigen
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,13 +12,20 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Das NetApp Disaster Recovery Dashboard bietet eine Übersicht über den Zustand Ihrer Disaster-Recovery-Standorte und Replikationspläne. Es wird angezeigt, ob Standorte und Pläne funktionsfähig, getrennt oder beeinträchtigt sind, aktuelle Warnungen und fehlgeschlagene Aufträge können eingesehen, geschützte und ungeschützte Workloads identifiziert und die Kapazität auf einen Blick erfasst werden.
+NetApp Disaster Recovery bietet verschiedene Möglichkeiten, Einblicke in die von Disaster Recovery erkannten Workloads sowie in den Zustand Ihrer Standorte und Replikationspläne zu erhalten.
+
+Das *Dashboard* liefert Informationen über den Zustand von Standorten und Plänen und zeigt einen Status von „Verfügbar“, „Nicht verfügbar“ oder „Beeinträchtigt“ an. Es präsentiert außerdem aktuelle Warnungen und fehlgeschlagene Aufträge. Es bietet ebenfalls einen Überblick über Kapazität und Schutzstatus. Das Dashboard dient zur Überprüfung des Zustands und zur Anzeige eines Überblicks über Ihre Workloads.
+
+Die Seite *Workloads* bietet detaillierte Auflistungen aller von NetApp Disaster Recovery erkannten VMware- und Kubernetes-Workloads. Es werden Informationen zum jeweiligen Workload und dessen Schutzstatus bereitgestellt. Auf der Seite *Workloads* lassen sich detaillierte Informationen zu Workloads und deren Schutzstatus einsehen.
 
 *Erforderliche NetApp Console-Rolle* Die Rolle Superadmin, Disaster recovery admin, Disaster recovery application admin oder Disaster recovery viewer ist erforderlich, um diese Aufgabe auszuführen. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
+
+
+[[view-health-and-protection-status-in-the-dashboard]]
+== Gesundheits- und Schutzstatus im Dashboard
+
 .Schritte
-. Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
-. Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 . Wählen Sie im NetApp Disaster Recovery Menü *Dashboard* aus.
 +
 image:dr-dashboard.png["NetApp Disaster Recovery Dashboard"]
@@ -49,4 +56,46 @@ Details des Replikationsplans sind unter *Alle Replikationspläne anzeigen* eins
 
 . *Letzte Warnungen und Aufträge* zeigt die zuletzt ausgeführten Aufträge und Warnungen sowie deren zugehörige Status an. *Alle Aufträge anzeigen* zeigt alle Aufträge an.
 . Der *Erkennungs- und Schutzstatus* zeigt die Anzahl der erkannten Workloads sowie eine numerische Aufschlüsselung der geschützten und ungeschützten Workloads nach Typ. Auch die insgesamt erkannte Kapazität aller Workloads und die Workloads nach Typ werden angezeigt.
+
+
+
+
+[[review-workloads-protection-status]]
+== Schutzstatus der Workloads überprüfen
+
+Auf der Seite „Workloads“ lässt sich der Schutzstatus einzelner, von Disaster Recovery entdeckter Workloads einsehen. Zusätzlich zum Schutzstatus zeigt Disaster Recovery die folgenden Informationen zu jedem Workload-Typ:
+
+|===
+| Kubernetes-Workloads | vCenter Workloads 
+
+
+ a| 
+* Cluster
+* Name
+* Geschützte Namensräume
+* Replikationsplan (falls zugewiesen)
+* Standort
+* Schutzstatus
+
+ a| 
+* CPUs
+* Name des Rechenzentrums
+* Datenspeichername
+* Arbeitsspeicher
+* Schutzstatus
+* Replikationsplan (falls zugewiesen)
+* Ressourcengruppe (falls vorhanden)
+* vCenter IP-Adresse
+* Workload-Name
+
+
+|===
+.Schritte
+. Im Menü NetApp Disaster Recovery die Option *Workloads* auswählen.
+. Im Dropdown-Menü den Filter auswählen, um entweder *vCenter*- oder *Kubernetes*-Workloads anzuzeigen.
++
+image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
+
+. Optional kann nach einer bestimmten Arbeitslast gesucht oder Arbeitslasten nach Schutzstatus gefiltert werden: entweder geschützt oder ungeschützt.
+. Die Informationen zu den Workloads und dem Schutzstatus werden angezeigt. Geschützte Workloads sind mit einem grünen Häkchen gekennzeichnet. Nicht geschützte Workloads haben einen grauen Strich.
 
