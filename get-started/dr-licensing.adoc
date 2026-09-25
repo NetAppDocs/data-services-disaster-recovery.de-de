@@ -12,7 +12,7 @@ summary: Mit NetApp Disaster Recovery können Sie verschiedene Lizenzierungsplä
 
 
 [role="lead"]
-NetApp Disaster Recovery bietet verschiedene Lizenzierungsoptionen, darunter eine kostenlose Testversion, ein Pay-as-you-go Abonnement und die Möglichkeit, eine eigene Lizenz (BYOL) zu verwenden.
+NetApp Disaster Recovery bietet verschiedene Lizenzoptionen, darunter eine kostenlose Testversion, ein Pay-as-you-go-Abonnement und Bring Your Own License (BYOL). Die Bestätigung des Lizenzmodells vor der Konfiguration von Disaster Recovery stellt sicher, dass der Dienst den Anforderungen Ihrer Organisation entspricht.
 
 *Erforderliche NetApp Console-Rolle* Für die Ausführung dieser Aufgabe ist die Rolle „Superadministrator“, „Administrator für Notfallwiederherstellung“ oder „Anwendungsadministrator für Notfallwiederherstellung“ erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 

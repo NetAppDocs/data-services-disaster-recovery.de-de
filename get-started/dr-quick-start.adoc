@@ -12,7 +12,7 @@ summary: Beginnen Sie in wenigen Schritten mit dem NetApp Disaster Recovery -Ser
 
 
 [role="lead"]
-Mit diesen Schritten gelingt der Einstieg in NetApp Disaster Recovery. Die Links in den einzelnen Schritten führen zu Seiten mit weiteren Details.
+Informationen zum schnellen Einstieg in NetApp Disaster Recovery, zur Sicherstellung, dass Ihr System die Anforderungen erfüllt, zur Ermittlung von Workloads und zur Konfiguration von Replikationsplänen zur Vorbereitung auf ein Failover.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"]Überprüfen der Voraussetzungen
 [role="quick-margin-para"]

@@ -22,8 +22,6 @@ summary: Häufig gestellte Fragen zur NetApp Disaster Recovery für VMware und K
 Diese FAQ beantwortet häufig gestellte Fragen zur NetApp Disaster Recovery für VMware und Kubernetes Workloads. Im Mittelpunkt stehen Konzepte, Terminologie, Systemverhalten und Einschränkungen, die bei der Implementierung von Disaster Recovery Konfigurationen sowie bei der Verwaltung von Replikations-, Migrations-, Failover- und Failback-Operationen nützlich sind.
 
 
-toc::[]
-
 
 [[getting-started]]
 == Erste Schritte
