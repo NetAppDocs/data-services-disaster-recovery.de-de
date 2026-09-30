@@ -58,7 +58,7 @@ Für diese Aufgaben ist die Rolle „Disaster recovery admin“ erforderlich.
 [role="quick-margin-para"]
 Für diese Aufgaben ist die Rolle „Disaster Recovery admin“ oder „Disaster Recovery failover admin role“ erforderlich.
 
-[role="quick-margin-para"]
+[role="quick-margin-list"]
 * link:../use/failover.html["Failover von Anwendungen auf einen Remote-Standort"]
 * link:../use/failback.html["Failback von Anwendungen auf die ursprüngliche Quellsite"]
 
