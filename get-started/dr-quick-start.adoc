@@ -12,29 +12,53 @@ summary: Beginnen Sie in wenigen Schritten mit dem NetApp Disaster Recovery -Ser
 
 
 [role="lead"]
-Informationen zum schnellen Einstieg in NetApp Disaster Recovery, zur Sicherstellung, dass Ihr System die Anforderungen erfüllt, zur Ermittlung von Workloads und zur Konfiguration von Replikationsplänen zur Vorbereitung auf ein Failover.
+Informationen zur Konfiguration von NetApp Disaster Recovery, damit Ihr System die Anforderungen für die erfolgreiche Erkennung von Workloads erfüllt und Replikationspläne zur Vorbereitung auf ein Failover konfiguriert werden können.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"]Überprüfen der Voraussetzungen
 [role="quick-margin-para"]
-link:../get-started/dr-prerequisites.html["Stellen Sie sicher, dass Ihr System diese Anforderungen erfüllt"] .
+Für die Bereitstellung eines Console Agent und die Zuweisung von Berechtigungen ist die Rolle „Super admin“ oder „Organization admin“ erforderlich.
+
+[role="quick-margin-list"]
+* link:https://docs.netapp.com/us-en/console-setup-admin/concept-agent-install-options.html["Einen Console-Agenten bereitstellen"^]
+* link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Die Benutzerrollen für NetApp Disaster Recovery und die Zuweisung von Berechtigungen an Benutzer, die diese benötigen, sollten überprüft werden."^]
+* link:../get-started/dr-prerequisites.html["Stellen Sie sicher, dass Ihr System diese Anforderungen erfüllt"]
+* Es ist sicherzustellen, dass die entsprechenden Anforderungen für Ihren Workload-Typ erfüllt werden:
++
+** link:../get-started/reference-vmware-prerequisites.html["VMware-Voraussetzungen"]
+** link:../get-started/task-kubernetes-requirements.html["Kubernetes-Voraussetzungen"]
+
+
+
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"]Einrichten von NetApp Disaster Recovery
-[role="quick-margin-list"]
-* link:../get-started/dr-setup.html["Einrichten der Infrastruktur für den Dienst"] .
-* link:../get-started/dr-licensing.html["Einrichten der Lizenzierung"] .
-
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drei"]Wie geht es weiter?
 [role="quick-margin-para"]
-Nachdem Sie den Dienst eingerichtet haben, können Sie diese nächsten Schritte ausführen.
+Für diese Aufgaben ist die Rolle _Super admin_ oder _Disaster recovery admin_ erforderlich.
 
 [role="quick-margin-list"]
-* link:../use/sites-add.html["Fügen Sie Ihre vCenter-Sites zu NetApp Disaster Recovery"] .
-* link:../use/manage.html#manage-resource-groups["Erstellen Sie Ihre erste Ressourcengruppe"] .
-* link:../use/drplan-create.html["Erstellen Sie Ihren ersten Replikationsplan"] .
-* link:../use/replicate.html["Replizieren von Anwendungen auf eine andere Site"] .
-* link:../use/failover.html["Failover von Anwendungen auf einen Remote-Standort"] .
-* link:../use/failback.html["Failback von Anwendungen auf die ursprüngliche Quellsite"] .
-* link:../use/manage.html["Verwalten von Sites, Ressourcengruppen und Replikationsplänen"] .
-* link:../use/monitor-jobs.html["Überwachen von Notfallwiederherstellungsvorgängen"] .
+* link:../get-started/dr-setup.html["Einrichten der Infrastruktur für den Dienst"]
+* link:../get-started/dr-licensing.html["Einrichten der Lizenzierung"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drei"] Konfiguration von Disaster-Recovery-Plänen
+[role="quick-margin-para"]
+Für diese Aufgaben ist die Rolle „Disaster recovery admin“ erforderlich.
+
+[role="quick-margin-list"]
+* link:../use/sites-add.html["Hinzufügen Ihrer Standorte zu Disaster Recovery"]
+* link:../use/manage.html#manage-resource-groups["Ressourcengruppen erstellen"]
+* link:../use/task-appvault.html["Für Kubernetes-Workloads wird ein AppVault hinzugefügt"]
+* link:../use/drplan-create.html["Erstellen eines Replikationsplans"]
+* link:../use/replicate.html["Replizieren von Anwendungen auf eine andere Site"]
+* link:../use/task-resource-transformation.html["Verwaltung von Ressourcentransformationen für Kubernetes Workloads"]
+* link:../use/manage.html["Verwalten von Sites, Ressourcengruppen und Replikationsplänen"]
+* link:../use/monitor-jobs.html["Überwachen von Notfallwiederherstellungsvorgängen"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Wiederherstellung nach Katastrophen
+[role="quick-margin-para"]
+Für diese Aufgaben ist die Rolle „Disaster Recovery admin“ oder „Disaster Recovery failover admin role“ erforderlich.
+
+[role="quick-margin-para"]
+* link:../use/failover.html["Failover von Anwendungen auf einen Remote-Standort"]
+* link:../use/failback.html["Failback von Anwendungen auf die ursprüngliche Quellsite"]
 
