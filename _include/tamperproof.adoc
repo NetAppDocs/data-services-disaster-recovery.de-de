@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: Wenn Sie manipulationssichere SnapLock Snapshots verwenden, müssen Sie die Option *Jetzt Snapshot erstellen* verwenden. Andernfalls schlägt der Vorgang fehl.

@@ -56,6 +56,10 @@ image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 . Den Replikationsplan identifizieren, zu dem ein Failback durchgeführt werden soll. Die Option *Actions* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] auswählen, mit dem Mauszeiger über *Recover* fahren und anschließend *Failback* auswählen.
 . Wählen Sie den Snapshot des Datenspeichers aus, von dem die Wiederherstellung erfolgen soll. Wählen Sie *Jetzt Snapshot erstellen*, um einen neuen Snapshot zu initiieren, oder *Auswählen*, um aus verfügbaren Snapshots auszuwählen.
 +
+
+NOTE: Wenn Sie manipulationssichere SnapLock Snapshots verwenden, müssen Sie die Option *Jetzt Snapshot erstellen* verwenden. Andernfalls schlägt der Vorgang fehl.
+
++
 image:failback.png["Screenshot des Failback-Dialogs"]
 
 . Geben Sie „Failback“ ein, um den Vorgang zu bestätigen, und wählen Sie dann *Failback* aus.

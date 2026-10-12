@@ -12,7 +12,7 @@ summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dien
 
 
 [role="lead"]
-Nachdem Sie Ressourcen und Standorte hinzugefügt haben, wird ein Replikationsplan erstellt, um Ihre Daten zu schützen. Der Plan definiert die Quell- und Zielstandorte, Ressourcengruppen, Wiederherstellungszuordnungen und das Einschaltverhalten Ihrer Anwendungen. Es besteht außerdem die Möglichkeit, Compliance- und Testzeitpläne zu konfigurieren und Test-Failover durchzuführen, ohne die Produktionsdaten zu beeinträchtigen.
+Nach dem Hinzufügen von Ressourcen und Standorten können Sie einen _Replikationsplan_ erstellen, um Ihre Daten mit NetApp Disaster Recovery zu schützen. Der Plan definiert die Quell- und Zielstandorte, Ressourcengruppen, Wiederherstellungszuordnungen und das Einschaltverhalten Ihrer Anwendungen. Sie können außerdem Compliance- und Testzeitpläne konfigurieren und Test-Failover durchführen, ohne die Produktionsdaten zu beeinträchtigen.
 
 *Erforderliche NetApp Console-Rolle* Zur Ausführung dieser Aufgabe ist die Rolle des Super-Admins, Disaster recovery Admins, Disaster recovery Failover Admins oder Disaster recovery Application Admins erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
 
@@ -290,7 +290,7 @@ Nach Auswahl von „Hinzufügen“ können Sie die verschiedenen Jobs in **Job m
 ====
 
 
-==== Ressourcentransformationen und Skriptausführungen
+==== Ressourcentransformationen, Skriptausführungen und Bootreihenfolge
 
 Für Kubernetes-Replikationspläne können Ressourcentransformationen und Skriptausführungen angewendet werden. Diese Schritte sind optional.
 
@@ -311,6 +311,14 @@ NetApp Disaster Recovery kann vor oder nach der Erstellung eines Snapshots ein S
 . *Hochladen* auswählen, um die Skriptdatei auszuwählen.
 . Wählen Sie die *Ausführungsphase*: *Vor dem Snapshot*, um die Ausführung vor der Erstellung des Snapshots auszuführen, oder *Nach dem Snapshot*, um die Ausführung danach auszuführen.
 . Wählen Sie *Speichern*.
+
+
+.Festlegen der Bootreihenfolge
+Bei Replikationsplänen, die mehrere Ressourcengruppen umfassen, kann optional eine Startreihenfolge festgelegt werden, um sicherzustellen, dass Ressourcen, die gemeinsam online gehen müssen, dies auch tun, während Ressourcengruppen, die von anderen abhängig sind, erst dann online gehen, wenn die Ressourcen, von denen sie abhängen, online sind.
+
+. Den Abschnitt *Startreihenfolge und -verzögerung* auswählen.
+. Für jede Ressource im Replikationsplan wird, beginnend mit eins, ein Wert für die Startreihenfolge (Boot Order) festgelegt. Ressourcen, die gleichzeitig gestartet werden sollen, erhalten dieselbe Nummer.
+. Die *Verzögerungszeit* wird in Minuten festgelegt. Falls Ressourcen verzögert werden sollen, ist die Dauer der Verzögerung in Minuten anzugeben.
 
 
 

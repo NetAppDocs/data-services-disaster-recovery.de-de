@@ -16,6 +16,45 @@ Erfahren Sie mehr über die Neuerungen im Bereich NetApp Disaster Recovery.
 
 
 
+[[12-october-2026]]
+== 12. Oktober 2026
+
+Version 4.3.8
+
+
+
+[[optional-boot-order-for-kubernetes-resource-groups]]
+=== Optionale Startreihenfolge für Kubernetes Ressourcengruppen
+
+NetApp Disaster Recovery unterstützt jetzt die optionale Festlegung der Startreihenfolge für Ressourcengruppen in einem Kubernetes Replikationsplan, indem eine Prioritätsreihenfolge und eine optionale Verzögerungszeit für Ressourcen angegeben werden. Mit dieser Option können Ressourcen bei Bedarf gleichzeitig gestartet und der Start von Ressourcen verzögert werden, die von anderen abhängig sind, sodass Ihre Anwendungen in einem fehlerfreien Zustand wieder online gehen können.
+
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"^].
+
+
+
+[[snaplock-volume-support]]
+=== SnapLock Volume-Unterstützung
+
+Disaster Recovery unterstützt jetzt SnapLock Volumes, sodass ein Failover manipulationssicherer Snapshots möglich ist. Bei einem Failback mit SnapLock Volumes muss die Option *Take snapshot now* verwendet werden, damit das Failback erfolgreich abgeschlossen wird.
+
+Weitere Informationen sind in den Anweisungen für link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover"^] und link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failback.html["Failback"^] enthalten.
+
+
+
+[[simplified-refresh-and-compliance-runs]]
+=== Vereinfachte Aktualisierungs- und Compliance-Ausführungen
+
+Aktualisierungsläufe für vCenter, Replikationspläne und Compliance wurden zu einem einzigen Auftrag vereinfacht, um eine schnellere Ausführung zu ermöglichen. Um diese Änderung zu sehen, finden Sie Informationen dazu unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/monitor-jobs.html["Jobs überwachen"^].
+
+
+
+[[kubernetes-compliance-checks]]
+=== Kubernetes Compliance-Prüfungen
+
+Disaster Recovery hat Compliance-Prüfungen hinzugefügt, um fehlende Arbeitsumgebungen für Kubernetes Workloads zu identifizieren. Diese Compliance-Prüfungen tragen dazu bei, den Systemstatus der Workloads sicherzustellen, damit die Integrität Ihrer Replikationspläne gewahrt bleibt.
+
+
+
 [[16-september-2026]]
 == 16. September 2026
 
