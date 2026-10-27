@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+Wenn Sie im Rahmen Ihres Replikationsplans Test-Failover durchführen möchten, sollten Sie eine Reihe von Test-Failover-Zuordnungen bereitstellen, um sicherzustellen, dass die während des Failover-Tests gestarteten VMs die Produktions-VMs nicht beeinträchtigen. Dies lässt sich erreichen, indem den Test-VMs entweder andere IP-Adressen zugewiesen werden oder die virtuellen NICs der Test-VMs einem anderen Netzwerk zugeordnet werden, das von der Produktion isoliert ist, jedoch dieselbe IP-Konfiguration aufweist (als _bubble_ oder _Testnetzwerk_ bezeichnet).

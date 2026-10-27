@@ -9,7 +9,7 @@
 
 Beim Erstellen eines Replikationsplans in Disaster Recovery können nun bestimmte Datenspeicher von der Replikation ausgeschlossen werden. In Situationen, in denen eine VM für die Verwendung mehrerer Datenspeicher konfiguriert ist, lässt sich damit einschränken, welche Datenspeicher repliziert werden.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"^].
+Einzelheiten enthält link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html["Erstellen eines Replikationsplans"^].
 
 
 
@@ -27,7 +27,7 @@ Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-s
 
 Die Notfallwiederherstellung bietet jetzt neue Menüoptionen, um vCenter-Aktualisierungen über das Replikationsplan-Dashboard auszulösen. Das Untermenü ist über das Aktionsmenü des Replikationsplan-Dashboards zugänglich: Zuerst **Plan Health** und dann **Refresh Source vCenter / Refresh Target vCenter** auswählen.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#modify-a-replication-plan["Einen Replikationsplan ändern"^].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-modify.html["Einen Replikationsplan ändern"^].
 
 
 

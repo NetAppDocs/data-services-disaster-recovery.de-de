@@ -1,0 +1,192 @@
+---
+sidebar: sidebar 
+permalink: use/task-replication-plan-kubernetes.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, kubernetes, trident protect, namespace, replication plan, appvault, resource transformation, storage class, protection, disaster, recovery 
+summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Service, der Disaster-Recovery-Workflows automatisiert. Nachdem Sie Kubernetes-Cluster hinzugefügt haben, können Sie einen Replikationsplan erstellen, um Ihre Kubernetes-Workloads zu schützen. 
+---
+= Erstellung eines Replikationsplans für Kubernetes-Workloads in NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Nach dem Hinzufügen von Kubernetes-Ressourcen und -Sites kann ein _Replikationsplan_ erstellt werden, um Kubernetes-Workloads mit NetApp Disaster Recovery zu schützen. Der Plan definiert die Quell- und Ziel-Cluster, Ressourcengruppen, Namespace- und Storage Class-Zuordnungen, den Snapshot-Zeitplan sowie optionale Ressourcentransformationen und Skripte für Ihre Applikationen.
+
+*Erforderliche NetApp Console-Rolle* Zur Ausführung dieser Aufgabe ist die Rolle des Super-Admins, Disaster recovery Admins, Disaster recovery Failover Admins oder Disaster recovery Application Admins erforderlich. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Erfahren Sie mehr über Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Erfahren Sie mehr über die Zugriffsrollen der NetApp Console für alle Dienste"^].
+
+
+NOTE: Informationen zum Erstellen eines Replikationsplans für VMware-Workloads finden Sie unter link:task-replication-plan-vmware.html["Erstellung eines VMware Replikationsplans"].
+
+
+
+[[before-you-begin]]
+== Bevor Sie beginnen
+
+* Bevor Sie eine SnapMirror Beziehung erstellen, richten Sie das Cluster-Peering und das Storage VM (SVM)-Peering außerhalb von Disaster Recovery ein.
+* Vor dem Hinzufügen von Namespaces zu einer Ressourcengruppe empfiehlt sich eine manuelle Identifizierung. Dadurch wird sichergestellt, dass die Namespaces identifiziert und in der Ressourcengruppe aufgelistet werden.
+* Es ist ein AppVault zu erstellen, in dem Trident Protect Schutzdaten speichert. Ein AppVault kann während der Erstellung des Replikationsplans oder im Voraus erstellt werden. Weitere Informationen finden sich in link:task-appvault.html["Verwaltung von AppVaults"].
+
+
+
+TIP: Eine Organisation Ihrer Kubernetes-Cluster und -Namespaces vor der Bereitstellung von NetApp Disaster Recovery trägt dazu bei, Wildwuchs zu minimieren. Informationen zur Organisation von Ressourcengruppen vor dem Erstellen des Replikationsplans finden Sie unter link:resource-group.html["Erstellen einer Ressourcengruppe"].
+
+
+
+[[create-the-replication-plan]]
+== Erstellen des Replikationsplans
+
+Befolgen Sie beim Erstellen des Plans diese Richtlinien:
+
+* Für alle Kubernetes-Cluster im Plan gelten dieselben Anmeldeinformationen.
+* Für alle Kubernetes Cluster im Plan kommt dasselbe Skript zum Einsatz.
+* Sie können den Schutz nur aktivieren, wenn sich der Replikationsplan in einem der folgenden Zustände befindet: Ready, Failback committed oder Test failover committed.
+
+
+
+
+[[select-kubernetes-clusters]]
+=== Auswahl von Kubernetes-Clustern
+
+Zunächst werden die Quell- und Zielcluster für den Replikationsplan ausgewählt.
+
+.Schritte
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Dropdown-Menü erfolgt die Auswahl von *Kubernetes*.
++
+image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
+
+. Wählen Sie *Hinzufügen*.
+. Geben Sie einen Namen für den Replikationsplan ein.
+. Unter *Quelle* ist der Kubernetes-Cluster auszuwählen, der als Quelle festgelegt werden soll.
+. Unter *Ziel* wird der Kubernetes-Cluster ausgewählt, der als Ziel für die Disaster Recovery dienen soll.
+. Wählen Sie *Weiter*.
+
+
+
+
+[[select-resource-groups]]
+=== Auswahl von Ressourcengruppen
+
+Im nächsten Schritt erfolgt die Auswahl der Ressourcengruppen, die die Kubernetes-Namespaces enthalten, die geschützt werden sollen. Ressourcengruppen ermöglichen den Schutz einer Gruppe von Namespaces mit einem gemeinsamen Snapshot.
+
+Bei der Auswahl von Ressourcengruppen ist Folgendes zu beachten:
+
+* Bevor Sie Namespaces zu Ressourcengruppen hinzufügen, ist eine manuelle Identifizierung erforderlich. Dadurch wird sichergestellt, dass Ressourcen identifiziert und in der Ressourcengruppe aufgelistet werden.
+* Kubernetes Namespaces in einer Ressourcengruppe müssen zum selben ONTAP Cluster gehören.
+* Bei der Benennung einer Ressourcengruppe sind nur Kleinbuchstaben und Zahlen als unterstützte Zeichen zulässig.
+
+
+.Schritte
+. Falls Sie bereits Ressourcengruppen haben, wählen Sie die Gruppen aus der Liste aus.
++
+Wenn Sie keine vorhandenen Ressourcengruppen haben oder Ressourcen zu einer solchen hinzufügen müssen, wählen Sie *+ Neue Ressourcengruppe erstellen*. Folgen Sie den Anweisungen link:resource-group.html["Füge einer Ressourcengruppe Namensräume hinzu"].
+
+. Überprüfen Sie in der alternativen Spalte die ausgewählten Ressourcengruppen.
+. Wählen Sie *Weiter*.
+
+
+
+
+[[map-source-resources-to-the-target]]
+=== Ordnen Sie Quellressourcen dem Ziel zu
+
+Im Schritt „Ressourcenzuordnung“ erfolgt die Zuordnung der Ressourcen des Quell-Clusters zum Ziel-Cluster. Außerdem werden der Snapshot-Zeitplan und das AppVault festgelegt, in dem die Daten gespeichert werden.
+
+.Bevor Sie beginnen
+Zum Erstellen einer SnapMirror Beziehung ist in ONTAP eine Peering-Beziehung erforderlich.
+
+.Schritte
+. Wählen Sie die Namespace-Zuordnungen für jeden Namespace in jeder Ressourcengruppe. Standardmäßig wählt NetApp Disaster Recovery das Ziel so aus, dass es mit der Quelle identisch ist. Sie können im Ziel-Cluster einen anderen Namespace auswählen.
+. Weisen Sie jeder Ressourcengruppe die Speicherklassenzuordnung zu. Die Speicherklasse muss mit einer ONTAP Storage-VM verknüpft sein, die mit der Quellumgebung gepaart ist. Die Standard-Speicherklasse des Clusters wird verwendet, wenn Sie keine zuweisen.
++
+
+TIP: Die Storage-Klasse kann mit dem CLI-Befehl `kubectl get pvc -n <namespace>` im Namespace angezeigt werden.
+
+. Hier wird der Snapshot-Zeitplan festgelegt. Zur Konfiguration gehören die *Startzeit für Snapshots und Aufbewahrung* (Kalenderdatum und -uhrzeit), die *Snapshot- und Aufbewahrungshäufigkeit* (wie oft Snapshots erstellt werden) und die *Anzahl der aufzubewahrenden Snapshots* (wie viele Snapshots gespeichert werden).
++
+Bei der Festlegung der Snapshot-Frequenz muss eine Frequenz von mindestens fünf Minuten gewählt werden.
+
+. Zum Erstellen des AppVault, in dem Schutzdaten gespeichert werden, steht *Add AppVault* zur Verfügung. Dies kann auch link:task-appvault.html["managen AppVaults"] auf der Seite „Settings“ erfolgen.
++
+.. Geben Sie einen *Namen* ein und wählen Sie den *Konsolenagenten* aus, mit dem AppVault verbunden werden soll.
+.. Auswahl des Cloud-*Providers* zum Hosten des AppVault.
+.. Basierend auf der Anbieterauswahl füllt Disaster Recovery die vorhandenen konfigurierten Cloud-Abonnements aus.
++
+Für Azure sind das *Abonnement*, die *Ressourcengruppe* und das *Speicherkonto* für den Cloud-Anbieter auszuwählen.
+
++
+Für AWS, ONTAP S3 und StorageGRID ist die Auswahl von *Account*, *Credentials* und *Bucket* erforderlich.
+
+.. Wenn Sie ONTAP S3 oder StorageGRID ausgewählt haben, können Sie optional Anmeldeinformationen hinzufügen. *Anmeldeinformationen hinzufügen* auswählen, um die Optionen anzuzeigen, dann den *Namen der Anmeldeinformationen*, den *Gateway-Knoten-FQDN*, die *Portnummer*, den *Access Key* und den *Secret Key* hinzufügen.
+.. Wählen Sie *Hinzufügen*.
++
+image:kubernetes-mapping.png["Screenshot der Storage-Klassenzuordnung für Kubernetes"]
+
+
+
+. Wählen Sie *Weiter*.
+
+
+
+
+[[add-resource-transformations-script-executions-and-boot-order]]
+=== Hinzufügen von Ressourcentransformationen, Skriptausführungen und Startreihenfolge
+
+Für Kubernetes Replikationspläne können Sie Ressourcentransformationen und Skriptausführungen anwenden sowie eine Startreihenfolge festlegen. Diese Schritte sind optional.
+
+.Eine Ressourcentransformation hinzufügen
+Das Hinzufügen einer Ressourcentransformation ermöglicht es Ihnen, jeden Aspekt einer Arbeitslast während eines Failover zu ändern. Ressourcentransformationen bieten die Flexibilität, Arbeitslasten während eines Disaster Recovery-Ereignisses an unterschiedliche Umgebungen und Konfigurationen anzupassen.link:task-resource-transformation.html["Informationen zum Erstellen von Ressourcentransformationen."^]
+
+Ressourcentransformationen werden in der Reihenfolge angewendet, in der sie aufgelistet sind.
+
+. Wählen Sie im Dropdown-Menü die Ressourcentransformation aus, die hinzugefügt werden soll.
+. Es wird ausgewählt, auf welche Ressourcen die Transformation angewendet werden soll, anschließend werden die erforderlichen Werte hinzugefügt.
+. Die Reihenfolge der Transformationen sollte überprüft werden, damit die Operationen in der richtigen Reihenfolge ausgeführt werden.
+
+
+.Eine Skriptausführung hinzufügen
+NetApp Disaster Recovery kann vor oder nach der Erstellung eines Snapshots ein Skript ausführen, um den Ruhezustand und die Wiederaufnahme einer Anwendung zu steuern. Durch diese Vorgehensweise ist gewährleistet, dass Anwendungen vor der Replikation und Wiederherstellung eines Snapshots ordnungsgemäß vorbereitet sind und nach einem Failover nahtlos weiterarbeiten können.
+
+. *+ Skript hinzufügen* auswählen.
+. *Hochladen* auswählen, um die Skriptdatei auszuwählen.
+. Wählen Sie die *Ausführungsphase*: *Vor dem Snapshot*, um die Ausführung vor der Erstellung des Snapshots auszuführen, oder *Nach dem Snapshot*, um die Ausführung danach auszuführen.
+. Wählen Sie *Speichern*.
+
+
+.Festlegen der Bootreihenfolge
+Bei Replikationsplänen mit mehreren Ressourcengruppen kann optional eine Startreihenfolge festgelegt werden. Diese Startreihenfolge stellt sicher, dass Ressourcen, die gemeinsam online gehen müssen, dies auch tun und dass Ressourcengruppen, die von anderen abhängig sind, erst dann online gehen, wenn die Gruppen, von denen sie abhängen, online sind.
+
+. Der Abschnitt *Startreihenfolge und -verzögerung* ist auszuwählen.
+. Für jede Ressource im Replikationsplan ist ein *Order* Wert für den Bootvorgang festzulegen, beginnend mit eins. Für Ressourcen, die gleichzeitig gestartet werden sollen, ist dieselbe Nummer zu verwenden.
+. Die *Verzögerungszeit* wird in Minuten angegeben. Falls Ressourcen verzögert werden sollen, bestimmt diese Einstellung die Dauer der Verzögerung.
+
+
+
+
+[[review-and-create-the-replication-plan]]
+=== Replikationsplan prüfen und erstellen
+
+Abschließend erfolgt eine Überprüfung und Bestätigung Ihrer Einstellungen für den Replikationsplan.
+
+
+TIP: Sie können den Replikationsplan später deaktivieren oder löschen.
+
+.Schritte
+. Überprüfung der Failover-Zuordnungen.
+. Über *Hinzufügen* lässt sich der Replikationsplan erstellen.
++
+Nach der Auswahl von *Add* können Sie die verschiedenen Jobs in *Job monitoring* überwachen.
+
+
+
+
+
+[[more-information]]
+== Weitere Informationen
+
+* link:resource-group.html["Erstellen einer Ressourcengruppe"]
+* link:task-appvault.html["Verwaltung von AppVaults"]
+* link:task-resource-transformation.html["Vorlagen zur Ressourcentransformation verwalten"]
+

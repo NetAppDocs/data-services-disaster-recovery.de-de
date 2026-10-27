@@ -53,4 +53,4 @@ Wenn die Option ausgewählt ist, konfiguriert NetApp Disaster Recovery keinen Si
 
 Nach der Konfiguration erstellt der Dienst keine regelmäßig geplanten Snapshots, sondern verlässt sich stattdessen darauf, dass die externe Entität diese Snapshots erstellt und aktualisiert.
 
-Einzelheiten zur Verwendung externer Snapshot-Lösungen im Replikationsplan finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"] Die
+Einzelheiten zur Verwendung externer Snapshot-Lösungen im Replikationsplan finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html["Erstellen eines Replikationsplans"].

@@ -36,7 +36,7 @@ Dadurch wird der Assistent „Replikationsplan erstellen“ geöffnet.
 .Schritte
 . Geben Sie einen eindeutigen Namen für den Replikationsplan ein.
 +
-Für Replikationsplannamen sind nur alphanumerische Zeichen und Unterstriche (_) zulässig.
+Für Namen von Replikationsplänen sind nur alphanumerische Zeichen und Unterstriche (_) zulässig.
 
 . Wählen Sie einen Quell-vCenter-Cluster aus.
 . Wählen Sie einen vCenter-Zielcluster aus.
@@ -54,7 +54,7 @@ image:evs-create-rp-wiz-a-1-4.png["Replikationsplan erstellen, vCenter auswähle
 Es gibt mehrere Möglichkeiten, VMs für den Schutz auszuwählen. Die folgenden Schritte zeigen, wie der gesamte vCenter Datenspeicher geschützt werden kann, jedoch sollte die Methode gewählt werden, die den eigenen Anforderungen am besten entspricht.
 
 * *Einzelne VMs auswählen*: Über die Schaltfläche *Virtuelle Maschinen* können Sie einzelne VMs zum Schutz auswählen. Wenn Sie eine VM auswählen, wird sie vom Dienst einer Standardressourcengruppe auf der rechten Seite des Bildschirms hinzugefügt.
-* *Vorher erstellte Ressourcengruppen auswählen*: Sie können benutzerdefinierte Ressourcengruppen vorab über die Option „Ressourcengruppe“ im Menü „Disaster Recovery“ erstellen. Dies ist optional, da Sie die beiden anderen Methoden verwenden können, um während der Erstellung des Replikationsplans eine Ressourcengruppe zu erstellen. Weitere Informationen finden Sie unter link:../use/drplan-create.html["Erstellen eines Replikationsplans"].
+* *Vorher erstellte Ressourcengruppen auswählen*: Sie können benutzerdefinierte Ressourcengruppen vorab über die Option „Ressourcengruppe“ im Menü „Disaster Recovery“ erstellen. Dies ist optional, da Sie die beiden anderen Methoden verwenden können, um während der Erstellung des Replikationsplans eine Ressourcengruppe zu erstellen. Einzelheiten enthält link:../use/task-replication-plan-vmware.html["Erstellen eines Replikationsplans"].
 * *Gesamte vCenter Datenspeicher auswählen*: Mit dieser Option werden alle VMs, die sich auf einem Datenspeicher befinden, als Teil des Volumes repliziert. Diese Option eignet sich, wenn mehrere VMs mit dem Replikationsplan geschützt werden sollen, um die Auswahl einzelner VMs zu vermeiden. In den meisten Fällen sollte Disaster Recovery alle VMs, die sich auf dem Datenspeicher befinden, schützen und neu starten. Mit dieser Option wird dem Dienst mitgeteilt, dass alle auf einem ausgewählten Datenspeicher gehosteten VMs zur Liste der geschützten VMs hinzugefügt werden.
 
 

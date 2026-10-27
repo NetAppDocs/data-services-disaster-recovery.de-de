@@ -84,5 +84,5 @@ Wenn Sie eine Ressourcentransformation nicht mehr benötigen, kann sie gelöscht
 [[next-steps]]
 == Nächste Schritte
 
-* link:drplan-create.html["Erstellen eines Replikationsplans"]
+* link:task-replication-plan-kubernetes.html["Erstellung eines Replikationsplans für Kubernetes-Workloads"]
 

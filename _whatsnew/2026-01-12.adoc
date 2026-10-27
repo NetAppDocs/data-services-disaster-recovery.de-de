@@ -56,4 +56,4 @@ Die Notfallwiederherstellung bietet jetzt verbesserte Warnungen und Fehlerbehebu
 
 Beim Erstellen eines Replikationsplans wird standardmäßig die Ordnerstruktur der VM beibehalten. Falls das Wiederherstellungsziel nicht über die ursprüngliche Ordnerhierarchie verfügt, erstellt Disaster Recovery diese. Diese Option kann deaktiviert werden, um die ursprüngliche Ordnerhierarchie zu ignorieren.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"^].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html["Erstellen eines Replikationsplans"^].

@@ -21,7 +21,7 @@ NetApp Disaster Recovery-Workloads mit Kubernetes verwenden AppVault, ein Cloud-
 [[add-an-appvault]]
 == Einen AppVault hinzufügen
 
-Sie können einen AppVault hinzufügen, wenn Sie einen Replikationsplan für Kubernetes erstellen oder einen auf der Einstellungsseite erstellen.
+Sie können ein AppVault hinzufügen, wenn Sie link:task-replication-plan-kubernetes.html["Erstellen eines Replikationsplans für Kubernetes"] oder auf der Seite „Einstellungen“ eines erstellen.
 
 .Schritte
 . In NetApp Disaster Recovery in der Seitenleiste *Einstellungen* auswählen.

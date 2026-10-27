@@ -11,7 +11,7 @@ Standardmäßig behält Disaster Recovery die VM-Inventarhierarchie (Ordnerstruk
 
 Sie können diese Einstellung nun überschreiben, indem Sie einen neuen übergeordneten VM-Ordner festlegen oder die Option **Ursprüngliche Ordnerhierarchie beibehalten** deaktivieren.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html["Erstellen eines Replikationsplans"].
 
 
 

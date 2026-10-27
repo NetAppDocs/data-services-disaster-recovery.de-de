@@ -27,7 +27,7 @@ Ressourcentransformationen werden beim Erstellen eines Replikationsplans angewen
 
 Sie können nun benutzerdefinierte Skripte in den Failover-Workflow einbinden, um das Anhalten und die Wiederaufnahme von Anwendungen zu koordinieren. Diese Funktion trägt dazu bei, dass Anwendungen vor der Replikation eines Snapshots ordnungsgemäß vorbereitet und anschließend angemessen wiederhergestellt werden, sodass der Betrieb nach einem Failover nahtlos fortgesetzt werden kann.
 
-Informationen zum Einfügen eines benutzerdefinierten Skripts sind unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"^] zu finden.
+Informationen zum Einfügen eines benutzerdefinierten Skripts sind unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-kubernetes.html["Erstellen eines Replikationsplans"^] zu finden.
 
 
 

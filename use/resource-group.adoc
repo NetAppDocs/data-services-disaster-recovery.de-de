@@ -23,21 +23,29 @@ Sie können VMs selbst oder VMs in Datenspeichern gruppieren.
 Sie können Ressourcengruppen mit den folgenden Methoden erstellen:
 
 * Über die Option „Ressourcengruppen“
-* Während Sie einen Notfallwiederherstellungs- oder Replikationsplan erstellen. Wenn Sie viele VMs haben, die von einem Quell-vCenter-Cluster gehostet werden, kann es für Sie einfacher sein, die Ressourcengruppen während der Erstellung des Replikationsplans anzulegen. Anweisungen zum Erstellen von Ressourcengruppen während der Erstellung eines Replikationsplans finden Sie unter link:drplan-create.html["Erstellen eines Replikationsplans"].
+* Während Sie einen Notfallwiederherstellungs- oder Replikationsplan erstellen. Wenn Sie viele VMs haben, die von einem Quell-vCenter-Cluster gehostet werden, kann es für Sie einfacher sein, die Ressourcengruppen während der Erstellung des Replikationsplans anzulegen. Anweisungen zum Erstellen von Ressourcengruppen während der Erstellung eines Replikationsplans finden Sie unter link:task-replication-plan-vmware.html["Erstellen eines Replikationsplans"].
 
 
 
 TIP: Jede Ressourcengruppe kann eine oder mehrere VMs, Datenspeicher oder Kubernetes-Cluster enthalten. Die VMs werden entsprechend der Reihenfolge eingeschaltet, in der Sie sie im Replikationsplan aufnehmen. Die Reihenfolge lässt sich ändern, indem die VMs oder Datenspeicher in der Ressourcengruppenliste nach oben oder unten gezogen werden.
 
-.Informationen zu Ressourcengruppen
+
+
+[[about-resource-groups]]
+== Informationen zu Ressourcengruppen
+
 Mit Ressourcengruppen können Sie VMs, Datastores oder Kubernetes-Anwendungen zu einer einzigen Einheit zusammenfassen.
 
 Beispielsweise könnte eine Point-of-Sale-Anwendung mehrere VMs für Datenbanken, Geschäftslogik und Storefronts verwenden.  Sie können alle diese VMs mit einer Ressourcengruppe verwalten.  Richten Sie Ressourcengruppen ein, um Replikationsplanregeln für die VM-Startreihenfolge, Netzwerkverbindung und Wiederherstellung aller für die Anwendung benötigten VMs anzuwenden.
 
-.Wie funktioniert es?
-NetApp Disaster Recovery schützt VMs, indem die zugrunde liegenden ONTAP Volumes und LUNs repliziert werden, auf denen die VMs in der Ressourcengruppe gehostet werden. Zu diesem Zweck fragt das System vCenter nach dem Namen jedes Datenspeichers ab, der VMs in einer Ressourcengruppe hostet. NetApp Disaster Recovery identifiziert anschließend das Quell-ONTAP Volume oder die Quell-LUN, auf der dieser Datenspeicher gehostet wird. Der gesamte Schutz erfolgt auf ONTAP Volume Ebene unter Verwendung der SnapMirror Replikation.
 
-Wenn VMs in der Ressourcengruppe auf verschiedenen Datenspeichern gehostet werden, verwendet NetApp Disaster Recovery eine der folgenden Methoden, um einen datenkonsistenten Snapshot der ONTAP Volumes oder LUNs zu erstellen.
+
+[[how-resource-groups-work]]
+=== Wie Ressourcengruppen funktionieren
+
+Disaster Recovery schützt VMs, indem die zugrunde liegenden ONTAP Volumes und LUNs repliziert werden, die die VMs in der Ressourcengruppe hosten. Dazu fragt das System vCenter nach dem Namen jedes Datastore, das VMs in einer Ressourcengruppe hostet. Disaster Recovery identifiziert dann das Quell-ONTAP Volume oder die Quell-LUN, die dieses Datastore hostet. Der gesamte Schutz erfolgt auf ONTAP Volume Level mithilfe der SnapMirror Replikation.
+
+Wenn VMs in der Ressourcengruppe auf verschiedenen Datastores gehostet werden, verwendet Disaster Recovery eine der folgenden Methoden, um einen datenkonsistenten Snapshot der ONTAP Volumes oder LUNs zu erstellen.
 
 [cols="30,65a"]
 |===
@@ -58,18 +66,23 @@ Wenn VMs in der Ressourcengruppe auf verschiedenen Datenspeichern gehostet werde
 
 
 |===
-Berücksichtigen Sie beim Erstellen von Ressourcengruppen die folgenden Punkte:
 
-* Bevor Sie Datenspeicher zu Ressourcengruppen hinzufügen, starten Sie zunächst eine manuelle oder geplante Erkennung der VMs.  Dadurch wird sichergestellt, dass die VMs erkannt und in der Ressourcengruppe aufgelistet werden.  Wenn Sie keine manuelle Erkennung starten, werden die VMs möglicherweise nicht in der Ressourcengruppe aufgeführt.
-* Stellen Sie sicher, dass sich mindestens eine VM im Datenspeicher befindet.  Wenn sich im Datenspeicher keine VMs befinden, erkennt Disaster Recovery den Datenspeicher nicht.
+
+[[best-practices-for-resource-groups]]
+== Bewährte Verfahren für Ressourcengruppen
+
+Beim Erstellen von Ressourcengruppen sind die folgenden Szenarien zu berücksichtigen:
+
+* Vor dem Hinzufügen von Datastores oder Namespaces zu Ressourcengruppen sollte eine manuelle Identifizierung initiiert oder eine geplante Identifizierung abgewartet werden. Dadurch ist sichergestellt, dass die VMs identifiziert und in der Ressourcengruppe aufgeführt sind. Ohne Start einer manuellen Identifizierung werden die Ressourcen in der Ressourcengruppe möglicherweise nicht aufgeführt.
+* Im Datenspeicher muss sich mindestens eine Ressource (VM oder Namespace) befinden. Wenn sich keine Ressourcen im Datenspeicher befinden, identifiziert Disaster Recovery den Datenspeicher nicht.
 * Ein einzelner Datenspeicher sollte keine VMs hosten, die durch mehr als einen Replikationsplan geschützt sind.
-* Hosten Sie geschützte und ungeschützte VMs nicht auf demselben Datenspeicher.  Wenn geschützte und ungeschützte VMs auf demselben Datenspeicher gehostet werden, können die folgenden Probleme auftreten:
+* Geschützte und ungeschützte Ressourcen dürfen nicht auf demselben Datastore gehostet werden. Wenn geschützte und ungeschützte Ressourcen auf demselben Datastore gehostet werden, können die folgenden Probleme auftreten:
 +
-** Da NetApp Disaster Recovery SnapMirror verwendet und das System ganze ONTAP Volumes repliziert, wird die genutzte Kapazität dieses Volumes für Lizenzierungsüberlegungen verwendet.  In diesem Fall würde der von geschützten und ungeschützten VMs belegte Volume-Speicherplatz in diese Berechnung einbezogen.
-** Wenn ein Failover der Ressourcengruppe und der zugehörigen Datenspeicher auf den Disaster Recovery-Standort durchgeführt werden muss, sind alle ungeschützten VMs (VMs, die nicht Teil der Ressourcengruppe sind, aber auf dem ONTAP Volume gehostet werden) durch den Failover-Prozess nicht mehr auf dem Quellstandort vorhanden, was zu einem Ausfall ungeschützter VMs am Quellstandort führt.  Außerdem startet NetApp Disaster Recovery diese ungeschützten VMs nicht am Failover-vCenter-Standort.
+** Da Disaster Recovery SnapMirror verwendet und das System ganze ONTAP Volumes repliziert, wird die genutzte Kapazität dieses Volumes für die Lizenzierung berücksichtigt. In diesem Fall wird der von geschützten und ungeschützten VMs belegte Volume-Speicherplatz in diese Berechnung einbezogen.
+** Wenn für die Ressourcengruppe und ihre zugehörigen Entitäten ein Failover zum Disaster Recovery Standort erforderlich ist, sind nach dem Failover Prozess alle ungeschützten Ressourcen (VMs oder Namespaces, die nicht Teil der Ressourcengruppe sind, aber auf dem ONTAP Volume gehostet werden) am Quellstandort nicht mehr vorhanden, was zum Ausfall ungeschützter VMs am Quellstandort führt. Außerdem startet Disaster Recovery diese ungeschützten Ressourcen nicht am Failover Standort.
 
 
-* Um eine VM zu schützen, muss sie in eine Ressourcengruppe aufgenommen werden.
+* Um eine Ressource zu schützen, muss sie Teil einer Ressourcengruppe sein.
 
 
 *EMPFEHLUNG*: Organisieren Sie Ihre VMs vor der Bereitstellung von NetApp Disaster Recovery, um eine unkontrollierte Ausbreitung der Datenspeicher zu vermeiden. Platzieren Sie VMs, die Schutz benötigen, auf einer Teilmenge der Datenspeicher und VMs, die nicht geschützt werden sollen, auf einer anderen Teilmenge der Datenspeicher. Stellen Sie sicher, dass die VMs auf einem bestimmten Datenspeicher nicht durch unterschiedliche Replikationspläne geschützt werden.

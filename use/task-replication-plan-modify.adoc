@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: use/task-replication-plan-modify.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, replication plan, modify, compliance time, test failover 
+summary: Änderung eines Replikationsplans zum Anpassen von Compliance-Zeit oder Failover-Einstellungen. 
+---
+= Ändern eines Replikationsplans in NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+In NetApp Disaster Recovery können Sie die Auswirkungen eines Replikationsplans auf die Compliance-Zeitvorgaben anpassen, um sicherzustellen, dass Failover Tests erfolgreich abgeschlossen werden.
+
+Sie können die Compliance-Zeit anpassen und die Auswirkungen eines Test-Failovers prüfen. Für die Bearbeitung der Planwiederholung, der Failover-Zuordnungen oder der VMs ist es erforderlich, den Replikationsplan zu löschen und einen neuen zu erstellen.
+
+
+
+[[modifiable-fields]]
+== Modifizierbare Felder
+
+* *Auswirkungen auf die Compliance-Zeit*: Wenn ein Replikationsplan erstellt wird, erstellt der Dienst standardmäßig einen Compliance-Zeitplan.  Die Standard-Compliance-Zeit beträgt 30 Minuten.  Um diese Zeit zu ändern, können Sie den Zeitplan im Replikationsplan bearbeiten.
+* *Auswirkungen des Failovers testen*: Ein Failover-Prozess kann bei Bedarf oder nach einem Zeitplan getestet werden. Dies ermöglicht das Testen des Failovers einer VM zu einem Ziel, das in einem Replikationsplan angegeben ist.
++
+Bei einem Test-Failover wird ein FlexClone -Volume erstellt, der Datenspeicher wird bereitgestellt und die Arbeitslast wird auf diesen Datenspeicher verschoben.  Ein Test-Failover-Vorgang hat _keine_ Auswirkungen auf Produktions-Workloads, die auf der Testsite verwendete SnapMirror -Beziehung und geschützte Workloads, die weiterhin normal ausgeführt werden müssen.
+
+
+
+Basierend auf dem Zeitplan wird der Failover-Test ausgeführt und stellt sicher, dass die Workloads an das im Replikationsplan angegebene Ziel verschoben werden.
+
+
+
+[[modify-a-replication-plan]]
+== Einen Replikationsplan ändern
+
+. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
++
+image:dr-plan-list.png["Screenshot der Liste der Replikationspläne"]
+
+. Wählen Sie die *Aktionen*image:icon-horizontal-dots.png["Horizontale Punkte Aktionsmenü"] Symbol und wählen Sie *Zeitpläne bearbeiten*.
+. Geben Sie in Minuten ein, wie oft NetApp Disaster Recovery die Testkonformität überprüfen soll.
+. Um zu überprüfen, ob Ihre Failover-Tests fehlerfrei sind, aktivieren Sie *Führen Sie Failover monatlich aus*.
++
+.. Wählen Sie den Tag des Monats und die Uhrzeit aus, zu der diese Tests ausgeführt werden sollen.
+.. Geben Sie das Datum im Format JJJJ-MM-TT ein, an dem der Test beginnen soll.
++
+image:dr-plan-schedule-edit2.png["Screenshot, der zeigt, wo Sie Zeitpläne bearbeiten können"]
+
+
+
+. *On-Demand-Snapshot für geplantes Test-Failover*: Mit diesem Kontrollkästchen wird vor dem Start des automatisierten Test-Failovers ein neuer Snapshot erstellt.
+. Um die Testumgebung nach Abschluss des Failovertests zu bereinigen, aktivieren Sie *Automatisch bereinigen nach Testfailover* und geben Sie die Anzahl der Minuten ein, die Sie warten möchten, bevor die Bereinigung beginnt.
++
+
+NOTE: Dieser Prozess hebt die Registrierung der temporären VMs am Teststandort auf, löscht das erstellte FlexClone Volume und hängt die temporären Datenspeicher aus.
+
+. Wählen Sie *Speichern*.
+

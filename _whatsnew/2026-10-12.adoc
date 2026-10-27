@@ -7,9 +7,9 @@
 [[optional-boot-order-for-kubernetes-resource-groups]]
 === Optionale Startreihenfolge für Kubernetes Ressourcengruppen
 
-NetApp Disaster Recovery unterstützt jetzt die optionale Festlegung der Startreihenfolge für Ressourcengruppen in einem Kubernetes Replikationsplan, indem eine Prioritätsreihenfolge und eine optionale Verzögerungszeit für Ressourcen angegeben werden. Mit dieser Option können Ressourcen bei Bedarf gleichzeitig gestartet und der Start von Ressourcen verzögert werden, die von anderen abhängig sind, sodass Ihre Anwendungen in einem fehlerfreien Zustand wieder online gehen können.
+NetApp Disaster Recovery unterstützt nun die optionale Festlegung der Startreihenfolge für Ressourcengruppen in einem Kubernetes-Replikationsplan, indem eine Prioritätsreihenfolge und eine optionale Verzögerungszeit für Ressourcen angegeben werden. Diese Option ermöglicht es, Ressourcen bei Bedarf gleichzeitig zu starten und den Start von Ressourcen zu verzögern, die von anderen abhängig sind, sodass Ihre Anwendungen ordnungsgemäß wieder online kommen.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html["Erstellen eines Replikationsplans"^].
+Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-kubernetes.html["Erstellen eines Replikationsplans"^].
 
 
 

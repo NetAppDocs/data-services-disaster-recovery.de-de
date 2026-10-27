@@ -30,8 +30,10 @@ indexpage:
     links:
     - title: Hinzufügen von vCentern zu einer Site
       url: "/use/sites-add.html"
-    - title: Erstellen Sie einen Notfallwiederherstellungsplan
-      url: "/use/drplan-create.html"
+    - title: Ein VMware Disaster-Recovery-Plan
+      url: "/use/task-replication-plan-vmware.html"
+    - title: Erstellung eines Kubernetes Disaster-Recovery-Plans
+      url: "/use/task-replication-plan-kubernetes.html"
     - title: Replizieren von Apps auf eine andere Site
       url: "/use/replicate.html"
     - title: Migrieren von Apps zu einer anderen Site

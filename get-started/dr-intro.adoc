@@ -165,7 +165,7 @@ Wenn diese Prüfung erfolgreich ist, führt Disaster Recovery die folgenden Init
 
 Nachdem Disaster Recovery alle Beziehungen erstellt und initialisiert hat, führt der Dienst bei jeder geplanten Sicherung die folgenden Schritte zum Datenschutz aus:
 
-. Verwenden Sie für jede als „anwendungskonsistent“ gekennzeichnete VM VMtools, um die unterstützte Anwendung in einen Sicherungszustand zu versetzen.
+. Für jede als „applikationskonsistent“ gekennzeichnete VM kommt VMware Tools zum Einsatz, um die unterstützte Applikation in einen Sicherungszustand zu versetzen.
 . Erstellen Sie einen neuen Snapshot aller ONTAP -Volumes, die geschützte VMware-Datenspeicher hosten.
 . Führen Sie einen SnapMirror Aktualisierungsvorgang durch, um diese Snapshots auf den Ziel ONTAP -Cluster zu replizieren.
 . Stellen Sie fest, ob die Anzahl der aufbewahrten Snapshots die im Replikationsplan definierte maximale Snapshot-Aufbewahrung überschritten hat, und löschen Sie alle überflüssigen Snapshots sowohl vom Quell- als auch vom Zielvolume.

@@ -1,0 +1,136 @@
+---
+sidebar: sidebar 
+permalink: use/concept-replication-plan.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, replication plan, snapmirror, snapshot, backup, best practices 
+summary: Vor der Bereitstellung Ihrer Replikation in NetApp Disaster Recovery ist es wichtig, die Best Practices zu verstehen, um die Wirksamkeit Ihrer Notfallwiederherstellungsstrategie sicherzustellen. 
+---
+= Optimierung Ihres Replikationsplans in NetApp Disaster Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Der Replikationsplan ist ein wesentlicher Bestandteil Ihrer Disaster-Recovery-Strategie und definiert die Snapshot-Häufigkeit, die Bootreihenfolge, die Netzwerkzuordnung sowie weitere wichtige Details zu Failover und Failback. Vor dem Erstellen eines Replikationsplans in NetApp Disaster Recovery ist es wichtig, die Funktionsweise von Replikationsplänen und die Best Practices zu verstehen.
+
+
+
+[[about-replication-plans]]
+== Über Replikationspläne
+
+Sie können mehrere VMs, Datastores oder Namespaces mit einem einzigen Replikationsplan schützen. Disaster Recovery erstellt ONTAP Konsistenzgruppen für alle ONTAP Volumes, die geschützte Datenressourcen hosten.
+
+
+
+[[resource-planning]]
+== Ressourcenplanung
+
+Zur Minimierung der Ausbreitung sollten Ihre VMs oder Namespaces organisiert werden, bevor Ressourcen einem Replikationsplan zugewiesen werden. Ressourcen, die geschützt werden müssen, sollten auf einer Teilmenge von Datastores platziert werden, und Ressourcen, die nicht geschützt werden, auf einer anderen Teilmenge von Datastores. Informationen zum Organisieren von Ressourcengruppen vor dem Erstellen des Replikationsplans finden Sie unter link:resource-group.html["Erstellen einer Ressourcengruppe"].
+
+
+
+[[test-failover]]
+== Testen des Failovers
+
+Beim Erstellen des Replikationsplans haben Sie die Möglichkeit, individuelle Test-Failover-Zuordnungen zu konfigurieren.
+
+Wenn Sie im Rahmen Ihres Replikationsplans Test-Failover durchführen möchten, sollten Sie eine Reihe von Test-Failover-Zuordnungen bereitstellen, um sicherzustellen, dass die während des Failover-Tests gestarteten VMs die Produktions-VMs nicht beeinträchtigen. Dies lässt sich erreichen, indem den Test-VMs entweder andere IP-Adressen zugewiesen werden oder die virtuellen NICs der Test-VMs einem anderen Netzwerk zugeordnet werden, das von der Produktion isoliert ist, jedoch dieselbe IP-Konfiguration aufweist (als _bubble_ oder _Testnetzwerk_ bezeichnet).
+
+
+
+[[snapshots]]
+== Snapshots
+
+Disaster Recovery verwaltet die gleiche Anzahl von Snapshots auf den Quell- und Zielclustern.  Standardmäßig führt der Dienst alle 24 Stunden einen Snapshot-Abgleichprozess durch, um sicherzustellen, dass die Anzahl der Snapshots auf den Quell- und Zielclustern gleich ist.
+
+Die folgenden Situationen können dazu führen, dass die Anzahl der Snapshots zwischen den Quell- und Zielclustern unterschiedlich ist:
+
+* In einigen Situationen können ONTAP -Vorgänge außerhalb der Notfallwiederherstellung dazu führen, dass Snapshots zum Volume hinzugefügt oder daraus entfernt werden:
++
+** Wenn auf der Quellsite Snapshots fehlen, werden die entsprechenden Snapshots auf der Zielsite möglicherweise gelöscht, abhängig von der Standard SnapMirror -Richtlinie für die Beziehung.
+** Falls auf der Zielseite Snapshots fehlen, kann der Dienst die entsprechenden Snapshots auf der Quellseite während des nächsten geplanten Snapshot-Abgleichs löschen, abhängig von der Standard-SnapMirror-Richtlinie für die Beziehung.
+
+
+* Eine Reduzierung der Snapshot-Aufbewahrungsanzahl des Replikationsplans kann dazu führen, dass der Dienst die ältesten Snapshots sowohl auf der Quell- als auch auf der Zielsite löscht, um die neu reduzierte Aufbewahrungsanzahl einzuhalten.
+
+
+In diesen Fällen entfernt Disaster Recovery bei der nächsten Konsistenzprüfung ältere Snapshots aus den Quell- und Zielclustern.  Alternativ kann der Administrator eine sofortige Snapshot-Bereinigung durchführen, indem er die *Aktionen* auswählt.image:icon-horizontal-dots.png["Horizontale Punkte Aktionsmenü"] Symbol im Replikationsplan und Auswahl von *Snapshots bereinigen*.
+
+Die Notfallwiederherstellung führt alle 24 Stunden Snapshot-Symmetrieprüfungen durch.
+
+
+
+[[platform-managed-backups]]
+== Plattformverwaltete Backups
+
+Wenn Sie plattformverwaltete Backups (das heißt, ONTAP-verwaltete Snapshots) verwenden, wird die Verwendung der *MirrorAll* Replikationsrichtlinie empfohlen. Die Tabelle zeigt die Auswirkungen der verschiedenen SnapMirror Replikationsrichtlinien und erläutert, warum MirrorAll die empfohlene Option ist.
+
+[cols="10,10,80"]
+|===
+
+
+| Richtlinie | Empfehlung | Hinweise 
+
+
+| *MirrorAll* | Empfohlen | Keine SnapMirror Transfer-Snapshots für Failover- oder Failback-Vorgänge verwenden. 
+
+
+| *MirrorVault* .2+| Alternative Empfehlung .2+| Stellen Sie sicher, dass die während des Failovers oder Failbacks ausgewählten Snapshots sowohl auf dem Quell- als auch auf dem Zielvolume vorhanden sind. Andernfalls tritt der Fehler auf: „Übergang in den Zustand 'snapmirrored' fehlgeschlagen. Grund: Kein gemeinsamer Snapshot gefunden.“ Keine SnapMirror Transfer-Snapshots für Failover- oder Failback-Vorgänge verwenden. 
+
+
+| *Asynchron* 
+
+
+| *MirrorLatest* | NICHT empfohlen | Diese Vorgehensweise führt dazu, dass das Zielsystem effektiv nur einen gemeinsamen Snapshot für Failover besitzt, was für Disaster Recovery-Szenarien suboptimal ist. 
+|===
+
+
+[[disaster-recovery-managed-backups]]
+== von Disaster Recovery verwaltete Backups
+
+Bei der Verwendung von Disaster Recovery verwalteten Backups gelten die folgenden Richtlinien für SnapMirror Beziehungen, die außerhalb von NetApp Disaster Recovery erstellt wurden:
+
+* SnapMirror Beziehungen können die MirrorAll, MirrorVault, MirrorLatest und asynchronen Replikationsrichtlinien unterstützen.
+* Planen Sie *keine* Aktualisierungen für diese Beziehungen ein, da diese vom Disaster Recovery Service verwaltet werden.
+
+
+
+
+[[application-consistent-replicas]]
+== Applikationskonsistente Replikate
+
+Viele VMs hosten Datenbankserver wie Oracle oder Microsoft SQL Server.  Diese Datenbankserver erfordern anwendungskonsistente Snapshots, um sicherzustellen, dass sich die Datenbank zum Zeitpunkt der Snapshot-Erstellung in einem konsistenten Zustand befindet.
+
+Anwendungskonsistente Snapshots stellen sicher, dass sich die Datenbank zum Zeitpunkt der Snapshot-Erstellung in einem konsistenten Zustand befindet.  Dies ist wichtig, da dadurch sichergestellt wird, dass die Datenbank nach einem Failover- oder Failback-Vorgang in einen konsistenten Zustand zurückversetzt werden kann.
+
+Die von dem Datenbankserver verwalteten Daten können sich auf demselben Datenspeicher wie die VM befinden, die den Datenbankserver hostet, oder auf einem anderen Datenspeicher. Die folgende Tabelle zeigt die unterstützten Konfigurationen für applikationskonsistente Snapshots in NetApp Disaster Recovery:
+
+[cols="20,20,40a"]
+|===
+| Datenstandort | Unterstützt | Hinweise 
+
+
+| Innerhalb desselben vCenter-Datenspeichers wie die VM | Ja  a| 
+Da sich der Datenbankserver und die Datenbank beide im selben Datenspeicher befinden, sind sowohl der Server als auch die Daten beim Failover synchron.
+
+
+
+| Innerhalb eines anderen vCenter-Datenspeichers als die VM | Nein  a| 
+Disaster Recovery kann nicht erkennen, wenn sich die Daten eines Datenbankservers auf einem anderen vCenter-Datenspeicher befinden.  Der Dienst kann die Daten nicht replizieren, aber die Datenbankserver-VM.
+
+Obwohl die Datenbankdaten nicht repliziert werden können, stellt der Dienst sicher, dass der Datenbankserver alle erforderlichen Schritte durchführt, um sicherzustellen, dass die Datenbank zum Zeitpunkt der VM-Sicherung in den Ruhezustand versetzt wird.
+
+
+
+| Innerhalb einer externen Datenquelle | Nein  a| 
+Wenn sich die Daten auf einer vom Gast bereitgestellten LUN- oder NFS-Freigabe befinden, kann Disaster Recovery die Daten nicht replizieren, aber die Datenbankserver-VM kann replizieren.
+
+Obwohl die Datenbankdaten nicht repliziert werden können, stellt der Dienst sicher, dass der Datenbankserver alle erforderlichen Schritte durchführt, um sicherzustellen, dass die Datenbank zum Zeitpunkt der VM-Sicherung in den Ruhezustand versetzt wird.
+
+|===
+Während einer geplanten Sicherung legt Disaster Recovery den Datenbankserver still und erstellt dann einen Snapshot der VM, auf der der Datenbankserver gehostet wird.  Dadurch wird sichergestellt, dass sich die Datenbank zum Zeitpunkt der Erstellung des Snapshots in einem konsistenten Zustand befindet.
+
+* Für Windows-VMs nutzt der Service den Microsoft Volume Shadow Copy Service (VSS), um die Koordination mit beiden Typen von Datenbankservern sicherzustellen.
+* Für Linux-VMs verwendet der Dienst eine Reihe von Skripts, um den Oracle-Server in den Sicherungsmodus zu versetzen.
+

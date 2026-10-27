@@ -12,7 +12,7 @@ summary: Erfahren Sie mehr über die Anforderungen für die Verwendung mehrerer 
 
 
 [role="lead"]
-Die NetApp Console unterstützt die Verwendung mehrerer Console-Agenten in einer einzigen Arbeitsumgebung.  Der Einsatz mehrerer Console-Agenten kann hilfreich sein, um den Zugriff auf Ressourcen aufrechtzuerhalten, während an einem anderen Console-Agenten Wartungsarbeiten durchgeführt werden oder wenn ein Console-Agent ausfällt.  Da jeder Console-Agent über eine eindeutige Kennung verfügt, kann ein unsachgemäßer Wechsel der Console-Agenten die Verfügbarkeit von Ressourcen in einer Arbeitsumgebung beeinträchtigen.
+Die NetApp Console unterstützt die Verwendung mehrerer Console Agenten mit einer einzelnen Arbeitsumgebung. Die Verwendung mehrerer Console Agenten kann hilfreich sein, um den Zugriff auf Ressourcen aufrechtzuerhalten, während an einem anderen Console Agenten Wartungsarbeiten durchgeführt werden oder ein Console Agent ausfällt. Da jeder Console Agent über eine eindeutige Kennung verfügt, kann ein unsachgemäßer Wechsel zwischen Console Agenten die Verfügbarkeit von Ressourcen in einer Arbeitsumgebung beeinträchtigen.
 
 
 

@@ -1,0 +1,19 @@
+= 
+:allow-uri-read: 
+
+
+Beim Erstellen von Ressourcengruppen sind die folgenden Szenarien zu berücksichtigen:
+
+* Vor dem Hinzufügen von Datastores oder Namespaces zu Ressourcengruppen sollte eine manuelle Identifizierung initiiert oder eine geplante Identifizierung abgewartet werden. Dadurch ist sichergestellt, dass die VMs identifiziert und in der Ressourcengruppe aufgeführt sind. Ohne Start einer manuellen Identifizierung werden die Ressourcen in der Ressourcengruppe möglicherweise nicht aufgeführt.
+* Im Datenspeicher muss sich mindestens eine Ressource (VM oder Namespace) befinden. Wenn sich keine Ressourcen im Datenspeicher befinden, identifiziert Disaster Recovery den Datenspeicher nicht.
+* Ein einzelner Datenspeicher sollte keine VMs hosten, die durch mehr als einen Replikationsplan geschützt sind.
+* Geschützte und ungeschützte Ressourcen dürfen nicht auf demselben Datastore gehostet werden. Wenn geschützte und ungeschützte Ressourcen auf demselben Datastore gehostet werden, können die folgenden Probleme auftreten:
++
+** Da Disaster Recovery SnapMirror verwendet und das System ganze ONTAP Volumes repliziert, wird die genutzte Kapazität dieses Volumes für die Lizenzierung berücksichtigt. In diesem Fall wird der von geschützten und ungeschützten VMs belegte Volume-Speicherplatz in diese Berechnung einbezogen.
+** Wenn für die Ressourcengruppe und ihre zugehörigen Entitäten ein Failover zum Disaster Recovery Standort erforderlich ist, sind nach dem Failover Prozess alle ungeschützten Ressourcen (VMs oder Namespaces, die nicht Teil der Ressourcengruppe sind, aber auf dem ONTAP Volume gehostet werden) am Quellstandort nicht mehr vorhanden, was zum Ausfall ungeschützter VMs am Quellstandort führt. Außerdem startet Disaster Recovery diese ungeschützten Ressourcen nicht am Failover Standort.
+
+
+* Um eine Ressource zu schützen, muss sie Teil einer Ressourcengruppe sein.
+
+
+*EMPFEHLUNG*: Organisieren Sie Ihre VMs vor der Bereitstellung von NetApp Disaster Recovery, um eine unkontrollierte Ausbreitung der Datenspeicher zu vermeiden. Platzieren Sie VMs, die Schutz benötigen, auf einer Teilmenge der Datenspeicher und VMs, die nicht geschützt werden sollen, auf einer anderen Teilmenge der Datenspeicher. Stellen Sie sicher, dass die VMs auf einem bestimmten Datenspeicher nicht durch unterschiedliche Replikationspläne geschützt werden.
