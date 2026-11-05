@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/task-replication-plan-modify.html 
-keywords: disaster recovery, bluexp disaster recovery, failover, replication plan, modify, compliance time, test failover 
+keywords: disaster recovery, bluexp disaster recovery, failover, replication plan, modify, compliance time, test failover, vmware, kubernetes 
 summary: Änderung eines Replikationsplans zum Anpassen von Compliance-Zeit oder Failover-Einstellungen. 
 ---
 = Ändern eines Replikationsplans in NetApp Disaster Recovery
@@ -14,7 +14,7 @@ summary: Änderung eines Replikationsplans zum Anpassen von Compliance-Zeit oder
 [role="lead"]
 In NetApp Disaster Recovery können Sie die Auswirkungen eines Replikationsplans auf die Compliance-Zeitvorgaben anpassen, um sicherzustellen, dass Failover Tests erfolgreich abgeschlossen werden.
 
-Sie können die Compliance-Zeit anpassen und die Auswirkungen eines Test-Failovers prüfen. Für die Bearbeitung der Planwiederholung, der Failover-Zuordnungen oder der VMs ist es erforderlich, den Replikationsplan zu löschen und einen neuen zu erstellen.
+Sie können die Compliance-Zeit ändern und die Auswirkungen eines Test-Failovers prüfen. Zum Bearbeiten der Planwiederholung, der Failover-Zuordnungen oder der zugehörigen Ressourcen müssen Sie den Replikationsplan löschen und einen neuen erstellen.
 
 
 
@@ -22,9 +22,9 @@ Sie können die Compliance-Zeit anpassen und die Auswirkungen eines Test-Failove
 == Modifizierbare Felder
 
 * *Auswirkungen auf die Compliance-Zeit*: Wenn ein Replikationsplan erstellt wird, erstellt der Dienst standardmäßig einen Compliance-Zeitplan.  Die Standard-Compliance-Zeit beträgt 30 Minuten.  Um diese Zeit zu ändern, können Sie den Zeitplan im Replikationsplan bearbeiten.
-* *Auswirkungen des Failovers testen*: Ein Failover-Prozess kann bei Bedarf oder nach einem Zeitplan getestet werden. Dies ermöglicht das Testen des Failovers einer VM zu einem Ziel, das in einem Replikationsplan angegeben ist.
+* *Auswirkungen des Failovers testen*: Sie können einen Failover-Prozess bei Bedarf oder nach Zeitplan testen. Damit können Sie das Failover von VMs oder Kubernetes-Applikationen zu einem im Replikationsplan angegebenen Ziel testen.
 +
-Bei einem Test-Failover wird ein FlexClone -Volume erstellt, der Datenspeicher wird bereitgestellt und die Arbeitslast wird auf diesen Datenspeicher verschoben.  Ein Test-Failover-Vorgang hat _keine_ Auswirkungen auf Produktions-Workloads, die auf der Testsite verwendete SnapMirror -Beziehung und geschützte Workloads, die weiterhin normal ausgeführt werden müssen.
+Ein Test Failover erstellt ein FlexClone Volume und bindet bei VMware Workloads den Datenspeicher ein und verschiebt den Workload auf diesem Datenspeicher. Ein Test Failover hat _keine_ Auswirkungen auf Produktions-Workloads, die auf der Testumgebung verwendete SnapMirror Beziehung und geschützte Workloads, die weiterhin normal funktionieren müssen.
 
 
 
@@ -35,12 +35,12 @@ Basierend auf dem Zeitplan wird der Failover-Test ausgeführt und stellt sicher,
 [[modify-a-replication-plan]]
 == Einen Replikationsplan ändern
 
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
 +
 image:dr-plan-list.png["Screenshot der Liste der Replikationspläne"]
 
-. Wählen Sie die *Aktionen*image:icon-horizontal-dots.png["Horizontale Punkte Aktionsmenü"] Symbol und wählen Sie *Zeitpläne bearbeiten*.
-. Geben Sie in Minuten ein, wie oft NetApp Disaster Recovery die Testkonformität überprüfen soll.
+. Im Menü *Aktionen* image:icon-horizontal-dots.png["Horizontale Punkte Aktionsmenü"] erfolgt anschließend die Auswahl von *Zeitpläne bearbeiten*.
+. Hier wird festgelegt, wie häufig Disaster Recovery die Test-Compliance in Minuten überprüfen soll.
 . Um zu überprüfen, ob Ihre Failover-Tests fehlerfrei sind, aktivieren Sie *Führen Sie Failover monatlich aus*.
 +
 .. Wählen Sie den Tag des Monats und die Uhrzeit aus, zu der diese Tests ausgeführt werden sollen.
@@ -54,7 +54,29 @@ image:dr-plan-schedule-edit2.png["Screenshot, der zeigt, wo Sie Zeitpläne bearb
 . Um die Testumgebung nach Abschluss des Failovertests zu bereinigen, aktivieren Sie *Automatisch bereinigen nach Testfailover* und geben Sie die Anzahl der Minuten ein, die Sie warten möchten, bevor die Bereinigung beginnt.
 +
 
-NOTE: Dieser Prozess hebt die Registrierung der temporären VMs am Teststandort auf, löscht das erstellte FlexClone Volume und hängt die temporären Datenspeicher aus.
+NOTE: Dieser Prozess löscht das erstellte FlexClone Volume und entfernt die temporären Testressourcen vom Teststandort. Bei VMware Workloads werden außerdem die temporären VMs abgemeldet und die temporären Datastores ausgehängt.
 
 . Wählen Sie *Speichern*.
+
+
+
+
+[[delete-or-disable-a-replication-plan]]
+== Replikationsplan löschen oder deaktivieren
+
+Sie können einen Replikationsplan vorübergehend deaktivieren, wenn Sie beispielsweise Updates einspielen oder Wartungsarbeiten durchführen müssen, die die Integrität des Replikationsplans und der zugehörigen Vorgänge beeinträchtigen würden.
+
+Sie können einen Replikationsplan auch löschen, wenn Sie ihn nicht mehr benötigen oder wesentliche Änderungen daran vornehmen müssen, die über den Rahmen einer Änderung hinausgehen.
+
+.Schritte
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
++
+image:dr-plan-list.png["Screenshot der Liste der Replikationspläne"]
+
+. Zum Deaktivieren oder Löschen des gewünschten Replikationsplans wird dessen Menü *Actions* image:icon-horizontal-dots.png["Horizontale Punkte Aktionsmenü"] verwendet.
+. *Löschen* oder *Deaktivieren* stehen zur Auswahl.
+. Im Pop-up finden Sie die Anweisungen. Zum Deaktivieren dient die Option *Deaktivieren*.
++
+Wenn Sie *Delete* auswählen, wählen Sie die zugehörigen Snapshots oder Metadaten aus, die zusammen mit dem Replikationsplan gelöscht werden sollen: *Delete primary snapshots*, *Delete secondary snapshots* oder *Delete snapshot metadata*. Geben Sie im Textfeld "delete" ein, um den Vorgang zu bestätigen, und wählen Sie dann *Delete*.
+
 

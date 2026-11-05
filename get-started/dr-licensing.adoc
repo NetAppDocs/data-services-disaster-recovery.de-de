@@ -29,7 +29,7 @@ Sie können die folgenden Lizenzierungsoptionen nutzen:
 
 
 
-NOTE: Die Gebühren für NetApp Disaster Recovery basieren auf der genutzten Kapazität der Datenspeicher am Quellstandort, wenn mindestens eine VM über einen Replikationsplan verfügt.  Die Kapazität für einen ausgefallenen Datenspeicher ist nicht in der Kapazitätszuteilung enthalten.  Wenn bei einem BYOL die Daten die zulässige Kapazität überschreiten, sind die Vorgänge im Dienst eingeschränkt, bis Sie eine zusätzliche Kapazitätslizenz erwerben oder die Lizenz in der NetApp Console aktualisieren.
+NOTE: Die Gebühren für Disaster Recovery basieren auf der genutzten Kapazität am Quellstandort, wenn mindestens eine VM oder Kubernetes-Ressource über einen Replikationsplan verfügt. Die Kapazität für einen Datastore nach einem Failover ist nicht im Kapazitätskontingent enthalten. Bei einem BYOL sind die Vorgänge im Service eingeschränkt, wenn die Daten die zulässige Kapazität überschreiten, bis Sie eine zusätzliche Kapazitätslizenz erwerben oder die Lizenz in der NetApp Console aktualisieren.
 
 link:https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-licenses-subscriptions.html["Mehr über Abonnements erfahren"^].
 
@@ -45,7 +45,7 @@ Nach Ablauf der kostenlosen Testversion oder der Lizenz können Sie im Dienst we
 [[try-it-out-using-a-30-day-free-trial]]
 == Probieren Sie es mit einer 30-tägigen kostenlosen Testversion aus
 
-Sie können NetApp Disaster Recovery mit einer 30-tägigen kostenlosen Testversion ausprobieren.
+Sie können Disaster Recovery mit einer 30-tägigen kostenlosen Testversion ausprobieren.
 
 
 NOTE: Während der Testphase gelten keine Kapazitätsbeschränkungen.
@@ -61,13 +61,13 @@ Während der Testphase steht Ihnen die volle Funktionalität zur Verfügung.
 Wenn Sie sich zum ersten Mal bei diesem Dienst anmelden, wird die Zielseite angezeigt.
 
 +
-image:draas-landing6-free-trial.png["Screenshot der Zielseite für NetApp Disaster Recovery"]
+image:draas-landing6-free-trial.png["Screenshot der Landingpage für Disaster Recovery"]
 
 . Wenn Sie noch keinen Konsolenagenten für andere Dienste hinzugefügt haben, fügen Sie einen hinzu.
 +
 Informationen zum Hinzufügen eines Konsolenagenten finden Sie unter https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html["Erfahren Sie mehr über Konsolenagenten"^] Die
 
-. Nachdem Sie den Agenten eingerichtet haben, ändert sich auf der Zielseite von NetApp Disaster Recovery die Schaltfläche zum Hinzufügen des Agenten in eine Schaltfläche zum Starten einer kostenlosen Testversion.  Wählen Sie *Kostenlose Testversion starten*.
+. Nachdem Sie den Agenten eingerichtet haben, ändert sich auf der Landing Page von Disaster Recovery die Schaltfläche zum Hinzufügen des Agenten zu einer Schaltfläche zum Starten einer kostenlosen Testversion. Dazu wird *Start free trial* ausgewählt.
 . Beginnen Sie mit dem Hinzufügen von primären Standorten und Standorten für die Notfallwiederherstellung.
 +
 Weitere Informationen finden Sie unter link:../use/sites-add.html["Sites hinzufügen"].
@@ -82,16 +82,16 @@ Weitere Informationen finden Sie unter link:../use/sites-add.html["Sites hinzuf�
 Nach Ablauf der kostenlosen Testversion können Sie entweder eine Lizenz von NetApp erwerben oder ein Abonnement über AWS Marketplace oder Microsoft Azure Marketplace abschließen. Dieses Verfahren bietet einen allgemeinen Überblick darüber, wie Sie sich direkt bei einem der Marktplätze anmelden können.
 
 .Schritte
-. In NetApp Disaster Recovery wird eine Meldung angezeigt, dass die kostenlose Testversion abläuft.  Wählen Sie in der Nachricht *Abonnieren oder Lizenz kaufen* aus.
+. In Disaster Recovery wird die Meldung angezeigt, dass die kostenlose Testversion abläuft. In der Meldung erfolgt die Auswahl von *Subscribe or purchase a license*.
 +
 Oder im Menü „Notfallwiederherstellung“ die Option „Zahlungsmethoden anzeigen“ auswählen.
 
 +
-image:dr-licensing-payment-methods.png["Die Seite „NetApp Disaster Recovery -Zahlungsmethoden“"]
+image:dr-licensing-payment-methods.png["Seite „Zahlungsmethoden für Disaster Recovery“"]
 
 . Wählen Sie *Im AWS Marketplace abonnieren* oder *Im Azure Marketplace abonnieren*.
-. AWS Marketplace oder Microsoft Azure Marketplace können verwendet werden, um *NetApp Disaster Recovery* zu abonnieren.
-. Wenn Sie zu NetApp Disaster Recovery zurückkehren, wird eine Meldung angezeigt, dass Sie abonniert sind.
+. Das Abonnement für *Disaster Recovery* ist über AWS Marketplace oder Microsoft Azure Marketplace verfügbar.
+. Wenn Sie zu Disaster Recovery zurückkehren, erhalten Sie eine Meldung, dass Sie abonniert sind.
 +
 Sie können Abonnementdetails auf der Abonnementseite der NetApp Console anzeigen. link:https://docs.netapp.com/us-en/console-licenses-subscriptions/task-homepage.html["Erfahren Sie mehr über die Verwaltung von Abonnements mit der NetApp Console"^].
 
@@ -111,7 +111,7 @@ Wenn Sie Ihre eigene Lizenz mitbringen (BYOL), umfasst die Einrichtung den Kauf 
 [[add-the-license-to-the-netapp-console]]
 === Die Lizenz zur NetApp Console hinzufügen
 
-Nachdem Sie Ihre NetApp Disaster Recovery-Lizenz von einem NetApp Sales Rep erworben haben, kann die Lizenz in der Console verwaltet werden.
+Nachdem Sie Ihre Disaster Recovery Lizenz von einem NetApp Vertriebsmitarbeiter erworben haben, können Sie die Lizenz in der Console managen.
 
 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html["Erfahren Sie mehr über das Hinzufügen von Lizenzen mit der NetApp Console"^].
 
@@ -120,7 +120,7 @@ https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-se
 [[update-your-license-when-it-expires]]
 == Aktualisieren Sie Ihre Lizenz, wenn sie abläuft
 
-Wenn Ihre Lizenzlaufzeit sich dem Ablaufdatum nähert oder Ihre lizenzierte Kapazität das Limit erreicht, erfolgt eine Benachrichtigung in der NetApp Disaster Recovery UI. Die NetApp Disaster Recovery Lizenz kann vor Ablauf aktualisiert werden, sodass keine Unterbrechung bei der Nutzung des Dienstes entsteht.
+Wenn sich Ihre Lizenzlaufzeit dem Ablaufdatum nähert oder Ihre lizenzierte Kapazität das Limit erreicht, werden Sie in der Disaster Recovery UI benachrichtigt. Sie können Ihre Disaster Recovery Lizenz vor ihrem Ablauf aktualisieren, damit Sie den Service ohne Unterbrechung nutzen können.
 
 
 TIP: Diese Meldung erscheint auch in der NetApp Console und in https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["Benachrichtigungen"] Die
@@ -135,7 +135,7 @@ https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-se
 Sie können die kostenlose Testversion jederzeit beenden oder warten, bis sie abläuft.
 
 .Schritte
-. Wählen Sie in NetApp Disaster Recovery*Kostenlose Testversion – Details anzeigen* aus.
+. In Disaster Recovery wird *Free trial - View details* ausgewählt.
 . Wählen Sie in den Dropdown-Details *Kostenlose Testversion beenden* aus.
 +
 image:draas-trial-end3.png["Seite „Kostenlose Testversion beenden“"]
@@ -146,7 +146,7 @@ Dadurch werden alle Zeitpläne, Replikationspläne, Ressourcengruppen, vCenters,
 
 +
 
-NOTE: Wenn Sie die kostenlose Testversion beenden, keine Datenlöschung angefordert haben und keine Lizenz oder kein Abonnement erwerben, löscht NetApp Disaster Recovery 60 Tage nach Ablauf der kostenlosen Testversion alle Ihre Daten.
+NOTE: Wenn Sie die kostenlose Testphase beenden, keine Löschung Ihrer Daten beantragen und keine Lizenz oder kein Abonnement erwerben, löscht Disaster Recovery alle Ihre Daten 60 Tage nach Ablauf der kostenlosen Testphase.
 
 . Geben Sie „Testversion beenden“ in das Textfeld ein.
 . Wählen Sie *Ende*.

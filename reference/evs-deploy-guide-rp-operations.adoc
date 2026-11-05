@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference/evs-deploy-guide-rp-operations.html 
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, netapp, ontap,amazon elastic vmware service 
-summary: Einführung von NetApp Disaster Recovery mit Amazon EVS und Amazon FSx for NetApp ONTAP.  Verwenden Sie NetApp Disaster Recovery mit Amazon EVS und Amazon FSx for NetApp ONTAP, um das Failover durchzuführen, das Failover zu testen, Ressourcen zu aktualisieren, zu migrieren, jetzt einen Snapshot zu erstellen, Replikationspläne zu deaktivieren oder zu aktivieren, alte Snapshots zu bereinigen, Snapshots abzugleichen, Replikationspläne zu löschen und Zeitpläne zu bearbeiten. 
+summary: 'Einführung in NetApp Disaster Recovery mit Amazon EVS und Amazon FSx for NetApp ONTAP. Mit Disaster Recovery unter Verwendung von Amazon EVS und Amazon FSx for NetApp ONTAP sind folgende Vorgänge möglich: Failover durchführen, Test-Failover durchführen, Ressourcen aktualisieren, migrieren, jetzt einen Snapshot erstellen, Replikationspläne deaktivieren oder aktivieren, alte Snapshots bereinigen, Snapshots abgleichen, einen Replikationsplan löschen und Zeitpläne bearbeiten.' 
 ---
 = Ausführen von Replikationsplanvorgängen mit NetApp Disaster Recovery
 :allow-uri-read: 
@@ -20,7 +20,7 @@ Failover ist ein manuell initiierter Prozess.
 
 .Schritte zum Zugriff auf den Failover-Vorgang
 . Wählen Sie in der linken Navigationsleiste der NetApp Console *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
 
 
 .Schritte zum Durchführen eines Failovers
@@ -31,8 +31,8 @@ image:evs-rp-menu-failover.png["Menüoption „Failover“"]
 
 . Wenn auf die Produktionssite (geschützte Site) nicht zugegriffen werden kann, wählen Sie einen zuvor erstellten Snapshot als Wiederherstellungsimage aus.  Wählen Sie dazu *Auswählen*.
 . Wählen Sie das Backup aus, das für die Wiederherstellung verwendet werden soll.
-. (Optional) Wählen Sie aus, ob NetApp Disaster Recovery den Failover-Prozess unabhängig vom Status des Replikationsplans erzwingen soll.  Dies sollte nur als letztes Mittel erfolgen.
-. (Optional) Wählen Sie aus, ob NetApp Disaster Recovery nach der Wiederherstellung des Produktionsstandorts automatisch eine umgekehrte Schutzbeziehung erstellen soll.
+. (Optional) Auswahl, ob Disaster Recovery den Failover-Prozess unabhängig vom Status des Replikationsplans erzwingen soll. Dies sollte nur als letzte Option erfolgen.
+. (Optional) Wählen Sie aus, ob Disaster Recovery nach der Wiederherstellung des Produktionsstandorts automatisch eine umgekehrte Schutzbeziehung erstellt.
 . Geben Sie das Wort „Failover“ ein, um zu bestätigen, dass Sie fortfahren möchten.
 . Wählen Sie *Failover*.
 +
@@ -48,7 +48,7 @@ image:evs-rp-failover-dialog.png["Dialogfeld „Failover“"]
 Ein Test-Failover ähnelt einem Failover, weist jedoch zwei Unterschiede auf.
 
 * Die Produktionssite ist weiterhin aktiv und alle VMs funktionieren weiterhin wie erwartet.
-* Der NetApp Disaster Recovery Schutz der Produktions-VMs wird fortgesetzt.
+* Der Disaster Recovery Schutz für die Produktions-VMs besteht weiterhin.
 
 
 Dies wird durch die Verwendung nativer ONTAP FlexClone -Volumes am Zielstandort erreicht.  Weitere Informationen zum Testfailover finden Sie unterlink:../use/failover.html["Failover von Anwendungen auf einen Remote-Standort | NetApp Dokumentation"] .
@@ -77,12 +77,12 @@ image:evs-test-failover-dialog.png["Dialogfeld „Failover testen“"]
 Konformitätsprüfungen werden standardmäßig alle drei Stunden durchgeführt.  Sie können jederzeit manuell eine Konformitätsprüfung durchführen.
 
 .Schritte
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
+. Die Option *Aktionen* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] neben dem Replikationsplan auswählen.
 . Wählen Sie im Menü „Aktionen“ des Replikationsplans die Option „Konformitätsprüfung ausführen“ aus:
 +
 image:evs-rp-menu-compliance-check.png["Menüoption „Konformitätsprüfung ausführen“"]
 
-. Um zu ändern, wie oft NetApp Disaster Recovery automatisch Konformitätsprüfungen durchführt, wählen Sie im Menü „Aktionen“ des Replikationsplans die Option „Zeitpläne bearbeiten“ aus.
+. Um zu ändern, wie oft Disaster Recovery automatisch Compliance-Prüfungen durchführt, kann im Menü „Aktionen“ des Replikationsplans die Option *Zeitpläne bearbeiten* ausgewählt werden.
 
 
 
@@ -105,9 +105,9 @@ image::evs-rp-menu-refresh-resources.png[Menüoption „Ressourcen aktualisieren
 [[migrate]]
 == Wandern
 
-Neben der Nutzung von NetApp Disaster Recovery zur Verwaltung von Replikation und Failover im Katastrophenfall kann es auch einmalige VM-Migrationen vom Quellstandort zum Zielstandort unterstützen. Eine einmalige Migration kann Teil eines Umzugs in die Cloud oder einer Maßnahme zur Katastrophenvermeidung bei extremen Wetterereignissen oder politischen Unruhen sein.
+Zusätzlich zur Nutzung von Disaster Recovery, um Replikation und Failover im Katastrophenfall zu managen, kann es auch einmalige VM-Migrationen vom Quellstandort zum Zielstandort unterstützen. Eine einmalige Migration kann beispielsweise Teil eines Umzugs in die Cloud oder eines Verfahrens zur Vermeidung von Katastrophen sein, wenn auf schwerwiegende Ereignisse wie extreme Wetterbedingungen oder politische Unruhen reagiert wird.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
+. Die Option *Aktionen* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] neben dem Replikationsplan auswählen.
 . Um die VMs in einem Replikationsplan in den Amazon EVS-Zielcluster zu verschieben, wählen Sie im Aktionsmenü des Replikationsplans die Option *Migrieren* aus:
 +
 image::evs-rp-menu-migrate.png[Menüoption „Migrieren“]
@@ -120,9 +120,9 @@ image::evs-rp-menu-migrate.png[Menüoption „Migrieren“]
 [[take-a-snapshot-now]]
 == Jetzt Schnappschuss machen
 
-Sie können jederzeit sofort einen Snapshot des Replikationsplans erstellen.  Dieser Snapshot ist in den Überlegungen zur NetApp Disaster Recovery enthalten, die durch die Snapshot-Aufbewahrungsanzahl des Replikationsplans festgelegt werden.
+Sie können jederzeit einen sofortigen Snapshot des Replikationsplans erstellen. Dieser Snapshot ist in den Disaster Recovery Überlegungen enthalten, die durch die Anzahl der aufbewahrten Snapshots des Replikationsplans festgelegt sind.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
+. Die Option *Aktionen* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] neben dem Replikationsplan auswählen.
 . Um sofort einen Snapshot der Ressourcen des Replikationsplans zu erstellen, wählen Sie im Aktionsmenü des Replikationsplans die Option *Jetzt Snapshot erstellen* aus:
 +
 image::evs-rp-menu-take-snapshot-now.png[Menüoption „Jetzt Schnappschuss machen“]
@@ -153,7 +153,7 @@ image::evs-rp-menu-disable-enable.png[Menüoption „Deaktivieren/Aktivieren“]
 
 Möglicherweise möchten Sie ältere Snapshots bereinigen, die auf den Quell- und Zielsites aufbewahrt wurden.  Dies kann passieren, wenn die Snapshot-Aufbewahrungsanzahl des Replikationsplans geändert wird.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
+. Die Option *Aktionen* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] neben dem Replikationsplan auswählen.
 . Um diese älteren Snapshots manuell zu entfernen, wählen Sie im Menü „Aktionen“ des Replikationsplans die Option „Alte Snapshots bereinigen“ aus.
 +
 image::evs-rp-menu-cleanup-old-snapshots.png[Menüoption „Alte Snapshots bereinigen“]
@@ -167,7 +167,7 @@ image::evs-rp-menu-cleanup-old-snapshots.png[Menüoption „Alte Snapshots berei
 
 Da Disaster Recovery ONTAP Volume Snapshots orchestriert, kann ein ONTAP-Speicheradministrator Snapshots direkt über ONTAP System Manager, die ONTAP CLI oder die ONTAP REST APIs löschen, ohne dass der Dienst davon Kenntnis erhält. Disaster Recovery löscht automatisch alle Snapshots auf der Quelle, die nicht auf dem Ziel-Cluster vorhanden sind, alle 24 Stunden. Snapshots können bei Bedarf manuell gelöscht werden. Diese Funktion ermöglicht die Sicherstellung, dass die Snapshots an allen Standorten konsistent sind.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
+. Die Option *Aktionen* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] neben dem Replikationsplan auswählen.
 . Um Snapshots aus dem Quellcluster zu löschen, die im Zielcluster nicht vorhanden sind, wählen Sie im Menü „Aktionen“ des Replikationsplans die Option „Snapshots abgleichen“ aus.
 +
 image::evs-rp-menu-reconcile-snapshots.png[Menüoption „Snapshots abgleichen“]
@@ -181,7 +181,7 @@ image::evs-rp-menu-reconcile-snapshots.png[Menüoption „Snapshots abgleichen�
 
 Wenn der Replikationsplan nicht mehr benötigt wird, können Sie ihn löschen.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
+. Die Option *Aktionen* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] neben dem Replikationsplan auswählen.
 . Um den Replikationsplan zu löschen, wählen Sie *Löschen* aus dem Kontextmenü des Replikationsplans.
 +
 image::evs-rp-menu-delete.png[Menüoption „Löschen“]
@@ -195,7 +195,7 @@ image::evs-rp-menu-delete.png[Menüoption „Löschen“]
 
 Zwei Vorgänge werden automatisch und regelmäßig durchgeführt: Test-Failover und Konformitätsprüfungen.
 
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
+. Die Option *Aktionen* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] neben dem Replikationsplan auswählen.
 . Um diese Zeitpläne für einen dieser beiden Vorgänge zu ändern, wählen Sie *Zeitpläne bearbeiten* für den Replikationsplan aus.
 +
 image::evs-rp-menu-edit-schedules.png[Menüoption „Zeitpläne bearbeiten“]
@@ -221,7 +221,7 @@ image::evs-rp-edit-compliance-check-schedule.png[Zeitplan für die Konformitäts
 Test-Failover werden standardmäßig manuell ausgeführt.  Sie können automatische Test-Failover planen, um sicherzustellen, dass Ihre Replikationspläne wie erwartet funktionieren.  Weitere Informationen zum Test-Failover-Prozess finden Sie unterlink:../use/failover.html["Testen des Failover-Prozesses"] .
 
 .Schritte zum Planen von Test-Failovern
-. Wählen Sie die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] neben dem Replikationsplan.
+. Die Option *Aktionen* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] neben dem Replikationsplan auswählen.
 . Wählen Sie *Failover ausführen*.
 . Aktivieren Sie das Kontrollkästchen *Test-Failover nach Zeitplan ausführen*.
 . (Optional) Aktivieren Sie *On-Demand-Snapshot für geplantes Test-Failover verwenden*.

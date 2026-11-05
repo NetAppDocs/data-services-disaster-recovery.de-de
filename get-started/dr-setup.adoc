@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: get-started/dr-setup.html 
-keywords: bluexp, disaster recovery, aws, amazon web services, amazon fsx for netapp ontap 
+keywords: bluexp, disaster recovery, aws, amazon web services, amazon fsx for netapp ontap, vmware, kubernetes, trident protect 
 summary: Um NetApp Disaster Recovery zu verwenden, führen Sie zur Einrichtung einige Schritte aus. 
 ---
 = Richten Sie Ihre Infrastruktur für NetApp Disaster Recovery ein
@@ -22,12 +22,13 @@ TIP: Rezensionlink:../get-started/dr-prerequisites.html["Voraussetzungen"] um si
 [[supported-infrastructures]]
 == Unterstützte Infrastrukturen
 
-Sie können NetApp Disaster Recovery in folgenden Infrastrukturen verwenden:
+Sie können Disaster Recovery in den folgenden Infrastrukturen nutzen:
 
 * Hybrid Cloud Disaster Recovery, bei der ein lokales VMware- und ONTAP Rechenzentrum in eine AWS Disaster Recovery Infrastruktur repliziert wird, die auf VMware Cloud on AWS oder Elastic VMware Service (EVS) und Amazon FSx for NetApp ONTAP basiert.
 * Private Cloud Disaster Recovery, die ein lokales VMware plus ONTAP vCenter auf ein anderes lokales VMware plus ONTAP vCenter repliziert.
 * Cloudbasierte Notfallwiederherstellung, die eine AWS-Notfallwiederherstellungsinfrastruktur auf Basis von VMware Cloud on AWS oder EVS in eine andere AWS-basierte Notfallwiederherstellungsinfrastruktur mit FSx for NetApp ONTAP repliziert.
 * Hybrid-Cloud-Notfallwiederherstellung, die ein lokales VMware- und ONTAP-Rechenzentrum in eine Google-Infrastruktur für die Notfallwiederherstellung repliziert, die auf Google Cloud VMware Engine und Google Cloud NetApp Volumes basiert.
+* Kubernetes Notfallwiederherstellung zwischen Kubernetes Clustern mit von Trident gemanagtem ONTAP Storage. Die Clusteranforderungen finden Sie unter link:task-kubernetes-requirements.html["Anforderungen an einen Kubernetes-Cluster"].
 
 
 
@@ -46,10 +47,10 @@ Für die Notfallwiederherstellung mit AWS-Cloud-Infrastruktur müssen Sie den Ko
 [[aws-availability-zones]]
 === AWS Availability Zones
 
-AWS unterstützt die Bereitstellung von Lösungen in einer oder mehreren Verfügbarkeitszonen (Availability Zones, AZs) innerhalb einer Region. NetApp Disaster Recovery verwendet zwei von AWS gehostete Dienste: VMware Cloud on AWS und Amazon FSx for NetApp ONTAP.
+AWS unterstützt die Bereitstellung von Lösungen in einer oder mehreren Verfügbarkeitszonen (Availability Zones, AZs) innerhalb einer Region. Für Disaster Recovery werden zwei von AWS gehostete Services verwendet: VMware Cloud on AWS und Amazon FSx for NetApp ONTAP.
 
-* *VMware Cloud für AWS*: Unterstützt die Bereitstellung in einer Single-AZ- oder Dual-AZ-Stretch-Cluster-SDDC-Umgebung. NetApp Disaster Recovery unterstützt nur Single-AZ-SDDC-Bereitstellungen für VMware Cloud on AWS.
-* *AWS FSx for NetApp ONTAP*: Wenn Amazon FSx for NetApp ONTAP in einer Multi-AZ-Konfiguration bereitgestellt wird, gehört jedes Volume zu einem FSx for ONTAP Dateisystem, und die Daten werden auf das zweite Dateisystem gespiegelt. FSx for ONTAP kann in Single-AZ- oder Multi-AZ-Konfigurationen bereitgestellt werden. NetApp Disaster Recovery unterstützt beide Bereitstellungsmodelle.
+* *VMware Cloud for AWS*: Unterstützt Deployment in einer Single-AZ- oder Dual-AZ-Stretch-Cluster-SDDC-Umgebung. Disaster Recovery unterstützt nur Single-AZ-SDDC-Deployments für VMware Cloud on AWS.
+* *AWS FSx for NetApp ONTAP*: Bei der Bereitstellung von Amazon FSx for NetApp ONTAP in einer Multi-AZ-Konfiguration gehört jedes Volume zu einem FSx for ONTAP-Dateisystem, und die Daten werden auf das zweite Dateisystem gespiegelt. FSx for ONTAP kann in Single-AZ- oder Multi-AZ-Konfigurationen bereitgestellt werden. Disaster Recovery unterstützt beide Deployment-Modelle.
 
 
 *BESTE PRAXIS*: Für die Konfiguration von AWS Disaster Recovery Standorten empfiehlt NetApp die Verwendung von Single-AZ-Bereitstellungen sowohl für VMware Cloud als auch für AWS FSx for ONTAP Instanzen. Da AWS für Disaster Recovery verwendet wird, bietet die Einführung mehrerer Availability Zones keine Vorteile. Multi-AZ-Bereitstellungen können Kosten und Komplexität erhöhen.
@@ -87,7 +88,7 @@ AWS bietet die folgenden Arten von VPC-zu-VPC-Verbindungen an.  Jede Lösung hat
 [[get-ready-for-on-premises-to-cloud-protection-using-aws]]
 === Machen Sie sich bereit für den On-Premises-to-Cloud-Schutz mit AWS
 
-Um NetApp Disaster Recovery für den On-Premises-to-Cloud-Schutz mit AWS einzurichten, müssen Sie Folgendes einrichten:
+Für die Einrichtung von Disaster Recovery für den Schutz lokaler Umgebungen in die Cloud mit AWS sind folgende Konfigurationen erforderlich:
 
 * AWS FSx für NetApp ONTAP einrichten
 * Einrichten von VMware Cloud on AWS SDDC
@@ -123,7 +124,7 @@ Um eine VMware Cloud-Umgebung auf AWS zu konfigurieren, befolgen Sie die Schritt
 [[private-cloud]]
 == Private Cloud
 
-Sie können NetApp Disaster Recovery verwenden, um VMware-VMs zu schützen, die auf einem oder mehreren vCenter-Clustern gehostet werden, indem Sie VM-Datenspeicher auf einen anderen vCenter-Cluster replizieren, entweder im selben privaten Rechenzentrum oder in einem entfernten privaten oder am selben Standort befindlichen Rechenzentrum.
+Mit Disaster Recovery können Sie VMware VMs schützen, die auf einem oder mehreren vCenter Clustern gehostet sind, indem Sie VM Datastores auf einen anderen vCenter Cluster replizieren, entweder im selben privaten Rechenzentrum oder in einem entfernten privaten oder Colocation-Rechenzentrum.
 
 Installieren Sie den Konsolenagenten für On-Premises-Situationen an einem der physischen Standorte.
 
@@ -134,7 +135,7 @@ Disaster Recovery unterstützt die standortübergreifende Replikation über Ethe
 [[get-ready-for-on-premises-to-on-premises-protection]]
 === Machen Sie sich bereit für den On-Premises-zu-On-Premises-Schutz
 
-Stellen Sie sicher, dass die folgenden Anforderungen erfüllt sind, bevor Sie NetApp Disaster Recovery für den On-Premises-zu-On-Premises-Schutz einrichten:
+Vor der Einrichtung von Disaster Recovery für den Schutz zwischen lokalen Systemen müssen die folgenden Anforderungen erfüllt sein:
 
 * ONTAP-Speicher
 +
@@ -147,7 +148,7 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt sind, bevor Sie Ne
 * vCenter-Cluster
 +
 ** Stellen Sie sicher, dass die VMs, die Sie schützen möchten, auf NFS-Datenspeichern (mithilfe von ONTAP NFS-Volumes) oder VMFS-Datenspeichern (mithilfe von NetApp iSCSI LUNs) gehostet werden.
-** Rezensionlink:../reference/vcenter-privileges.html["vCenter-Berechtigungen"] erforderlich für NetApp Disaster Recovery.
+** Prüfung link:../reference/vcenter-privileges.html["vCenter-Berechtigungen"] für Disaster Recovery erforderlich.
 ** Erstellen Sie ein Benutzerkonto für die Notfallwiederherstellung (nicht das standardmäßige vCenter-Administratorkonto) und weisen Sie dem Konto die vCenter-Berechtigungen zu.
 
 
@@ -160,8 +161,8 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt sind, bevor Sie Ne
 
 Der NetApp Console Agent unterstützt intelligente Proxys.  Intelligent Proxy ist eine einfache, sichere und effiziente Möglichkeit, Ihre lokale Umgebung mit der NetApp Console zu verbinden.  Es bietet eine sichere Verbindung zwischen Ihrem System und dem Konsolendienst, ohne dass ein VPN oder direkter Internetzugang erforderlich ist.  Diese optimierte Proxy-Implementierung entlastet den API-Verkehr innerhalb des lokalen Netzwerks.
 
-Wenn ein Proxy konfiguriert ist, versucht NetApp Disaster Recovery, direkt mit VMware oder ONTAP zu kommunizieren und verwendet den konfigurierten Proxy, wenn die direkte Kommunikation fehlschlägt.
+Wenn ein Proxy konfiguriert ist, versucht Disaster Recovery, direkt mit VMware oder ONTAP zu kommunizieren, und verwendet den konfigurierten Proxy, falls die direkte Kommunikation fehlschlägt.
 
-NetApp Disaster Recovery Proxy-Implementierung erfordert die Kommunikation über Port 443 zwischen dem Console-Agenten und allen vCenter Servern sowie ONTAP Arrays mittels HTTPS-Protokoll. Der NetApp Disaster Recovery Agent innerhalb des Console-Agenten kommuniziert bei der Ausführung von Aktionen direkt mit VMware vSphere, dem vCenter Server oder ONTAP.
+Die Disaster Recovery Proxy-Implementierung erfordert eine Kommunikation über Port 443 zwischen dem Console Agent und allen vCenter Servern sowie ONTAP Arrays unter Verwendung des HTTPS-Protokolls. Der Disaster Recovery Agent innerhalb des Console Agent kommuniziert bei der Ausführung von Aktionen direkt mit VMware vSphere, dem vCenter Server oder ONTAP.
 
 Weitere Informationen zur allgemeinen Proxy-Einrichtung in der NetApp Console finden Sie unter https://docs.netapp.com/us-en/console-setup-admin/task-configuring-proxy.html["Konfigurieren des Konsolenagenten zur Verwendung eines Proxyservers"^] Die

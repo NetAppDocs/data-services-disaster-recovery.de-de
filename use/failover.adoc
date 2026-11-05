@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/failover.html 
-keywords: disaster recovery, bluexp disaster recovery, failover, replicate, fail over, vmware, vcenter 
+keywords: disaster recovery, bluexp disaster recovery, failover, replicate, fail over, vmware, vcenter, kubernetes, trident protect, openshift 
 summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert. 
 ---
 = Failover von Anwendungen an einen Remote-Standort mit NetApp Disaster Recovery
@@ -23,15 +23,15 @@ Disaster Recovery unterstützt auch das Testen von Failover-Vorgängen. Tests tr
 [[about-this-task]]
 == Über diese Aufgabe
 
-Während des Failovers verwendet NetApp Disaster Recovery standardmäßig die aktuellste SnapMirror Snapshot-Kopie, es kann jedoch ein bestimmter Snapshot aus einer zeitpunktgenauen Snapshot-Kopie ausgewählt werden (gemäß der Aufbewahrungsrichtlinie von SnapMirror). Die zeitpunktgenaue Option ist zu verwenden, wenn die aktuellsten Replikate kompromittiert sind, beispielsweise bei einem Ransomware-Angriff.
+Während des Failover verwendet Disaster Recovery standardmäßig die aktuellste Snapshot-Kopie von SnapMirror, Sie können jedoch einen bestimmten Snapshot aus einem zeitpunktgenauen Snapshot auswählen (gemäß der Aufbewahrungsrichtlinie von SnapMirror). Die zeitpunktgenau-Option ist geeignet, wenn die aktuellsten Replikate beeinträchtigt sind, beispielsweise bei einem Ransomware-Angriff.
 
 Dieser Prozess unterscheidet sich, je nachdem, ob der Produktionsstandort fehlerfrei ist und Sie aus anderen Gründen als einem kritischen Infrastrukturausfall ein Failover zum Disaster Recovery-Standort durchführen:
 
-* Kritischer Produktionsstandortausfall, bei dem auf das Quell-vCenter oder den ONTAP Cluster nicht zugegriffen werden kann: Mit NetApp Disaster Recovery können Sie einen beliebigen verfügbaren Snapshot für die Wiederherstellung auswählen.
+* Bei einem kritischen Produktionsstandortausfall, bei dem das Quell-vCenter, der Kubernetes-Cluster oder das ONTAP Cluster nicht zugänglich ist, ermöglicht Disaster Recovery die Auswahl eines beliebigen verfügbaren Snapshots, von dem aus die Wiederherstellung erfolgt.
 * Die Produktionsumgebung ist fehlerfrei: Sie können entweder „Jetzt einen Snapshot erstellen“ oder einen zuvor erstellten Snapshot auswählen.
 
 
-Dieses Verfahren unterbricht die Replikationsbeziehung, setzt die vCenter-Quell-VMs offline, registriert die Volumes als Datenspeicher im Disaster Recovery-vCenter, startet die geschützten VMs unter Verwendung der Failover-Regeln im Plan neu und aktiviert das Lesen/Schreiben auf der Zielsite.
+Dieses Verfahren unterbricht die Replikationsbeziehung, nimmt die Quell-Workloads offline, stellt die replizierten Volumes am Disaster-Recovery-Standort bereit, startet die geschützten Workloads gemäß den Failover-Regeln des Plans neu und aktiviert lesen/schreiben am Zielstandort. Bei VMware-Workloads nimmt der Dienst die vCenter Quell-VMs offline, registriert die Volumes als Datastores im Disaster-Recovery-vCenter und startet die geschützten VMs neu. Kubernetes-Workloads folgen der entsprechenden Sequenz für ihre Anwendungen und persistenten Volumes.
 
 
 
@@ -40,15 +40,15 @@ Dieses Verfahren unterbricht die Replikationsbeziehung, setzt die vCenter-Quell-
 
 Vor einem Live-Failover kann ein Test durchgeführt werden, um die Einsatzbereitschaft zu überprüfen. Die Workloads bleiben während des Testvorgangs online.
 
-Während eines Failover-Tests erstellt Disaster Recovery temporär VMs. Disaster Recovery ordnet einen temporären Datenspeicher, der das FlexClone Volume sichert, den ESXi-Hosts zu.
+Während eines Failover-Tests von VMware-Workloads erstellt Disaster Recovery temporär VMs. Disaster Recovery ordnet den ESXi-Hosts einen temporären Datenspeicher zu, der das FlexClone Volume unterstützt. Ein Failover-Test von Kubernetes-Workloads folgt dem entsprechenden Ablauf für die geschützten Anwendungen und persistenten Volumes auf dem Ziel-Cluster.
 
 Dieser Prozess beansprucht keine zusätzliche physische Kapazität auf dem lokalen ONTAP Speicher oder dem FSx für NetApp ONTAP -Speicher in AWS. Das ursprüngliche Quellvolume wird nicht verändert, und Replikationsaufträge können auch während der Notfallwiederherstellung fortgesetzt werden.
 
-Nach Abschluss des Tests sollten Sie die VMs mit der Option *Test bereinigen* zurücksetzen. Dies wird zwar empfohlen, ist aber nicht zwingend erforderlich.
+Nach Abschluss des Tests empfiehlt es sich, die Testumgebung mit der Option *Clean up test* zurückzusetzen.
 
 Ein Test-Failover-Vorgang hat _keine_ Auswirkungen auf Produktions-Workloads, die auf der Testsite verwendete SnapMirror -Beziehung und geschützte Workloads, die weiterhin normal ausgeführt werden müssen.
 
-Für ein Test-Failover führt Disaster Recovery die folgenden Vorgänge aus:
+Bei einem Test-Failover führt Disaster Recovery die folgenden Operationen durch.
 
 * Führen Sie Vorprüfungen des Zielclusters und der SnapMirror -Beziehung durch.
 * Erstellen Sie aus dem ausgewählten Snapshot für jedes geschützte ONTAP Volume auf dem ONTAP -Cluster des Zielstandorts ein neues FlexClone Volume.
@@ -62,9 +62,9 @@ Für ein Test-Failover führt Disaster Recovery die folgenden Vorgänge aus:
 .Schritte
 . Melden Sie sich an bei https://console.netapp.com/["NetApp Console"^] .
 . Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen*image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] und wählen Sie *Failover testen*.
+. Rechts kann die Option *Actions* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] und anschließend *Test failover* ausgewählt werden.
 . Wählen Sie auf der Seite „Failover testen“ den Snapshot für den Failover-Test aus: Wählen Sie **Jetzt Snapshot erstellen** oder **Auswählen**, um einen vorhandenen Snapshot auszuwählen. Wenn Sie **Auswählen** wählen, wählen Sie den vorhandenen Snapshot aus.
 +
 Anschließend „Test failover“ eingeben und *Test failover* auswählen.
@@ -77,12 +77,12 @@ Anschließend „Test failover“ eingeben und *Test failover* auswählen.
 [[clean-up-the-test-environment-after-a-failover-test]]
 == Bereinigen der Testumgebung nach einem Failovertest
 
-Nachdem der Failover-Test abgeschlossen ist, sollten Sie die Testumgebung bereinigen.  Dieser Prozess entfernt die temporären VMs vom Teststandort, den FlexClones und den temporären Datenspeichern.
+Nach Abschluss des Failover-Tests ist eine Bereinigung der Testumgebung erforderlich. Dabei werden die temporären Testressourcen und die FlexClones vom Teststandort entfernt. Bei VMware Workloads umfasst dies die temporären VMs und die temporären Datastores.
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen* aus. image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] dann *Failover-Test bereinigen*.
+. Rechts erfolgt die Auswahl der Option *Aktionen* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] und anschließend von *Failover-Test bereinigen*.
 . Geben Sie auf der Seite „Test-Failover“ die Option „Failover bereinigen“ ein und wählen Sie dann *Failover-Test bereinigen* aus.
 
 
@@ -91,9 +91,9 @@ Nachdem der Failover-Test abgeschlossen ist, sollten Sie die Testumgebung berein
 [[fail-over-the-source-site-to-a-disaster-recovery-site]]
 == Führen Sie ein Failover des Quellstandorts auf einen Notfallwiederherstellungsstandort durch
 
-Im Katastrophenfall erfolgt das Failover Ihres primären lokalen VMware-Standorts bei Bedarf auf einen anderen lokalen VMware-Standort oder auf VMware Cloud on AWS mit FSx for NetApp ONTAP.
+Im Katastrophenfall können Sie Ihren primären Standort bei Bedarf auf den Notfallwiederherstellungsstandort umschalten. Bei VMware-Workloads können Sie Ihren primären lokalen VMware-Standort auf einen anderen lokalen VMware-Standort oder auf VMware Cloud on AWS mit FSx for NetApp ONTAP umschalten. Bei Kubernetes-Workloads schalten Sie auf den Ziel-Cluster im Replikationsplan um.
 
-Der Failover-Prozess umfasst die folgenden Operationen:
+Der Failover-Prozess umfasst die folgenden Operationen. Die Operationen, die sich auf vCenter, VMs oder Datastores beziehen, gelten für VMware-Workloads; Kubernetes-Workloads folgen den entsprechenden Operationen für ihre Anwendungen und persistenten Volumes:
 
 * Disaster Recovery führt Vorprüfungen des Zielclusters und der SnapMirror -Beziehung durch.
 * Wenn Sie den neuesten Snapshot ausgewählt haben, wird das SnapMirror Update durchgeführt, um die neuesten Änderungen zu replizieren.
@@ -109,7 +109,7 @@ Der Failover-Prozess umfasst die folgenden Operationen:
 
 
 
-TIP: Nach dem Start des Failovers können Sie die wiederhergestellten VMs im vCenter der Notfallwiederherstellungsumgebung (VMs, Netzwerke und Datenspeicher) sehen. Standardmäßig werden die VMs im Ordner Workload wiederhergestellt.
+TIP: Bei VMware Workloads können Sie nach Beginn des Failovers die wiederhergestellten VMs im vCenter des Disaster-Recovery-Standorts sehen (VMs, Netzwerke und Datastores). Standardmäßig werden die VMs im Ordner Workload wiederhergestellt.
 
 [role="tabbed-block"]
 ====
@@ -118,13 +118,13 @@ TIP: Nach dem Start des Failovers können Sie die wiederhergestellten VMs im vCe
 Bei datenspeicherbasierten Replikationsplänen werden VMs, die Sie hinzugefügt und erkannt haben, für die aber keine Zuordnungsdetails angegeben wurden, in das Failover einbezogen. Der Failover schlägt fehl und es wird eine Benachrichtigung in den Jobs angezeigt. Sie müssen die Zuordnungsdetails angeben, um das Failover erfolgreich abzuschließen.
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
 . Im Dropdown-Menü nach *vCenter* Replikationsplänen filtern.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen* aus image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Fail over* aus.
+. Wählen Sie rechts die Option *Aktionen* aus image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Fail over* aus.
 +
 image:dr-plan-failover3.png["Failover-Seite"]
 
@@ -140,7 +140,7 @@ NOTE: Bei Auswahl einer bestimmten Snapshot-Baseline werden SnapMirror Transfer-
 
 
 . *Failover erzwingen* auswählen, wenn der Failover auch dann fortgesetzt werden soll, wenn der Dienst einen Fehler erkennt, der ihn normalerweise blockieren würde.
-. Wählen Sie *Schutz überspringen*, wenn der Dienst nicht automatisch eine umgekehrte SnapMirror Schutzbeziehung nach einem Failover des Replikationsplans erstellen soll. Dies ist hilfreich, wenn Sie zusätzliche Vorgänge am wiederhergestellten Standort durchführen möchten, bevor Sie ihn im Rahmen der NetApp Disaster Recovery wieder online schalten.
+. Die Option *Schutz überspringen* wird verwendet, wenn der Dienst nach einem Failover eines Replikationsplans nicht automatisch eine umgekehrte SnapMirror Schutzbeziehung erstellen soll. Dies ist hilfreich, wenn Sie zusätzliche Vorgänge am wiederhergestellten Standort durchführen möchten, bevor Sie ihn im Rahmen von Disaster Recovery wieder online schalten.
 +
 
 TIP: Sie können einen umgekehrten Schutz einrichten, indem Sie im Menü „Aktionen“ des Replikationsplans die Option „Ressourcen schützen“ auswählen.  Dadurch wird versucht, für jedes Volume im Plan eine umgekehrte Replikationsbeziehung zu erstellen.  Sie können diesen Job wiederholt ausführen, bis der Schutz wiederhergestellt ist.  Wenn der Schutz wiederhergestellt ist, können Sie auf die übliche Weise ein Failback einleiten.
@@ -153,13 +153,13 @@ TIP: Sie können einen umgekehrten Schutz einrichten, indem Sie im Menü „Akti
 --
 .Kubernetes
 --
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
 . Im Dropdown-Menü nach *Kubernetes*-Replikationsplänen filtern.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen* aus image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Fail over* aus.
+. Wählen Sie rechts die Option *Aktionen* aus image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Fail over* aus.
 . Wählen Sie die Snapshot-Kopie aus, die Sie für den Failover-Zustand verwenden möchten:
 +
 ** *Jetzt Snapshot erstellen* auswählen, um einen brandneuen Snapshot zu erstellen, der in den Ziel-Cluster kopiert wird.
@@ -171,7 +171,7 @@ NOTE: Bei Auswahl einer bestimmten Snapshot-Baseline werden SnapMirror Transfer-
 
 
 
-. Wählen Sie *Schutz überspringen*, wenn Disaster Recovery nach einem Failover des Replikationsplans nicht automatisch eine umgekehrte SnapMirror Schutzbeziehung erstellen soll. Dies ist hilfreich, wenn zusätzliche Vorgänge auf dem wiederhergestellten Standort durchgeführt werden sollen, bevor dieser innerhalb von NetApp Disaster Recovery wieder online geschaltet wird.
+. Die Option *Schutz überspringen* ist geeignet, wenn Disaster Recovery nach einem Failover eines Replikationsplans nicht automatisch eine umgekehrte SnapMirror Schutzbeziehung erstellen soll. Dies ist hilfreich, wenn Sie zusätzliche Vorgänge am wiederhergestellten Standort durchführen möchten, bevor Sie ihn in Disaster Recovery wieder online schalten.
 . Geben Sie „Failover“ ein, um die Aktion zu bestätigen, und wählen Sie dann *Failover* aus.
 
 

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: use/sites-add.html 
-keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
-summary: Bevor Sie einen Notfallwiederherstellungsplan erstellen können, müssen Sie in NetApp Disaster Recovery einen primären vCenter-Standort und einen vCenter-Ziel-Notfallwiederherstellungsstandort hinzufügen. 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, kubernetes, trident protect, openshift 
+summary: Bevor Sie einen Disaster-Recovery-Plan erstellen können, müssen Sie in NetApp Disaster Recovery einen primären Standort und einen Disaster-Recovery-Zielstandort hinzufügen, bei denen es sich um vCenter Standorte oder Kubernetes Standorte handeln kann. 
 ---
 = Standorte in NetApp Disaster Recovery hinzufügen
 :hardbreaks:
@@ -47,7 +47,7 @@ Nachdem Sie einen Standort zur Disaster Recovery hinzugefügt haben, müssen Sie
 Wenn Sie in früheren Versionen vCenter hinzugefügt haben und den Erkennungszeitplan anpassen möchten, müssen Sie die vCenter-Server-Site bearbeiten und den Zeitplan festlegen.
 
 
-TIP: NetApp Disaster Recovery führt die Erkennung einmal alle 24 Stunden durch. Nach der Einrichtung eines Standorts können Sie später den vCenter oder Kubernetes-Cluster bearbeiten, um den Erkennungszeitplan an Ihre Anforderungen anzupassen. Wenn Sie beispielsweise eine große Anzahl von VMs haben, können Sie den Erkennungszeitplan so einstellen, dass er alle 23 Stunden und 59 Minuten ausgeführt wird. Wenn Sie eine geringe Anzahl von VMs haben, können Sie den Erkennungszeitplan so einstellen, dass er alle 12 Stunden ausgeführt wird. Das minimale Intervall beträgt 30 Minuten und das maximale 24 Stunden.
+TIP: Disaster Recovery führt alle 24 Stunden eine Erkennung durch. Nach der Einrichtung eines Standorts können Sie später den vCenter oder Kubernetes-Cluster bearbeiten, um den Erkennungszeitplan an Ihre Anforderungen anzupassen. Wenn Sie eine große Anzahl von VMs haben, können Sie den Erkennungszeitplan beispielsweise so festlegen, dass er alle 23 Stunden und 59 Minuten ausgeführt wird. Wenn Sie eine kleine Anzahl von VMs haben, können Sie den Erkennungszeitplan so festlegen, dass er alle 12 Stunden ausgeführt wird. Das minimale Intervall beträgt 30 Minuten und das maximale 24 Stunden.
 
 Sie sollten zunächst einige manuelle Ermittlungen durchführen, um die aktuellsten Informationen zu Ihrer Umgebung zu erhalten.  Danach können Sie den Zeitplan so einstellen, dass er automatisch ausgeführt wird.
 
@@ -125,7 +125,7 @@ image:sites-list2.png["Screenshot der Sites-Seite"]
 
 
 
-Nachdem vCenter hinzugefügt wurden, führt NetApp Disaster Recovery eine umfassende Erkennung der vCenter-Umgebungen durch, einschließlich vCenter-Cluster, ESXi-Hosts, Datenspeicher, Speicherbedarf, Details zu virtuellen Maschinen, SnapMirror Replikaten und Netzwerken virtueller Maschinen.
+Nach dem Hinzufügen von vCenters führt Disaster Recovery eine eingehende Erkennung der vCenter Umgebungen durch, einschließlich vCenter Clustern, ESXi Hosts, Datastores, Storage Footprint, Details zu virtuellen Maschinen, SnapMirror Replikaten und Netzwerken virtueller Maschinen.
 
 --
 .Kubernetes
@@ -160,7 +160,7 @@ Nach dem Hinzufügen von Ressourcen wählen Sie *Job Monitoring*, um den Fortsch
 
 Sie können IP-Adressen bei Failover-Vorgängen mithilfe der Subnetzzuordnung verwalten, wodurch Sie für jedes vCenter Subnetze hinzufügen können.  Dabei definieren Sie das IPv4-CIDR, das Standard-Gateway und das DNS für jedes virtuelle Netzwerk.
 
-Beim Failover verwendet NetApp Disaster Recovery das CIDR des zugeordneten Netzwerks, um jeder vNIC eine neue IP-Adresse zuzuweisen.
+Beim Failover verwendet Disaster Recovery den CIDR-Block des zugeordneten Netzwerks, um jeder vNIC eine neue IP-Adresse zuzuweisen.
 
 Beispiel:
 
@@ -170,7 +170,7 @@ Beispiel:
 
 VM1 verfügt über eine vNIC (10.1.1.50), die mit NetworkA verbunden ist.  In den Replikationsplaneinstellungen wird NetworkA NetworkB zugeordnet.
 
-Beim Failover ersetzt NetApp Disaster Recovery den Netzwerkteil der ursprünglichen IP-Adresse (10.1.1) und behält die Hostadresse (.50) der ursprünglichen IP-Adresse (10.1.1.50) bei.  Für VM1 prüft NetApp Disaster Recovery die CIDR-Einstellungen für NetworkB und verwendet den NetworkB-Netzwerkteil 192.168.1, während der Hostteil (.50) beibehalten wird, um die neue IP-Adresse für VM1 zu erstellen.  Die neue IP wird 192.168.1.50.
+Beim Failover ersetzt Disaster Recovery den Netzwerkanteil der ursprünglichen IP-Adresse (10.1.1) und behält die Hostadresse (.50) der ursprünglichen IP-Adresse (10.1.1.50) bei. Für VM1 prüft Disaster Recovery die CIDR-Einstellungen für NetworkB und verwendet den Netzwerkanteil von NetworkB, 192.168.1, während der Hostanteil (.50) beibehalten wird, um die neue IP-Adresse für VM1 zu erstellen. Die neue IP-Adresse lautet 192.168.1.50.
 
 Zusammenfassend lässt sich sagen, dass die Hostadresse gleich bleibt, während die Netzwerkadresse durch die in der Site-Subnetzzuordnung konfigurierte Adresse ersetzt wird.  Auf diese Weise können Sie die Neuzuweisung von IP-Adressen bei einem Failover einfacher verwalten, insbesondere wenn Sie Hunderte von Netzwerken und Tausende von VMs verwalten müssen.
 
@@ -181,7 +181,7 @@ Die Verwendung der Subnetzzuordnung ist ein optionaler zweistufiger Prozess:
 
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery Menü *Sites* aus.
+. Die Auswahl von *Sites* erfolgt im Menü „Disaster Recovery“.
 . Von den Aktionenimage:icon-vertical-dots.png["Symbol „Aktionen“"] Symbol rechts und wählen Sie *Subnetz hinzufügen*.
 +
 image:dr-sites-subnet-menu.png["Screenshot des Menüs „Subnetz hinzufügen“"]
@@ -220,7 +220,7 @@ Die Verwendung der Subnetzzuordnung ist ein optionaler zweistufiger Prozess:
 
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
 . Wählen Sie *Hinzufügen*, um einen Replikationsplan hinzuzufügen.
 . Füllen Sie die Felder wie gewohnt aus, indem Sie die vCenter-Server hinzufügen, die Ressourcengruppen oder Anwendungen auswählen und die Zuordnungen vervollständigen.
 . Wählen Sie auf der Seite Replikationsplan > Ressourcenzuordnung den Abschnitt *Virtuelle Maschinen* aus.
@@ -247,7 +247,7 @@ Wenn Sie über vCenter aus früheren Versionen verfügen und den Zeitpunkt der E
 Wenn Sie die Erkennung nicht planen möchten, können Sie die Option zur geplanten Erkennung deaktivieren und die Erkennung jederzeit manuell aktualisieren.
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery Menü *Sites* aus.
+. Die Auswahl von *Sites* erfolgt im Menü „Disaster Recovery“.
 . Wählen Sie die Site aus, die Sie bearbeiten möchten.
 . Wählen Sie die Aktionenimage:icon-vertical-dots.png["Symbol „Aktionen“"] Symbol rechts und wählen Sie *Bearbeiten*.
 . Im Einstellungsfenster bearbeiten Sie die Felder nach Bedarf.
@@ -265,10 +265,10 @@ image:sites-edit-schedule.png["Screenshot „Erkennungsplan bearbeiten“"]
 [[refresh-discovery-manually]]
 == Erkennung manuell aktualisieren
 
-Sie können die Erkennung jederzeit manuell aktualisieren.  Dies ist nützlich, wenn Sie VMs hinzugefügt oder entfernt haben und die Informationen in NetApp Disaster Recovery aktualisieren möchten.
+Sie können die Erkennung jederzeit manuell aktualisieren. Dies ist hilfreich, wenn Sie VMs hinzugefügt oder entfernt haben und die Informationen in Disaster Recovery aktualisieren möchten.
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery Menü *Sites* aus.
+. Die Auswahl von *Sites* erfolgt im Menü „Disaster Recovery“.
 . Wählen Sie die Site aus, die Sie aktualisieren möchten.
 . Wählen Sie die Aktionenimage:icon-vertical-dots.png["Symbol „Aktionen“"] Symbol rechts und wählen Sie *Aktualisieren*.
 

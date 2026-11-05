@@ -21,7 +21,7 @@ Für die Anmeldung bei NetApp Disaster Recovery werden Ihre Zugangsdaten für di
 
 In NetApp Disaster Recovery erfordern bestimmte Aufgaben bestimmte Benutzerrollen. Es ist sicherzustellen, dass den Benutzern die richtigen Rollen zugewiesen wurden.
 
-Weitere Informationen finden Sie unter: * link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Benutzerrollen und Berechtigungen in NetApp Disaster Recovery"] * link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["NetApp Console-Zugriffsrollen für alle Dienste"^]
+Weitere Informationen finden Sie unter: * link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html["Benutzerrollen und Berechtigungen in Disaster Recovery"] * link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["NetApp Console-Zugriffsrollen für alle Dienste"^]
 
 
 

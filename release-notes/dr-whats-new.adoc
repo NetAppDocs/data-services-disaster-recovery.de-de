@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: release-notes/dr-whats-new.html 
 keywords: disaster recovery, bluexp, disaster recovery, vmware, vcenter, draas, disaster 
-summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Service, der Disaster-Recovery-Workflows automatisiert. Mit NetApp Disaster Recovery können Sie Ihre lokalen VMware-Workloads, die auf ONTAP-Speicher laufen, in ein VMware-Software-Defined-Data-Center in öffentlichen Clouds als Disaster-Recovery-Standort replizieren, indem Sie NetApp Cloud-Speicher verwenden. 
+summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Service, der Disaster-Recovery-Workflows automatisiert. Mit NetApp Disaster Recovery können Sie Ihre lokalen VMware- und Kubernetes-Workloads mit ONTAP Storage an einen Disaster-Recovery-Standort replizieren. 
 ---
 = Was ist neu bei NetApp Disaster Recovery ?
 :hardbreaks:
@@ -1079,7 +1079,7 @@ So geht's:
 [[05-july-2024]]
 == 05. Juli 2024
 
-Diese NetApp Disaster Recovery -Version enthält die folgenden Updates:
+Diese Disaster Recovery Version enthält die folgenden Aktualisierungen:
 
 
 
@@ -1146,16 +1146,16 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.h
 [[updates-to-prerequisite-information]]
 === Aktualisierungen der erforderlichen Informationen
 
-Die Informationen zu den Voraussetzungen für NetApp Disaster Recovery wurden aktualisiert.
+Die Informationen zu den Voraussetzungen für die Notfallwiederherstellung wurden aktualisiert.
 
-Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-prerequisites.html["Voraussetzungen für NetApp Disaster Recovery"] .
+Weitere Informationen sind unter https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-prerequisites.html["Voraussetzungen für die Notfallwiederherstellung"] zu finden.
 
 
 
 [[15-may-2024]]
 == 15. Mai 2024
 
-Diese NetApp Disaster Recovery -Version enthält die folgenden Updates:
+Diese Disaster Recovery Version enthält die folgenden Aktualisierungen:
 
 
 
@@ -1169,27 +1169,27 @@ Dies wird jetzt als allgemein verfügbare Funktion veröffentlicht.  Zuvor hande
 [[licensing-updates]]
 === Lizenzierungsupdates
 
-Bei NetApp Disaster Recovery können Sie sich für eine kostenlose 90-Tage-Testversion anmelden, ein Pay-as-you-go-Abonnement (PAYGO) bei Amazon Marketplace erwerben oder Ihre eigene Lizenz (BYOL) mitbringen. Dabei handelt es sich um eine NetApp Lizenzdatei (NLF), die Sie von Ihrem NetApp Vertriebsmitarbeiter oder von der NetApp -Support-Site (NSS) erhalten.
+Mit Disaster Recovery können Sie sich für eine 90-tägige kostenlose Testversion anmelden, ein Pay-as-you-go-Abonnement (PAYGO) über Amazon Marketplace erwerben oder Ihre eigene Lizenz (BYOL) verwenden, bei der es sich um eine NetApp License File (NLF) handelt, die Sie von Ihrem NetApp Sales Rep oder von der NetApp Support Site (NSS) erhalten.
 
-Einzelheiten zum Einrichten der Lizenzierung für NetApp Disaster Recovery finden Sie unterlink:../get-started/dr-licensing.html["Einrichten der Lizenzierung"] .
+Einzelheiten zur Einrichtung der Lizenzierung für Disaster Recovery finden Sie unter link:../get-started/dr-licensing.html["Einrichten der Lizenzierung"].
 
-https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html["Erfahren Sie mehr über NetApp Disaster Recovery"].
+https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html["Weitere Informationen zur Notfallwiederherstellung"].
 
 
 
 [[05-march-2024]]
 == 05. März 2024
 
-Dies ist die allgemein verfügbare Version von NetApp Disaster Recovery, die die folgenden Updates enthält.
+Dies ist die allgemein verfügbare Version von Disaster Recovery, die die folgenden Aktualisierungen enthält.
 
 
 
 [[licensing-updates]]
 === Lizenzierungsupdates
 
-Bei NetApp Disaster Recovery können Sie sich für eine kostenlose 90-Tage-Testversion anmelden oder Ihre eigene Lizenz (BYOL) mitbringen. Dabei handelt es sich um eine NetApp -Lizenzdatei (NLF), die Sie von Ihrem NetApp Vertriebsmitarbeiter erhalten.  Sie können die Seriennummer der Lizenz verwenden, um BYOL in den NetApp Console -Abonnements zu aktivieren.  Die Gebühren für NetApp Disaster Recovery basieren auf der bereitgestellten Kapazität der Datenspeicher.
+Mit Disaster Recovery können Sie sich für eine 90-tägige kostenlose Testversion oder Bring Your Own License (BYOL) anmelden, also für eine NetApp License File (NLF), die Sie von Ihrem NetApp Sales Rep. erhalten. Mit der Seriennummer der Lizenz können Sie BYOL in den NetApp Console Abonnements aktivieren. Die Gebühren für Disaster Recovery basieren auf der bereitgestellten Kapazität der Datastores.
 
-Einzelheiten zur Lizenzierung von NetApp Disaster Recovery finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-licensing.html["Einrichten der Lizenzierung"] Die
+Einzelheiten zur Einrichtung der Lizenzierung für Disaster Recovery finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-licensing.html["Einrichten der Lizenzierung"].
 
 Einzelheiten zur Lizenzverwaltung für *alle* NetApp Console -Datendienste finden Sie unter https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html["Verwalten Sie Lizenzen für alle NetApp Console Datendienste"^] Die
 
@@ -1207,7 +1207,7 @@ Weitere Informationen finden Sie unter  https://docs.netapp.com/us-en/data-servi
 [[01-february-2024]]
 == 01. Februar 2024
 
-Diese Vorschauversion von NetApp Disaster Recovery enthält die folgenden Updates:
+Diese Disaster Recovery Vorabversion enthält die folgenden Aktualisierungen:
 
 
 
@@ -1227,7 +1227,7 @@ Weitere Informationen finden Sie unter  https://docs.netapp.com/us-en/data-servi
 [[custom-scripts]]
 === Benutzerdefinierte Skripte
 
-Können jetzt als Prozesse nach dem Failover einbezogen werden.  Mit benutzerdefinierten Skripten können Sie NetApp Disaster Recovery Ihr Skript nach einem Failover-Prozess ausführen lassen.  Sie können beispielsweise ein benutzerdefiniertes Skript verwenden, um alle Datenbanktransaktionen nach Abschluss des Failovers fortzusetzen.
+Können jetzt als Post-Failover-Prozesse eingebunden werden. Mit benutzerdefinierten Skripten kann Disaster Recovery Ihr Skript nach einem Failover-Prozess ausführen. Beispielsweise kann ein benutzerdefiniertes Skript nach Abschluss des Failovers alle Datenbanktransaktionen wiederaufnehmen.
 
 Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html["Failover zu einem Remotestandort"] .
 
@@ -1236,7 +1236,7 @@ Weitere Einzelheiten finden Sie unter https://docs.netapp.com/us-en/data-service
 [[snapmirror-relationship]]
 === SnapMirror -Beziehung
 
-Sie können jetzt beim Entwickeln des Replikationsplans eine SnapMirror -Beziehung erstellen.  Bisher mussten Sie die Beziehung außerhalb von NetApp Disaster Recovery erstellen.
+Sie können nun während der Entwicklung des Replikationsplans eine SnapMirror Beziehung erstellen. Zuvor mussten Sie die Beziehung außerhalb von Disaster Recovery erstellen.
 
 Weitere Informationen finden Sie unter  https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html["Erstellen eines Replikationsplans"].
 
@@ -1245,7 +1245,7 @@ Weitere Informationen finden Sie unter  https://docs.netapp.com/us-en/data-servi
 [[consistency-groups]]
 === Konsistenzgruppen
 
-Wenn Sie einen Replikationsplan erstellen, können Sie VMs aus unterschiedlichen Volumes und unterschiedlichen SVMs einschließen.  NetApp Disaster Recovery erstellt einen Consistency Group Snapshot, indem es alle Volumes einbezieht und alle sekundären Standorte aktualisiert.
+Beim Erstellen eines Replikationsplans können Sie VMs aus verschiedenen Volumes und verschiedenen SVMs einbeziehen. Disaster Recovery erstellt einen Consistency Group Snapshot, indem alle Volumes einbezogen und alle sekundären Speicherorte aktualisiert werden.
 
 Weitere Informationen finden Sie unter  https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html["Erstellen eines Replikationsplans"].
 
@@ -1272,7 +1272,7 @@ Weitere Informationen finden Sie unter  https://docs.netapp.com/us-en/data-servi
 [[11-january-2024]]
 == 11. Januar 2024
 
-Diese Vorschauversion von NetApp Disaster Recovery enthält die folgenden Updates:
+Diese Vorabversion von Disaster Recovery enthält die folgenden Aktualisierungen:
 
 
 
@@ -1281,33 +1281,33 @@ Diese Vorschauversion von NetApp Disaster Recovery enthält die folgenden Update
 
 Mit dieser Version können Sie vom Dashboard aus schneller auf Informationen auf anderen Seiten zugreifen.
 
-https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html["Erfahren Sie mehr über NetApp Disaster Recovery"].
+https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html["Informationen zur Disaster Recovery"].
 
 
 
 [[20-october-2023]]
 == 20. Oktober 2023
 
-Diese Vorabversion von NetApp Disaster Recovery enthält die folgenden Updates.
+Diese Vorabversion von Disaster Recovery enthält die folgenden Aktualisierungen.
 
 
 
 [[protect-on-premises-nfs-based-vmware-workloads]]
 === Schützen Sie lokale, NFS-basierte VMware-Workloads
 
-Mit NetApp Disaster Recovery können Sie jetzt Ihre lokalen, NFS-basierten VMware-Workloads zusätzlich zur öffentlichen Cloud vor Katastrophen in einer anderen lokalen, NFS-basierten VMware-Umgebung schützen.  NetApp Disaster Recovery orchestriert die Durchführung der Notfallwiederherstellungspläne.
+Mit Disaster Recovery können Sie Ihre lokalen, NFS-basierten VMware-Workloads jetzt zusätzlich zur Public Cloud gegen Katastrophen in einer anderen lokalen, NFS-basierten VMware-Umgebung schützen. Disaster Recovery koordiniert die Umsetzung der Notfallwiederherstellungspläne.
 
 
 NOTE: Bei diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitplan vor der allgemeinen Verfügbarkeit zu ändern.
 
-https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html["Erfahren Sie mehr über NetApp Disaster Recovery"].
+https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html["Weitere Informationen zur Notfallwiederherstellung"].
 
 
 
 [[27-september-2023]]
 == 27. September 2023
 
-Diese Vorschauversion von NetApp Disaster Recovery enthält die folgenden Updates:
+Diese Vorabversion von Disaster Recovery enthält die folgenden Aktualisierungen:
 
 
 
@@ -1327,7 +1327,7 @@ Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/dashboar
 +
 Informationen dazu finden Sie in https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html["Erstellen eines Replikationsplans"].
 
-* *Netzwerkverbesserungen*: Wenn Sie im Abschnitt „Virtuelle Maschinen“ des Replikationsplans das Netzwerk zwischen Quell- und Zielstandorten zuordnen, bietet NetApp Disaster Recovery jetzt zwei Optionen: DHCP oder statische IP. Bisher wurde nur DHCP unterstützt. Für statische IPs konfigurieren Sie das Subnetz, das Gateway und die DNS-Server. Darüber hinaus können Sie jetzt Anmeldeinformationen für virtuelle Maschinen eingeben.
+* *Netzwerkverbesserungen*: Bei der Zuordnung von Netzwerkverbindungen zwischen Quell- und Zielstandorten im Abschnitt „Virtuelle Maschinen“ des Replikationsplans bietet Disaster Recovery nun zwei Optionen: DHCP oder statische IP-Adressen. Zuvor wurde nur DHCP unterstützt. Für statische IP-Adressen konfigurieren Sie Subnetz, Gateway und DNS-Server. Zusätzlich können Sie jetzt Anmeldeinformationen für virtuelle Maschinen eingeben.
 +
 Informationen dazu finden Sie in https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html["Erstellen eines Replikationsplans"].
 
@@ -1355,15 +1355,15 @@ Informationen dazu finden Sie in https://docs.netapp.com/us-en/data-services-dis
 
 
 
-[[netapp-disaster-recovery-preview]]
-=== NetApp Disaster Recovery -Vorschau
+[[disaster-recovery-preview]]
+=== Vorschau für Disaster Recovery
 
-NetApp Disaster Recovery Preview ist ein Cloud-basierter Disaster Recovery-Dienst, der Disaster Recovery-Workflows automatisiert.  Mit der Vorschau von NetApp Disaster Recovery können Sie zunächst Ihre lokalen, NFS-basierten VMware-Workloads, auf denen NetApp -Speicher ausgeführt wird, mit Amazon FSx für ONTAP in VMware Cloud (VMC) auf AWS schützen.
+Disaster Recovery preview ist ein Cloud-basierter Disaster-Recovery-Service, der Disaster-Recovery-Workflows automatisiert. Anfänglich können Sie mit Disaster Recovery preview Ihre lokalen NFS-basierten VMware-Workloads, die auf NetApp Storage ausgeführt werden, in VMware Cloud (VMC) auf AWS mit Amazon FSx for ONTAP schützen.
 
 
 NOTE: Bei diesem Vorschauangebot behält sich NetApp das Recht vor, Angebotsdetails, Inhalte und Zeitplan vor der allgemeinen Verfügbarkeit zu ändern.
 
-https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html["Erfahren Sie mehr über NetApp Disaster Recovery"].
+https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html["Weitere Informationen zur Notfallwiederherstellung"].
 
 Diese Version enthält die folgenden Updates:
 
@@ -1379,7 +1379,7 @@ Beim Erstellen eines Notfallwiederherstellungs- oder Replikationsplans können S
 [[replication-verification]]
 === Replikationsüberprüfung
 
-Nachdem Sie den Disaster Recovery- oder Replikationsplan erstellt, die Wiederholung im Assistenten identifiziert und eine Replikation zu einem Disaster Recovery-Standort initiiert haben, überprüft NetApp Disaster Recovery alle 30 Minuten, ob die Replikation tatsächlich gemäß Plan erfolgt. Sie können den Fortschritt auf der Seite „Job Monitor“ überwachen. Siehe https://docs.netapp.com/us-en/data-services-disaster-recovery/use/replicate.html["Replizieren von Anwendungen auf eine andere Site"] .
+Nachdem Sie den Disaster Recovery oder Replikationsplan erstellt, die Wiederholung im Assistenten festgelegt und eine Replikation an einen Disaster Recovery Standort initiiert haben, überprüft Disaster Recovery alle 30 Minuten, ob die Replikation planmäßig erfolgt. Sie können den Fortschritt auf der Seite Job Monitor verfolgen. Weitere Informationen finden Sie unter  https://docs.netapp.com/us-en/data-services-disaster-recovery/use/replicate.html["Replizieren von Anwendungen auf eine andere Site"].
 
 
 
@@ -1400,13 +1400,13 @@ Die Seite „Job Monitor“ enthält jetzt eine Aktualisierungsoption, sodass Si
 [[18-may-2023]]
 == 18. Mai 2023
 
-Dies ist die Erstveröffentlichung von NetApp Disaster Recovery.
+Dies ist die erste Version von Disaster Recovery.
 
 
 
 [[cloud-based-disaster-recovery-service]]
 === Cloudbasierter Disaster-Recovery-Dienst
 
-NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert.  Mit der Vorschau von NetApp Disaster Recovery können Sie zunächst Ihre lokalen, NFS-basierten VMware-Workloads, auf denen NetApp -Speicher ausgeführt wird, mit Amazon FSx für ONTAP in VMware Cloud (VMC) auf AWS schützen.
+Disaster Recovery ist ein Cloud-basierter Disaster Recovery Service, der Disaster Recovery Workflows automatisiert. Mit der Disaster Recovery Vorschau können Sie zunächst Ihre lokalen, NFS-basierten VMware-Workloads schützen, die auf NetApp Storage ausgeführt werden, und sie auf VMware Cloud (VMC) auf AWS mit Amazon FSx for ONTAP absichern.
 
-link:https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html["Erfahren Sie mehr über NetApp Disaster Recovery"].
+link:https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html["Weitere Informationen zur Notfallwiederherstellung"].

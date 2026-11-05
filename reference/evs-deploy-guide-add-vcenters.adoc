@@ -9,7 +9,7 @@ summary: Einführung in NetApp Disaster Recovery mit Amazon EVS und Amazon FSxN.
 
 
 [role="lead"]
-Nachdem Sie Standorte erstellt haben, fügen Sie die vCenter-Cluster für jeden Standort in NetApp Disaster Recovery hinzu. Der Standorttyp bestimmt den Zugriff, den NetApp Disaster Recovery für die vCenters in diesem Standort benötigt. Amazon EVS vCenters und lokale vCenters verwenden dieselben Verbindungs- und Authentifizierungsinformationen.
+Nachdem Sie Standorte erstellt haben, können Sie die vCenter Cluster für jeden Standort in NetApp Disaster Recovery hinzufügen. Der Standorttyp bestimmt den Zugriff, den Disaster Recovery für die vCenters an diesem Standort benötigt. Amazon EVS vCenters und lokale vCenters verwenden dieselben Verbindungs- und Authentifizierungsinformationen.
 
 .Schritte zum Hinzufügen eines vCenters zu jeder Site
 . Wählen Sie unter der Option *Sites* für die gewünschte Site die Option *vCenter hinzufügen* aus.
@@ -21,7 +21,7 @@ image:evs-add-vcenter-1.png["vCenter-Option hinzufügen"]
 .. Der NetApp Console , der in Ihrem AWS VPC gehostet wird.
 .. Die IP-Adresse oder der FQDN für das hinzuzufügende vCenter.
 .. Falls erforderlich, den Port auf den TCP-Port ändern, der von Ihrem vCenter Server verwendet wird.
-.. Der vCenter-Benutzername für das zuvor erstellte Konto, der von NetApp Disaster Recovery zum Verwalten des vCenter verwendet wird.
+.. Der vCenter Benutzername für das zuvor erstellte Konto, das von Disaster Recovery zum Managen des vCenter verwendet wird.
 
 
 

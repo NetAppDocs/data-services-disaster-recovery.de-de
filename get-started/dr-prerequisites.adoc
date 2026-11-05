@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: get-started/dr-prerequisites.html 
-keywords: what are disaster recovery requirements, disaster recovery prerequisites, bluexp, disaster recovery 
-summary: Bevor Sie NetApp Disaster Recovery verwenden, stellen Sie sicher, dass Ihre Umgebung die Anforderungen an ONTAP -Speicher, VMware vCenter-Cluster und NetApp Console erfüllt. 
+keywords: what are disaster recovery requirements, disaster recovery prerequisites, bluexp, disaster recovery, vmware, kubernetes, trident protect 
+summary: Vor der Verwendung von NetApp Disaster Recovery muss Ihre Umgebung die Anforderungen an ONTAP Storage, VMware vCenter-Cluster oder Kubernetes-Cluster sowie an NetApp Console erfüllen. 
 ---
 = Voraussetzungen für NetApp Disaster Recovery
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Bevor Sie NetApp Disaster Recovery verwenden, stellen Sie sicher, dass 
 
 
 [role="lead"]
-Vor der Einrichtung sollten die Voraussetzungen für Storage, vCenter und die Konsole überprüft werden, damit die Workloads für Replikation und Wiederherstellung bereit sind.
+Vor der Einrichtung sollten die Voraussetzungen für Storage, vCenter bzw. Kubernetes-Cluster und Console validiert werden, damit die Workloads für Replikation und Wiederherstellung bereit sind.
 
 
 
@@ -140,11 +140,12 @@ Falls Sie dies noch nicht getan haben, https://docs.netapp.com/us-en/console-set
 [[gather-credentials-for-ontap-and-vmware]]
 === Sammeln Sie Anmeldeinformationen für ONTAP und VMware
 
-* Die Anmeldeinformationen für Amazon FSx for ONTAP und AWS müssen im NetApp Console Projekt, das NetApp Disaster Recovery verwaltet, zum System hinzugefügt werden.
-* Für NetApp Disaster Recovery sind vCenter-Anmeldeinformationen erforderlich.  Sie geben die vCenter-Anmeldeinformationen ein, wenn Sie eine Site in NetApp Disaster Recovery hinzufügen.
+* Amazon FSx for ONTAP und AWS-Anmeldeinformationen müssen dem System innerhalb des NetApp Console Projekts hinzugefügt werden, das Disaster Recovery verwaltet.
+* Disaster Recovery erfordert vCenter Anmeldedaten. Die vCenter Anmeldedaten werden beim Hinzufügen eines Standorts in Disaster Recovery eingegeben.
 +
-Eine Liste der erforderlichen vCenter-Berechtigungen finden Sie unterlink:../reference/vcenter-privileges.html["Für NetApp Disaster Recovery erforderliche vCenter-Berechtigungen"] .  Anweisungen zum Hinzufügen einer Site finden Sie unterlink:../use/sites-add.html["Hinzufügen einer Site"] .
+Eine Liste der erforderlichen vCenter Berechtigungen finden Sie unter link:../reference/vcenter-privileges.html["vCenter Berechtigungen, die für die Notfallwiederherstellung erforderlich sind"]. Anweisungen zum Hinzufügen eines Standorts finden Sie unter link:../use/sites-add.html["Hinzufügen einer Site"].
 
+* Bei Kubernetes-Clustern ist die link:task-kubernetes-requirements.html["Anforderungen an einen Kubernetes-Cluster"] vor dem Hinzufügen einer Kubernetes-Site zu prüfen.
 
 
 
@@ -155,12 +156,12 @@ TIP: Informationen zur Verwendung von Disaster Recovery mit Amazon Elastic VMwar
 [[create-the-netapp-console-agent]]
 === Erstellen Sie den NetApp Console Agenten
 
-Der Konsolenagent ist eine Softwarekomponente, die es der Konsole ermöglicht, mit Ihrem ONTAP Speicher und Ihren VMware vCenter-Clustern zu kommunizieren. Es ist erforderlich, damit die Notfallwiederherstellung ordnungsgemäß funktioniert. Der Agent befindet sich in Ihrem privaten Netzwerk (entweder in einem lokalen Rechenzentrum oder in einer Cloud-VPC) und kommuniziert mit Ihren ONTAP Speicherinstanzen sowie allen weiteren Server- und Anwendungskomponenten. Für die Notfallwiederherstellung ist dies der Zugriff auf Ihre verwalteten vCenter-Cluster.
+Der Console Agent ist eine Softwarekomponente, die es der Console ermöglicht, mit Ihrem ONTAP Storage und Ihren VMware vCenter Clustern oder Kubernetes Clustern zu kommunizieren. Er ist erforderlich, damit Disaster Recovery ordnungsgemäß funktioniert. Der Agent befindet sich in Ihrem privaten Netzwerk, entweder in einem lokalen Datacenter oder in einer Cloud VPC, und kommuniziert mit Ihren ONTAP Storage Instanzen sowie mit allen zusätzlichen Server- und Applikation Komponenten. Für Disaster Recovery bedeutet dies den Zugriff auf Ihre verwalteten vCenter Cluster oder Kubernetes Cluster.
 
 In der NetApp Console muss ein Konsolenagent eingerichtet werden.  Wenn Sie den Agenten verwenden, enthält er die entsprechenden Funktionen für den Disaster Recovery-Dienst.
 
-* NetApp Disaster Recovery funktioniert nur mit der Agent-Bereitstellung im Standardmodus. Sehen https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-standard-mode.html["Erste Schritte mit der NetApp Console im Standardmodus"^] .
-* Stellen Sie sicher, dass sowohl der Quell- als auch der Ziel-vCenter-Cluster denselben Console-Agenten verwenden.
+* Die Notfallwiederherstellung funktioniert nur mit der Agentenbereitstellung im Standardmodus. Siehe https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-standard-mode.html["Erste Schritte mit der NetApp Console im Standardmodus"^].
+* Sowohl die Quell- als auch die Ziel-vCenter Cluster bzw. die Quell- und Ziel-Kubernetes-Cluster verwenden denselben Console Agenten.
 * Benötigter Konsolenagenttyp:
 +
 ** *On-Premises-zu-On-Premises-Disaster-Recovery*: Installieren Sie den On-Premises-Console-Agenten am Disaster-Recovery-Standort. Mit dieser Methode verhindert ein Ausfall des primären Standorts nicht, dass der Dienst Ihre virtuellen Ressourcen am DR-Standort neu startet. Siehe  https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html["Installieren und Einrichten des Konsolen-Agenten vor Ort"^].
@@ -172,14 +173,14 @@ Disaster Recovery unterstützt auch die Verwendung mehrerer Konsolenagenten mit 
 
 TIP: Verwenden Sie für die lokale Übertragung den lokalen Konsolenagenten.  Verwenden Sie für die lokale Verbindung zu AWS den AWS-Konsolenagenten, der Zugriff auf das lokale Quell-vCenter und das lokale Ziel-vCenter hat.
 
-** Der installierte Konsolenagent muss auf alle VMware vCenter-Clusterinstanzen und ESXi-Hosts zugreifen können, die von diesen vCenter-Clustern verwaltet werden und die von Disaster Recovery verwaltet werden.
+** Der installierte Console Agent muss auf alle Kubernetes-Cluster zugreifen können, die Disaster Recovery managen wird. Er muss außerdem auf alle VMware vCenter Clusterinstanzen und ESXi Hosts zugreifen können, die von den vCenter Clustern verwaltet werden, die Disaster Recovery managen wird.
 
 
-* Alle ONTAP Arrays, die von NetApp Disaster Recovery verwaltet werden sollen, müssen zu jedem System innerhalb des NetApp Console -Projekts hinzugefügt werden, das zur Verwaltung von NetApp Disaster Recovery verwendet wird.
+* Alle ONTAP Arrays, die von Disaster Recovery verwaltet werden sollen, müssen zu jedem System innerhalb des NetApp Console Projekts hinzugefügt werden, das für das Managen von Disaster Recovery verwendet wird.
 +
 Sehen https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html["Entdecken Sie lokale ONTAP -Cluster"^] .
 
-* Informationen zum Einrichten eines intelligenten Proxys für NetApp Disaster Recovery finden Sie unterlink:../get-started/dr-setup.html["Richten Sie Ihre Infrastruktur für NetApp Disaster Recovery ein"] .
+* Informationen zum Einrichten eines intelligenten Proxys für Disaster Recovery sind unter link:../get-started/dr-setup.html["Einrichtung Ihrer Infrastruktur für Disaster Recovery"] verfügbar.
 
 
 
@@ -187,7 +188,7 @@ Sehen https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discove
 [[workload-prerequisites]]
 == Workload-Voraussetzungen
 
-Um sicherzustellen, dass die Prozesse zur Anwendungskonsistenz erfolgreich sind, müssen Sie die folgenden Voraussetzungen erfüllen:
+Um sicherzustellen, dass die Prozesse für Applikationskonsistenz für VMware Workloads erfolgreich sind, müssen folgende Voraussetzungen erfüllt sein:
 
 * Stellen Sie sicher, dass VMware-Tools (oder Open VM-Tools) auf den zu schützenden VMs ausgeführt werden.
 * Bei Windows-VMs, auf denen Microsoft SQL Server, Oracle Database oder beides ausgeführt wird, müssen die VSS Writer der Datenbanken aktiviert sein.
@@ -203,5 +204,5 @@ IMPORTANT: Je nach Bereitstellungstyp überprüfen Sie die link:reference-vmware
 == Weitere Informationen
 
 * xref:../reference/vcenter-privileges.html[Erforderliche vCenter Privilegien]
-* xref:../reference/evs-deploy-guide-config-prereqs.html[Voraussetzungen für Amazon EVS mit NetApp Disaster Recovery]
+* xref:../reference/evs-deploy-guide-config-prereqs.html[Voraussetzungen für Amazon EVS mit Disaster Recovery]
 

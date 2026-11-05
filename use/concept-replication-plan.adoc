@@ -89,7 +89,7 @@ Wenn Sie plattformverwaltete Backups (das heißt, ONTAP-verwaltete Snapshots) ve
 [[disaster-recovery-managed-backups]]
 == von Disaster Recovery verwaltete Backups
 
-Bei der Verwendung von Disaster Recovery verwalteten Backups gelten die folgenden Richtlinien für SnapMirror Beziehungen, die außerhalb von NetApp Disaster Recovery erstellt wurden:
+Bei der Verwendung von von Disaster Recovery gemanagten Backups gelten die folgenden Richtlinien für SnapMirror Beziehungen, die außerhalb von Disaster Recovery erstellt wurden:
 
 * SnapMirror Beziehungen können die MirrorAll, MirrorVault, MirrorLatest und asynchronen Replikationsrichtlinien unterstützen.
 * Planen Sie *keine* Aktualisierungen für diese Beziehungen ein, da diese vom Disaster Recovery Service verwaltet werden.
@@ -104,7 +104,7 @@ Viele VMs hosten Datenbankserver wie Oracle oder Microsoft SQL Server.  Diese Da
 
 Anwendungskonsistente Snapshots stellen sicher, dass sich die Datenbank zum Zeitpunkt der Snapshot-Erstellung in einem konsistenten Zustand befindet.  Dies ist wichtig, da dadurch sichergestellt wird, dass die Datenbank nach einem Failover- oder Failback-Vorgang in einen konsistenten Zustand zurückversetzt werden kann.
 
-Die von dem Datenbankserver verwalteten Daten können sich auf demselben Datenspeicher wie die VM befinden, die den Datenbankserver hostet, oder auf einem anderen Datenspeicher. Die folgende Tabelle zeigt die unterstützten Konfigurationen für applikationskonsistente Snapshots in NetApp Disaster Recovery:
+Die vom Datenbankserver gemanagten Daten können sich auf demselben Datenspeicher wie die VM befinden, auf der der Datenbankserver gehostet wird, oder auf einem anderen Datenspeicher. Die folgende Tabelle zeigt die unterstützten Konfigurationen für applikationskonsistente Snapshots in Disaster Recovery:
 
 [cols="20,20,40a"]
 |===

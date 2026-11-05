@@ -41,7 +41,7 @@ Siehe https://docs.netapp.com/us-en/console-setup-admin/task-managing-connectors
 +
 Siehe https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started-step1.html["Erstellen Sie ein Amazon FSx for NetApp ONTAP -Dateisystem"^] .
 
-. Wählen Sie in NetApp Disaster Recovery*Sites* aus und wählen Sie in der vCenter-Zeile die Option *Actions*image:../use/icon-vertical-dots.png["Symbol für das Aktionsmenü in NetApp Disaster Recovery"] , und wählen Sie im Menü „Aktionen“ die Option „Aktualisieren“ aus, um die FSx-Erkennung in NetApp Disaster Recovery zu aktualisieren.
+. Die Aktualisierung der FSx-Erkennung in Disaster Recovery erfolgt über *Sites* unter „Disaster Recovery“, über die Option *Actions* image:../use/icon-vertical-dots.png["Aktionsmenüsymbol in Disaster Recovery"] in der Zeile vCenter und anschließend über *Refresh* im Menü „Actions“.
 +
 Dadurch werden der Datenspeicher, seine virtuellen Maschinen und seine Zielbeziehung neu erkannt.
 

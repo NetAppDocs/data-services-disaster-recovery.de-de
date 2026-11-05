@@ -30,7 +30,7 @@ NOTE: Informationen zum Erstellen eines Replikationsplans für VMware-Workloads 
 
 
 
-TIP: Eine Organisation Ihrer Kubernetes-Cluster und -Namespaces vor der Bereitstellung von NetApp Disaster Recovery trägt dazu bei, Wildwuchs zu minimieren. Informationen zur Organisation von Ressourcengruppen vor dem Erstellen des Replikationsplans finden Sie unter link:resource-group.html["Erstellen einer Ressourcengruppe"].
+TIP: Die Organisation Ihrer Kubernetes Cluster und Namespaces vor der Bereitstellung von Disaster Recovery minimiert Wildwuchs. Weitere Informationen zur Organisation von Ressourcengruppen vor der Erstellung des Replikationsplans finden Sie unter link:resource-group.html["Erstellen einer Ressourcengruppe"].
 
 
 
@@ -52,7 +52,7 @@ Befolgen Sie beim Erstellen des Plans diese Richtlinien:
 Zunächst werden die Quell- und Zielcluster für den Replikationsplan ausgewählt.
 
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
 . Im Dropdown-Menü erfolgt die Auswahl von *Kubernetes*.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]

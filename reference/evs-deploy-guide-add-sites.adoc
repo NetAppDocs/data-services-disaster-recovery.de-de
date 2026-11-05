@@ -9,7 +9,7 @@ summary: Bevor Sie Ihre VM-Infrastruktur schützen können, muss der NetApp Disa
 
 
 [role="lead"]
-Bevor Sie Ihre VM-Infrastruktur schützen können, müssen Sie ermitteln, welche VMware vCenter-Cluster die zu schützenden VMs hosten und wo sich diese vCenter befinden.  Der erste Schritt besteht darin, eine Site zu erstellen, die die Quell- und Ziel-Rechenzentren darstellt.  Eine Site ist eine Fehlerdomäne oder eine Wiederherstellungsdomäne.
+Bevor Sie Ihre VM-Infrastruktur mit NetApp Disaster Recovery schützen können, müssen Sie ermitteln, welche VMware vCenter Cluster die zu schützenden VMs hosten und wo sich diese vCenters befinden. Der erste Schritt besteht darin, einen Standort zu erstellen, der die Quell- und Zielrechenzentren repräsentiert. Ein Standort ist eine Ausfall- oder Wiederherstellungsdomäne.
 
 Sie müssen Folgendes erstellen:
 
@@ -26,7 +26,7 @@ Erstellen Sie eine vCenter-Produktionssite.
 
 .Schritte
 . Wählen Sie in der linken Navigationsleiste der NetApp Console *Schutz* > *Notfallwiederherstellung*.
-. Wählen Sie auf einer beliebigen Seite in NetApp Disaster Recovery die Option *Sites* aus.
+. Auf jeder Seite in Disaster Recovery steht die Option *Sites* zur Auswahl.
 +
 image:evs-create-site-op-1.png["Sites-Option"]
 
@@ -51,7 +51,7 @@ Wenn Sie über andere vCenter-Produktionssites verfügen, können Sie diese mit 
 
 Erstellen Sie eine DR-Site für Amazon EVS mit Amazon FSx for NetApp ONTAP -Speicher.
 
-. Wählen Sie auf einer beliebigen Seite in NetApp Disaster Recovery die Option *Sites* aus.
+. Auf jeder Seite in Disaster Recovery steht die Option *Sites* zur Auswahl.
 +
 image:evs-create-site-op-1.png["Sites-Option"]
 

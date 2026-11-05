@@ -30,7 +30,7 @@ Für die Bereitstellung eines Console Agent und die Zuweisung von Berechtigungen
 
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"]Einrichten von NetApp Disaster Recovery
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Disaster Recovery einrichten
 [role="quick-margin-para"]
 Für diese Aufgaben ist die Rolle _Super admin_ oder _Disaster recovery admin_ erforderlich.
 

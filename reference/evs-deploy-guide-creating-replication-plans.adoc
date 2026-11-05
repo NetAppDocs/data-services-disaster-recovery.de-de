@@ -254,7 +254,7 @@ image:evs-create-rp-wiz-c-datastore-mapping.png["Replikationsplan und Datenspeic
 [[verify-settings]]
 == Einstellungen überprüfen
 
-Nachdem Sie die Informationen zum Replikationsplan in NetApp Disaster Recovery hinzugefügt haben, sollte überprüft werden, ob die eingegebenen Informationen korrekt sind. Dies ist der letzte Schritt.
+Nachdem Sie die Informationen zum Replikationsplan in Disaster Recovery hinzugefügt haben, sollte geprüft werden, ob die eingegebenen Informationen korrekt sind. Dies ist der letzte Schritt.
 
 .Schritte
 . Wählen Sie *Speichern*, um Ihre Einstellungen zu überprüfen, bevor Sie den Replikationsplan aktivieren.

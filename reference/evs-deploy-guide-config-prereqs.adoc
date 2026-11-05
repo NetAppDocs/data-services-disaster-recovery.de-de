@@ -13,10 +13,10 @@ Stellen Sie sicher, dass Sie die Anforderungen für die Konfiguration von Amazon
 
 .Voraussetzungen
 * Überprüfen Sie die link:../get-started/dr-prerequisites.html["Allgemeine Voraussetzungen für Disaster Recovery"].
-* Erstellen Sie ein vCenter-Benutzerkonto mit den spezifischen VMware-Berechtigungen, die für NetApp Disaster Recovery erforderlich sind, um die erforderlichen Vorgänge auszuführen.
+* Für die Durchführung der erforderlichen Vorgänge ist ein vCenter Benutzerkonto mit den spezifischen VMware-Berechtigungen erforderlich, die für Disaster Recovery benötigt werden.
 +
 
-NOTE: Es wird empfohlen, **nicht** das Standardkonto „\administrator@vsphere.com“ als Administrator zu verwenden. Stattdessen sollten Sie ein NetApp Disaster Recovery-spezifisches Benutzerkonto auf allen vCenter Clustern erstellen, die am Disaster-Recovery-Prozess teilnehmen. Eine Liste der spezifischen erforderlichen Berechtigungen finden Sie unter link:vcenter-privileges.html["Für NetApp Disaster Recovery erforderliche vCenter-Berechtigungen"].
+NOTE: Es wird empfohlen, **nicht** das Standard-Administratorkonto „\administrator@vsphere.com“ zu verwenden. Stattdessen empfiehlt es sich, auf allen vCenter Clustern, die am Disaster-Recovery-Prozess teilnehmen werden, ein spezielles Benutzerkonto für Disaster Recovery zu erstellen. Eine Liste der erforderlichen Berechtigungen finden Sie unter link:vcenter-privileges.html["vCenter Berechtigungen, die für die Notfallwiederherstellung erforderlich sind"].
 
 * Stellen Sie sicher, dass alle vCenter Datenspeicher, die VMs hosten, die durch Disaster Recovery geschützt sind, sich auf NetApp ONTAP Speicherressourcen befinden.
 +

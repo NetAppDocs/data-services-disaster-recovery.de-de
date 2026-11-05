@@ -28,7 +28,7 @@ Bevor die Migration gestartet wird, sollte ein Replikationsplan erstellt und fü
 . Wählen Sie in der linken Navigation der NetApp Console *Schutz* > *Notfallwiederherstellung*.
 . Wählen Sie im Menü *Replikationspläne* aus.
 . Wählen Sie den Replikationsplan aus.
-. Wählen Sie rechts die Option *Aktionen* aus image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Migrieren* aus.
+. Wählen Sie rechts die Option *Aktionen* aus image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"], bewegen Sie den Mauszeiger über *Wiederherstellen* und wählen Sie dann *Migrieren* aus.
 . Im Dialogfeld können Sie *Jetzt einen Snapshot erstellen* wählen, um einen neuen Snapshot für die Migration zu erstellen, oder *Auswählen*, um einen vorhandenen Snapshot für die Migration auszuwählen.
 . Geben Sie "Migrate" in das Textfeld ein, um den Vorgang zu bestätigen, und wählen Sie dann *Migrate* aus.
 

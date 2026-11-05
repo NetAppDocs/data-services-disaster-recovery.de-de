@@ -1,16 +1,17 @@
 ---
 indexpage:
   title: NetApp Disaster Recovery -Dokumentation
-  summary: Mit NetApp Disaster Recovery können Sie Ihre lokalen VMware-Workloads,
-    die ONTAP-Speicher nutzen, mithilfe von NetApp Cloud-Speicher in ein VMware Software-Defined
-    Data Center in einer öffentlichen Cloud als Disaster-Recovery-Standort replizieren.
-  keywords: disaster, disaster recovery, bluexp, replicate, replication, cloud storage
-  lead: Die Notfallwiederherstellung in der Cloud ist eine robuste und kostengünstige
-    Methode, um Workloads vor Standortausfällen und Datenbeschädigung (z. B. durch
-    Ransomware) zu schützen. Mit NetApp Disaster Recovery können Sie Ihre lokalen
-    VMware-Workloads mit ONTAP-Speicher in ein softwaredefiniertes VMware-Rechenzentrum
-    in einer öffentlichen Cloud oder an einen anderen lokalen Standort als Notfallwiederherstellungsstandort
-    replizieren.
+  summary: Mit NetApp Disaster Recovery können Sie Ihre lokalen VMware- und Kubernetes-Workloads,
+    die auf ONTAP Storage ausgeführt werden, an einen Disaster Recovery Standort replizieren.
+  keywords: disaster, disaster recovery, bluexp, replicate, replication, cloud storage,
+    vmware, kubernetes, trident protect, openshift
+  lead: Disaster Recovery in der Cloud ist eine robuste und kostengünstige Methode,
+    um Workloads vor Standortausfällen und Datenbeschädigung (z. B. durch Ransomware)
+    zu schützen. Mit NetApp Disaster Recovery können Sie Ihre lokalen VMware- und
+    Kubernetes-Workloads, die auf ONTAP Storage ausgeführt werden, schützen, indem
+    Sie sie an einen Disaster Recovery-Standort replizieren, beispielsweise an einen
+    anderen lokalen Standort oder, bei VMware-Workloads, an ein VMware softwaredefiniertes
+    Datacenter in einer Public Cloud.
   tiles:
   - title: Erste Schritte
     links:
@@ -28,7 +29,7 @@ indexpage:
       url: "/get-started/dr-faq.html"
   - title: Verwenden Sie NetApp Disaster Recovery
     links:
-    - title: Hinzufügen von vCentern zu einer Site
+    - title: Sites hinzufügen
       url: "/use/sites-add.html"
     - title: Ein VMware Disaster-Recovery-Plan
       url: "/use/task-replication-plan-vmware.html"

@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: use/failback.html 
-keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, kubernetes, trident protect, openshift 
 summary: NetApp Disaster Recovery ist ein Cloud-basierter Disaster-Recovery-Dienst, der Disaster-Recovery-Workflows automatisiert. 
 ---
-= Failback von Anwendungen auf die ursprüngliche Quelle mit NetApp Disaster Recovery
+= Failback zum Quellstandort mit NetApp Disaster Recovery
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -21,14 +21,14 @@ Nach Behebung des Problems erfolgt das Failback vom Notfallwiederherstellungssta
 [[about-failback]]
 == Über Failback
 
-Beim Failback repliziert (resynchronisiert) NetApp Disaster Recovery alle Änderungen zurück auf die ursprüngliche Quell-VM, bevor die Replikationsrichtung umgekehrt wird. Dieser Prozess beginnt, nachdem eine SnapMirror Beziehung auf das Ziel-Cluster umgeschaltet wurde, und umfasst die folgenden Schritte:
+Beim Failback repliziert (resynchronisiert) NetApp Disaster Recovery alle Änderungen zurück zu den ursprünglichen Quell-Workloads, bevor die Replikationsrichtung umgekehrt wird. Dieser Prozess beginnt, nachdem ein Failover auf das Ziel erfolgt ist, und umfasst die folgenden Schritte. Kubernetes-Workloads folgen derselben Abfolge wie VMware-Workloads; die VMware-spezifischen Details sind in Klammern angegeben.
 
 * Führen Sie eine Konformitätsprüfung auf der wiederhergestellten Site durch.
-* Aktualisieren Sie die vCenter-Informationen für jeden vCenter-Cluster, der sich am wiederhergestellten Standort befindet.
-* Schalten Sie auf der Zielsite die virtuellen Maschinen aus, heben Sie die Registrierung auf und heben Sie die Bereitstellung der Volumes auf.
+* Die Erkennungsinformationen für jeden vCenter Cluster oder Kubernetes Cluster, der sich am wiederhergestellten Standort befindet, werden aktualisiert.
+* Am Zielstandort: geschützte Workloads stoppen (bei VMware die virtuellen Maschinen ausschalten und deregistrieren) und Volumes aushängen.
 * Unterbrechen Sie die SnapMirror -Beziehung zur Originalquelle, um Lese-/Schreibzugriff zu ermöglichen.
 * Synchronisieren Sie die SnapMirror -Beziehung erneut, um die Replikation umzukehren.
-* Schalten Sie die virtuellen Quellmaschinen ein, registrieren Sie sie und mounten Sie die Volumes auf der Quelle.
+* Die geschützten Workloads werden auf der Quelle gestartet (bei VMware werden die Quell-VMs eingeschaltet und registriert), und die Volumes werden auf der Quelle gemountet.
 
 
 
@@ -36,7 +36,7 @@ Beim Failback repliziert (resynchronisiert) NetApp Disaster Recovery alle Änder
 [[before-you-begin]]
 == Bevor Sie beginnen
 
-Wenn Sie datenspeicherbasierten Schutz verwenden, können während eines Failovers VMs dem Datenspeicher hinzugefügt werden. Falls dies geschehen ist, sollte sichergestellt werden, dass die zusätzlichen Zuordnungsinformationen für diese VMs bereitgestellt werden, bevor das Failback eingeleitet wird. Zum Bearbeiten der Ressourcenzuordnung siehe link:manage.html#manage-replication-plans["Verwalten von Replikationsplänen"].
+Bei VMware-Workloads können bei Verwendung von Datastore-basiertem Schutz während des Failover VMs zum Datastore hinzugefügt werden. Falls dies geschehen ist, müssen die zusätzlichen Zuordnungsinformationen für diese VMs vor dem Einleiten des Failback angegeben werden. Informationen zum Bearbeiten der Ressourcenzuordnung finden Sie unter link:manage.html#manage-replication-plans["Verwalten von Replikationsplänen"].
 
 
 
@@ -48,12 +48,12 @@ Wenn Sie datenspeicherbasierten Schutz verwenden, können während eines Failove
 .vCenter
 --
 .Schritte
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
 . Stellen Sie im Dropdown-Menü den Filter auf *VMware* ein.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
-. Den Replikationsplan identifizieren, zu dem ein Failback durchgeführt werden soll. Die Option *Actions* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] auswählen, mit dem Mauszeiger über *Recover* fahren und anschließend *Failback* auswählen.
+. Den Replikationsplan identifizieren, zu dem ein Failback durchgeführt werden soll. Die Option *Actions* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] auswählen, mit dem Mauszeiger über *Recover* fahren und anschließend *Failback* auswählen.
 . Wählen Sie den Snapshot des Datenspeichers aus, von dem die Wiederherstellung erfolgen soll. Wählen Sie *Jetzt Snapshot erstellen*, um einen neuen Snapshot zu initiieren, oder *Auswählen*, um aus verfügbaren Snapshots auszuwählen.
 +
 
@@ -70,12 +70,12 @@ Um den Fortschritt des Auftrags zu überwachen, wählen Sie im Menü „Notfallw
 --
 .Kubernetes
 --
-. Wählen Sie im NetApp Disaster Recovery Menü *Replikationspläne* aus.
+. Im Menü „Notfallwiederherstellung“ ist *Replikationspläne* auszuwählen.
 . Im Dropdown-Menü nach *Kubernetes*-Replikationsplänen filtern.
 +
 image::site-type-toggle.png[Screenshot der Umschaltung des Website-Typs]
 
-. Den Replikationsplan identifizieren, zu dem ein Failback durchgeführt werden soll. Die Option *Actions* image:../use/icon-horizontal-dots.png["Symbol für das Aktionsmenü im NetApp Disaster Recovery -Dienst"] auswählen, mit dem Mauszeiger über *Recover* fahren und anschließend *Failback* auswählen.
+. Den Replikationsplan identifizieren, zu dem ein Failback durchgeführt werden soll. Die Option *Actions* image:../use/icon-horizontal-dots.png["Aktionsmenüsymbol im Disaster Recovery Service"] auswählen, mit dem Mauszeiger über *Recover* fahren und anschließend *Failback* auswählen.
 . Wählen Sie den Snapshot des Clusters aus, aus dem die Wiederherstellung erfolgen soll. Wählen Sie *Jetzt Snapshot erstellen*, um einen neuen Snapshot zu initiieren, oder *Neuesten Snapshot verwenden*, um den aktuellsten erfolgreichen Snapshot zu verwenden.
 . Geben Sie „Failback“ ein, um den Vorgang zu bestätigen, und wählen Sie dann *Failback* aus.
 

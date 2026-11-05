@@ -30,7 +30,7 @@ entries:
   url: "/use/task-appvault.html"
 - title: Vorlagen zur Ressourcentransformation verwalten
   url: "/use/task-resource-transformation.html"
-- title: Verwaltung von Standorten, Plänen, Datenspeichern und VM-Informationen
+- title: Verwalten von Sites, Ressourcengruppen und Replikationsplänen
   url: "/use/manage.html"
 - title: Überwachen von Disaster Recovery-Jobs
   url: "/use/monitor-jobs.html"
